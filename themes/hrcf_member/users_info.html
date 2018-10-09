@@ -1,0 +1,746 @@
+{include file="../hrcf/header.html"}
+
+<link rel="stylesheet" href="/static/hrzhang/css/css.css">
+<link rel="stylesheet" href="/static/hrzhang/css/user.css">
+<link rel="stylesheet" href="/static/hrzhang/css/new.css?v=20161012">
+
+<div class="pg-container-content">
+    <link rel="stylesheet" href="/static/css/pages/account/account.css">    
+    <div id="pg-account-user" class="pg-account">
+        <div class="container_12 mt10">
+            <ul class="ui-breadcrumb grid_12 fn-clear">       
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+                    <a href="/index.php?user">我的微拍贷</a>
+                </li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+                    {if $_U.query_type=="hongbao" || $_U.query_type=="hongbaoduihuan"}
+                    <a href="/?user&q=code/users/hongbao">红包管理</a>
+                    {elseif $_U.query_type=="reginvite" || $_U.query_type=="myfriend" || $_U.query_type=="myfriend_reg" || $_U.query_type=="myfriend_reg_tojing"}
+                    <a href="/?user&q=code/users/reginvite">推广管理</a>
+                    {elseif $_U.query_type=="productorder" || $_U.query_type=="productfinish"}
+                    <a href="/?user&q=code/users/productorder">我的商城</a>
+                    {else}
+                    <a href="/?user&q=code/rating/basic">账户管理</a>
+                    {/if}
+                </li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+                    {if $_U.query_type=="hongbao"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">未使用</a>
+                    {elseif $_U.query_type=="hongbaoduihuan"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">兑换红包</a>
+                    {elseif $_U.query_type=="hongbaoused"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">已使用</a>
+                    {elseif $_U.query_type=="hongbaooutdate"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">已过期</a>
+                    {elseif $_U.query_type=="productorder"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">未发货</a>
+                    {elseif $_U.query_type=="productfinish"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">已发货</a>
+                    {elseif $_U.query_type=="reginvite"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">邀请好友</a>
+                    {elseif $_U.query_type=="myfriend"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">我的好友</a>
+                    {elseif $_U.query_type=="myfriend_reg_tojing"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">推荐业绩</a>
+                    {elseif $_U.query_type=="myfriend_reg"}
+                    <a href="/?user&q=code/users/{$_U.query_type}">补交推荐</a>
+                    {else}
+                    <a href="/?user&q=code/rating/{$_U.query_type}">个人基础信息</a>
+                    {/if}
+
+                </li>
+            </ul>
+        </div>
+        <div class="container_12 mt10 fn-clear">
+            {include file="user_menu.html"}
+
+            <div class="grid_10">
+                {if $_U.query_type=="avatar"}
+                <div class="p20bs color-white-bg fn-clear">
+                    <div class="user_main_title1">请上传你网站的头像</div>
+                    <div style="width:700px; overflow:hidden">
+                        <div style="float:left;width:100px;margin-top:50px;margin-left:50px;">
+                            <img src="{$_G.user_id|avatar}"/></div>
+                        <div style="float:right;width:450px;">{show_avatar}</div>
+                    </div>
+                    <div class="user_right_foot">
+                        * 温馨提示：头像现在有三种，大，中，小。请尽量截取正方形，避免头像变形！
+                    </div>
+                    <!--头像 结束-->
+                </div>
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+                <!--好友邀请 开始-->
+                {elseif $_U.query_type=="reginvite"}
+                <script src="/static/hrzhang/js/jquery-1.8.2.js"></script>
+                <link rel="stylesheet" href="/static/css/pages/invite/friendinvite.css">
+                <div class="grid_10" style="margin-left: 0px">
+                    <div class="color-white-bg fn-clear  friend-invite-div">
+                        <h3 class="text-xl">友情邀请</h3>
+                        <div class="fi-wrap">
+                            <h4>分享链接</h4>
+                            <div class="fi-share bshare-custom fn-clear" style="height:20px">
+                                http://{$magic.server.SERVER_NAME}/index.php?user&q=reginvite&u={$_U.user_inviteid}
+                            </div>
+
+                            {if $_U.has_invite_img=="true"}
+                            <div style="text-align: center;">
+                                <img  height="220px" border="0" align="absmiddle" src="/log/inviteimg/{$_G.user_id}.png" alt="二维码">
+
+                            </div>
+                            <div style="text-align: center;">
+                            请使用手机浏览器扫一扫
+                            </div>
+                            {/if}
+                            <div class="share-wrap">
+                                <div class="fi-share bshare-custom fn-clear">
+                                    <div class="bdsharebuttonbox">
+                                        <a href="#" class="txwx J_shareWX" data-cmd="weixin"></a>
+                                        <a href="#" class="sinawb bshare-sinaminiblog" data-cmd="tsina"></a>
+                                        <a href="#" class="zone bshare-qzone" data-cmd="qzone"></a>
+                                        <a href="#" class="qqwb bshare-qqmb" data-cmd="tqq"></a>
+                                        <a href="javascript:" class="copyurl" id="J_copy_btn" ></a>
+                                    </div>
+                                </div>
+                                <ul class="fn-clear share-text">
+                                    <li>微信</li>
+                                    <li>微博</li>
+                                    <li>QQ空间</li>
+                                    <li>腾讯微博</li>
+                                    <li class="last">复制链接</li>
+                                </ul>
+                            </div>
+
+                            <h4>邀请流程</h4>
+                            <div class="invite-flow">
+                                <div class="invite-map"><img src="/static/img/invite-process.png" /></div>
+                                <ul class="fn-clear invite-txt">
+                                    <li>分享链接给好友</li>
+                                    <li class="sen">好友注册并理财</li>
+                                    <li class="last">获得奖励</li>
+                                </ul>
+                            </div>
+                            <!-- <h4>邀请攻略</h4>
+                            <div class="invite-info fn-clear">
+                                <p class="warm-p"><span>1.</span>通过您的邀请链接，每成功邀请一位好友注册且好友在理财投资您即可获得相应的积分；</p>
+                            </div> -->
+                        </div>
+                        <input type="hidden" class="J_share_url" value='http://{$magic.server.SERVER_NAME}/index.php?user&q=reginvite&u={$_U.user_inviteid}' />
+                    </div>
+                </div>
+                <div id="weixinSharePop">
+                    <div class="popClose">X</div>
+                    <div class="popTop">分享到 - 微信</div>
+                    <div class="erweima">
+                        <img src="" />
+                    </div>
+                </div>
+                <div id="urlCopySucc" class="fn-hide" >
+                    <h4 class="text-center">链接复制成功</h4>
+                    <div class="deCaTips succee">
+                        <span></span>邀请链接: http://{$magic.server.SERVER_NAME}/index.php?user&q=reginvite&u={$_U.user_inviteid}
+                    </div>
+                    <div class="mt20 mb20 text-center deCaTipBtn" >
+                        <span class="ui-button btn-savecon ui-button-blue deleteCopyPopClose">确定</span>
+                    </div>
+                </div>
+
+
+            </div>
+            {literal}
+            <script>
+                seajs.use(['/static/js/invite/invite'], function (mod) {
+                    mod.init();
+                });
+            </script>
+
+            <script>window._bd_share_config = {"common": {"bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdUrl": $('.J_share_url').val(), "bdMiniList": false, "bdPic": "", "bdStyle": "2", "bdSize": "32"}, "share": {}, "image": {"viewList": ["weixin", "tsina", "qzone", "tqq"], "viewText": "分享到：", "viewSize": "32"}, "selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["weixin", "tsina", "qzone", "tqq", "renren"]}};
+                with (document)
+                    0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+
+            {/literal}  	
+            <!--##########################################################################################################################################-->
+            <!--##########################################################################################################################################-->	 	  	 
+            <!--我的好友 开始-->
+            {elseif $_U.query_type=="myfriend"}
+            <link rel="stylesheet" href="/static/css/pages/invite/friendinvite.css">
+
+            <div class="grid_10" style="margin-left: 0">
+                <div class="color-white-bg fn-clear  friend-invite-div">
+                    <h3 class="text-xl">我的推荐</h3>
+                    <div class="fi-wrap">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabyel">
+                            {list module="users" function="GetFriendsList" user_id="$_G.user_id" showpage="3" status=1 epage="15" var="loop"}
+                            <tr class="ytit1" >
+                                <td>手机号码</td>
+                                <td>姓名</td>
+                                <td>添加时间</td>
+                            </tr>
+                            {foreach from="$loop.list" item="item"}
+                            <tr {if $key%2==1} class="ynow"{/if} >
+                                <td>{$item.friendname}</td>
+                                <td>{$item.friendrealname}</td>
+                                <td title="{$item.addtime|date_format:"Y-m-d H:i:s"}">{$item.addtime|date_format:"Y-m-d"}</td>
+                            </tr>
+                            {/foreach}
+                            <tr>
+                                <td colspan="4" class="page">
+                                    {if $loop.pages.total>0}
+                                    <div class="list_table_page">{$loop.pages|showpage}</div>
+                                    {/if}
+                                </td>
+                            </tr>
+                            {/list}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--我的好友结束-->
+            <!--##########################################################################################################################################-->
+            <!--##########################################################################################################################################-->		
+            {elseif $_U.query_type=="myfriend_reg"}
+
+            <link rel="stylesheet" href="/static/css/pages/invite/friendinvite.css">
+            <div class="grid_10">
+                <div class="color-white-bg fn-clear  friend-invite-div">
+                    <h3 class="text-xl">补交推荐</h3>
+                    <div id="pg-reg">
+                        <div id="step1" class="step1">
+                            <form id="setFriendForm" method="post" class="ui-form" action="/?user&q=code/users/user_friend_set" data-name="setFriend" novalidate="novalidate">
+                                <div class="inputs">
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>推荐客户手机号码</label>
+                                        <input type="text" data-is="isMobile" class="ui-input" name="mobile">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <input type="submit" class="ui-button ui-button-mid ui-button-green w150" value="提 交" id="subSetEmailBt">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+
+            {literal}
+            <script type="text/javascript">
+                seajs.use(['pages/auth/friendinvite']);
+            </script>
+            {/literal}
+            <!--##########################################################################################################################################-->
+            <!--##########################################################################################################################################-->		
+            {elseif $_U.query_type=="huarongchanpin"}
+
+            <link rel="stylesheet" href="/static/css/pages/invite/friendinvite.css">
+            <script language="JavaScript" src="/themes/hrcf_admin/images/jquery.js"></script> 
+            <script language="JavaScript" src="/themes/hrcf_admin/js/base.js"></script> 
+            <script src="/plugins/timepicker/WdatePicker.js" type="text/javascript"></script>
+            <div class="grid_10">
+                <div class="color-white-bg fn-clear  friend-invite-div">
+                    <h3 class="text-xl">线下产品提交</h3>
+                    <div id="pg-reg">
+                        <div id="step1" class="step1">
+                            <form id="setFriendForm" method="post" class="ui-form" action="/?user&q=code/users/huarongchanpin" data-name="setFriend" novalidate="novalidate">
+                                <div class="inputs">
+
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>手机号码</label>
+                                        <input type="text" class="ui-input" name="mobile">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>金额</label>
+                                        <input type="text" class="ui-input" name="account">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>到期金额</label>
+                                        <input type="text" class="ui-input" name="account_daoqi">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>购买时间</label>
+                                        <input id="borrowtime" type="text" onclick="change_picktime()" size="15" value="" name="borrowtime" class="ui-input">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>投资产品</label>
+                                        {linkages nid="borrow_product_xianxia" name="borrow_product" type="value" }
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <input type="submit" class="ui-button ui-button-mid ui-button-green w150" value="提 交" id="subSetEmailBt">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+
+            {literal}
+            <script type="text/javascript">
+                seajs.use(['pages/auth/friendinvite']);
+            </script>
+            {/literal}
+            <!--##########################################################################################################################################-->
+            <!--##########################################################################################################################################-->		
+            {elseif $_U.query_type=="myfriend_reg_tojing"}
+            <link rel="stylesheet" href="/static/css/pages/invite/friendinvite.css">
+            <div class="grid_10">
+                <div class="color-white-bg fn-clear  friend-invite-div">
+                    <h3 class="text-xl">业绩统计</h3>
+                    <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="repaying">
+                        <div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabyel">
+                                <form action="" method="post">
+                                    <tr class="ytit1" >
+                                        <td>手机号码</td>
+                                        <td>姓名</td>
+                                        <td>产品名称</td>				
+                                        <td>投资金额</td>
+                                        <td>投资时间</td>
+                                        <td>赎回时间</td>
+                                        <td>满标时间</td>
+                                        <td>折年</td>
+                                    </tr>
+                                    {list module="borrow" var="loop" function ="GetPerformanceBorrowList" showpage="10" keywords="request" dotime1="request" dotime2="request" type="$magic.request.type"  tender_status="1"}
+                                    {foreach from="$loop.list" item="item"}
+                                    <tr {if $key%2==1} class="ynow"{/if}>
+                                        <td>{$item.niname}</td>
+                                        <td>{$item.realname}</td>
+                                        <td>{$item.name}</td>				
+                                        <td>{$item.recover_capital|round:"2,3"|default:0.00}元</td>
+                                        <td title="{$item.addtime|date_format:"Y-m-d H:i:s"}">{$item.addtime|date_format:"Y-m-d"}</td>
+                                        <td title="{$item.recover_yestime|date_format:"Y-m-d H:i:s"}">{$item.recover_yestime|date_format:"Y-m-d"}</td>
+                                        <td title="{$item.reverify_time|date_format:"Y-m-d H:i:s"}">{$item.reverify_time|date_format:"Y-m-d"}</td>
+                                        <td>{$item.zhexian|round:"2,3"|default:0.00}元</td>
+                                    </tr>
+                                    {/foreach}
+                                    {if $loop.pages.total>0}
+                                    <tr>
+                                        <td colspan="8" class="page">
+                                            {if $loop.pages.total>0}
+                                            <div class="list_table_page">{$loop.pages|showpage}</div>
+                                            {/if}
+                                        </td>
+                                    </tr>
+                                    {/if}
+                                </form>	
+                            </table>
+                        </div>
+
+                    </div>   
+                </div>
+            </div>
+            <!--##########################################################################################################################################-->
+            <!--##########################################################################################################################################-->
+            <!--红包区开始-->
+            {elseif $_U.query_type=="hongbao"}
+            <link rel="stylesheet" href="/static/hrzhang/css/hb.css?v=20161229">
+            <div class="grid_10" style="margin-left: 0">
+                <div class="hb_w">
+                    <div class="hb_content">
+                        <ul class="clearfix">
+                            {list  module="users" function="GetHongBaoList" var="loop" user_id="$_G.user_id" status="0" epage="6"}
+                            {foreach from="$loop.list" item="item"}
+                            <li>
+                                {if $item.type=="现金红包"}
+                                <a href="/?user&q=code/users/hongbaoCash&hId={$item.id}" onclick="return confirm('确认使用？');"><p></p></a>
+                                {elseif $item.type=="投资红包" || $item.type=="加息红包"}
+                                <p></p>
+                                {else}
+                                <a href="/?user&q=code/users/useHongbao&hId={$item.id}" onclick="return confirm('确认使用？');"><p></p></a>
+                                {/if}
+                                <i>
+                                    <h3>{if $item.title}{$item.title}{else}{$item.total} 体验金红包{/if}</h3>
+                                    <h4>使用规则：</h4>
+                                    <h4>1.{if $item.product}{$item.product}{elseif $item.period}散标{$item.period}期起{else}所有{/if} 产品通用</h4>
+                                    <h4>2.{if $item.condition>0}{$item.condition} 元投资额可使用{else}无限制{/if}</h4>
+                                    <h4>3.{$item.begintime|date_format:"Y-m-d"}至{$item.endtime|date_format:"Y-m-d"}有效</h4>
+                                    <h4>4.不可叠加使用</h4>
+                                    {if $item.type=="现金红包"}
+                                    <h4 style="color: #e52600;">5.点击红包即可获得相应金额</h4>
+                                    {elseif $item.type=="投资红包" || $item.type=="加息红包"}
+                                    
+                                    {else}
+                                    <h4 style="color: #e52600;">5.点击红包即可使用</h4>
+                                    {/if}
+                                </i>
+                            </li>
+                            {/foreach}
+                            {if $loop.pages.total>0}
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                <tr>
+                                    <td colspan="4" class="page">
+                                        {if $loop.pages.total>0}
+                                        <div class="list_table_page">{$loop.pages|showpage}</div>
+                                        {/if}
+                                    </td>
+                                </tr>
+                            </table>
+                            {/if}
+                            {/list}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--我的红包结束-->
+            <!--##########################################################################################################################################-->
+            <!--##########################################################################################################################################-->
+            <!--已使用红包开始-->
+            {elseif $_U.query_type=="hongbaoused"}
+            <link rel="stylesheet" href="/static/hrzhang/css/hb.css?v=20160815">
+            <div class="grid_10  color-white-bg fn-clear" style="margin-left: 0">
+                <div class="hb_w hb_w_sy">
+                    <div class="hb_content">
+                        <ul class="clearfix">
+                            {list  module="users" function="GetHongBaoList" var="loop" user_id="$_G.user_id" status="1" epage="6"}
+                            {foreach from="$loop.list" item="item"}
+                            <li>
+                                <p></p>
+                                <i>
+                                    <h3>{if $item.title}{$item.title}{else}{$item.total} 体验金红包{/if}</h3>
+                                    <h4>使用规则：</h4>
+                                    <h4>1.{if $item.product}{$item.product}{elseif $item.period}散标{$item.period}期起{else}所有{/if} 产品通用</h4>
+                                    <h4>2.{if $item.condition>0}{$item.condition} 元投资额可使用{else}无限制{/if}</h4>
+                                    <h4>3.{$item.begintime|date_format:"Y-m-d"}至{$item.endtime|date_format:"Y-m-d"}有效</h4>
+                                    <h4>4.不可叠加使用</h4>
+                                </i>
+                            </li>
+                            {/foreach}
+                            {if $loop.pages.total>0}
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                <tr>
+                                    <td colspan="4" class="page">
+                                        {if $loop.pages.total>0}
+                                        <div class="list_table_page">{$loop.pages|showpage}</div>
+                                        {/if}
+                                    </td>
+                                </tr>
+                            </table>
+                            {/if}
+                            {/list}
+                        </ul>
+                    </div>
+                </div>
+                <!--已使用红包结束-->
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+
+            </div>
+
+            <!--已过期红包开始-->
+            {elseif $_U.query_type=="hongbaooutdate"}
+            <link rel="stylesheet" href="/static/hrzhang/css/hb.css?v=20160815">
+            <div class="grid_10  color-white-bg fn-clear" style="margin-left: 0">
+                <div class="hb_w hb_w_sy">
+                    <div class="hb_content">
+                        <ul class="clearfix">
+                            {list  module="users" function="GetHongBaoList" var="loop" user_id="$_G.user_id" status="0" guoqi="1" epage="6"}
+                            {foreach from="$loop.list" item="item"}
+                            <li>
+                                <p></p>
+                                <i>
+                                    <h3>{if $item.title}{$item.title}{else}{$item.total}体验金红包{/if}</h3>
+                                    <h4>使用规则：</h4>
+                                    <h4>1.{if $item.product}{$item.product}{elseif $item.period}散标{$item.period}期起{else}所有{/if} 产品通用</h4>
+                                    <h4>2.{if $item.condition>0}{$item.condition} 元投资额可使用{else}无限制{/if}</h4>
+                                    <h4>3.{$item.begintime|date_format:"Y-m-d"}至{$item.endtime|date_format:"Y-m-d"}有效</h4>
+                                    <h4>4.不可叠加使用</h4>
+                                </i>
+                            </li>
+                            {/foreach}
+                            {if $loop.pages.total>0}
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                <tr>
+                                    <td colspan="4" class="page">
+                                        {if $loop.pages.total>0}
+                                        <div class="list_table_page">{$loop.pages|showpage}</div>
+                                        {/if}
+                                    </td>
+                                </tr>
+                            </table>
+                            {/if}
+                            {/list}
+                        </ul>
+                    </div>
+                </div>
+                <!--已过期红包结束-->
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+
+            </div>
+            <!--我的商城开始-->
+            <!--未发货-->
+            {elseif $_U.query_type=="productorder"}
+            <link rel="stylesheet" href="/static/hrzhang/css/shangchen.css?v=20170330">
+            <div class="grid_10  color-white-bg fn-clear" style="margin-left: 0">
+                <div class="sc_center">
+                    {list  module="users" function="GetProductOrderList" var="loop" user_id="$_G.user_id" fahuo_status="0" epage="3"}
+                    
+                    {foreach from="$loop.list" item="item" key="key"}
+                    <div class="bigboxshop">
+                       
+                            <div class="tablebt wegmarrt25 clearfix">
+                                <p class="tablebt1">产品{$key}</p>
+                                {if $item.borrow_period}
+                                <p class="tablebt2">微购{$item.borrow_period}月期</p>
+                                {/if}
+                            </div>
+                            {if $item.borrow_period}
+                            <table class="wegouxq clearfix">
+                            <thead>
+                            <tr>
+                                <th>产品</th>
+                                <th>金额</th>
+                                <th>到期时间</th>
+                                <th>收益</th>
+                                <th>兑换产品</th>
+                                <th>还款方式</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="wegoublue">微购{$item.borrow_period}月期</td>
+                                    <td class="wegoublue">{$item.account_tender}</td>
+                                    <td class="wegoublue">{$item.repay_time|date_format:"Y-m-d"}</td>
+                                    <td class="wegoublue">{$item.repay_interest}元</td>
+                                    <td>{$item.proname}</td>
+                                    <td class="wegoublue"><span >还本付息</span><br /><a class="wegou_ckht" onclick="javascript:window.open('/?user&q=hetong&id={$item.tid}', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')" href="javascript:void(0)">查看合同</a></td>
+                                    
+                                </tr>
+                            </tbody>    
+                            </table>
+                            {/if}
+                        <table class="table1 table0 " {if $item.borrow_period}style="margin-top: 0px;display: none"{/if}  id="tableweg1">
+                            <thead>
+                                <tr>
+                                    <th>微商品</th>
+                                    <th>商品名称</th>
+                                    <th>规格</th>
+                                    <th>样式</th>
+                                    <th>数量</th>
+                                    <th>所需微币</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="/mall/index.php?m=product&a=proinfo2&id={$item.pid}" target="_blank"><img src="/mall/Public/Uploads/Product/{$item.prothumb1}"></a></td>
+                                    <td>{$item.proname}</td>
+                                    <td>默认</td>
+                                    <td>默认</td>
+                                    <td>{$item.lang}</td>
+                                    <td>{$item.pro_jifen}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table1 table2" id="tablewegz" {if $item.borrow_period}style="display: none"{/if}>
+                            <thead>
+                                <tr>
+                                    <th>收货人</th>
+                                    <th>所在地区</th>
+                                    <th>详细地址 </th>
+                                    <th>邮政编码</th>
+                                    <th> 手机 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{$item.consignee}</td>
+                                    <td >{$item.address_code}</td>
+                                    <td >{$item.address}</td>
+                                    <td>{$item.postal_code}</td>
+                                    <td>{$item.con_phone}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table1 table3">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">订单状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{if $item.fahuo_status==0}未发货{else}已发货{/if}</td>
+                                    <td>{$item.addtime|date_format:"Y-m-d H:i:s"}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        {if $item.borrow_period}
+                        <div class="shopzoom">
+                            <img src="/static/img/wegoujiantou.png" alt="" class="tablebtimg">
+                        </div>
+                        {/if}
+                        </div>
+       
+                    {/foreach}
+                    {if $loop.pages.total>0}
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                        <tr>
+                            <td colspan="4" class="page">
+                                {if $loop.pages.total>0}
+                                <div class="list_table_page">{$loop.pages|showpage}</div>
+                                {/if}
+                            </td>
+                        </tr>
+                    </table>
+                    {/if}
+                    {/list}
+
+                </div>
+                <!--进行中结束-->
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+
+                <!--已发货-->
+            {elseif $_U.query_type=="productfinish"}
+            <link rel="stylesheet" href="/static/hrzhang/css/shangchen.css?v=20170317">
+            <div class="grid_10  color-white-bg fn-clear" style="margin-left: 0">
+                <div class="sc_center">
+                    {list  module="users" function="GetProductOrderList" var="loop" user_id="$_G.user_id" fahuo_status="1" epage="3"}
+                    {foreach from="$loop.list" item="item" key="key"}
+                            
+                    <div class="bigboxshop">
+                            <div class="tablebt wegmarrt25 clearfix">
+                                
+                                <p class="tablebt1">产品{$key}</p>
+                                {if $item.borrow_period}
+                                <p class="tablebt2">微购{$item.borrow_period}月期</p>
+                                {/if}
+                            </div>
+
+                              {if $item.borrow_period}
+                            <table class="wegouxq clearfix">
+                            <thead>
+                            <tr>
+                                <th>产品</th>
+                                <th>金额</th>
+                                <th>到期时间</th>
+                                <th>收益</th>
+                                <th>兑换产品</th>
+                                <th>还款方式</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="wegoublue">微购{$item.borrow_period}月期</td>
+                                    <td class="wegoublue">{$item.account_tender}</td>
+                                    <td class="wegoublue">{$item.repay_time|date_format:"Y-m-d"}</td>
+                                    <td class="wegoublue">{$item.repay_interest}元</td>
+                                    <td>{$item.proname}</td>
+                                    <td class="wegoublue"><span >还本付息</span><br /><a class="wegou_ckht" onclick="javascript:window.open('/?user&q=hetong&id={$item.tid}', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')" href="javascript:void(0)">查看合同</a></td>
+                                </tr>
+                            </tbody>    
+                            </table>
+                            {/if}
+                        <table class="table1 "{if $item.borrow_period}style="display: none;"{/if} id="tableweg1">
+                            <thead>
+                                <tr>
+                                    <th>微商品</th>
+                                    <th>商品名称</th>
+                                    <th>规格</th>
+                                    <th>样式</th>
+                                    <th>数量</th>
+                                    <th>所需微币</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="/mall/index.php?m=product&a=proinfo2&id={$item.pid}" target="_blank"><img src="/mall/Public/Uploads/Product/{$item.prothumb1}"></a></td>
+                                    <td>{$item.proname}</td>
+                                    <td>默认</td>
+                                    <td>默认</td>
+                                    <td>{$item.lang}</td>
+                                    <td>{$item.pro_jifen}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table1 table2" {if $item.borrow_period}style="display: none;"{/if} id="tablewegz">
+                            <thead>
+                                <tr>
+                                    <th>收货人</th>
+                                    <th>所在地区</th>
+                                    <th>详细地址 </th>
+                                    <th>邮政编码</th>
+                                    <th> 手机 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{$item.consignee}</td>
+                                    <td width="164">{$item.address_code}</td>
+                                    <td width="247">
+                                        <p>{$item.address}</p>
+                                    </td>
+                                    <td>{$item.postal_code}</td>
+                                    <td>{$item.con_phone}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table1 table3">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">订单状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{if $item.fahuo_status==0}未发货{else}已发货{/if}</td>
+                                    <td>{$item.addtime|date_format:"Y-m-d H:i:s"}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                         {if $item.borrow_period}
+                        <div class="shopzoom">
+                            <img src="/static/img/wegoujiantou.png" alt="" class="tablebtimg">
+                        </div>
+                        {/if}
+                        </div>
+                    {/foreach}
+                    {if $loop.pages.total>0}
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                        <tr>
+                            <td colspan="4" class="page">
+                                {if $loop.pages.total>0}
+                                <div class="list_table_page">{$loop.pages|showpage}</div>
+                                {/if}
+                            </td>
+                        </tr>
+                    </table>
+                    {/if}
+                    {/list}
+                </div>
+                <!--进行中结束-->
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+                {/if}
+            </div>
+        </div>
+    </div>  
+</div>
+{literal}
+<script>
+    $(function(){
+        var zoomkg=0;
+        $('.shopzoom').on('click',function(){
+             if(zoomkg == 1){
+                $('#tableweg1').slideUp();
+                $('#tablewegz').slideUp();
+                zoomkg=0;
+                var firstpng=$(this).find('.tablebtimg').attr('src');
+                var secondpng=firstpng.replace('wegoujiantou2.png','wegoujiantou.png');
+                $(this).find('.tablebtimg').attr('src',secondpng);
+            }else if(zoomkg == 0){
+                $('#tableweg1').slideDown();
+                $('#tablewegz').slideDown();
+                zoomkg=1;
+                var firstpng=$(this).find('.tablebtimg').attr('src');
+                var secondpng=firstpng.replace('wegoujiantou.png','wegoujiantou2.png');
+                $(this).find('.tablebtimg').attr('src',secondpng);
+            }
+            
+        })
+    })
+</script>
+{/literal}

@@ -1,0 +1,33 @@
+@charset "utf-8";
+.contentright{
+    width: 890px;
+    float: right;
+    background: #fff;
+    padding: 16px;
+}
+.examreport01{
+    width: 890px;
+    text-align: justify;
+    color: #8c8c8c;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 17px 0 20px 0;
+}
+.examreport02{
+    width: 740px;
+    margin: 0 auto;
+    margin-bottom: 400px;
+}
+.examreport03{
+    width: 342px;
+    height: 412px;
+    display: block;
+    float: left;
+}
+.examreport04{
+    width: 343px;
+    height: 412px;
+    display: block;
+    float: left;
+    margin-left: 55px;
+}

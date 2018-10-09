@@ -1,0 +1,758 @@
+{include file="header.html"}
+
+<link rel="stylesheet" href="/static/css/pages/invest/details.css?v=20180511">
+<link rel="stylesheet" href="/static/css/pages/invest/details2.css?v=20180511">
+<link rel="stylesheet" href="/static/css/pages/invest/gengduo.css?v=20180511">
+{articles module="borrow" function="GetDetail" var="var" borrow_nid=$magic.request.article_id hits="auto" user_login="$_G.user_id"}
+ <div class="pg-container-content">
+    <div id="pg-loan-invest" class="pg-details">
+        <div id="loan-basic">
+
+            <div class="container_12 mt10">
+                <ul class="ui-breadcrumb grid_12 fn-clear">
+                    <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+                        <a href="/invest/index.html">我要理财</a>
+                    </li>
+                    <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                    <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+                        <a href="/investlist/index.html">散标投资列表</a>
+                    </li>
+                    <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                    <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+                        <a>借款详情</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container_12 mt10 color-white-bg" id="loan-basic-panel">
+                <div class="ui-box-white-bg fn-clear">
+                    <div class="ui-box-title fn-clear">
+                        <h3 class="fn-left fn-text-overflow" title="实地认证标"><em class="icon-loantype SDRZ mr10"></em>{$var.borrow.name}</h3>
+                        {if $var.borrow.borrow_nid == "2018010097" || $var.borrow.borrow_nid == "2018010098" || $var.borrow.borrow_nid == "2018010099" || $var.borrow.borrow_nid == "2018010100"}
+
+                        {else}
+                        <a class="fn-right text ui-box-text" href="javascript:void(0)" onclick="javascript:window.open('/contract/index.html', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">借款协议（范本）</a>
+                        {/if}
+
+                    </div>
+                    <input type="hidden" id="invest-type" value="loan" /> 
+                    <div class="p20 fn-clear">
+                        <div class="fn-left loaninfo">
+                            <div class="fn-clear pt10 mb25">
+                            	<input type="hidden" value="{$_G.user_id}" class="USERID">
+                                <dl class="fn-left w270">
+                                    <dt>标的总额 （元）</dt>
+                                    <dd class="text-xxxl color-dark-text"><em>￥{$var.borrow.account}</em></dd>
+                                </dl>
+                                <dl class="fn-left w180">
+                                    <dt>预期利率</dt>
+                                    <dd class="text-xxl"><em class="text-xxxl color-dark-text">{$var.borrow.borrow_apr_old}</em>%</dd>
+                                </dl>
+                                <dl class="fn-left w120">
+                                    <dt>还款期限</dt>
+                                    <dd class="text-xxxl color-dark-text">
+                                        <em>
+                                            {if $var.borrow.borrow_period !='0.00'}
+                                            {if $var.borrow.borrow_period >= 1 && $var.borrow.borrow_period<10 }
+                                            {$var.borrow.borrow_period|truncate:1}</b>个月
+                                            {else}
+                                            {$var.borrow.borrow_period|truncate:2}</b>个月
+                                            {/if}
+                                            {else}
+                                            {if $var.borrow.borrow_days >= 1 && $var.borrow.borrow_days < 10 }
+                                            {$var.borrow.borrow_days|truncate:1}
+                                            {else}
+                                            {$var.borrow.borrow_days|truncate:2}
+                                            {/if}
+                                            </b>天
+                                            {/if}
+                                        </em>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <ul>
+                                <!-- <li class="fn-clear">
+                                  <span class="fn-left basic-label w70">保障方式</span>
+                                  <span class="fn-left basic-value last">保险投保</span>
+                                </li> -->
+                                <li class="fn-clear">
+                                    <span class="fn-left basic-label w70">还款方式</span>
+                                    <span class="fn-left basic-value">{$var.borrow.borrow_style|linkages:"borrow_style"}</span>
+                                </li>
+                                {if $var.borrow.status==1}
+                                <li class="fn-clear basic-progress pt25">
+                                    <span class="fn-left basic-label w70">投标进度</span>
+                                    <span class="fn-left basic-progress-bg">
+                                        <b class="basic-percent" style="width:{$var.borrow.borrow_account_scale_int}%"></b>
+                                    </span>
+                                    <span class="fn-left basic-progress-value"><em>{$var.borrow.borrow_account_scale_int}%</em></span>
+                                    <span class="fn-left basic-progress-time">剩余时间
+                                        <em class='value'>
+                                            {if $var.borrow.status==1}
+                                            {if $var.borrow.borrow_account_wait==0}
+
+                                            {else}
+                                            <span id="end_time">
+                                                {$var.borrow.borrow_other_time}
+                                            </span>
+                                            {/if}   
+                                            {/if}
+                                        </em>
+                                    </span>
+                                </li>
+                                {/if}
+                            </ul>
+                            <div class="stamp"><em class="OPEN"></em></div>
+                        </div>
+
+                        <div class="ui-poptip fn-hide" id="tipCon_0">
+                            <div class="ui-poptip-shadow">
+                                <div class="ui-poptip-container">
+                                    <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                                        <em></em>
+                                        <span></span>
+                                    </div>
+                                    <div class="ui-poptip-content" data-role="content">
+                                        详情参见<a href="/help/security/security!detail.action?flag=bjbz" target="_blank">本金保障计划</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="ui-poptip fn-hide" id="tipCon_1">
+                            <div class="ui-poptip-shadow">
+                                <div class="ui-poptip-container">
+                                    <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                                        <em></em>
+                                        <span></span>
+                                    </div>
+                                    <div class="ui-poptip-content" data-role="content">
+                                        等额本息还款法是在还款期内，每月偿还同等数额的贷款(包括本金和利息)。</br>借款人每月还款额中的本金比重逐月递增、利息比重逐月递减。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        {if $var.borrow.status==1} 
+                        <div class="fn-right ui-box-gray-bg ui-term-box" id="investment-terminal">
+                            <dl class="pd15">
+                                <dt>剩余金额（元）</dt>
+                                <dd class="num-xl mt6">
+                                    <em class="color-dark-text">￥</em>
+                                    <em class="color-dark-text" id="max-amount" data-amount="{$var.borrow.borrow_account_wait|default:0}">
+                                        {$var.borrow.borrow_account_wait|default:0}</em></dd>
+                            </dl>
+                            <div class="ui-term-content">
+                                <p class="ui-term-overage mb4">
+
+                                    <span style="width: auto" class="clearfix"><em class="fn-left mr10">账户余额</em> 
+                                        {articles module="account" function="GetOne" var="var_h" user_id="$_G.user_id"} 
+                                        <em id="max-account" class="fn-left" data-account="{$var_h.balance|default:"0"}">{$var_h.balance|default:"0"}</em><em class="fn-left">元</em>
+                                        <a class="fn-right" href="/?user&q=code/account/recharge_new" target="_blank">充值</a></span>
+
+
+                                </p>
+                                <div class="ui-term-field invest">
+                                    <input class="ui-input2x" type="text" />
+                                    <p class="ui-term-placeholder">请输入投资金额</p>
+                                    <p class="ui-term-inputunit">元 <span class="ui-term-eq share"></span></p>
+                                    <p class="ui-term-hint"></p>
+                                    <p class="ui-term-error" style="display: none;"></p>
+                                </div>
+                                <button class="ui-term-button ui-button ui-button-rect-mid ui-button-blue OPEN  mb10" id="invest-submit">
+                                    <span class="ui-button-text OPEN">投标</span>
+                                    <span class="ui-button-text APPLY">申请中</span>
+                                    <span class="ui-button-text READY">已满标</span>
+                                    <span class="ui-button-text FAILED">已流标</span>
+                                    <span class="ui-button-text REPAYING">还款中</span>
+                                    <span class="ui-button-text OVERDUE">已逾期</span>
+                                    <span class="ui-button-text BADDEBT">已垫付</span>
+                                    <span class="ui-button-text CLOSED">已还清</span>
+                                    <span class="ui-button-text UNKNOWN">不可投</span>
+                                </button>
+                            </div>
+                        </div>
+                        {else}
+                        <div class="fn-right ui-box-gray-bg ui-term-box" id="investment-terminal">
+                            <dl class="pd15">
+                                <dt></dt>
+                                <dd class="num-xl mt6" style="height:200px">
+                                    <img src="/static/img/stamp/READY.png" style="padding-left: 80px;padding-top: 20px;"/>
+                                </dd>
+                            </dl>
+                        </div>
+                        {/if}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loan-details" class="mt20">
+            <div class="container_12">
+                <div class="ui-tab ui-tab-transparent" id="loan-tab">
+                    <ul class="fn-clear">
+                        <li class="ui-tab-item ui-tab-item-current" data-name="info">
+                            <a class="ui-tab-item-link">标的详情</a>
+                        </li>
+                        <li class="ui-tab-item" data-name="investment">
+                            <a class="ui-tab-item-link">投标记录</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="container_12 color-white-bg" id="loan-tab-content">
+                <div class="ui-box-white-bg fn-clear">
+                    <div class="ui-tab-content ui-tab-content-info ui-tab-content-current" data-name="info">
+
+                        <div class="ui-tab-content-basic border-bottom p35">
+
+                            {if $_G.user_id==""}
+                            <h4 class="auth-hint narrow">请 <a href="/?user&q=login">登录</a> 或 <a href="/?user&q=reg">注册</a> 后查看</h4>
+                            {else}
+                            <h4 class="ui-tab-content-title color-dark-text">用户信息  </h4>
+
+                            <ul class="ui-tab-list fn-clear">
+                                <li>
+                                    <span class="tab-list-label mr30">借款人</span>
+                                    <span class="tab-list-value">
+                                        <em class="fn-left fn-text-overflow" title="LiuYH_1071627616.yx">{$var.borrow.info_name}</em>
+                                    </span>
+                                </li>
+                                {if $var.borrow.info_sex_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">性&nbsp;&nbsp;&nbsp;&nbsp;别</span>
+                                    <span class="tab-list-value">{$var.borrow.info_sex}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_hun_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">婚&nbsp;&nbsp;&nbsp;&nbsp;姻</span>
+                                    <span class="tab-list-value">{$var.borrow.info_hun}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_age_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">年&nbsp;&nbsp;&nbsp;&nbsp;龄</span>
+                                    <span class="tab-list-value">{$var.borrow.info_age}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_house_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">户&nbsp;&nbsp;&nbsp;&nbsp;籍</span>
+                                    <span class="tab-list-value">{$var.borrow.info_house}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_study_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">学&nbsp;&nbsp;&nbsp;&nbsp;历</span>
+                                    <span class="tab-list-value">{$var.borrow.info_study}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_build_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">房&nbsp;&nbsp;&nbsp;&nbsp;产</span>
+                                    <span class="tab-list-value">{$var.borrow.info_build}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_falv_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">涉诉情况</span>
+                                    <span class="tab-list-value fn-text-overflow">{$var.borrow.info_falv}</span>
+                                </li>
+                                {/if}
+                                {if $var.borrow.info_zhengxin_status == 1}
+                                <li>
+                                    <span class="tab-list-label mr30">征信记录</span>
+                                    <span class="tab-list-value">{$var.borrow.info_zhengxin}</span>
+                                </li>
+                                {/if}
+                            </ul> 
+                            {/if} 
+                        </div>
+                        <div class="ui-tab-content-description border-bottom p35">
+                            <h4 class="ui-tab-content-title color-dark-text">借款描述</h4>
+                            <div class="ui-tab-list color-dark-text">
+                                {$var.borrow.borrow_contents}
+                            </div>
+                            <div class="ui-tab-list color-dark-text">
+                                {$var.borrow.borrow_hetong}
+                            </div>
+                        </div>
+
+                        <div class="ui-tab-content-description border-bottom p35">
+                            <h4 class="ui-tab-content-title color-dark-text">资料审核</h4>
+                            <div class="ui-tab-list color-dark-text">
+                                <table cellspacing="0" border="0" class="bid_table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 200px;">资料类型</th>
+                                            <th style="width: 110px">上传数量</th>
+                                            <th style="width: 80px">状态</th>
+                                        </tr>
+                                        {if $var.borrow.borrow_nid == "2018010097"}
+                                        <tr>
+                                            <td>身份证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>信用卡账单</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>银行卡信息</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>手持身份证照</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>公积金账单</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        {elseif $var.borrow.borrow_nid == "2018010098"}
+                                        <tr>
+                                            <td>身份证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>信用卡账单</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>银行卡信息</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>手持身份证照</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        {elseif $var.borrow.borrow_nid == "2018010099"}
+                                        <tr>
+                                            <td>身份证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>入库单</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>银行卡</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>车辆评估单</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>车辆照片</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>车辆档案资料</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {elseif $var.borrow.borrow_nid == "2018010100"}
+                                        <tr>
+                                            <td>身份证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>居住证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>工作证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>收入证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>按揭房产证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        <tr>
+                                            <td>其他资料</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        {if $var.borrow.shengfen_number >0}
+                                        <tr>
+                                            <td>身份证明</td>
+                                            <td style="">{$var.borrow.shengfen_number}</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        <tr>
+                                            <td>身份证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {/if}
+                                        {if $var.borrow.juzhu_umber >0}
+                                        <tr>
+                                            <td>居住证明</td>
+                                            <td style="">{$var.borrow.juzhu_umber}</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        <tr>
+                                            <td>居住证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {/if}
+                                        {if $var.borrow.gongzuo_number >0}
+                                        <tr>
+                                            <td>工作证明</td>
+                                            <td style="">{$var.borrow.gongzuo_number}</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        <tr>
+                                            <td>工作证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {/if}
+                                        {if $var.borrow.shouru_number >0}
+                                        <tr>
+                                            <td>收入证明</td>
+                                            <td style="">{$var.borrow.shouru_number}</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        <tr>
+                                            <td>收入证明</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {/if}
+                                        {if $var.borrow.anjie_number >0}
+                                        <tr>
+                                            <td>按揭房产资料</td>
+                                            <td style="">{$var.borrow.anjie_number}</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        <tr>
+                                            <td>按揭房产资料</td>
+                                            <td style="">0</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {/if}
+                                        {if $var.borrow.other_number >0}
+                                        <tr>
+                                            <td>其他资料</td>
+                                            <td style="">{$var.borrow.other_number}</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {else}
+                                        <tr>
+                                            <td>其他资料</td>
+                                            <td style="">1</td>
+                                            <td style="">已审核</td>
+                                        </tr>
+                                        {/if}
+                                        {/if}
+                                    </tbody></table>
+                            </div>
+                        </div>     
+
+                    </div>
+
+                    <div class="ui-tab-content p35 fn-clear" data-name="investment">
+                        {if $_G.user_id==""}
+                        <h4 class="auth-hint">请 <a href="/?user&q=login">登录</a> 或 <a href="/?user&q=reg">注册</a> 后查看</h4>
+                        {else}
+                        <div id="investment-records" class="ui-list ui-list-s">
+                            <table class="ui-table ui-table-blue ui-table-auditoria">
+                                <thead>
+                                    <tr>
+                                        <th width="17%"><span class="pl60">序号</span></th>
+                                        <th width="25%"><span class="pl25">投标人</span></th>
+                                        <th width="23%"><span class="text-right pr70">投标金额</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id='tenderlist'>
+                                    {if $var.borrow.borrow_nid == "2018010097"}
+                                    <tr class="dark ">
+                                        <td>
+                                            <div class="ui-td-bg pl60">1</div>
+                                        </td>
+                                        <td>
+                                            <div class="ui-td-bg pl25">131****7879</div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="ui-td-bg pr70"><em>10000.00</em>元</div>
+                                        </td>
+                                    </tr>
+                                    {elseif $var.borrow.borrow_nid == "2018010098"}
+                                    <tr class="dark ">
+                                        <td>
+                                            <div class="ui-td-bg pl60">1</div>
+                                        </td>
+                                        <td>
+                                            <div class="ui-td-bg pl25">135****1605</div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="ui-td-bg pr70"><em>1500.00</em>元</div>
+                                        </td>
+                                    </tr>
+                                    {elseif $var.borrow.borrow_nid == "2018010099"}
+                                    <tr class="dark ">
+                                        <td>
+                                            <div class="ui-td-bg pl60">1</div>
+                                        </td>
+                                        <td>
+                                            <div class="ui-td-bg pl25">134****1821</div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="ui-td-bg pr70"><em>20000.00</em>元</div>
+                                        </td>
+                                    </tr>
+                                    {elseif $var.borrow.borrow_nid == "2018010100"}
+                                    <tr class="dark ">
+                                        <td>
+                                            <div class="ui-td-bg pl60">1</div>
+                                        </td>
+                                        <td>
+                                            <div class="ui-td-bg pl25">134****1821</div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="ui-td-bg pr70"><em>10000.00</em>元</div>
+                                        </td>
+                                    </tr>
+                                    {else}
+                                    {list module="borrow" function="GetTenderListBind" var="loop" borrow_nid="$_G.article_id" epage="15"}
+                                    {foreach from="$loop.list" key=key item="vat" }
+                                    <tr class="dark ">
+                                        <td>
+                                            <div class="ui-td-bg pl60">{$key+1}</div>
+                                        </td>
+                                        <td>
+                                            <div class="ui-td-bg pl25">
+                                                {$vat.username}
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="ui-td-bg pr70"><em>{$vat.account_tender}</em>元</div>
+                                        </td>
+                                    </tr>
+                                    {/foreach}
+                                    {/list}
+                                    {/if}
+                                </tbody>
+                            </table>
+                            <div class="lists">
+                                <div class="more"><a href="javascript:;" id='getmore'><div class="more_div">加载更多...</div></a></div>
+                                <input class="this_borrow_nid" id="this_borrow_nid" type="hidden" value="{$_G.article_id}">
+                                <input type="hidden" id="period" value="{$var.borrow.borrow_period}" />
+                            </div>
+                        </div>
+                        <div class="ui-list ui-list-s" id="investment-records"></div> 
+                        {/if}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="ui-goTop"></div>
+
+        <!-- 提示信息条 -->
+
+        <!-- 提示信息条 -->
+        <div class="ui-alert alert-point">
+            {if $_G.user_id==""}
+            <div id="pg-helper" style="display: none;">
+                <span id="pg-helper-loan-id">{$var.borrow.borrow_nid}</span>
+                <span id="pg-helper-is-investor">false</span>
+                <span id="pg-helper-be-investor-message"></span>
+                <span id="authenticated">false</span>
+            </div>
+            {else}
+            <div id="pg-helper" style="display: none;">
+                <span id="pg-helper-loan-id">{$var.borrow.borrow_nid}</span>
+                <span id="pg-helper-is-investor">true</span>
+                <span id="pg-helper-be-investor-message"></span>
+                <span id="authenticated">true</span>
+            </div>
+            {/if}
+        </div>
+    </div>
+</div>
+<div class="ul-pop">
+	<div class="ui-confirm conform_san_div">
+    <span class="title">确认投资</span>
+    <div class="ui-confirm-content">
+        <form class="ui-confirm-form" action="/index.php?user&q=code/borrow/tender" method="post">
+            <ul>
+
+                <li class="fn-clear">
+                    <span class="fn-left  ui-confirm-label-short">借款标题</span>
+                    <span class="fn-left ui-confirm-value fn-text-overflow last">{$var.borrow.name}</span>
+                </li>
+                <li class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">借款人</span>
+                    <span class="fn-left ui-confirm-value fn-text-overflow last">
+                        <a>{$var.borrow.info_name}</a>
+                    </span>
+                </li>
+                <li class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">预期利率</span>
+                    <span class="fn-left ui-confirm-value num-s last">
+                        <em>{$var.borrow.borrow_apr_old}</em>%
+                    </span>
+                </li>
+                <li class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">还款期限</span>
+                    <span class="fn-left ui-confirm-value num-s last"><em>
+                            {if $var.borrow.borrow_period !='0.00'}
+                            {if $var.borrow.borrow_period >= 1 && $var.borrow.borrow_period<10 }
+                            {$var.borrow.borrow_period|truncate:1}</b>
+                            {else}
+                            {$var.borrow.borrow_period|truncate:2}</b>
+                            {/if}</em>个月</span>
+                    {else}
+                    {if $var.borrow.borrow_days >= 1 && $var.borrow.borrow_days<10 }
+                    {$var.borrow.borrow_days|truncate:1}</b>
+                    {else}
+                    {$var.borrow.borrow_days|truncate:2}</b>
+                    {/if}</em>天</span>
+                    {/if}
+                </li>
+                <li class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">还款方式</span>
+                    <span class="fn-left ui-confirm-value last">{$var.borrow.borrow_style|linkages:"borrow_style"}</span>
+                </li>
+                <li class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">投资金额</span>
+                    <span class="fn-left ui-confirm-value num-s last"><em id="invest_money"></em>元</span>
+                </li>
+            </ul>
+            <input name="borrow_nid" type="hidden" value="{$var.borrow.borrow_nid}" />
+            {literal}
+            <div class="money-div">
+                <div class="J_coupon_wrap"></div>
+                <p class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">应付金额</span>
+                    <span class="fn-left ui-confirm-value last"><em class="J_payable" data-payable="" ></em>元</span>
+                </p>
+                <p class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short ab_newwidth">使用红包</span>
+                    <span class="fn-left ui-confirm-value last" id="hongbao_span"></span>
+                </p>
+                <p class="ui-confirm-yue pl100 rrdcolor-red-text text-small fn-hide" ></p>
+            </div>
+            <ul>
+                <li class="fn-clear">
+                    <span class="fn-left ui-confirm-label-short">交易密码</span>
+                    <span class="fn-left ui-confirm-value last" id="captcha">
+                        <input id="captcha-input" type="password" name="paypassword" value="" />
+                    </span>
+                </li>
+            </ul>
+            <div class="mt10 text-small color-gray-text">
+                <p>如遇流标情况，投标期内所冻结的金额将在流标后进行解冻。</p>
+            </div>
+            <div class="mt10 text-small">
+                <p style="line-height: normal"><input type="checkbox" name="agree-contract" checked="checked" /> 我已阅读并同意签署 <a class="text" href="javascript:void(0)" onclick="javascript:window.open('/contract/index.html', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">《借款协议》</a></p>
+                <p class="ui-confirm-hint rrdcolor-red-text text-small" style="display: none;"></p>
+            </div>
+            <div class="mt10 text-center">
+
+                <input id="bidAmount" name="bidAmount" type="hidden" value="" />
+                <div class="fn-clear w160 ui-confirm-submit-box">
+                    <button class="fn-left ui-button ui-button-blue ui-button-mid" type="submit">确定</button>
+                    <p class="fn-left last ui-confirm-cancel-link" id="popclose">取消</p>
+                </div>
+            </div>
+            {/literal}
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js?v=20180511"></script>
+<script type="text/javascript" src="/static/js/pages/invest/sbjilu.js?v=20180511"></script>
+<script>seajs.use(['pages/invest/detailssan']);</script>
+{if $var.borrow.status==1}
+{literal}
+<script type="text/javascript">
+    var CID = "end_time";
+    if(window.CID != null){
+        var iTime = document.getElementById(CID).innerHTML;
+        var Account;
+        RemainTime();
+    }
+    function RemainTime(){
+        var iDay,iHour,iMinute,iSecond;
+        var sDay="",sTime="";
+        if (iTime >= 0){
+            iDay = parseInt(iTime/24/3600);
+            iHour = parseInt((iTime/3600)%24);
+            iMinute = parseInt((iTime/60)%60);
+            iSecond = parseInt(iTime%60);
+	
+            if (iDay > 0){ 
+                sDay = iDay + "天"; 
+            }
+            sTime =sDay + iHour + "时" + iMinute + "分" + iSecond + "秒";
+		
+            if(iTime==0){
+                clearTimeout(Account);
+                sTime="<span style='color:green'>时间到了！</span>";
+            }else{
+                Account = setTimeout("RemainTime()",1000);
+            }
+            iTime=iTime-1;
+        }
+        else{
+            sTime="<span style='color:red'>此标已过期！</span>";
+        }
+        document.getElementById(CID).innerHTML = sTime;
+    }
+</script>
+{/literal}
+{/if}

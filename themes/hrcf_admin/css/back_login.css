@@ -1,0 +1,16 @@
+/*全局*/
+html, body, div, span, fieldset, form, label, input, iframe, p{margin:0; padding:0}
+div, form, img, ul, ol, li, dl, dt, dd{margin: 0; padding: 0; border: 0;}
+li{list-style-type:none;}
+select{font-size:12px;font-family: arial, Helvetica, sans-serif}
+body{color:#333;font:12px/1.5 "Microsoft Yahei",Tahoma,arial,Helvetica,STHeiti; background:#9eced8;align:center}
+:focus{outline:0;}
+iframe#vishidden{display:none;}
+/*中间登录*/
+.back_login_bg{ width:1366px; height:986px; background:url(../images/back_login_bg.jpg) no-repeat; position:relative;}
+.back_login{position:absolute;top:237px; left:806px; width:400px; height:150px}
+.back_login li{ float:left; color:#ffffff; font-size:20px;letter-spacing:2px; height:45px; line-height:45px}
+.back_login li .inpt{ width:250px; height:35px; border:1px solid #d4d4d4; line-height:35px}
+.back_login li .inptvali{ height:35px; border:1px solid #d4d4d4; line-height:35px}
+.back_login .mar_left{ margin:10px 0px 0px 85px}
+.back_login .mar_nor{ margin:10px 0px 0px 5px}

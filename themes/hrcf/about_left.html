@@ -1,0 +1,17 @@
+        	
+{foreach from="$_G.site_sub_list_9" item="_item"}
+<li class="ui-side-item {if ($_G.site_result.id==$_item.id)}active{/if}">
+    <a class="ui-side-item-link" href="/{$_item.nid}/index.html" target="_self">
+        <span>{$_item.name}</span>
+        <i></i>
+    </a>
+</li>
+{/foreach}
+
+{literal}
+<style>
+.ui-side-item{width: 167px;height: 59px;background-color: #f2f2f2;text-align: center;font-size: 18px;color: #333333;margin-top: 2px;}
+.ui-header-top .ui-nav-item:hover{color: #28a1e8}
+.ui-header-top .ui-nav-app-phone .icon{width: 16px;}
+</style>
+{/literal}

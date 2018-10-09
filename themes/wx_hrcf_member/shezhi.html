@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/shezhi.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/reg.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<title>微拍贷</title>
+</head>
+
+<body>
+<div class="head">
+	<div class="head_img"><a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a></div>
+    <p>设置密码</p>
+</div>
+<div class="mima">
+	<input id="password" type="password" placeholder="密码（6到15数，字母与数字结合）"/>
+</div>
+<div class="zaici">
+	<input id="checkpassword" type="password" placeholder="再次输入密码"/>
+</div>
+<div class="tuijianren">
+	<input id="invitephone" type="text" placeholder="推荐人手机号（可跳过）" value="{$magic.session.reginvite_user_phone}" {if $magic.session.reginvite_user_phone!=""}readonly{/if} />
+</div>
+<div class="none"></div>
+<div class="button">
+	<button id="secondnext">下一步</button>
+</div>
+<div class="none2"></div>
+<div class="footer">
+	<p>www.weipaidai.com</p>
+</div>
+</body>
+</html>

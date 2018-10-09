@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+.act-inner{width:1000px; margin:0 auto;}
+.act-content1{ height:30px; width:100%;background-color:#86cbdb;}
+.act-content2{ height:123px; width:100%;background-color:#1d6097;}
+.act-content3{ height:247px; width:100%;background-color:#c93737;}
+.act-content4{
+	height:2500px;
+	width:100%;
+	background-color:#c1e8f9;
+	padding-top: 180px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.act-menu{padding:10px 120px;height:30px; width:760px;background-color:#417ead;}
+.act-menu span{margin:0px 45px;font-size:22px;color:#fff;}
+.act-ts2{width:100%; text-align:center; margin-top:70px;}
+.act-zp{
+	float:left;
+	width:535px;
+	height:610px;
+	text-align:center;
+}
+.act-zj{
+	float:left;
+	width:460px;
+	height:420px;
+	text-align:center;
+	margin-top:50px;
+}
+.act-ts3{width:100%; text-align:center; margin-top:100px;}
+.act-ts3-text{margin-left:70px;margin-top:30px;color:#22649b; line-height:30px;}
+.act-ts3-show{width:100%; text-align:center; margin-top:50px;}
+.act-ts4{width:100%; text-align:center; margin-top:50px;}
+.act-ts4-text{width:916px;height:253px; background-image:url(/static/img/huodong/act8.png); margin:auto;margin-top:50px;}
+.act-ts4-a{ position:absolute;margin-top:135px;margin-left:630px;}
+.act-ts4-a a{color:#cf393a; font-weight:bold;}
+.act-ts4-a a:hover{color:#1d6097;}
+.act-ts4-img{width:916px;height:503px; background-image:url(/static/img/huodong/act9.png); margin:auto;margin-top:20px;}
+.act-content5{height:20px; width:100%;background-color:#1d6097;}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/qianghongbao.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/qianghongbao_end.css">
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<title>微拍贷</title>
+</head>
+<body>
+
+	<div class="top">
+    	<div class="top1">
+        	<a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+        	<p>红包中心</p>
+        </div>
+    </div>
+	<div class="main">
+		<div class="main_body">
+		
+			{if $yiguoqi=="true"}
+				<div class="main_none1"></div>
+		        <div class="main_body_huode">
+		            <p>已过期</p><div>赶紧找土豪朋友<br>分享更多红包！</div>
+		        </div>
+		        <div class="main_jihuo">
+		            <div class="main_jihuoma_huoqu">很遗憾！此分享链接已过期</div>
+		        </div>
+		        <div class="main_fuzhi">
+		            <a href="#">复制并前往微拍贷</a>
+		        </div>
+			{else}
+        	{if $yilingwan}
+			{if $fenxianghongbao}
+            <div class="main_none1"></div>
+        	<div class="main_body_huode">
+            	<p>¥{$total}</p><div>恭喜您获得了<br>1个理财体验金红包！</div>
+            </div>
+            <div class="main_jihuo">
+            	<div class="main_jihuoma_huoqu">{$hongbaokey}</div>
+            </div>
+            <div class="main_fuzhi">
+            	<button onclick="javascript:window.location.href='/?wxuser&q=hongbao';">前往微拍贷使用</button>
+            </div>
+            {else}
+            <div class="main_none1"><p></p></div>
+        	<div class="main_body_huode">
+            	<p></p><p>恭喜您获得了1个<br/><span>理财体验金红包</span></p>
+            </div>
+            <div class="main_jihuo">
+            	<div class="main_jihuoma_huoqu">
+            	<input id="tenderid" type="hidden" name="tenderid" value="{$tenderid}" />
+            	<input id="regphone" name="regphone" style=" background-color: #fff;
+				    border-bottom-left-radius: 1.5vw;
+				    border-bottom-right-radius: 1.5vw;
+				    border-top-left-radius: 1.5vw;
+				    border-top-right-radius: 1.5vw;
+				    float: left;
+				    font-size: 3.5vw;
+				    height: 10vw;
+				    line-height: 10vw;
+				    text-align: center;
+				    width: 45vw;" placeholder="请输入微拍贷手机号码领取!">
+				</input>
+            	</div>
+                
+            </div>
+             <div class="main_fuzhi">
+             	 <button onclick="gethongbao();">获取红包</button>
+             </div>
+            {/if}
+            {else}			
+				<div class="main_none1"></div>
+		        <div class="main_body_huode">
+		            <p>已抢完</p><div>赶紧找土豪朋友<br>分享更多红包！</div>
+		        </div>
+		        <div class="main_jihuo">
+		            <div class="main_jihuoma_huoqu">很遗憾！红包已被抢光</div>
+		        </div>
+		        <div class="main_fuzhi">
+		            <a href="#">复制并前往微拍贷</a>
+		        </div>
+            {/if}
+        	{/if}
+            <div class="main_kankan">看看朋友们手气如何</div>
+        </div>
+        <div class="main_hongbao">
+        	<div class="main_hongbao_shuliang">
+            	红包数量：<span>{$number}/20</span>
+            </div>
+            <div class="main_hongbao_neirong">
+                {foreach from="$yihuoqu" key=key item="vat" }
+                <li>
+                	<div class="main_hongbao_img">
+                    	<img src="{$vat.headimgurl}"/>
+                    </div>
+                    <div class="main_hongbao_name">
+                    	{$vat.nickname}<span>{$vat.begintime|date_format:"m.d"}</span>
+                    	<div class="main_hongbao_bao">此包只应天上有</div>
+                    </div>
+                    <div class="main_hongbao_money">{$vat.total}元</div>
+                </li>
+		        {/foreach}
+            </div>
+        </div>
+        <div class="main_rule">
+        	<div class="main_rule_guize">
+            	——————— 活动细则 ———————
+            </div>
+            <div class="main_rule_time">
+            	<p>活动时间：2015年11月1日——11月30日</p>
+            </div>
+            <div class="main_rule_li">
+                <ol>
+                    <li>点击“复制”并前往微拍贷使用，就可获得7天预期年化收益为7.8%的理财体验金红包;</li>
+                    <li>每个微拍贷用户最多可获得并使用3个红包;</li>
+                    <li>红包使用期限截止至2015年11月30日。</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+	
+    <script type="text/javascript" src="/static/hrcfwx/js/qianghongbao.js"></script>
+{literal}
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId:{/literal} '{$wxshare.appid}'{literal}, // 必填，公众号的唯一标识
+    timestamp:{/literal} {$wxshare.timestamp}{literal}, // 必填，生成签名的时间戳
+    nonceStr:{/literal} '{$wxshare.noncestr}'{literal}, // 必填，生成签名的随机串
+    signature:{/literal} '{$wxshare.signature}'{literal},// 必填，签名，见附录1
+    jsApiList: [
+    'onMenuShareTimeline',
+    'onMenuShareAppMessage',
+    'onMenuShareQQ',
+    'onMenuShareWeibo',
+    'onMenuShareQZone',
+    'hideMenuItems'
+    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+});
+</script>
+<script type="text/javascript" src="/static/hrcfwx/js/msg_toubiao.js"></script>
+{/literal}
+</body>
+</html>
+

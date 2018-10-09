@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zhaiquan.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zhaiquan.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top1">
+            <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+              <span>债权</span>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div id="tab">
+        <div class="main_head">
+            <ul>
+                <li class="cur">持有中</li>
+                <li>已结清</li>
+                <li >投标中</li>
+            </ul>
+        </div>
+        <div class="main">
+            <article class="main1 cur">
+                {list module="borrow" var="loop" function ="GetTenderBorrowList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" type="wait" tender_status="1" epage="100"}
+                {foreach from="$loop.list" item="item"}
+
+                {if $item.tender_type=="waddyfanyear"}
+                <div class="main4_body">
+                    <div class="main4_top">
+                    {if $item.borrow_xingyong=="AA"}
+                        <img src="/static/hrcfwx/images/AA.png"/>
+                    {elseif $item.borrow_xingyong=="A"}
+                        <img src="/static/hrcfwx/images/AA_A.png"/>
+                    {elseif $item.borrow_xingyong=="B"}
+                        <img src="/static/hrcfwx/images/AA_B.png"/>
+                    {elseif $item.borrow_xingyong=="C"}
+                        <img src="/static/hrcfwx/images/AA_C.png"/>
+                    {elseif $item.borrow_xingyong=="D"}
+                        <img src="/static/hrcfwx/images/AA_D.png"/>
+                    {elseif $item.borrow_xingyong=="E"}
+                        <img src="/static/hrcfwx/images/AA_E.png"/>
+                    {elseif $item.borrow_xingyong=="HR"}
+                        <img src="/static/hrcfwx/images/AA_HR.png"/>
+                    {else}
+                    {/if}
+                    </div>
+                    <div class="main4_top_p">
+                        <span>{$item.name|truncate:8}</span>
+                        {if ($item.can_repay && $item.repay_id!="")}
+                        <a class="getback" data-id="{$item.repay_id}" data-nid="{$item.borrow_nid}" onclick="getback(this);" href="javascript:;">赎回</a>
+                        {/if}
+                    </div>
+                    <div class="main4_ul">
+                        <ul class="main4_li_left">
+                            <li>投资金额</li>
+                            <li>预期年化收益</li>
+                            <li>待收期限</li>
+                            <li>借款类型</li>
+                            <li>起息时间</li>
+                            <li>到期时间</li>
+                            <li>返息时间</li>
+                        </ul>
+                        <ul class="main4_li_right">
+                            <li>{$item.tender_account}</li>
+                            <li>{$item.borrow_apr}%</li>
+                            {if $item.borrow_nid=="HONGBAO"}
+                            <li>2天</li>
+                            {elseif $item.borrow_nid=="HONGBAOSEVEN"}
+                            <li>7天</li>
+                            {elseif $item.borrow_nid=="HONGBAOYIWANG" || $item.borrow_nid=="HONGBAOLIANGWANG" || $item.borrow_nid=="HONGBAOSANWANG" || $item.borrow_nid=="HONGBAOSHIWANG" || $item.borrow_nid=="HONGBAOWUWANG" || $item.borrow_nid=="HONGBAOQIWANG" || $item.borrow_nid=="HONGBAOSANQIAN" ||  $item.borrow_nid=="HONGBAOQIQIAN" || $item.borrow_nid=="HONGBAOSUIJI" ||  $item.borrow_nid=="HONGBAOERBABABA"}
+                            <li>7天</li>
+                            {elseif $item.borrow_nid=="WADDMONTH" || $item.borrow_nid=="WADDMONTH_2016"}
+                            <li>随存随取</li>
+                            {else}        
+                            <li>{$item.wait_times}个月</li>
+                            {/if}
+                            <li>{$item.borrow_style|linkages:"borrow_style"}</li>
+                            <!-- 购买时间 -->
+                            <!-- <li>{$item.tender_time|date_format:"Y-m-d"}</li> -->
+
+                            {if $item.tender_type=="wadd"}
+                            <li>{$item.qixi|date_format:"Y-m-d"}</li>
+                            <li></li>
+                            {else}
+                            <li>{$item.qixi|date_format:"Y-m-d"}</li>
+                            <li>{$item.daoqi|date_format:"Y-m-d"}</li>
+                            {/if}
+                            <li>次月起每月{$item.daoqi|date_format:"d"}日</li>
+                        </ul>
+                    </div>
+                    <ul class="main4_new">
+                        <li>
+                        <p class="main4_new_left">预期总收益（元）</p>
+                        <p class="main4_new_right">{$item.recover_account_interest}</p>
+                        </li>
+                        <li>
+                        <p class="main4_new_left">已返次数（次）</p>
+                        <p class="main4_new_right">{$item.recover_times}</p>
+                        </li>
+                        <li>
+                        <p class="main4_new_left">已返总收益（元）</p>
+                        <p class="main4_new_right">{$item.recover_account_interest_yes}</p>
+                        </li>
+                    </ul>
+                </div>
+                {else}
+                <div class="main2_body">
+                    <div class="main2_top">
+                    {if $item.borrow_xingyong=="AA"}
+                        <img src="/static/hrcfwx/images/AA.png"/>
+                    {elseif $item.borrow_xingyong=="A"}
+                        <img src="/static/hrcfwx/images/AA_A.png"/>
+                    {elseif $item.borrow_xingyong=="B"}
+                        <img src="/static/hrcfwx/images/AA_B.png"/>
+                    {elseif $item.borrow_xingyong=="C"}
+                        <img src="/static/hrcfwx/images/AA_C.png"/>
+                    {elseif $item.borrow_xingyong=="D"}
+                        <img src="/static/hrcfwx/images/AA_D.png"/>
+                    {elseif $item.borrow_xingyong=="E"}
+                        <img src="/static/hrcfwx/images/AA_E.png"/>
+                    {elseif $item.borrow_xingyong=="HR"}
+                        <img src="/static/hrcfwx/images/AA_HR.png"/>
+                    {else}
+                    {/if}
+                    </div>
+                    <div class="main2_top_p">
+                        <span>{$item.name|truncate:8}</span>
+                        {if ($item.can_repay && $item.repay_id!="")}
+                        <a class="getback" data-id="{$item.repay_id}" data-nid="{$item.borrow_nid}" onclick="getback(this);" href="javascript:;">赎回</a>
+                        {/if}
+                    </div>
+                    <div class="main2_ul">
+                        <ul class="main2_li_left">
+                            <li>投资金额</li>
+                            <li>预期年化收益</li>
+                            <li>待收期限</li>
+                            <li>借款类型</li>
+                            <li>起息时间</li>
+                            <li>到期时间</li>
+                        </ul>
+                        <ul class="main2_li_right">
+                            <li>{$item.tender_account}</li>
+                            <li>{$item.borrow_apr}%</li>
+                            {if $item.borrow_nid=="HONGBAO"}
+                            <li>2天</li>
+                            {elseif $item.borrow_nid=="HONGBAOSEVEN"}
+                            <li>7天</li>
+                            {elseif $item.borrow_nid=="HONGBAOYIWANG" || $item.borrow_nid=="HONGBAOLIANGWANG" || $item.borrow_nid=="HONGBAOSANWANG" || $item.borrow_nid=="HONGBAOSHIWANG" || $item.borrow_nid=="HONGBAOWUWANG" || $item.borrow_nid=="HONGBAOQIWANG" || $item.borrow_nid=="HONGBAOSANQIAN" ||  $item.borrow_nid=="HONGBAOQIQIAN" || $item.borrow_nid=="HONGBAOSUIJI" ||  $item.borrow_nid=="HONGBAOERBABABA"}
+                            <li>7天</li>
+                            {elseif $item.borrow_nid=="WADDMONTH" || $item.borrow_nid=="WADDMONTH_2016"}
+                            <li>随存随取</li>
+                            {else}        
+                            <li>{$item.wait_times}个月</li>
+                            {/if}
+                            <li>{$item.borrow_style|linkages:"borrow_style"}</li>
+                            <!-- 购买时间 -->
+                            <!-- <li>{$item.tender_time|date_format:"Y-m-d"}</li> -->
+
+                            {if $item.tender_type=="wadd"}
+                            <li>{$item.qixi|date_format:"Y-m-d"}</li>
+                            <li></li>
+                            {else}
+                            <li>{$item.qixi|date_format:"Y-m-d"}</li>
+                            <li>{$item.daoqi|date_format:"Y-m-d"}</li>
+                            {/if}
+                        </ul>
+                    </div>
+                    <div class="main2_shouyi">
+                        <p>预期收益</p>
+                        <span>{$item.recover_account_interest}{if $item.borrow_nid=="WADDMONTH_2016"} /月{/if}</span>
+                    </div>
+                </div>
+                {/if}
+            {/foreach}
+            </article>
+            <article class="main2">
+                {list module="borrow" var="loop" function ="GetRecoverList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" borrow_status=3 type="yes" order="repay_time" epage="100"}
+                {foreach from="$loop.list" item="item"}
+                <div class="main3_body">
+                    <div class="main3_top">
+                    </div>
+                    <div class="main3_top_p">{$item.borrow_name|truncate:8}</div>
+                    <div class="main3_ul">
+                        <ul class="main3_li_left">
+                            <li>购买时间</li>
+                            <li>到期时间</li>
+                            <li>当前期数</li>
+                            <li>标总期数</li>
+                            <li>应收总额</li>
+                            <li>应收本金</li>
+                        </ul>
+                        <ul class="main3_li_right">
+                            <li>{$item.addtime|date_format:"Y-m-d"}</li>
+                            <li>{$item.recover_yestime|date_format:"Y-m-d"}</li>
+                            <li>{$item.recover_times+1}</li>
+                            <li>{$item.borrow_period}</li>
+                            <li>{$item.recover_account_all}</li>
+                            <li>{$item.account}</li>
+                        </ul>
+                    </div>
+                    <div class="main3_shouyi">
+                        <p>应收利息</p>
+                        <span>{$item.recover_account_interest}</span>
+                    </div>
+                </div>
+            {/foreach}
+            </article>
+            <article class="main3">
+                {list module="borrow" var="loop" function ="GetTenderBorrowList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" type="$magic.request.type"  tender_status="0" borrow_status="1" epage="100"}
+                {foreach from="$loop.list" item="item"}
+                <div class="main1_body">
+                    <div class="main1_top">
+                    {if $item.borrow_xingyong=="AA"}
+                        <img src="/static/hrcfwx/images/AA.png"/>
+                    {elseif $item.borrow_xingyong=="A"}
+                        <img src="/static/hrcfwx/images/AA_A.png"/>
+                    {elseif $item.borrow_xingyong=="B"}
+                        <img src="/static/hrcfwx/images/AA_B.png"/>
+                    {elseif $item.borrow_xingyong=="C"}
+                        <img src="/static/hrcfwx/images/AA_C.png"/>
+                    {elseif $item.borrow_xingyong=="D"}
+                        <img src="/static/hrcfwx/images/AA_D.png"/>
+                    {elseif $item.borrow_xingyong=="E"}
+                        <img src="/static/hrcfwx/images/AA_E.png"/>
+                    {elseif $item.borrow_xingyong=="HR"}
+                        <img src="/static/hrcfwx/images/AA_HR.png"/>
+                    {else}
+                    {/if}
+                    </div>
+                    <div class="main1_top_p">{$item.name|truncate:8}
+                        <!-- {if $item.reward_name!=""}
+                        ({$item.reward_name})
+                        {/if} -->
+                    </div>
+                    <div class="main1_ul">
+                        <ul class="main1_li_left">
+                            <li>借出本金</li>
+                            <li>当前期数</li>
+                            <li>标总期数</li>
+                            <li>投标进度</li>
+                            <li>投标状态</li>
+                        </ul>
+                        <ul class="main1_li_right">
+                            <li>{$item.tender_account}</li>
+                            <li>第{$item.order+1}期</li>
+                            <li>{$item.borrow_period}期</li>
+                            <li>{$item.borrow_account_scale}%</li>
+                            <li>{if $item.account_tender==$item.tender_account}全部通过{else}部分通过{/if}</li>
+                        </ul>
+                    </div>
+                    <div class="main1_shouyi">
+                        <p>预期年化收益</p>
+                        <span>{$item.borrow_apr_old}%{if $item.award_status!=0}+奖{/if}{if $item.award_status==1}{$item.award_account}元{/if}{if $item.award_status==2}{$item.award_scale}%{/if}</span>
+                    </div>
+                </div>
+                {/foreach}
+            </article>
+                
+                
+        </div>
+    </div>
+    {include file="../hrcf/wxfooter4.html"}
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+{if $_G.articles.name!=""}{$_G.articles.name}|{/if}
+{if $_G.articles_result.name!=""}{$_G.articles_result.name}|{/if}
+{if $_G.site_result.name!=""}{$_G.site_result.name}|{/if}
+{$_G.system.con_webname}
+</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<meta name="keywords" content="{if $_G.articles.tags!=""}{$_G.articles.tags}{elseif $_G.site_result.keywords!=""}{$_G.site_result.keywords}{else}{$_G.system.con_keywords}{/if}" />
+<meta name="description" content="{if $_G.articles.contents!=""}{$_G.articles.contents|html_format|truncate:60}{elseif $_G.site_result.description!=""}{$_G.site_result.description}{else}{$_G.system.con_description}{/if}"/>
+<meta name="generator" content="weipaidai.com" />
+<meta name="author" content="weipaidai Team" />
+<meta name="copyright" content="2015-2016 weipaidai Inc." />
+<meta name="baidu-site-verification" content="fcerQNordr" />
+<meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+<script src="/static/js/seajs/2.1.0/sea.js?v=dee86"></script>
+<script src="/static/js/config.js"></script>
+<link rel="shortcut icon" href="/logo.png?icoversion=2">
+<link rel="stylesheet" href="/static/css/one.css?v=6e018">
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="/static/css/ie8-and-lower.css?v=5c427" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="/static/css/ie6-and-lower.css?v=caea6" />
+<![endif]-->
+
+<link href="/static/css/pages/account/account.css" type="text/css" rel="stylesheet">
+
+<link charset="utf-8" rel="stylesheet" href="/static/js/lib/counter/0.0.1/jquery.counter-analog.css">
+<link charset="utf-8" rel="stylesheet" href="/static/js/alice/poptip/1.1.1/poptip.css">
+<link charset="utf-8" rel="stylesheet" href="/static/js/arale/dialog/1.3.3/dialog.css">
+</head>
+<body style="background:#fff; margin:0; padding:0;">
+
+</body>
+</html>

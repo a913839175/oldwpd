@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0 auto; font-family:"微软雅黑"; background:#f2f2f2;}
+a {text-decoration: NONE}
+p{margin: 0;}
+input{ border:none;font-family:"微软雅黑"; cursor:pointer;}
+
+.jifen_rule{ z-index:-10;}
+.jifen_rule_head{ background:url(../images/rule_banner.jpg) no-repeat 50% 0%; height:378px;}
+
+.jifen_rule_body{ width:1000px; margin: 0 auto; background-color:#FFF; height:900px color:#3f3f3f;}
+.jifen_rule_body_imgs{ padding:30px 0px 50px 0px;}
+.jifen_rule_body_imgs img{ width:998px;}
+
+
+
+
+

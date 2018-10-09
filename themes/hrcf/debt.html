@@ -1,0 +1,65 @@
+{include file="header.html"}
+
+<link href="/static/hrzhang/css/zhaiquan.css" rel="stylesheet" type="text/css" />
+
+<div class="zq-content">
+   <div class="zq-box">
+<!-- ######################################################################################################### -->
+    <div class="zq-tith"><h1>债权转让列表</h1></div>
+    <div class="zq-listmenu">
+        
+	        {list module="borrow" function="GetChangeList" var="loop" epage=10 status=2 borrow_type="request" account_status="request" borrow_name="request" order="request" recover_account_wait="recover_account_wait" borrow_name="request" apr="request"}
+	        {if $loop.list}
+	        	<div class="zq-listin"><!----->
+			        <img src="/static/hrzhang/images/zhuan.png" />
+			        <div class="zq-listleft zq-fl">
+			         <h2>河北石油化工类公司流动资金贷款项目-0304</h2>
+			         <div class="zq-jdlist">
+			          <i></i>28%<p>成功转让金额 <span class="tsize">10,000</span>元</p>
+			          </div>
+			         <div class="zq-listtit">
+			           <ul>
+			            <li class="zq-fl  currentwh">
+			             <p>转让金额</p>
+			             <p><span>10.000</span>元</p>
+			            </li>
+			            <li class="zq-fl currentwh">
+			            <p>可投金额</p>
+			             <p><span>0</span>元</p>
+			            </li>
+			            <li class="zq-fl currentwh">
+			            <p>年化收益</p>
+			             <p><span>14%</span></p>
+			            </li>
+			            <li class="zq-fl">
+			             <p>还款方式</p>
+			             <p><span>按月付息，到期还款</span></p>
+			            </li>
+			            <li class="zq-fl currentli">
+			             <p>剩余期限</p>
+			             <p><span class="tsize">160</span>天</p>
+			            </li>
+			           </ul>
+			         </div>
+			        </div>
+			        <div class="zq-listright zq-fr">
+			         <p>今天投资，明天就有利息</p>
+			         <div class="zq-listicon"><a href="#">投标</a></div>
+			        </div>
+			   </div>
+	        	
+	        {else}
+	        	 <div class="zq-listin"><!----->
+	      			<img src="/static/hrzhang/images/zhuan.png" />
+			        <div class="zq-listleft zq-fl">
+			         <h2>暂无转让项目</h2>
+			        </div>
+		        </div>   
+      		{/if}
+  </div> 
+
+<!-- ######################################################################################################### -->
+ </div>
+</div>
+
+  <div class="pd320"></div>

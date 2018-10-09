@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/shoujiyanzheng.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/shoujihao.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<title>微拍贷</title>
+</head>
+
+<body>
+<div class="head">
+	<div class="head_img">
+    <a href="/?wxuser&q=anquan"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+    </div>
+    <p>手机验证</p>
+</div>
+<form method="post" class="ui-form" id="modMobileByPhoneStepOneForm" data-name="modMobileByPhoneStepOne" novalidate="novalidate" action="">
+<div class="yanzheng">
+	<input id="codefirst" name="validateCode" type="text" placeholder="验证码"/>
+    <div class="yanzheng_img"><img id="coderesetfirst" src="/static/hrcfwx/images/xx.png"/></div>
+</div>
+<div class="huoqu">
+    <button type="button" id="getcodefirst">获取验证码</button>
+</div>
+<div class="infodiv">
+    <span class="info">
+    {if $_U.showmsg!=""}
+    手机验证失败
+    {/if}
+    </span>
+</div>
+<div class="none"></div>
+<div class="button">
+	<button id="firstnext" type="button">下一步</button>
+</div>
+</form>
+<div class="yuedu">
+    <span>短信验证将默认发送至:{$_G.user_info.username_secur}</span>
+</div>
+<div class="none2"></div>
+<div class="footer">
+	<p>www.weipaidai.com</p>
+</div>
+</body>
+</html>

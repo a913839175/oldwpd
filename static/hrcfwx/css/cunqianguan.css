@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none; background-color:#fff;  padding-bottom:60px;}
+/*top*/
+.top{ height:13.5vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left; width:7vw; margin-left:4.5vw; margin-top:3.3vw;}
+.top1 img{ width:100%; }
+.top_title{ float:left; padding-left:20.5vw; width:36vw;}
+.top_title a{ float:left; width:18vw;}
+.top_title div{ color:#fff; font-size:4.5vw; width:36vw; height:8vw; line-height:8vw; text-align:center; margin-top:2.7vw;}
+.top_title span{ float:left; color:#6fcffb; font-size:4.5vw; width:18vw; height:8vw; line-height:8vw; text-align:center; margin-top:2.7vw; background-color:#008dce; border-radius: 0 1.5vw 1.5vw 0;}
+.top2{ float:right; width:6vw; padding-right:6.5vw; padding-top:4.5vw;}
+.top2 img{ width:100%;}
+.top3{ float:right; width:0.95vw; padding-top:1.7vw; padding-right:7.5vw;}
+.top3 img{ width:100%;}
+/*main*/
+.main{ height:105vw; width:100vw; background-color:#00a0e9;}
+.main_cunqianguan{ height:10vw;}
+.main_cunqianguan p{ float:right; line-height:10vw; color:#FFF; font-size:3.5vw;}
+.main_cunqianguan_img{ float:right; width:4vw; padding-right:5vw; padding-left:2vw; padding-top:2.8vw;}
+.main_cunqianguan_img img{ width:100%;}
+.main_shouyi{ width:100vw;}
+.main_shouyi h1{ text-align:center; font-size:16vw; padding-top:13vw; font-weight:400; color:#FFF; padding-bottom:4vw;}
+.main_shouyi h2{ text-align:center; font-size:7vw; padding-top:13vw; font-weight:400; color:#FFF;}
+.main_shouyi p{ text-align:center; font-size:4vw; color:#FFF;}
+.main_shouyi_img{ width:10vw; margin: 0 auto; padding-top:8vw;}
+.main_shouyi_img img{ width:100%;}
+/*leiji*/
+.leiji{ width:100vw; height:20vw; border-bottom:1px solid #e4e4e4;}
+.leiji_left{ float:left; width:49vw; text-align:center;}
+.leiji_left p,.leiji_right p{ font-size:6vw; padding-top:2.5vw;}
+.leiji_left span,.leiji_right span{ font-size:4vw; color:#7d7d7d;}
+.leiji_right{ float:right; width:50vw; text-align:center;}
+.leiji_img{ background-color:#e4e4e4; width:1px; height:14vw; float:left; margin-top:3vw; }
+
+.main_shouyi .shangla{
+	display: none;
+}

@@ -1,0 +1,191 @@
+@charset "utf-8";
+/*-------------------------------------
+page content style
+version:	1.1
+author:		Huarong.he
+website:	http://www.weipaidai.com/
+-------------------------------------*/
+
+#content {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    padding-bottom: 20px;
+    padding-top: 26px;
+}
+
+.success_con {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/static/img/account/success_money.png");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    width: 990px;
+}
+
+
+.clear-fix::after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.failure {
+    height: 150px;
+    padding-bottom: 100px;
+    padding-left: 130px;
+    padding-right: 0;
+    padding-top: 170px;
+    width: 600px;
+}
+
+
+.failure span {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/static/img/account/result_success_106.png");
+    background-origin: padding-box;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+.failure p, .failure span {
+    color: #666666;
+    float: left;
+    font-family: "Microsoft YaHei";
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 40px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+    font-weight: normal;
+    line-height: 80px;
+    padding-bottom: 20px;
+    padding-left: 150px;
+    padding-right: 0;
+    padding-top: 15px;
+    width: 600px;
+}
+
+
+.failure .recharge_01 {
+    margin-left: 148px;
+}
+
+.failure .recharge_01, .failure .recharge_02, .failure .recharge_03 {
+    -x-system-font: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/static/img/account/success_icon_01.png");
+    background-origin: padding-box;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    float: left;
+    font-family: "Microsoft YaHei";
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 18px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+    font-weight: normal;
+    line-height: 30px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    padding-bottom: 0;
+    padding-left: 25px;
+    padding-right: 0;
+    padding-top: 0;
+    white-space: nowrap;
+}
+
+.failure .recharge_02 {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/static/img/account/success_icon_02.png");
+    background-origin: padding-box;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+.failure .recharge_03 {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/static/img/account/success_icon_03.png");
+    background-origin: padding-box;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+.failure .recharge_01, .failure .recharge_02, .failure .recharge_03 {
+    -x-system-font: none;
+    float: left;
+    font-family: "Microsoft YaHei";
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 18px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+    font-weight: normal;
+    line-height: 30px;
+    margin-bottom: 0;
+    margin-left: 50px;
+    margin-right: 0;
+    margin-top: 20px;
+    padding-bottom: 0;
+    padding-left: 25px;
+    padding-right: 0;
+    padding-top: 0;
+    white-space: nowrap;
+}
+
+.failure .recharge_02 {
+    margin-left: 148px;
+}

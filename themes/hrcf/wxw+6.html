@@ -1,0 +1,178 @@
+{include file="wxheader.html"}
+<link href="/static/hrcfwx/css/w+b.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/wb.js"></script>
+    <div class="screenc-overlay" id="screenc-overlay"></div>
+	<div class="top">
+        <div class="top1">
+            <a href="/wxlicai/index.html"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+            <P>微+6</P>
+        </div>
+        {include file="wxtop.html"}
+    </div>
+    <div class="move">
+        <div class="midle">
+            <div class="midle_img">
+                <img src="/static/hrcfwx/images/nw+6.jpg"/>
+            </div>
+            <p>10.6<span>%</span></p>
+            <aside>预期年化收益率</aside>
+        </div>
+    </div>
+    <div class="rules">
+        <div class="rule1">
+            <div class="rule_img"><img src="/static/hrcfwx/images/rule1.png"/></div>
+            <p>节假日顺延</p>
+        </div>
+        <div class="rule2">
+            <div class="rule_img"><img src="/static/hrcfwx/images/rule2.png"/></div>
+            <p>起投金额100元</p>
+        </div>
+        <div class="rule3">
+            <div class="rule_img"><img src="/static/hrcfwx/images/rule3.png"/></div>
+            <p>期限六个月到期一次性支付全部本息</p>
+        </div>
+    </div>
+    <div class="explain">
+        <li>
+            <div class="explain_img"><img src="/static/hrcfwx/images/explain1.png"/></div>
+            <a class="explain_a" href="/wxw6jieshao/index.html">
+                <p>产品介绍</p>
+                <div class="explain_img2"><img src="/static/hrcfwx/images/youjian.png"/></div>
+            </a>
+        </li>
+        <li>
+            <div class="explain_img"><img src="/static/hrcfwx/images/explain2.png"/></div>
+            <a class="explain_a" href="/wxxieyi/index.html">
+                <p>理财协议</p>
+                <div class="explain_img2"><img src="/static/hrcfwx/images/youjian.png"/></div>
+            </a>
+        </li>
+        <li>
+            <div class="explain_img"><img src="/static/hrcfwx/images/explain3.png"/></div>
+            <a href="/wxw6jilu/index.html">
+                <p>投标记录</p>
+                <div class="explain_img2"><img src="/static/hrcfwx/images/youjian.png"/></div>
+                <!-- <span>10人</span> -->
+            </a>
+        </li>
+    </div>
+    <div class="xinlang">
+        <div class="xinlang_img"><img src="/static/hrcfwx/images/dun.png"/></div>
+        <span>新浪支付正式托管微拍贷风险备用金账户</span>
+    </div>
+    <div class="toubiao">
+    {if $_G.user_id==""}
+        <a href="/?wxuser&q=login"><button class="btn btn-primary">立即投标</button></a>
+    {else}
+        <a href="javascript:;" id="dotoubiao"><button class="btn btn-primary">立即投标</button></a>
+    {/if}
+    </div>
+    {include file="wxfooter2.html"}
+
+<!-- 付款 -->
+    <div class="main_fukuan" id="fukuan">
+        <div class="main_top_fukuan">
+            <a href="javascript:;" id="fukuan_close">
+                <div class="main_top_img_fukuan">
+                    <img src="/static/hrcfwx/images/xx2.png"/>
+                </div>
+            </a>
+            <div class="main_top_p_fukuan">付款</div>
+        </div>
+        <div class="main_fukuan_fukuan">
+            <div class="main_left_fukuan">投资(元)</div>
+            <div class="main_right_fukuan">
+                <input type="text_fukuan" id="account" placeholder="输入金额为100元的整数倍" />
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div class="main_left_fukuan">存钱罐余额(元)</div>
+                {articles module="account" function="GetOne" var="var_h" user_id="$_G.user_id"}
+                <div class="main_right_fukuan"><p>{$var_h.balance|default:"0"}</p></div>
+            </li>
+        </ul>
+        <div class="main_liubiao_fukuan">如遇流标情况，投标期内所冻结的金额将在流标后进行解冻。</div>
+        <div class="tijiao_fukuan">
+            <button class="tijiao_button_fukuan" id="fukuab_sure">提交</button>
+        </div>
+        <div class="xieyi_fukuan">
+            <input id="isread" type="checkbox" class="checkbox" />
+            <label for="isread">我已阅读并同意</label><span><a href="/wxxieyi/index.html">《理财协议》</a></span>
+        </div>
+    </div>
+
+
+<!-- 详情 -->
+    <div class="main_xiangqing" id="xiangqing">
+        <div class="main_top_xiangqing">
+            <a href="javascript:;" id="xiangqing_close">
+                <div class="main_top_img_xiangqing">
+                    <img src="/static/hrcfwx/images/zuojian.png"/>
+                </div>
+            </a>
+            <div class="main_top_p_xiangqing">投资详情</div>
+        </div>
+        <div class="main_fukuan_xiangqing">
+            <div class="main_left_xiangqing">付款金额</div>
+            <div class="main_right_xiangqing">
+                <p id="showaccount"></p>
+                <span id="showshares"></span>
+            </div>
+        </div>
+        {articles module="borrow" function="GetDetail" var="var" borrow_nid="WADDSIXMONTH_2016" hits="auto" user_login="$_G.user_id"}
+        <form id="borrowform" class="ui-confirm-form" action="" method="post">
+            <ul>
+                <li>
+                    <div class="main_left_xiangqing">借款标题</div>
+                    <div class="main_right_xiangqing">微+6</div>
+                </li>
+                <li>
+                    <div class="main_left_xiangqing">年利率</div>
+                    <div class="main_right_xiangqing">11.0%</div>
+                </li>
+                <li>
+                    <div class="main_left_xiangqing">锁定期限</div>
+                    <div class="main_right_xiangqing">6个月</div>
+                </li>
+                <li>
+                    <div class="main_left_xiangqing">投资金额</div>
+                    <div class="main_right_xiangqing" id="showaccount2"></div>
+                    <input type="hidden" id="realaccount" name="bidAmount" value="">
+                    <input type="checkbox" name="agree-contract" checked="checked" style="display: none;">
+                </li>
+                <li>
+                    <div class="main_left_xiangqing">交易密码</div>
+                    <input type="password" id="paypassword" name="paypassword">
+                </li>
+            </ul>
+            <input name="borrow_nid" type="hidden" value="{$var.borrow.borrow_nid}" id="borrow_nid">
+            <div class="tijiao_xiangqing">
+                <button id="xiangqing_sure" type="button" class="tijiao_button_xiangqing">确认</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- 投资成功提示 -->
+    <div class="main_success" id="success">
+        <div class="main_success_content">
+            <p>尊敬的{$_G.user_info.realname}{if $_G.user_info.sex=="男"}先生{elseif $_G.user_info.sex=="女"}女士{else}{/if}，您已成功投资微拍贷-{$var.borrow.name}产品，感谢您对微拍贷的信任与支持，我们将竭诚为您服务。</p>
+            <a id="know_success" href="javascript:;">我知道了</a>
+        </div>
+    </div>
+
+    <!-- 投资失败提示 -->
+    <div class="main_success" id="error">
+        <div class="main_success_content">
+            <p id="error_p" class="error_p"></p>
+            <a id="know_error" href="javascript:;">我知道了</a>
+        </div>
+    </div>

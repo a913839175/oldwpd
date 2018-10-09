@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+{if $_G.articles.name!=""}{$_G.articles.name} | {/if}
+{if $_G.articles_result.name!=""}{$_G.articles_result.name} | {/if}
+{if $_G.site_result.name!=""}{$_G.site_result.name} | {/if}
+{$_G.system.con_webname}
+</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<meta name="keywords" content="{if $_G.articles.tags!=""}{$_G.articles.tags}{elseif $_G.site_result.keywords!=""}{$_G.site_result.keywords}{else}{$_G.system.con_keywords}{/if}" />
+<meta name="description" content="{if $_G.articles.contents!=""}{$_G.articles.contents|html_format|truncate:60}{elseif $_G.site_result.description!=""}{$_G.site_result.description}{else}{$_G.system.con_description}{/if}"/>
+<meta name="generator" content="huarongchafu.com" />
+<meta name="author" content="huarongchafu Team" />
+<meta name="copyright" content="2015-2016 weipaidai Inc." />
+<meta name="baidu-site-verification" content="fcerQNordr" />
+<meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+<title>系统管理</title>
+<link rel="stylesheet" type="text/css" href="/themes/hrcf_admin/css/admin_login.css" />
+<script type="text/javascript" src="/static/js/lib/jquery/jquery.min.1.10.2.js?v=20161020"></script>
+</head>
+<body>
+<form id="loginform" name="loginform" method="post" action="{$_A.admin_url}&q=login">
+<div class="admin">
+   <div class="box">
+   <div class="ulogin">
+      <div class="loginright">
+       <ul>
+       <li>&nbsp;&nbsp;&nbsp;&nbsp;用户名：
+       <input class="inpt username" name="username" type="text"></input></li>
+       <li>&nbsp;登录密码：<input class="inpt" name="password" type="password"></input></li>
+       <li>&nbsp;&nbsp;&nbsp;&nbsp;验证码：
+         <input name="valicode" type="text" size="11" maxlength="6"  tabindex="100" class="inptvali">&nbsp;
+         <button class="sms" type="button" onclick="smsCode();">发送短信</button>
+         <!-- <img src="?plugins&q=imgcode" alt="点击刷新" onClick="this.src='?plugins&q=imgcode&t=' + Math.random();" id="valicode" align="absmiddle" style="cursor:pointer" /> -->
+  	   </li>
+      </ul>
+        <div class="clearfix">
+            <a href="#"class="admindl">
+              <input type="image" src="/themes/hrcf_admin/images/btn.png">
+            </a>
+            <p class="admints">{$login_msg}</p>
+        </div>
+   </div>
+</div>
+</form>
+{literal}
+<script type="text/javascript">
+var nums = 120;
+var timer = null;
+function sendSms(code) {
+    if (nums === 0) {
+        code.removeClass('gray-bg').removeAttr("disabled").html("发送短信"); 
+        nums = 120;
+        clearTimeout(timer);
+        return;
+    } else {
+        code.addClass('gray-bg').attr("disabled","true").html(nums + "秒");
+        nums--;
+    }
+    timer = setTimeout(function() {
+        sendSms(code);
+    }, 1000);
+}
+function smsCode(){
+  $.ajax({
+    url:'/?hradmin&q=smscode',
+    type:'post',
+    dataType:'json',
+    data:{
+      'username':$('.username').val()
+    },
+    success:function(data){
+      if(data.status == 1){
+        sendSms($('.sms'));
+        alert(data.msg);
+      }else{
+        alert(data.msg);
+      }
+    }
+  });
+}
+</script>
+{/literal}
+</body>
+</html>

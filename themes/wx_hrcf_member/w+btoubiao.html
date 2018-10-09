@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/toubiao.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/toubiao.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<title>微拍贷</title>
+</head>
+
+<body>
+<div class="head">
+	<a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+    <p>微+宝投资</p>
+</div>
+
+{articles module="borrow" function="GetDetail" var="var" borrow_nid="WADDMONTH" hits="auto" user_login="$_G.user_id"}
+<form id="borrowform" class="ui-confirm-form" action="" method="post">
+	<div class="clearfix">
+		<label>
+			<span class="titlename">借款标题</span>
+		</label>
+		<label>
+			<span class="valuename">微+宝</span>
+		</label>
+	</div>
+	<div class="clearfix">
+		<label>
+			<span class="titlename">年利率</span>
+		</label>
+		<label>
+			<span class="valuename">8.8%</span>
+		</label>
+	</div>
+	<div class="clearfix">
+		<label>
+			<span class="titlename">锁定期限</span>
+		</label>
+		<label>
+			<span class="valuename">一个月</span>
+		</label>
+	</div>
+
+	<div class="clearfix">
+		<label>
+			<span class="titlename">投资金额</span>
+		</label>
+		<input type="text" id="wbaccount" name="bidAmount" placeholder="金额需为100元的整数倍">
+	</div>
+	<div class="clearfix">
+		<label>
+			<span class="titlename">交易密码</span>
+		</label>
+		<input type="password" id="wbpaypassword" name="paypassword">
+	</div>
+	<div class="none"></div>
+	<input name="borrow_nid" type="hidden" value="{$var.borrow.borrow_nid}">
+	<div class="button">
+		<button id="wbsure" type="button">确定</button>
+	</div>
+	<div class="yuedu">
+		<input id="wbisread" type="checkbox" class="checkbox" />
+		<label for="wbisread">我已阅读并同意</label><a href="/wxxieyi/index.html"><span>《理财协议》</span></a>
+	</div>
+</form>
+<div class="none2"></div>
+<div class="footer">
+	<p>www.weipaidai.com</p>
+</div>
+</body>
+</html>

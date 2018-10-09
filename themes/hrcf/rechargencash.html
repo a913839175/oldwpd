@@ -1,0 +1,37 @@
+ {include file="header.html"}
+ <link rel="stylesheet" type="text/css" href="/static/css/pages/about.css?v=de9ab" />
+ 
+  <div class="pg-container-content">
+      
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">{include file="about_left.html"}</ul>
+			</div>
+      </div>
+      <div class="grid_10">
+        <div class="right_side">
+	      	<h1 class="rrdcolor-blue-text">用户协议</h1>
+	      	<div class="pg-about-main right-container p20bs">
+	 			<div id="contract_content">
+				<div class="hide"></div>
+				<div class="dialog_func">
+					<a href="javascript:top.contract_iframe.window.print()">打印</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a  href="/static/file/HRCF_PIGGY.doc"  target="_blank" class="btn_download">下载</a>
+					<select name="type" class="J_select_contract">
+						<option name="/static/file/HRCF_PIGGY.doc" value="/fjspiggy/index.html" selected>融宝账户使用服务协议（电签）</option>
+<!--						<option name="/static/file/HRCF_HUITIANFU.doc" value="/fjshuitianfu/index.html">《汇添富基金管理股份有限公司电子交易直销前置式自助前台服务协议》</option>
+						<option name="/static/file/HRCF_ACCOUNT_CONFIRM.doc" value="/fjsaccountconfirm/index.html">《用户资金账户服务确认书》</option>-->
+					</select>
+				</div>
+				<div class="dialog_con">
+					<iframe src="/fjspiggy/index.html" width="715" height="800" style="border: none" name="contract_iframe"></iframe>
+				</div>
+				</div>
+	  		</div>
+	  	</div>
+      </div>
+    </div>
+  </div>
+</div>	
+<script>seajs.use(['pages/contents/rechargeencashment']);</script>  

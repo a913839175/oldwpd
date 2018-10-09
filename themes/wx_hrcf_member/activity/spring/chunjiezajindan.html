@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/zajindan.css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/zebra_dialog_spring.css">
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/zebra_dialog_spring.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/chunjiezajindan.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<meta name = "format-detection" content="telephone = no" />
+<title>微拍贷</title>
+</head>
+<body>
+<body>
+<div class="zajindan_main">
+	{if $_G.user_id==null||$_G.user_id==""}
+	<div class="zajindan_main_start">
+	{else}
+	<div class="zajindan_main_start_hidd">
+	{/if}
+            <div class="zajindan_main_input_a3" id="login_botton">开始砸金蛋</div>
+    </div>
+    {if $_G.user_id==null||$_G.user_id==""}
+	<div class="zajindan_main_input">
+	{else}
+	<div class="zajindan_main_input_display">
+	{/if}
+	
+    	<p class="zajindan_main_input_a3">您还有 <span class="zajindan_num" id="mychance">{$game_times}</span> 次砸金蛋机会哦！</p>
+        <a href="#"><div class="zajindan_main_input_a1">更多砸金蛋机会</div></a>
+        <a href="#"><div class="zajindan_main_input_a2">我的奖品</div></a>
+    </div>
+    <div class="kingegg">
+    	<div class="kingegg_main">
+            <a href="#"><li class="kingegg1" data-class="hammer1"><div></div></li></a>
+            <a href="#"><li class="kingegg2" data-class="hammer2"><div></div></li></a>
+            <a href="#"><li class="kingegg3" data-class="hammer3"><div></div></li></a>
+            <div class="hammer"><img src="/static/hrcfwx/activity/spring/images/hammer.png"/></div>
+        </div>
+    </div>
+</div>
+<div class="zajindan_main_foot">
+	<div class="zajindan_main_shuoming">
+    	<p>活动说明</p>
+        <li>1.活动时间：<span>2016年2月15-2月22日</span></li>
+        <li>2.活动期间每个账号每天可免费获得 <span>1</span> 次砸金蛋机会</li>
+        <li>3.投资后可获得更多的砸金蛋机会</li>
+        <li>4.砸金蛋次数请在2016年2月25日前使用，到期后将无法使用</li>
+        <li>本活动最终解释权归微拍贷所有</li>
+    </div>
+</div>
+<div class="zajindan_main_jilu">
+	<div class="zajindan_main_jilu_body">
+    	<p class="zajindan_main_jilu_p1">中奖纪录</p>
+        <p class="zajindan_main_jilu_p2">———— 看看小伙伴们都砸到多少 ————</p>
+        {foreach from="$winner_list" item="item"}
+        <li class="zajindan_main_jilu_li1">
+             <div class="li-img-div">
+               <img src="/static/hrcfwx/activity/spring/images/person.png" />
+            </div>
+            <p>{$item.username}<br/>刚刚砸中了“<span>{$item.total}元</span>理财红包”哦</p>
+        </li>
+        {/foreach}
+        <div></div>
+    </div>
+</div>
+<div class="modal fade" id="mymodal1">
+    <div class="zajindan_myprize1 modal-dialog">
+        <div class="zajindan_myprize1_head">
+            <button type="button" data-dismiss="modal">
+            	<div class="zajindan_myprize1_close"></div>
+            </button>
+        </div>
+        <div class="zajindan_myprize1_body">
+        	<table>
+            	<tr>
+                	<td>投资产品</td><td>单笔投资/元</td><td>获得砸金蛋次数</td>
+                </tr>
+            	<tr>
+                	<td>微年利</td><td>1000-10000<br/>10000及以上</td><td><span>4</span>次<br/><span>8</span>次</td>
+                </tr>
+            	<tr>
+                	<td>微+6</td><td>1000-10000<br/>10000及以上</td><td><span>2</span>次<br/><span>4</span>次</td>
+                </tr>
+            	<tr>
+                	<td>微+3</td><td>1000-10000<br/>10000及以上</td><td><span>1</span>次<br/><span>2</span>次</td>
+                </tr>
+            </table>
+        </div>
+        <div class="zajindan_myprize1_input">
+        	<a href="/wxlicai/index.html"><div>获得更多</div></a>
+            <div class="zajindan_myprize1_div2" data-dismiss="modal">继续游戏</div>
+        </div>
+    </div><!-- /.modal-content /.modal-dialog-->
+</div><!-- /.modal -->
+<div class="modal fade" id="mymodal2">
+    <div class="zajindan_myprize2 modal-dialog">
+        <div class="zajindan_myprize2_head">
+            <button type="button" data-dismiss="modal">
+            	<div class="zajindan_myprize2_close"></div>
+            </button>
+        </div>
+        <div class="zajindan_myprize2_body">
+        	{foreach from="$my_prize" item="item"}
+	    	<li><div><p>{$item.total}</p></div></li>
+	        {/foreach}
+        </div>
+        <div class="zajindan_myprize2_input">
+        	<a href="/?wxuser&q=hongbao"><div>立即使用</div></a>
+            <div data-dismiss="modal">继续游戏</div>
+        </div>
+    </div><!-- /.modal-content /.modal-dialog-->
+</div><!-- /.modal -->
+<div class="modal fade" id="mymodal3">
+    <div class="zajindan_myprize3">
+        <div class="zajindan_myprize3_head">
+            <button type="button" data-dismiss="modal">
+            	<div class="zajindan_myprize3_close"></div>
+            </button>
+        </div>
+        <div class="zajindan_myprize3_body">
+        	<p><span id="jiangjin">1000</span></p>
+            <p>恭喜您获得了<span id="jiangjin_two">1000</span>元<br/>理财红包1个！</p>
+        </div>
+        <div class="zajindan_myprize3_input">
+        	<a href="/wxlicai/index.html"><div>获得更多</div></a>
+            <div class="zajindan_myprize3_div2" data-dismiss="modal">继续游戏</div>
+        </div>
+    </div><!-- /.modal-content /.modal-dialog-->
+</div><!-- /.modal -->
+{literal}
+<script src="/static/hrcfwx/activity/spring/js/bootstrap-transition.js"></script>
+<script src="/static/hrcfwx/activity/spring/js/bootstrap-modal.js"></script>
+<script>
+  $(function(){
+	$(".zajindan_main_input_a1").click(function(){
+      $("#mymodal1").modal("toggle");
+    });
+    $(".zajindan_main_input_a2").click(function(){
+      $("#mymodal2").modal("toggle");
+    });
+  });
+</script>
+{/literal}
+</body>
+</html>

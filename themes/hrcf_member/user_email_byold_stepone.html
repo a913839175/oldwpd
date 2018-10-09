@@ -1,0 +1,28 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">
+		<div class="content">
+			<input type="hidden" value="old" id="returnType">
+            <div style="height:100px;">
+                <div class="safety_step">
+	                <div class="bgline"></div>
+	                <div class="fourStep steps">
+		               <ul class="fn-clear">
+						  <li class="one">验证当前邮箱</li> 
+		                  <li class="no">填写新邮箱</li>
+		                  <li class="no">验证新邮箱</li> 
+		                  <li class="no">成功</li>
+		               </ul>
+		        	</div>
+	            </div>
+            </div>
+            <p class="info">请到邮箱<span class="red"></span>查收确认邮件，单击相应链接完成验证（24小时内有效）
+	        <input type="hidden" value="163" id="emailType">
+	        </p>
+
+      </div>
+</div>
+
+<script>seajs.use(['pages/account/account/security']);</script>
+
+

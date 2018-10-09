@@ -1,0 +1,53 @@
+{include file="header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/pages/about.css?v=20160823" />
+<div class="pg-container-content">
+    <div class="ab_bj"></div>
+    <div id="pg-about-intro">
+        <div class="container_12 m1">
+            <div class="grid167">
+                <div class="ui-side" id="sidebar">
+                    <ul class="ui-side-list">
+                        {include file="about_left.html"}
+                    </ul>
+                </div>
+            </div>
+            <div class="mar0">
+
+                <div class="p20bs color-white-bg fn-clear">
+                    <h1 class="rrdcolor-blue-text">{$_G.site_result.name}</h1>
+
+
+                    <ul class="ui-list ui-list-m ui-list-news narrow mt10" id="news-list">      
+                        {list module="articles" function="GetList" var="loop" epage="10" type_id="$_G.site_result.value" publish_auto_time="publish_auto_time"}
+                        {foreach from="$loop.list" item="var"} 
+                        <li class="ui-list-item fn-clear ">
+                            <p class="fn-left field decoration"></p>
+                            <p class="fn-left field text color-silver-text fn-text-overflow">
+                                <a class="title text-big rrd-dimgray" href="/news/{$var.nid}/a{$var.id}.html" target="_blank">{$var.name}</a>
+                                <span class="content text-small"></span>
+                            </p>
+                            <p class="fn-left field date color-darkgray-text">{$var.addtime|date_format:"Y-m-d"}</p>
+                        </li>
+                        {/foreach}
+                        {/list}
+                        {if $loop.pages.total>0}
+                        <div class="page">{$loop.pages|showpage}</div>
+                        {/if} 
+                    </ul>
+                    <div class="fn-right mt10 ui-pagination simple-pagination" id="news-list-pagination">
+
+                    </div>
+                </div>
+                <input type="hidden" id="items" value="61" />
+                <input type="hidden" id="itemsOnPage" value="10" />
+                <input type="hidden" id="currentPage" value="1" />
+
+                <form id="newForm" action="/about/about.action">
+                    <input name="flag" type="hidden" value="news" />
+                    <input name="pageIndex" type="hidden" value="" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

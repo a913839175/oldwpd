@@ -1,0 +1,99 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+#main{
+   min-width: 1200px;
+   overflow: hidden;
+}
+
+#head{
+	background-color: #373b48;
+	height: 102px;
+	width: 100%;
+	background-image: url(../Images/home-3.jpg);
+
+}
+#logo{
+	float: left;
+	width: 233px;
+	height: 102px;
+	
+	/*background-color: red;
+	background-image: url(../Images/home-1.jpg);
+	background-repeat: no-repeat;*/
+}
+/*----------------------------------------*/
+#nav{
+	float: left;
+	width: 633px;
+	height: 102px;
+
+	/*background-color: gray;*/
+}
+#nav ul{
+
+	padding: 0;
+	margin: 0;
+}
+#nav ul li{
+	float: left;
+	display: block;
+	width: 210px;
+	height: 102px;
+	border-right: 1px solid #4579dd;
+	text-align: center;
+}
+
+#nav ul li a{
+	display: block;
+	width: 210px;
+	height: 102px;
+}
+#nav ul li a:hover{
+	background-image: url(../Images/home-2.jpg);
+}
+
+.onOver{
+	background-image: url(../Images/home-2.jpg);
+}
+
+#user{
+	float: right;
+	width: 278px;
+	height: 102px;
+	background-colo/*r*/: red;
+}
+
+#user img{
+	float: left;
+	margin-left: 40px;
+}
+#user span{
+	float: left;
+	margin-left: 14px;
+	margin-top: 26px;
+}
+#user span h2{
+	color: white;
+	font-size: 18px;
+	font-family: "微软雅黑","宋体";
+
+}
+#user span p {
+	margin-top: 4px;
+	color: #a5b4e7;
+	font-size: 12px;
+	font-family: "微软雅黑","宋体";
+}
+#user span a{
+	color: #a5b4e7;
+	float: left;
+	display: block;
+}
+.user_a{
+	margin-left: 10px;
+}
+
+
+/*------------------------------------------------------------------*/

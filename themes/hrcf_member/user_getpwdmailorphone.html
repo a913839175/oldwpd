@@ -1,0 +1,81 @@
+{include file="../hrcf/header.html"}
+<link rel="stylesheet" href="/static/css/pages/msg/msg.css?v=300da">
+<div class="pg-container-content">
+	<div id="pg-findPsw">
+		<div class="container_12 mt20">
+			<div class="grid_12">
+				{if $_U.findByMailOrPhoneDo.type=="email"}
+				<div class="content color-white-bg p20bs">
+					<p class="info">"{$_G.system.con_webname}邮箱验证邮件"已发送至您的邮箱</p>
+					<h3 class="mt20">{$_U.findByMailOrPhoneDo.email}</h3>
+					<form novalidate="novalidate"
+						data-name="notLoginFindPswByEmailCode" class="ui-form"
+						method="post" id="notLoginFindPswByEmailCodeForm"
+						action="/?user&q=getpwd">
+						<input name="email" value="{$_U.findByMailOrPhoneDo.email}" type="hidden">
+						<div class="inputs">
+							<div class="ui-form-item">
+								<label class="ui-label"><span class="ui-form-required">*</span>收到的验证码</label> 
+								<input class="ui-input" name="validCode" id="validCode" type="text">
+							</div>
+							<div class="ui-form-item">
+								<input value="提 交" id="subNotLoginFindPswByEmailCodeBt" class="ui-button ui-button-mid ui-button-green w100" type="submit">
+							</div>
+						</div>
+					</form>
+					<!--
+					<p>
+						请在60分钟内查收邮件并填写您收到的验证码
+						<a id="loginMail" data-mail="{$_U.findByMailDo.email}" class="ui-button ui-button-green ui-button-small">去邮箱收信 </a>
+					</p>
+					<p>
+						未收到验证邮件？您可以到邮件垃圾箱找找。或
+						<button id="getMobileCodeWithoutMobile" class="ui-button ui-button-green ui-button-small">重新发送验证邮件</button>
+					</p>-->
+				</div>
+				{/if}
+				{if $_U.findByMailOrPhoneDo.type=="phone"}
+				<div class="content color-white-bg p20bs">
+					<p class="info">"{$_G.system.con_webname}手机验证短信"已发送至您的手机</p>
+					<h3 class="mt20">{$_U.findByMailOrPhoneDo.phone}</h3>
+					
+					<form novalidate="novalidate"
+						  data-name="notLoginFindPswByMobileCode" class="ui-form"
+						  method="post" id="notLoginFindPswByMobileCodeForm" 
+						  action="/?user&q=getpwd" >	  
+						<input name="phone" value="{$_U.findByMailOrPhoneDo.phone}" type="hidden">
+						<div class="inputs">
+							<div class="ui-form-item">
+								<label class="ui-label"><span class="ui-form-required">*</span>收到的验证码</label> 
+								<input class="ui-input" name="validCode" id="validCode" type="text">
+							</div>
+							<div class="ui-form-item">
+								<input value="提 交" id="subNotLoginFindPswByEmailCodeBt" class="ui-button ui-button-mid ui-button-green w100" type="submit">
+							</div>
+						</div>
+					</form>
+					<!--
+					<p>
+						请在60分钟内查收邮件并填写您收到的验证码
+						<a id="loginMail" data-mail="{$_U.findByMailDo.email}" class="ui-button ui-button-green ui-button-small">去邮箱收信 </a>
+					</p>
+					<p>
+						未收到验证邮件？您可以到邮件垃圾箱找找。或
+						<button id="getMobileCodeWithoutMobile" class="ui-button ui-button-green ui-button-small">重新发送验证邮件</button>
+					</p>-->
+					</form>
+				</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+	{literal}
+	<script type="text/javascript">
+	seajs.use(['jquery','widgets/widgets'],function($,Widgets){
+		$(function(){
+		  Widgets.Form.validate();
+		})
+	})
+	</script>
+	{/literal}
+</div>

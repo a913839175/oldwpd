@@ -1,0 +1,22 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">
+	<div class="content">
+		<p class="info">
+			您正在修改的绑定邮箱是<span class="red">{$_G.user_info.email_secur}</span>
+		</p>
+		<div>	
+			<img border="0" usemap="#Map2" src="/static/img/safety_modemail.jpg">
+			<map id="Map2" name="Map2">
+				<area target="_self" href="/?user&q=code/users/emailbyold" coords="147,7,288,177" shape="rect" id="checkOldEmailInput">
+				<area target="_self" href="/?user&q=code/users/emailbymobile" coords="453,7,586,179" shape="rect" id="checkEmailByMobileInput">
+			</map>
+		</div>
+		<p class="info">如果您在操作过程中出现问题，请点击页面右侧在线客服，或拨打微拍贷客服电话：400-8878288</p>
+	</div>
+</div>
+
+<script>seajs.use(['pages/account/account/security']);</script>
+
+
+  

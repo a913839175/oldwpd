@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face { font-family:"微软雅黑"; src:url(../fonts/msyh.ttf), url(../fonts/msyh.ttf);}
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none; padding-bottom:60px;}
+/*top*/
+.top{ height:48px; width:100%; background-color:#5297ef;}
+.top1{ float:left;}
+.top1 img{ width:28px; padding-left:14px; padding-top:10px;}
+.top_title{ float:left;}
+.top_title p{ color:#FFF; font-size:17px; line-height:43px; padding-left:26vw;}
+.top2{ float:right;}
+.top2 img{ width: 22px; padding-right:15px; padding-top:16px;}
+.top3{ float:right;}
+.top3 img{ width:4px; padding-top:3px; padding-right:15px;padding-left:14px;}
+/*滑动广告*/
+
+.guanggao img{ width:100vw; height:25.47vw;}
+.tongzhi{ height:6.4vw; width:100vw; background-color:#e6f3fd;}
+.tongzhi_img{ float:left; height:3.5vw; width:4.2vw; padding-left:2.66vw; line-height:6.4vw;}
+.tongzhi_img img{ height:3.5vw; width:4.14vw;}
+.tongzhi p{ float:left; padding-left:3vw; color:#696969; line-height:6.4vw; font-size:3.2vw; width:95vw;}
+/*main*/
+.main{ height:54.7vw; width:100vw; background:url(../images/image1.png); background-size:cover;}
+.rili{ padding-top:7.34vw;}
+.rili_img{ float:left; height:4.25vw; width:4.38vw; padding-left:8.12vw; padding-right:6.5vw; line-height:4.25vw;}
+.rili_img img{ height:4.25vw; width:4.38vw;}
+.rili p{ color:#FFF; font-size:3vw; padding-top:0.5vw;}
+/*quanquan*/
+.quan{ width:100vw;}
+.quanquan{ height:28vw; width:100vw; padding-top:6vw; text-align:center;}
+.quanquan div a{ width:16vw; height:16vw; color:#fff; font-size:3.3vw; font-family:'微软雅黑'; position:absolute;}
+.quanquan div a img{ width:16vw; height:16vw;}
+.quanquan div a div{ width:16vw; line-height:16vw; position:absolute; top:0px;}
+
+.main_left{ float:left; font-size:4vw; color:#FFF; padding-left:7.8vw; padding-top:3vw;}
+.main_right{ float:right; font-size:4vw; color:#FFF;  padding-right:7.8vw; padding-top:3vw;}
+.main span{ color:#ff8d39;}
+/*main2*/
+.main2{ width:100vw;}
+.main2_row{ padding-top:2rem;}
+.main2_row div{ float:left; height:19.5rem; text-align:center;}
+.main2_row div a{ border:none;}
+.main2_row div a img{ border:none; width:12rem; height:12rem;}
+.main2_row div p{ text-align:center; font-size:3.2rem; color:#ff9642; font-family:"微软雅黑"; }
+.main2_row div aside{ text-align:center; font-size:1.8rem; color:#5d5d5d; line-height:1rem;}
+.main2_row div p span{ font-size:2rem;}
+
+
+
+
+

@@ -1,0 +1,451 @@
+ {include file="header.html"}
+ <link rel="stylesheet" type="text/css" href="/static/css/pages/about.css?v=de9ab" />
+ <div class="pg-container-content">
+      
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_left.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	<div class="right_side">
+				<h1 class="rrdcolor-blue-text">充值与提现</h1>
+				<div class="announcement_help">
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot">存钱罐充值收益如何计算？</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p>交易日（股市交易市场开放时间）15点前充值，下一交易日开始计算收益（遇双休、节假日顺延）。举例（假设不含节假日）：</p>
+							<div class="bank_limit_table_con">
+								<table class="bank_limit_table">
+									<tr>
+										<th style="text-align: center">充值时间段</th>
+										<th style="text-align: center">收益起始时间</th>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;周一15:00至周二15:00</td>
+										<td>&nbsp;&nbsp;周三开始计算收益，周四可以查询到收益</td>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;周二15:00至周三15:00</td>
+										<td>&nbsp;&nbsp;周四开始计算收益，周五可以查询到收益</td>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;周三15:00至周四15:00</td>
+										<td>&nbsp;&nbsp;周五开始计算收益，周六可以查询到收益</td>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;周四15:00至周五15:00</td>
+										<td>&nbsp;&nbsp;下周一开始计算收益，下周二可以查询到收益</td>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;周五15:00至周一15:00</td>
+										<td>&nbsp;&nbsp;下周二开始计算收益，下周三可以查询到收益</td>
+									</tr>
+								</table>
+							</div>
+							<p>货币基金的收益包括但不限于“每万份收益”和“七日年化收益率”。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">什么是万份收益？</div>
+						<div class="help_line_text">
+							<p>每万份基金净收益是指每1万份基金份额在某一日或者某一时期所取得的基金净收益额。其计算方法为将每日每份额基金净收益乘以10000，具体公式为：
+								日每万份基金净收益 =(当日基金净收益/当日基金份额总额)×10000； 期间每万份基金净收益 = 期间日每万份基金净收益之和。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">什么是七日年化收益率？</div>
+						<div class="help_line_text">
+							<p>所谓七日年化收益率，是货币基金最近七日的平均收益水平，进行年化以后得出的数据。比如某货币基金当天显示的七日年化收益率是2％，并且假设该货币基金在今后一年的收益情况都能维持前七日的水准不变，那么持有一年就可以得到2％的整体收益。当然，货币基金的每日收益情况都会随着基金经理的操作和货币市场利率的波动而不断变化，因此实际当中不太可能出现基金收益持续一年不变的情况。因此，七日年化收益率只能当作一个短期指标来看，通过它可以大概参考近期的盈利水平，但不能完全代表这只基金的实际年收益。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">微拍贷账户充值有没有限额？</div>
+						<div class="help_line_text">
+							<p>为了让用户的资金能够合理的有效利用，微拍贷目前规定最低充值金额为100元，最高充值金额会根据使用不同的充值渠道有所不同。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">微拍贷有哪些充值方式？是否收费？</div>
+						<div class="help_line_text">
+							<p>平台目前支持储蓄卡网上银行充值和绑定银行卡充值两种方式，后续会陆续支持更多充值方式；平台目前对充值不收取任何费用。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title" id="bank_limit">网银充值渠道的单笔限额和每日累计限额分别是多少？</div>
+						<div class="help_line_text">
+							<a name="bank_limit"></a>
+							<p>单笔限额和每日累计限额会根据银行自己本身的规定有所不同，详见下表。</p>
+							<div class="bank_limit_table_con">
+								<table class="bank_limit_table">
+									<tr>
+										<td>银行</td>
+										<td>支持卡种</td>
+										<td>客户类型</td>
+										<td>单笔限额(元)</td>
+										<td>每日限额(元)</td>
+									</tr>
+									<tr>
+										<td rowspan="3">中国工商银行</td>
+										<td rowspan="3">储蓄卡</td>
+										<td>电子银行口令卡（未开通手机短信认证）</td>
+										<td>500</td>
+										<td>1000</td>
+									</tr>
+									<tr>
+										<td>电子银行口令卡（已开通手机短信认证）</td>
+										<td>2000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>U盾</td>
+										<td>100万</td>
+										<td>100万</td>
+									</tr>
+									<tr>
+										<td rowspan="3">中国农业银行</td>
+										<td rowspan="3">储蓄卡</td>
+										<td>K码</td>
+										<td>1000</td>
+										<td>1000</td>
+									</tr>
+									<tr>
+										<td>动态口令卡</td>
+										<td>1000</td>
+										<td>3000</td>
+
+									</tr>
+									<tr>
+										<td>k宝</td>
+										<td>无限额</td>
+										<td>无限额</td>
+
+									</tr>
+									<tr>
+										<td rowspan="4">中国建设银行</td>
+										<td rowspan="4">储蓄卡</td>
+										<td>账号支付</td>
+										<td>1000</td>
+										<td>1000</td>
+									</tr>
+									<tr>
+										<td>刮刮卡</td>
+										<td>5000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>一代网银盾</td>
+										<td>5万</td>
+										<td>5万</td>
+									</tr>
+									<tr>
+										<td>二代网银盾</td>
+										<td>50万</td>
+										<td>50万</td>
+									</tr>
+									<tr>
+										<td rowspan="2">中国银行</td>
+										<td rowspan="2">储蓄卡</td>
+										<td>网银</td>
+										<td>5万</td>
+										<td>50万</td>
+									</tr>
+									<tr>
+										<td>中银快付</td>
+										<td>1000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td rowspan="3">中国邮政储蓄银行</td>
+										<td rowspan="3">储蓄卡</td>
+										<td>手机短信客户</td>
+										<td>10000</td>
+										<td>10000</td>
+									</tr>
+									<tr>
+										<td>电子令牌用户</td>
+										<td>100000</td>
+										<td>100000</td>
+									</tr>
+									<tr>
+										<td>Ukey+短信用户</td>
+										<td>1000000</td>
+										<td>1000000</td>
+									</tr>
+									<!-- <tr>
+										<td rowspan="2">交通银行</td>
+										<td rowspan="2">储蓄卡</td>
+										<td>短信密码版</td>
+										<td>5万</td>
+										<td>5万</td>
+									</tr>
+									<tr>
+										<td>个人网银证书版</td>
+										<td>100万</td>
+										<td>100万</td>
+									</tr>-->
+									<tr>
+										<td rowspan="2">中信银行</td>
+										<td rowspan="2">储蓄卡</td>
+										<td>动态口令卡</td>
+										<td>1000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>移动证书</td>
+										<td>1000000</td>
+										<td>1000000</td>
+									</tr>
+									<tr>
+										<td rowspan="2">兴业银行</td>
+										<td rowspan="2">储蓄卡</td>
+										<td>手机动态密码版</td>
+										<td>5000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>U盾</td>
+										<td>柜面/证书开通：单笔限额自行设定</td>
+										<td>柜面/证书开通：日累计限额自行设定</td>
+									</tr>
+									<tr>
+										<td rowspan="3">光大银行</td>
+										<td rowspan="3">储蓄卡</td>
+										<td>手机动态密码</td>
+										<td>1万</td>
+										<td>1万</td>
+									</tr>
+									<tr>
+										<td>令牌动态密码</td>
+										<td>50万</td>
+										<td>50万</td>
+									</tr>
+									<tr>
+										<td>阳光网盾</td>
+										<td>50万</td>
+										<td>50万</td>
+									</tr>
+									<tr>
+										<td rowspan="2">民生银行</td>
+										<td rowspan="2">储蓄卡</td>
+										<td>浏览器证书</td>
+										<td>5000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>U宝</td>
+										<td>2万</td>
+										<td>10万</td>
+									</tr>
+									<tr>
+									<tr>
+										<td rowspan="4">广发银行</td>
+										<td rowspan="4">储蓄卡</td>
+										<td>手机动态密码版</td>
+										<td>3000</td>
+										<td>3000</td>
+									</tr>
+									<tr>
+										<td>key盾</td>
+										<td>5000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>key令</td>
+										<td>5000</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>卡密</td>
+										<td>1000</td>
+										<td>1000</td>
+									</tr>
+									<tr>
+										<td rowspan="2">招商银行</td>
+										<td rowspan="2">储蓄卡</td>
+										<td>大众版</td>
+										<td>500</td>
+										<td>5000</td>
+									</tr>
+									<tr>
+										<td>专业版</td>
+										<td>无限额，以银行限额为准</td>
+										<td>无限额，以银行限额为准</td>
+									</tr>
+									<tr>
+										<td rowspan="1">平安银行</td>
+										<td rowspan="1">储蓄卡</td>
+										<td></td>
+										<td>无限额，以银行限额为准</td>
+										<td>无限额，以银行限额为准</td>
+									</tr>
+									<tr>
+										
+									</tr>
+									<tr>
+										<td rowspan="1">浦发银行</td>
+										<td rowspan="1">储蓄卡</td>
+										<td></td>
+										<td>无限额，以银行限额为准</td>
+										<td>无限额，以银行限额为准</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title" id="bind_bank_limit">绑卡支付的单笔限额和每日累计限额分别为多少？</div>
+						<div class="help_line_text">
+							<a name="bind_bank_limit"></a>
+							<p>单笔限额目前范围为100~5000元，日累计限额会根据银行规定有所不同，详见下表。</p>
+							<div class="bank_limit_table_con">
+								<table class="bank_limit_table">
+									<tr>
+										<td>银行（借记卡）</td>
+										<td>首次绑卡支付限额(元)</td>
+										<td>已绑卡支付限额(元)</td>
+									</tr>
+									<tr>
+										<td >交通银行</td>
+										<td>2万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >中国银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >农业银行</td>
+										<td>2万元</td>
+										<td>单笔2万元/日5万元</td>
+									</tr>
+									<tr>
+										<td >建设银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >工商银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日5万元</td>
+									</tr>
+									<tr>
+										<td >招商银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >中信银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >民生银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日100万元</td>
+									</tr>
+									<tr>
+										<td >广发银行</td>
+										<td>5000元</td>
+										<td>单笔5万元/日50万元<BR></td>
+									</tr>
+									<tr>
+										<td >兴业银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日5万元</td>
+									</tr>
+									<tr>
+										<td >光大银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >上海银行</td>
+										<td>5000元</td>
+										<td>单笔5000元/日5万元</td>
+									</tr>
+									<tr>
+										<td >邮储银行</td>
+										<td>5000元</td>
+										<td>单笔5000元/日5000元</td>
+									</tr>
+									<tr>
+										<td >华夏银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元<BR></td>
+									</tr>
+									<tr>
+										<td >平安银行</td>
+										<td>5万元</td>
+										<td>单笔5万元/日50万元</td>
+									</tr>
+									<tr>
+										<td >浦发银行</td>
+										<td>2万元</td>
+										<td>单笔2万元/日5万元</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">如何进行提现？提现是否收费？</div>
+						<div class="help_line_text">
+							<p>提现时您需要先绑定一张开户人姓名和您在微拍贷上提供的身份证上的真实姓名一致的银行卡，再将您在“微拍贷”账号中的可用余额申请提现到您绑定的提现银行卡上，提现不收取任何费用。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">提现是否有金额或次数限制？</div>
+						<div class="help_line_text">
+							<p>单笔最低1元，最高50000元，每日提现累计额度为200000元；无提现次数限制。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title"  id="withdrawal">存钱罐提现，资金转出到银行卡的到账时间？</div>
+						<a name="withdrawal"></a>
+						<div class="help_line_text">
+							<p>用户T日发起提现，银行卡入账时间为T+1个工作日；微拍贷针对用户提现都是实时发起给银行处理，到账时间以银行实际为准。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">提现时可以变更已关联的提现银行储蓄卡吗？</div>
+						<div class="help_line_text">
+							<p>可以，您可以在“我的账户-账户管理-银行卡信息”页面删除绑定银行卡，再重新绑定一张即可。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">为什么会出现提现失败？</div>
+						<div class="help_line_text">
+							<p>造成您提现失败的原因可能有以下几种：</p>
+							<p>1、关联银行卡的持卡人姓名身份信息与实名认证信息不一致；</p>
+							<p>2、网络异常或系统繁忙。</p>
+							<p>3、银行本身对提现的银行卡做了限制</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">为什么页面提示“提现申请成功”，订单状态也是“成功”，但是T+1个工作日资金未到账？</div>
+						<div class="help_line_text">
+							<p>因为提现申请成功指的是银行成功接收到了请求，但是银行在处理您的提现申请校验银行卡信息与已实名认证时的信息不匹配时，银行会处理失败，进行退票处理，那么则会进入退票流程，在退票处理完毕之前都会保持“成功”状态，当接收到银行退票成功消息后立刻会更新状态。</p>
+						</div>
+					</div>
+					<div class="help_line">
+						<div class="help_line_title">如果发生退票，那么资金会怎么处理？</div>
+						<div class="help_line_text">
+							<p>如果发生了银行退票的情况，您的提现资金会在T+2个工作日退回到您的微拍贷账户，请注意查收。如果没有退回，请及时联系客服帮助您查询。</p>
+						</div>
+					</div>
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>seajs.use(['pages/contents/rechargeencashment']);</script>  

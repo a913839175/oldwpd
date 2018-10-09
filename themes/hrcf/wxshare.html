@@ -1,0 +1,43 @@
+{include file="header.html"}
+<div class="pt320"></div>
+<div id="pg-index">
+ <div class="container_12">
+      <!-- Loan List -->
+      <div class="loan mb fn-clear">
+        <div class="grid_12">
+          <ul id="loan-list" class="ui-list ui-list-m ui-list-invest">
+			<li id="loan-list-header" class="ui-list-header fn-clear">
+			  <span class="ui-list-title fn-left color-gray-text w120" next="-1">投资人</span>
+			  <span class="ui-list-title fn-left color-gray-text w120" next="-1">姓名</span>
+			  <span class="ui-list-title fn-left color-gray-text w120" next="-1">金额</span>
+			  <span class="ui-list-title fn-left color-gray-text text-center w500" next="-1">微信分享领取红包</span>
+			</li>
+		  {list module="borrow" function="GetWxhongbaoFenxiang" var="loop"} 
+		  {if $loop.list}  
+		  {foreach from="$loop.list" item="var" }
+			<li class="ui-list-item fn-clear " style="height:220px">
+			  <span class="ui-list-field fn-left text-big w120">{$var.phone}</span>
+			  <span class="ui-list-field fn-left text-big w120">{$var.realname}</span>
+			  <span class="ui-list-field fn-left text-big w120">{$var.account}</span>
+			  <span class="ui-list-field fn-righttext-big w500 pr40">{$var.fenxiangzhe}</span>
+			</li>			
+		 {/foreach}
+		  {if $loop.pages.total>0}
+		  <div class="page">{$loop.pages|showpage}</div>
+		  {/if}
+		  {else}
+		  	<li class="ui-list-item fn-clear ">
+		  		<span class="ui-list-field fn-left text-big w260">
+			    	暂无投资项目
+			    </span>
+		  	</li>
+		  {/if}
+		  {/list}
+			
+			</ul>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="pd320"></div>

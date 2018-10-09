@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none;  background-color:#1a1a39; position:relative;}
+
+.game_head{ width:100vw; height:62vw; background:url(../images/myprize.png) no-repeat; background-size:cover; text-align:center;}
+.game_head p{ color:#fff; font-weight:bold; font-size:4.5vw; letter-spacing:2px; padding-top:54vw;}
+.game_body{ width:84vw; margin: 0 auto; clear:both;}
+.game_body li{ float:left; width:16vw; height:23.8vw; margin:1vw 2.5vw; text-align:center; background:url(../images/redbag.png) no-repeat; background-size:cover;}
+.game_body li p{ color:#fff; font-size:4.5vw; padding-top:13vw;}
+.game_body div{ clear:both; height:8vw; margin-top:3vw;}
+.game_body div div{ float:left; width:4vw; height:4vw; padding-left:4.5vw; padding-right:0.5vw;}
+.game_body div div img{ width:100%;}
+.game_body div p{ font-size:3vw; padding-top:3vw; color:#fff;}
+.game_body div p span{ color:#fcd709;}
+
+
+.game_but{ width:78vw; height:20vw; margin: 0 auto; margin-top:4vw;}
+.game_but div{ float:left; width:39vw; height:12vw; line-height:13vw; text-align:center; color:#e60a00; font-size:4.5vw; background:url(../images/prizebut.png) no-repeat; background-size:cover; font-weight:bold;}
+.game_but div:hover{background:url(../images/prizebut1.png) no-repeat; background-size:cover;}
+
+
+
+

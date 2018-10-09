@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+{if $_G.articles.name!=""}{$_G.articles.name}|{/if}
+{if $_G.articles_result.name!=""}{$_G.articles_result.name}|{/if}
+{if $_G.site_result.name!=""}{$_G.site_result.name}|{/if}
+{$_G.system.con_webname}
+</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<meta name="keywords" content="{if $_G.articles.tags!=""}{$_G.articles.tags}{elseif $_G.site_result.keywords!=""}{$_G.site_result.keywords}{else}{$_G.system.con_keywords}{/if}" />
+<meta name="description" content="{if $_G.articles.contents!=""}{$_G.articles.contents|html_format|truncate:60}{elseif $_G.site_result.description!=""}{$_G.site_result.description}{else}{$_G.system.con_description}{/if}"/>
+<meta name="generator" content="huarongchafu.com" />
+<meta name="author" content="huarongchafu Team" />
+<meta name="copyright" content="2015-2016 weipaidai Inc." />
+<meta name="baidu-site-verification" content="fcerQNordr" />
+<meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+<script src="/static/js/seajs/2.1.0/sea.js?v=dee86"></script>
+<script src="/static/js/config.js?v=e17ed"></script>
+<link rel="shortcut icon" href="/logo.png?icoversion=2">
+<link rel="stylesheet" href="/static/css/one.css?v=6e020">
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="/static/css/ie8-and-lower.css?v=5c427" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="/static/css/ie6-and-lower.css?v=caea6" />
+<![endif]-->
+</head>
+<body>
+<div class="pg-container" style="background-color: #3260c1;">
+    
+<div class="ui-header" id="header">
+  <div class="ui-header-top ">
+    <div class="container_12 fn-clear">
+      <div class="grid_12 fn-clear">
+        <div class="fn-left">
+           <span class="ui-nav-app-phone">
+           		<i class="icon icon-app"></i>
+           		<span class="aril">400-8878288</span>
+           </span>
+	       <!-- <a class="ui-nav-item" href="" onclick="addFavorite();" rel="sidebar">加入收藏</a>
+	       <a href="" class="sp"><span>关注我们 :</span></a> -->
+	       <!--<span class="ui-nav-app-phone">
+			  <i></i>
+			  <a target="_blank" href="/appphone/index.html">移动客户端</a>
+		   </span>-->
+	       <!-- 微拍贷微博地址 -->
+	       <span class="hover_sina">
+	       		<a href="http://weibo.com/weipaidai" target="_blank"></a>
+	       </span>
+	       <span class="hover_weixin">
+			  <div class="tk" style="display: none;"></div>
+		   </span>                
+        </div>
+        <div class="fn-right">
+          {if $_G.user_id==""}	 
+	    	<a class="ui-nav-item reg-link" href="/?user&q=reg">快速注册</a>
+          	<a class="ui-nav-item login-link" href="/?user&q=login">立即登录</a>
+	      {else}
+	    	<span>您好，</span>
+            <span class="ui-nav-item-x">
+              <a class="ui-nav-item ui-nav-username" style="padding: 0 30px 0px 10px;" href="/index.php?user">
+                <span>{$_G.user_info.niname}</span>
+                <span class="arrow-down-new"></span>
+              </a>
+              <div class="ui-nav-dropdown ui-nav-dropdown-account fn-hide">
+              	<div class="loadfail fn-hide"><img src="/static/img/loading.gif" /></div>
+              	<div class="ui-nav-dropdown-account-box">
+	                <div class="fn-clear">
+	                  <div class="user-avatar-container fn-left">
+	                    <a href="/?user&q=code/rating/basic"><img src="{$_G.user_id|avatar}" width="78" height="78"/></a>
+	                  </div>
+	                  <dl class="user-info-container mt10 fn-left">
+	                  	
+						{if $_G.user_info.email_status=="true" && $_G.user_info.phone_status=="true" && $_G.user_info.cashpass_status=="true" && $_G.user_info.realname_status=="true"}
+						{articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}{/articles}
+						<dd class="mb10" style="display: block;">
+	                      <span class="mr10 color-dark-text">账户余额</span>
+	                      <span class="num-m color-orange-text">
+	                        <em id="he-avaliableBalance">{$var.balance|round:"2,3"|default:0.00}</em>元
+	                      </span>
+	                    </dd>
+	                    <dd style="display: block;">
+	                  		<a class="fn-left ui-button ui-button-green ui-button-mid mr10" href="/?user&q=code/account/recharge_new">充值</a>
+	                  		<a class="fn-left ui-button ui-button-blue ui-button-mid last" href="/?user&q=code/account/cash_new">提现</a>
+	                    </dd>
+						
+						{else}
+	                    
+	                    <dd class="user-info-container-tips" style="display: block;">
+	                    	为保证您可完整使用微拍贷网站功能，请完成下面各项设置
+	                    </dd>
+
+	                    <dd class="fn-clear icons" style="display: block;">
+	                      <div class="fn-left icon-box light" style="margin-left:-8px">
+	                        <a href="/?user&q=code/approve/security" 
+	                           class="fn-left safe-rank cellphone {if $_G.user_info.phone_status=="true"}light{/if}"
+	                           {if $_G.user_info.phone_status=="true"}title="绑定手机，已绑定"{else}title="绑定手机，未绑定"{/if}
+	                           ></a>
+	                      </div>
+	                      <div class="fn-left icon-box light">
+	                        <a href="/?user&q=code/approve/security" 
+	                           class="fn-left safe-rank man {if $_G.user_info.realname_status=="true"}light{/if}"
+	                           {if $_G.user_info.realname_status=="true"}title="实名认证，已设置"{else}title="实名认证，未设置"{/if}
+	                           ></a>
+	                      </div>
+	                      <div class="fn-left icon-box light">
+	                        <a href="/?user&q=code/approve/security" 
+	                           class="fn-left safe-rank lock {if $_G.user_info.cashpass_status=="true"}light{/if}"
+	                           {if $_G.user_info.cashpass_status=="true"}title="交易密码，已设置"{else}title="交易密码，未设置"{/if}
+	                           ></a>
+	                      </div>
+	                      <div class="fn-left icon-box light">
+	                        <a href="/?user&q=code/approve/security" 
+	                           class="fn-left safe-rank mail {if $_G.user_info.email_status=="true"}light{/if}"
+	                           {if $_G.user_info.email_status=="true"}title="绑定邮箱，已绑定"{else}title="绑定邮箱，未绑定"{/if}
+	                           ></a>
+	                      </div>
+	                    </dd>
+	                    {/if}
+	                  </dl>
+	                </div>
+	                {if $_G.user_info.email_status=="true" && $_G.user_info.phone_status=="true" && $_G.user_info.cashpass_status=="true" && $_G.user_info.realname_status=="true"}
+	                <div class="ui-nav-dropdown-bottom" style="display: block;">
+	                	<a href="/?user&q=code/borrow/gettender"/>理财管理</a>
+	                	&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+	                	<a href="/index.php?user" />我的微拍贷</a>
+	                </div>
+	                {else}
+	                <div class="ui-nav-dropdown-bottom" style="display: block;">
+	                	<a class="ui-button ui-button-blue ui-button-mid" href="/index.php?user">进入我的微拍贷</a>
+	                </div>
+					{/if}
+	                <a href="/index.php?user"></a>
+	             </div>
+              </div>
+            </span>
+
+            <a class="ui-nav-item" href="/index.php?user&q=logout&type=index" style="padding:0px 10px 0px 0px;" >[退出]</a>
+            <a class="ui-nav-item" id="header-msg" href="/?user&q=code/message" target="_blank">
+            {if $_G.message_result.message_no>0}
+            <i class="icon-msg-new text-small mr5" id="header-msgcount">{$_G.message_result.message_no}</i>
+            {else}
+            <i class="icon-msg-new text-small mr5" id="header-msgcount" style="display:none;" ></i>
+            {/if}
+                                消息</a> 
+	      {/if}
+	      <a class="ui-nav-item" href="/newguide/index.html">新手指导</a>
+	      <a class="ui-nav-item" href="/newhelp/index.html" target="_blank">帮助</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-header-main">
+    <div class="container_12 fn-clear">
+      <div class="ui-header-logo-grid fn-left">
+        <a class="ui-header-logo" href="/"></a>
+      </div>
+      <div class="ui-header-grid fn-right">
+        <div class="fn-hide no-nav-text"></div>
+        <ul class="ui-nav ">
+          <li class="ui-nav-item ui-nav-item-x">
+          	<a class="ui-nav-item-link rrd-dimgray" href="/">
+          		<span>首页</span>
+          	</a>
+          </li>
+          <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/invest/index.html">
+              <span>我要理财</span>
+            </a>
+            <ul class="ui-nav-dropdown ui-nav-dropdown-invest" style="display: none;">
+              <li class="ui-nav-dropdown-angle"><span></span></li>
+              {if $_G.site_sub_list_28!=""}
+			  {foreach from="$_G.site_sub_list_28" item="_item"}
+				  <li class="ui-nav-dropdown-item">
+				  <a class="rrd-dimgray" href="/{$_item.nid}/index.html">{$_item.name}</a>
+				  </li>
+			  {/foreach}
+			  {/if}
+            </ul>
+          </li>
+          <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/borrow/index.html">
+              <span>我要借款</span>
+            </a>
+          </li>
+          <!-- <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/debt/index.html">
+              <span>债权转让</span>
+            </a>
+          </li> -->
+          <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/fengkong/index.html">
+              <span>风险控制</span>
+            </a>
+          </li>
+          <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/intro/index.html">
+              <span>关于我们</span>
+            </a>
+          </li>
+          <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/bonus/index.html">
+              <span>红包区</span>
+            </a>
+          </li>
+          <li class="ui-nav-item ui-nav-item-x">
+            <a class="ui-nav-item-link rrd-dimgray" href="/index.php?user&q=shangchengindex">
+              <span>积分商城</span>
+            </a>
+            <ul class="ui-nav-dropdown ui-nav-dropdown-invest" style="display: none;">
+              <li class="ui-nav-dropdown-angle"><span></span></li>
+              <li class="ui-nav-dropdown-item">
+				  <a class="rrd-dimgray" href="/index.php?user&q=shangchengindex">商城首页</a>
+			  </li>
+			  <li class="ui-nav-dropdown-item">
+				  <a class="rrd-dimgray" href="/index.php?user&q=jifenduihuan">积分兑换</a>
+			  </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui-footer" id="footer">
+  <div class="container_12">
+  	  <div class="grid_12">
+  	  	<div class="ui-footer-section ui-footer-narrow-hide fn-clear">
+		  <ul class="ui-footer-links fn-left w850">
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/contact/index.html">联系我们</a></li>
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/intro/index.html">公司简介</a></li>
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/report/index.html">媒体报道</a></li>
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/news/index.html">最新动态</a></li>
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/invite/index.html">招贤纳士</a></li>
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/notices/index.html">网站公告</a></li>
+	      	<!-- <li class="fn-left"><a class="gray" target="_blank" href="">新手指南</a></li> -->
+	      	<li class="fn-left"><a class="gray" target="_blank" href="/glory/index.html">荣誉资质</a></li>
+		  </ul>
+		</div>
+  	  	<div class="ui-footer-section ui-footer-narrow-hide fn-clear">
+		     <div class="tail-w330">
+	              <div class="tail-any" data-type="tail-any">
+	              		<a href="javascript:;" class="tail-iphone-cols">
+	                        <span class="tail-iphone"><em class="ver-ico-url ico-ver-android "></em>安卓客户端下载</span>
+	                    </a>
+	                    <!-- <a href="" target="_blank" class="tail-iphone-cols">
+	                        <span class="tail-iphone"><em class="ver-ico-url ico-ver-iphone "></em>苹果客户端下载</span>
+	                    </a> -->
+	                    <!-- <a href="" target="_blank" class="tail-iphone-cols">
+	                        <span class="tail-iphone"><em class="ver-ico-url ico-ver-wap "></em>手机浏览器访问</span>
+	                    </a> -->
+	                    <div>
+	                        <div class="flicking" style="display: block">
+	                            <span><img src="/static/img/qr-vr-android.jpg" width="80" height="80"></span>
+	                            <div class="flicking_up_in flicking-tp42"></div>
+	                        </div>
+	                        <!-- <div class="flicking" style="display: block">
+	                            <span><img src="/static/img/qr-vr-iphone.jpg" width="80" height="80"></span>
+	                            <div class="flicking_up_in"></div>
+	                        </div>
+	                        <div class="flicking">
+	                            <span><img src="/static/img/qr-vr-wap.jpg" width="80" height="80"></span>
+	                            <div class="flicking_up_in flicking-tp78"></div>
+	                        </div> -->
+	                    </div>
+	              </div>
+	          </div>
+		      <div class="summary_foot grid-left">
+		       <h5 class="color-gray-text  text-big">节省时间</h5>
+		       <p>精选理财服务，无需奔波挑选，任意时间段想投就投，想收就收。</p>
+		      </div>
+		      <div class="contact grid-left">
+		       <p>服务时间：工作日9：00-18：00</p>
+		       <h6 class="color-gray-text text-xxxl">400-8878288</h6>
+		      </div>
+  	  	</div>
+  	  	<div class="ui-footer-section last">
+	      	<div class="ui-footer-copyright">
+	          <span class="ui-footer-contact-link color-gray-text">2015 微拍贷 All rights reserved</span>
+	          <span class="ui-footer-contact-link color-gray-text has-separator">上海佩辉金融信息服务有限公司</span>
+	          <span class="ui-footer-contact-link color-gray-text has-separator last">沪ICP备15015610</span>
+	      	</div>
+	        <div class="ui-footer-verification ui-footer-narrow-hide fn-clear">
+	          <a class="ui-footer-verification-item fn-left credibility" title="微拍贷荣获中国电子商务协会“诚信网站”认证殊荣" href="https://search.szfw.org/cert/l/CX20150625010872010616" target="_blank"></a>
+	          <a class="ui-footer-verification-item fn-left trust" title="微拍贷已通过中网权威数据库对比，获得“可信网站”身份验证，您可放心使用。" href="" target="_blank"></a>
+	          <a class="ui-footer-verification-item fn-left internet" title="微拍贷已通过中网权威数据库对比，获得“互联网金融行业认证”，您可放心使用。" href="" target="_blank"></a>
+	          <a class="ui-footer-verification-item fn-left itrust" title="微拍贷已经成为中国互联网信用评价中心网络诚信联盟成员，并且完成企业信用评级 " href="" target="_blank"></a>
+	          <a class="ui-footer-verification-item fn-left police" title="微拍贷已经完成在公安机关的信息备案，您可了解网站相关备案信息。" href="http://www.miibeian.gov.cn/" target="_blank"></a>
+	          <a class="fn-left" title="微拍贷360安全检测。" href="http://webscan.360.cn/index/checkwebsite/url/www.weipaidai.com" target="_blank">
+	          <img src="/static/img/360安全.png" alt="" height="36px" class="pt5 pl5"/>
+	          </a>
+	          
+	          <a class="fn-left pr10 pl10" key ="55a8b025efbfb03c9032fd9e" logo_size="124x47" logo_type="business"  href="http://www.anquan.org/authenticate/cert/?site=www.weipaidai.com&at=business">
+	          <img src="/static/img/anquan.png" alt="" height="36px" class="pt5 pl5"/>
+	          </a>
+	          <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="https://seal.wosign.com/tws.js"></SCRIPT>
+	        </div>
+	      </div>
+  	  </div>
+  </div>
+ </div><!--脚尾---->
+
+<!-- <div class="fn-hide">
+  <div id="weixin-content" class="p20 text-center">
+    <img src="/static/img/weixin_l.jpg" />
+    <p>微信“发现”扫一扫，微拍贷动态全知道！</p>
+  </div>
+</div> -->
+{literal}
+<script>
+seajs.use(['components/components'], function(Components) {
+	 new Components.Header().init();
+});
+</script>
+{/literal}
+{literal}
+<script>
+seajs.use(['components/components'], function(Components) {
+  new Components.Footer().init();
+});
+</script>
+{/literal}
+{literal}
+<script>
+function addFavorite(){
+	seajs.use(['addFavorite'], function(AddFavorite) {
+		  new AddFavorite.addFavorite();
+	});	
+}
+</script>
+
+{/literal}
+
+</body>
+</html>
+
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/css/guoqinghuodong.css" />
+
+<div class="guoqinghuodong">
+	<div class="guoqing_banner">
+    	<div class="guoqing_rule">活动规则说明</div>
+        <div class="guoqing_rule_li">
+        	<li>1. 投资成功后即可获得1个可分享红包</li>
+            <li>2. 分享成功后你和你的小伙伴均可领取由“微拍贷”送出的高额红包</li>
+            <li>3. 每个微拍贷用户最多可获得并使用3个红包</li>
+            <li>4. 红包使用期限截至2015年10月31日</li>
+        </div>
+        <div class="guoqing_rule_zhu">
+        	注：必须通过微信端完成投资才可获得投资分享红包，领取红包的小伙伴只需要通过微信参加领取红包即可。
+        </div>
+        <div class="guoqing_saosao">
+        	<div class="guoqing_erweima"></div>
+            <div class="guoqing_tankuang">
+            	<p>扫一扫 !  即可参加<br>投资分享红包活动</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pd320"></div>

@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none; background-color:#ececec;}
+/*top*/
+.top{ height:13.5vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left; width:7vw; margin-left:4.5vw; margin-top:3.3vw;}
+.top1 img{ width:100%; }
+.top_title{ float:left; padding-left:20.5vw; width:36vw;}
+.top_title a{ float:left; width:18vw;}
+.top_title span{ float:left; color:#fff; font-size:4.5vw; width:36vw; height:8vw; line-height:8vw; text-align:center; margin-top:2.7vw;}
+.top_title div{ float:left; color:#6fcffb; font-size:4.5vw; width:18vw; height:8vw; line-height:8vw; text-align:center; margin-top:2.7vw; background-color:#008dce; border-radius: 1.5vw 0 0 1.5vw;}
+.top2{ float:right; width:6vw; margin-right:6.5vw; margin-top:4.5vw;}
+.top2 img{ width:100%;}
+.top3{ float:right; width:0.95vw; padding-top:1.7vw; padding-right:7.5vw;}
+.top3 img{ width:100%;}
+.cur{border-bottom: 3px solid #00a0e9;}
+.hetap{width: 100vw;height:11vw;background: #fff;}
+.sshezt{width: 50vw;height: 11vw;float: left;line-height: 12vw;font-size: 5.3vw;text-align: center;color: #5d5d5d;display: block;margin:0 auto;}
+
+/*正在进行的样式*/
+.heing{margin-bottom: 30vw;}
+.he-content{width: 100vw;height: 19vw;background: #fff;margin-top:3.2vw;}
+.he-contop{width: 86vw;height: 8vw;margin-left:5.4vw;line-height: 8vw;}
+.he-pdf{color: #000;font-size: 4vw;display: block;float: left;}
+.he-time{color: #7c7c7c;font-size: 3vw;display: block;float: right;}
+.heyl{clear: both;height: 6vw;width: 17vw;background:#00a0e8;color: #fff;display: block;text-align: center;line-height: 6vw;border-radius: 6px;margin-left: 75vw;margin-top: 2vw;font-size: 4vw;}
+
+/*已结束的样式*/
+.heend{display: none;margin-bottom: 30vw}
+.he-content1{width: 100vw;height: 19vw;background: #fff;margin-top:3.2vw;}
+.he-contop1{width: 86vw;height: 8vw;margin-left:5.4vw;line-height: 8vw;}
+.he-pdf1{color: #7c7c7c;font-size: 4vw;display: block;float: left;}
+.he-time1{color: #7c7c7c;font-size: 3vw;display: block;float: right;}

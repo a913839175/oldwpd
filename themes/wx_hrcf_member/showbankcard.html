@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/showbankcard.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/showbankcard.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top1">
+            <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+            <p>银行卡</p>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div class="main">
+    {if $_U.userBanks_number==0}
+    <a href="/?wxuser&q=addbank">
+    <li class="main_tianjia">
+            <div class="main_tianjia_in">
+                <div class="main_tianjia_img">
+                    <img src="/static/hrcfwx/images/tianjia.png"/>
+                </div>
+                <p>添加银行卡</p>
+            </div>
+        </li>
+    </a>
+    {else}
+        {foreach from="$_U.userBanks" item="userBanks_item"}
+        <li>
+           <a href="javascript:;" id="del_card"><div class="main_del">解绑</div></a>
+            <div class="main_left" id="bank" data-id="{$userBanks_item.id}">
+                <div class="main_lift_mid">
+                    <p>{$userBanks_item.bank_name}</p>
+                    <span>{$userBanks_item.cardId}</span>
+                </div>
+            </div>
+        </li>
+        {/foreach}
+    {/if}
+    </div>
+    <p class="showtl">依据国家政策银行相关条例，仅限绑定一张银行卡信息</p>
+
+    {include file="../hrcf/wxfooter4.html"}
+    
+</body>
+</html>

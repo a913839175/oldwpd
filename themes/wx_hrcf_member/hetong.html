@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/hetong.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/hetong.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+	<div class="top">
+    	<div class="top1">
+        	<a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+              <span>我的合同</span>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div class="hetap" id="hetap">
+        <div class="sshezt cur">正在进行</div>
+        <div class="sshezt">已结束</div>
+    </div>    
+    <div class="heing">
+        <!-- 正在进行的合同 --> 
+        {list module="borrow" var="loop" function ="GetTenderBorrowList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" type="wait" tender_status="1" epage="100"}
+        {foreach from="$loop.list" item="item"}
+        {if $item.tender_type!="hongbao"}
+        <div class="he-content">
+            <div class="he-contop">
+                <span class="he-pdf">微系列理财协议.pdf</span>
+                <span class="he-time">{$item.tender_time|date_format:"Y.m.d H:i"}</span>
+            </div>
+            <a href="/?user&q=hetong&id={$item.tid}" class="heyl">预览</a>
+        </div>
+        {/if}
+        {/foreach}
+        {/list}
+
+    </div>
+    <div class="heend" >
+        <!-- 已结束的合同 -->
+        {list module="borrow" var="loop" function ="GetRecoverList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" borrow_status=3 type="yes" order="repay_time" epage="100"}
+        {foreach from="$loop.list" item="item"}
+        {if $item.tender_type!="hongbao"}
+        <div class="he-content1">
+            <div class="he-contop1">
+                <span class="he-pdf1">微系列理财协议.pdf</span>
+                <span class="he-time1">{$item.addtime|date_format:"Y.m.d H:i"}</span>
+            </div>
+        </div>
+        {/if}
+        {/foreach}
+        {/list}
+
+    </div>
+
+    {include file="../hrcf/wxfooter4.html"}
+</body>
+</html>
+

@@ -1,0 +1,189 @@
+body{
+	background-color: gray;
+	MARGIN: 0px;
+	padding: 0px;
+}
+
+#main{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	/*background-color: green;*/
+	background-image: url(../Images/loginbg1.jpg);
+	background-repeat: no-repeat;
+	/*background-position: center center; */
+
+}
+
+#logo{
+	position: fixed;
+	z-index: 10;
+	top: 50px;
+	left: 65px;
+	width: 190px;
+	height: 64px;
+	/*background-color: red;*/
+	/* background-image: url("../Images/logo.png"); */
+}
+#footer{
+	position: fixed;
+	bottom: 50px;
+	left: 30px;
+	width: 400px;
+	height: 26px;
+	/*background-color: red;*/
+}
+#footer p{
+	color: white;
+	font-size: 12px;
+	font-family: "微软雅黑","宋体";
+	opacity: 0.5;
+}
+
+
+/*--------------------login--------------------------------*/
+#login{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -320px;
+	width: 640px;
+	height: 400px;
+	/*background-color: yellow;*/
+}
+#login .login_icon {
+	/*margin: 0 auto;*/
+	/*width: 300px;*/
+	/*height: 50px;*/
+	text-align: center;
+	/*background-color: red;*/
+	
+}
+
+
+#login .login_checkbox{
+	margin-top: 12px;
+	height: 17px;
+	vertical-align: middle;
+	/*background-color: red;*/
+
+}
+
+#login .login_checkbox span{
+	float: left;
+	margin-left: 10px;
+	font-size: 12px;
+	font-family: "微软雅黑","宋体";
+	color:#666;
+	
+
+}
+
+#login .login_checkbox  input[type=checkbox]{
+	margin-left: 10px;
+	height: 17px;
+	width: 17px;
+	cursor: pointer;
+	background-color: transparent;
+	border-style: none;
+	vertical-align: middle;
+	/*-webkit-appearance: none;
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid B9BBBE;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	zoom:200%;*/
+}
+
+
+#login .login_input{
+	margin-top: 25px;
+	height: 67px;
+	position: relative;
+	/*width: 629px;*/
+	/*background-color: green;*/
+	background-image: url(../Images/login6.png) ;
+	background-repeat: no-repeat;
+
+
+}
+
+#login .input_0{
+	font-family:'微软雅黑';
+	height: 20px;
+	line-height: 20px;
+	width: 200px;
+	position: absolute;
+	left: 50px;
+	top: 25px;
+	font-size: 14px;
+	color: #666;
+	background-color: transparent;
+	border-style: none;
+	
+	
+}
+
+#login .input_1{
+	font-family:'微软雅黑';
+	line-height: 20px;
+	height: 20px;
+	width: 200px;
+	position: absolute;
+	left: 320px;
+	top: 25px;
+	font-size: 14px;
+	color: #666;
+	background-color: transparent;
+	border-style: none;
+	
+	
+}
+#login #tx{ z-index: 1;}
+#pwd{ z-index: 222}
+
+
+#login .input_3{
+	font-family: "微软雅黑";
+	height: 67px;
+	width: 104px;
+	position: absolute;
+	right: 8px;
+	top: 0px;
+	color: white;
+	background-color: transparent;
+	background-image: url(../Images/login7.png);
+	border-style: none;
+	cursor: pointer;
+	
+	
+}
+
+#login_forget{
+	float: left;
+	margin-left: 80px;
+}
+#login_forget a{
+	color: #666;
+	text-decoration:underline;
+}
+#login_forget a:hover{
+	color: white;
+	text-decoration:none;
+}
+/*----------------------------------------------------*/
+
+

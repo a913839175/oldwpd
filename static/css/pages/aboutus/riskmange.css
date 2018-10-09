@@ -1,0 +1,10 @@
+@charset "utf-8";
+.contentright{
+    width: 890px;
+    float: right;
+    background: #fff;
+    padding: 16px;
+}
+.fl{
+    float: left;
+}

@@ -1,0 +1,142 @@
+{include file="wxheader.html"}
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zzsc.js"></script>
+<link href="/static/hrcfwx/css/shouye.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<!-- <link rel="stylesheet" href="/static/hrcfwx/css/bootstrap.min.css"> -->
+
+<div class="top">
+        <div class="top1">
+            <div class="top1_img">
+                <img src="/static/hrcfwx/images/nav.png"/>
+            </div>
+        </div>
+        {include file="wxtop.html"}
+    </div>
+    <!-- 轮播 -->   
+    <div id="myCarousel" class="carousel slide guanggao" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>    
+    <div class="guanggao">
+        <ul class="bxslider" id="index-bxslider">
+            <li><a href="/jiangxigonggao/index.html"><img src="/static/hrcfwx/images/4-00.png"/></a></li>
+            <li><a href="/wxlicai/index.html"><img src="/static/hrcfwx/images/500.png"/></a></li>
+        </ul>
+    </div>
+    </div>
+    <!-- 轮播over -->
+    <div class="tongzhi">
+        <div class="tongzhi_img">
+            <img src="/static/hrcfwx/images/sound.png"/>
+        </div>
+        <a href="">
+            <p>
+                <marquee scrollamount="3">
+                {loop module="articles" function="GetList" var="var" limit="1" type_id="3" flag="index"}
+                <a href="#" class="tongzhia">{$var.update_time||date_format:"Y-m-d"}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$var.name}</a>
+                {/loop}
+                </marquee>
+            </p>
+        </a>
+    </div>
+    <!-- 4个按钮 -->
+    <div class="isimple">
+        <div class="isimplemian clearfix">
+            <li class="isimple-li">
+                <a href="/wxlicai/index.html" style="margin: 0;padding: 0">
+                    <img src="/static/hrcfwx/images/liwjh1.png"/ class="li-wjh">
+                    <div class="isimple-lims">微系列</div>
+                </a>
+            </li>
+            <li class="isimple-li">
+                <a href="/wxsblist/index.html">
+                    <img src="/static/hrcfwx/images/liwjh3.png"/ class="li-wjh">
+                    <div class="isimple-lims">散标</div>
+                </a>
+            </li>
+            <li class="isimple-li">
+                <a href="/wxgongsi/index.html">
+                    <img src="/static/hrcfwx/images/liwjh4.png"/ class="li-wjh">
+                    <div class="isimple-lims">公司介绍</div>
+                </a>
+            </li> 
+            <li class="isimple-li">
+                <a href="/?wxuser">
+                    <img src="/static/hrcfwx/images/8-01.png"/ class="li-wjh">
+                    <div class="isimple-lims">我的账户</div>
+                </a>
+            </li>
+        </div>
+    </div
+   <div class="irili" style="position: relative;">
+
+       <div class="irilidata clearfix" >
+           <img src="/static/hrcfwx/images/rili2.png" class="iriliimg">
+           <p class="idatawz"><?php echo date('Y.m.d'); ?></p>
+       </div>
+       {articles module="wxaccount" function="GetSome" var="var" user_id="$_G.user_id" sina_sign_type="$_G.system.sina_sign_type" }{/articles}
+       <div class="iProfit" style="position: relative;">
+           <p class="iaddProfit">累计收益(元）</p>
+           <p class="income" style="position: relative;z-index: 10001">{$var.savingpots_daifu_total|default:0.00}</p>
+           <img src="/static/hrcfwx/images/bl4.gif" style="position: absolute;top:-12vw;left: -23vw;width: 97vw;height: 78vw">
+       </div>
+        
+   </div>
+
+<!--    <div class="main ">
+        <div class="back">
+            <img src="/static/hrcfwx/images/4-01.png"/>
+        </div>
+        <div class="zhuan">
+            <div class="zhuan-wei">
+                <a href="/wxlicai/index.html">
+                    <img src="/static/hrcfwx/images/6-01.png"/>
+                    <div>微计划系列</div>
+                </a>
+            </div>
+            <div class="zhuan-biao">
+                <a href="#">
+                    <img src="/static/hrcfwx/images/10-01.png"/>
+                    <div>借贷</div>
+                </a>
+            </div>
+            <div class="zhuan-qian">
+                <a href="/wxsblist/index.html">
+                    <img src="/static/hrcfwx/images/9-01.png"/>
+                    <div>散标</div>
+                </a>
+            </div>
+            <div class="zhuan-ren">
+                <a href="/?wxuser">
+                    <img src="/static/hrcfwx/images/8-01.png"/>
+                    <div>我的账户</div>
+                </a>
+            </div>
+            <div class="zhuan-team">
+                <a href="/wxgongsi/index.html">
+                    <img src="/static/hrcfwx/images/7-01.png"/>
+                    <div>公司介绍</div>
+                </a>
+            </div>
+        </div>
+        <div class="rili">
+            <div class="rili_img">
+                <img src="/static/hrcfwx/images/rili2.png"/>
+            </div>
+            <p>{$today}</p>
+        </div>
+        {articles module="wxaccount" function="GetSome" var="var" user_id="$_G.user_id" sina_sign_type="$_G.system.sina_sign_type" }{/articles}
+        <div class="yesterday">
+            <p>{$var.savingpots_daifu_yesday|default:0.00}</p>昨日收益(元)
+        </div>
+        <div class="allmoney">
+            <p>{$var.savingpots_daifu_total|default:0.00}</p>累计收益(元)
+        </div>
+    </div> -->
+	{include file="wxfooter1.html"}
+   <script src="/static/hrcfwx/js/bootstrap.min.js"></script>
+

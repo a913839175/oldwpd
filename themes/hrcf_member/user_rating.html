@@ -1,0 +1,178 @@
+{include file="../hrcf/header.html"}
+
+<div class="pg-container-content">
+  <link rel="stylesheet" href="/static/css/pages/account/account.css">    
+  <div id="pg-account-user" class="pg-account">
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=code/rating/basic">账户管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a>个人基础信息</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10">
+        <div class="p20bs color-white-bg fn-clear">
+	     <div class="fn-clear head">
+	     	<div class="title fn-left">个人基础信息</div>
+	     	<div class="fn-right"><a id="modiForm" class="ui-button ui-button-mid ui-button-green">修改信息</a></div>
+	     </div>
+     	 <form data-name="userbasic" enctype="multipart/form-data" class="ui-form" method="post" id="userInfoForm" action="/?user&q=code/rating/basic">
+     	 	<div class="userphoto" id="userphoto">  
+     	 	   	<a id="modUserPhoto" class="photo" href="/?user&q=code/users/avatar">
+     	 	   	<img src="{$_G.user_id|avatar}" />
+     	 	   	</a>
+     	 	    <input name="avatar" id="modUserPhotoInput" type="hidden" value="" />   
+     	 	</div>
+     	 	<div class="inputs">
+     	 		  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>昵称</label>
+                    {$_G.user_info.niname}
+                  </div>
+     	 		
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>真实姓名</label>
+                    {if $_G.user_info.realname_status=='true'}
+                    {$_G.user_info.realname_secur}
+                    <span class="icon-status pass">已绑定</span>
+                    {elseif  $_G.user_info.realname_status=='middle' && $_G.user_info.reg_time<1487692800}
+                    {$_G.user_info.realname_secur}
+                    <span class="icon-status pass">已绑定</span>
+                    {elseif $_G.user_info.realname_status=='middle' && $_G.user_info.reg_time>=1487692800}
+                    {$_G.user_info.realname_secur}
+                    <span class="icon-status noauth">
+					<a href="/?user&q=code/approve/security">修改</a>
+					</span>
+                    {else}
+                    <span class="icon-status noauth">
+					<a href="/?user&q=code/approve/security">去认证</a>
+					</span>
+                    {/if}
+                  </div>
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>身份证号</label>
+                    {if $_G.user_info.realname_status=='true'}
+                    {$_G.user_info.idNo_secur}
+                    <span class="icon-status pass">已绑定</span>
+                    {elseif  $_G.user_info.realname_status=='middle' && $_G.user_info.reg_time<1487692800}
+                    {$_G.user_info.idNo_secur}
+                    <span class="icon-status pass">已绑定</span>
+                    {elseif $_G.user_info.realname_status=='middle' && $_G.user_info.reg_time>=1487692800}
+                    {$_G.user_info.idNo_secur}
+                    <span class="icon-status noauth">
+					<a href="/?user&q=code/approve/security">修改</a>
+					</span>
+                    {else}
+                    <span class="icon-status noauth">
+					<a href="/?user&q=code/approve/security">去认证</a>
+					</span>
+                    {/if}
+                  </div>
+                  
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>手机号码</label>
+                    {$_G.user_info.username_secur}
+                    {if $_G.user_info.phone_status=='true'}
+                    <span class="icon-status pass">已绑定</span>
+                    {else}
+                    <span class="icon-status noauth">
+					<a href="/?user&q=code/approve/security">去认证</a>
+					</span>
+                    {/if}
+                  </div>
+ 
+				  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>邮箱地址</label>
+                    {$_G.user_info.email_secur}
+                    {if $_G.user_info.email_status=='true'}
+                    <span class="icon-status pass">已绑定</span>
+                    {else}
+                    <span class="icon-status noauth">
+					<a href="/?user&q=code/approve/security">去认证</a>
+					</span>
+					{/if}
+                    
+                  </div>
+				 
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>性别</label>
+                  	 {$_G.user_info.sex}
+                  </div>
+
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>出生日期</label>
+                     {$_G.user_info.birthday}
+                  </div>
+
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>最高学历</label>
+                   	{linkages nid="rating_education" name="edu" value="$_U.rating_result.edu" type="value"}
+                  </div>
+                  <div class="ui-form-item">
+                    <label class="ui-label">毕业院校</label>
+                    <input class="ui-input" type="text" name="school" id="school" value="{$_U.rating_result.school}">
+                  </div>
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>婚姻状况</label>
+                    {linkages nid="rating_marry" name="marry" type="value" value="$_U.rating_result.marry"}
+                  </div>
+				  
+				  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>是否有房</label>
+                    {linkages nid="rating_house" name="house" value="$var.house" type="value" value="$_U.rating_result.house"}
+                  </div>
+				  
+				  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>是否有车</label>
+                    {linkages nid="rating_car" name="is_car" value="$var.house" type="value" value="$_U.rating_result.is_car"}
+                  </div>
+
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>居住地址</label>
+                    <input class="ui-input w280" type="text" name="address" id="address" value="{$_U.rating_result.address}">
+                  </div>
+                  
+                   <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>公司行业</label>
+					{linkages nid="rating_industry" name="industry" type="value" value="$_U.rating_result.industry"}
+                  </div>
+                  
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>公司规模</label>
+                    {linkages nid="rating_peoples" name="peoples" type="value" value="$_U.rating_result.peoples"}
+                  </div>
+                  
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>职位</label>
+                    <input class="ui-input" type="text" name="office" id="office" value="{$_U.rating_result.office}">
+                  </div>
+                  <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>月收入</label>
+                    {linkages nid="rating_salary" name="salary" type="value" value="$_U.rating_result.salary"}
+                  </div>
+                  <div class="ui-form-item">
+                  	<input type="hidden" name="submit" value="submit">
+                  	<input id="savebt" type="submit" class="ui-button ui-button-green ui-button-mid w150" value="保 存">
+                  </div>
+     	 	</div>
+     	 </form>
+
+	  </div>
+	</div>
+ 	</div>
+  </div>
+ <script>seajs.use(['pages/account/account/userbasic']);</script>
+  
+</div>
+        
+   

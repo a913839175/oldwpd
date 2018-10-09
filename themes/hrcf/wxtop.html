@@ -1,0 +1,20 @@
+
+        <!-- 
+        <div class="top3">
+            <img src="/static/hrcfwx/images/sangeyuan.png"/>
+        </div>
+         -->
+        <div class="top2">
+            <div class="top2_img">
+                {if $_G.user_id==""}
+                <a href="/?wxuser&q=login"><img src="/static/hrcfwx/images/email2.png"/></a>
+                {else}
+                    {if $_G.message_result.message_no>0}
+                <a href="/?wxuser&q=messagelist"><img src="/static/hrcfwx/images/email.png"/></a>
+                    {else}
+                <a href="/?wxuser&q=messagelist"><img src="/static/hrcfwx/images/email2.png"/></a>
+                    {/if}
+                {/if}
+            </div>
+        </div>
+

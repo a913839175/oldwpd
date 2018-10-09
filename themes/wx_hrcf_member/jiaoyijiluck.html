@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/jiaoyijilu.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/jiaoyijilu_xuanze.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+
+<script src="/static/hrcfwx/js/dev/mobiscroll.core-2.6.2.js" type="text/javascript"></script>
+<script src="/static/hrcfwx/js/dev/mobiscroll.core-2.6.2-zh.js" type="text/javascript"></script>
+<script src="/static/hrcfwx/js/dev/mobiscroll.ios-2.6.2.js" type="text/javascript"></script>
+<script src="/static/hrcfwx/js/dev/mobiscroll.datetime-2.6.2.js" type="text/javascript"></script>
+<link href="static/hrcfwx/css/dev/mobiscroll.ios-2.6.2.css" rel="stylesheet" type="text/css" />
+<link href="static/hrcfwx/css/dev/mobiscroll.core-2.6.2.css" rel="stylesheet" type="text/css" />
+<link href="static/hrcfwx/css/dev/mobiscroll.animation-2.6.2.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/hrcfwx/js/jiaoyijilu.js"></script>
+
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="screenc-overlay" id="screenc-overlay">
+    </div>
+	<div class="top">
+    	<div class="top1">
+        	<a href="/?wxuser"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+        	<p>交易记录</p>
+        </div>
+        <div class="top3">
+        	<a href="javascript:;" id="choice"><img src="/static/hrcfwx/images/loudou.png"></a>
+        </div>
+    </div>
+
+    {articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}
+	<div class="money">
+    	<div class="money_zong">
+        	<p>账户总额</p>
+            <span>{$var.total|round:"2,3"|default:0.00}</span>
+        </div>
+        <li>
+        	<div class="money_left">
+            	<p>可用资金</p>
+                <span>{$var.balance|round:"2,3"|default:0.00}</span>
+            </div>
+            {article module="borrow" function="GetRechargeCount_log" user_id="$_G.user_id" var="var_recharge"}
+            <div class="money_right">
+            	<p>已充值总额</p>
+                <span>{$var_recharge.recharge_all|default:0}</span>
+            </div>
+            {/articles}
+        </li>
+        <li>
+        	<div class="money_left">
+            	<p>冻结资金</p>
+                <span>{$var.frost|round:"2,3"|default:0.00}</span>
+            </div>
+            {list module="account" function="GetCashList" var="loop" user_id="$_G.user_id" status="1"}
+            <div class="money_right">
+            	<p>已提现总额</p>
+                <span>{$loop.all_total|default:0.00}</span>
+            </div>
+            {/list}
+        </li>
+    </div>
+    {/articles}
+    {list module="account" function="GetLogList" var="loop" user_id="$_G.user_id" dotime2="request" dotime1="request" type="request"}
+    {if $loop.list!=null}
+    <div class="main">
+    	<div class="main_top">
+            {if $magic.request.dotime1==''&&$magic.request.dotime2==''}
+            <p>所有</p>
+            {elseif $magic.request.dotime1==''&&$magic.request.dotime2!=''}
+            <p>{$magic.request.dotime2}之前</p>
+            {elseif $magic.request.dotime2==''&&$magic.request.dotime1!=''}
+            <p>{$magic.request.dotime1}之后</p>
+            {else}
+        	<p>{$magic.request.dotime1}-{$magic.request.dotime2}</p>
+            {/if}
+            <span id="kind_name">全部</span>
+        </div>
+        {foreach from=$loop.list item="item"}
+        {if $item.type!="fengxianchi"}
+    	<li class="jiaoyi_item">
+        	<div class="main_left">
+            	<!-- <div class="main_left_img">
+                	<img src="/static/hrcfwx/images/jiaoyi1.png"/>
+                </div> -->
+                <p>{$item.type|linkages:"account_type"}</p>
+                <span>{ $item.addtime|date_format:"Y-m-d H:i:s"}</span>
+            </div>
+            <div class="main_right">
+                {if $item.type=="recharge" || $item.type=="borrow_success" || $item.type=="borrow_change_sell" || $item.type=="tender_late_repay_yes" || $item.type=="tender_false" || $item.type=="system_repayment" || $item.type=="tender_advance_repay_interest" || $item.type=="tender_advance_repay_yes" || $item.type=="cash_false" || $item.type=="tender_user_cancel" || $item.type=="borrow_spread_add" || $item.type=="tender_spread_add" || $item.type=="borrow_spread" || $item.type=="tender_spread" || $item.type=="online_recharge"  || $item.type=="recharge_jiangli"  || $item.type=="tender_award_add"   || $item.type=="change_add"}
+            	<p class="main_cun1">+{$item.money}</p>
+                <p class="main_cun2">存入</p>
+                {elseif $item.type=="tender_repay_yes"}
+                <p class="main_cun1">+{$item.money}</p>
+                <p class="main_cun2">存入</p>
+                {elseif $item.type=="cash_frost" || $item.type=="tender" || $item.type=="cash"}
+                <p class="main_dong1">{$item.money}</p>
+                <p class="main_dong2">冻结</p>
+                {elseif $item.type=="tender_success_frost"}
+                {else}
+                <p class="main_chu1">-{$item.money}</p>
+                <p class="main_chu2">支出</p>
+                {/if}
+            </div>
+            <input type="hidden" class="remark" value="{$item.remark}">
+        </li>
+        {/if}
+        {/foreach}
+    </div>
+    <div class="page">
+        {if $loop.pages.total>0}
+        <div class="list_table_page">{$loop.pages|wxshowpage}</div>
+        {/if}
+    </div>
+    {else}
+    <div class="main_kong">
+        <div class="main_img_kong">
+            <img src="/static/hrcfwx/images/jilu.png"/>
+        </div>
+        <p>暂无相关记录</p>
+    </div>
+    {/if}
+    {/list}
+
+
+    <div class="main_xuanze xuanze" id="xuanze">
+        <div class="main_top_xuanze">
+            <div class="main_top_left_xuanze">
+                <a href="javascript:;" id="xuanze_close" ><img src="/static/hrcfwx/images/xx2.png"/></a>
+            </div>
+            <div class="main_top_right_xuanze" id="search_sure">确定</div>
+        </div>
+        <p></p>
+        <!-- <p>时间</p>
+        <div class="main_time_xuanze">
+            <a href="javascript:;" data-month="1" class="getmonth"><div class="month xuanze_cur">本月</div></a>
+            <a href="javascript:;" data-month="3" class="getmonth"><div class="month">3个月</div></a>
+            <a href="javascript:;" data-month="6" class="getmonth"><div class="month">6个月</div></a>
+            <a href="javascript:;" data-month="12" class="getmonth"><div class="month">1年</div></a>
+        </div> -->
+        <div class="main_day_xuanze">
+            <div class="main_day_button_xuanze">高级</div>
+            <li>
+                <input type="text" id="startdate" value="{$magic.request.dotime1}">
+                <label for="startdate">
+                    <div class="main_day_img_xuanze">
+                        <img src="/static/hrcfwx/images/youjian.png"/>
+                    </div>
+                </label>
+            </li>
+            <div class="main_day_button_xuanze" id="chongzhi">重置</div>
+            <li>
+                <input type="text" id="enddate" value="{$magic.request.dotime2}">
+                <label for="enddate">
+                    <div class="main_day_img_xuanze">
+                        <img src="/static/hrcfwx/images/youjian.png"/>
+                    </div>
+                </label>
+            </li>
+        </div>
+        <p>类型</p>
+        <div class="main_style_xuanze">
+            <ul>
+                <a href="javascript:;" data-kind="" class="getkind"><li class="kind main_style_big_xuanze {if $magic.request.type==''||$magic.request.type==null} active_xuanze {/if}">全部</li></a>
+                <!-- tender_success,borrow_award_lower,recharge_jiangli,tender_repay_yes -->
+                {articles module="wxlinkages" function="GetlinkagesList" var="var" type_id="3" page="1" epage="100" }{/articles}
+                {foreach from="$var.list" item="item"}
+                {if $item.value=='recharge'||$item.value=='cash_frost'||$item.value=='tender_success_frost'||$item.value=='borrow_repay'||$item.value=='tender'||$item.value=='fengxianchi_tender'||$item.value=='cash_fee'||$item.value=='recharge_fee'||$item.value=='cash'||$item.value=='tender_spread'||$item.value=='cash_success'||$item.value=='cash_false'||$item.value=='tender_user_cancel'||$item.value=='online_recharge'||$item.value=='tender_award_add'||$item.value=='tender_success'||$item.value=='borrow_award_lower'||$item.value=='recharge_jiangli'||$item.value=='tender_repay_yes'}
+                <a href="javascript:;" data-kind="{$item.value}" class="getkind"><li class="kind main_style_big_xuanze {if $magic.request.type==$item.value} active_xuanze {/if}">{$item.name}</li></a>
+                {/if}
+                {/foreach}
+            </ul>
+        </div>
+        <div class="height_xuanze">
+        </div>
+    </div>
+</body>
+</html>

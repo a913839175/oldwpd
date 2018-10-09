@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0 auto;font-family:"微软雅黑";background:#f3ece2;}
+.huodong_main{ height:350px;}
+.huodong_main_banner{overflow:-Scroll;overflow-x:hidden;}
+.huodong_main_img{ background:url(../images/banner.jpg) no-repeat 50% 0%; height:350px;}
+
+.href{ width:450px; height:60px; margin: 0 auto; padding-top:250px;}
+.href-img1{ float:left; margin-right:30px;}
+.href-img2{ float:left;}
+
+.body{ width:1000px; margin: 0 auto;}
+.body_b1{ position:relative; margin: 0 auto; background:url(../images/b1.png) no-repeat; width:1000px; height:176px; margin-top:10px;}
+.body_b1_p{ font-size:44px; padding-left:465px; padding-top:85px; font-weight:700; color:#FFF;}
+.body_b1_left{ position:absolute; left:-195px; top:240px;}
+.body_b1_right{ position:absolute; right: -195px; top:0px;}
+.body_b2{ margin: 0 auto; background:url(../images/b2.png) no-repeat; width:1000px; height:450px; margin-top:10px;}
+.body_c{ height:425px; margin-bottom:50px; background-color:#FFF;}
+.body_c1,.body_c2{ list-style:none; float:left; padding-left:8.5px;}
+.body_ceng1{ position:relative; width:485px; height:95px; background-color:#f7f3f2; border:1px #ed87a2 solid;}
+.body_ceng1_li1{ padding-left:22px; padding-top:23px;}
+.body_ceng1_li1 nobr{ top:30px; padding-left:10px; color:#e23834; position:absolute;}
+.body_ceng1_li2{ color:#927d83; padding-left:22px; padding-top:5px;}
+.body_ceng2{ width:487px; height:318px;}
+/*.body_ceng2 div{ float:left;}
+.body_ceng2_li1{ width:175px; text-align:center; line-height:29px;}
+.body_ceng2_li2{ width:175px; text-align:center; line-height:29px;}
+.body_ceng2_li3{ width:175px; text-align:center; line-height:29px;}*/
+

@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/guanli.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/guanli.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<meta name = "format-detection" content="telephone = no" />
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="screenc-overlay" id="screenc-overlay">
+    </div>
+	<div class="top">
+    	<div class="top1">
+        	<a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+        	<p>我的账户</p>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div class="head">
+    	<div class="head_left"><img src="/static/hrcfwx/images/tubiao.png"/></div>
+        <div class="head_right">
+        {articles module="borrow" function="GetBorrowCredit" var="Cvar" user_id=$_G.user_id}{/articles}
+            <li>
+            	<p class="weibi">
+                	积分 {$Cvar.approve_credit|default:0}
+                </p>
+				<!--  <p class="jifen">微币 0</p> -->
+            </li>
+            <li>
+            	<ul class="biaoqian">
+                {if $_G.user_info.phone_status=='true'}
+                    <li><a href="javascript:;"><img src="/static/hrcfwx/images/shouji.png"/></a></li>
+                {else}
+                    <li><a href="javascript:;"><img src="/static/hrcfwx/images/shoujioff.png"/></a></li>
+                {/if}
+                {if $_G.user_info.realname_status=='true'}
+                    <li><a href="javascript:;"><img src="/static/hrcfwx/images/geren.png"/></a></li>
+                {else}
+                    <li><a href="/?wxuser&q=shimingrenzheng"><img src="/static/hrcfwx/images/gerenoff.png"/></a></li>
+                {/if}
+                {if $_G.user_info.cashpass_status=='true'}
+                    <li><a href="javascript:;"><img src="/static/hrcfwx/images/zichan.png"/></a></li>
+                {else}
+                    <li><a href="/?wxuser&q=setpaypwd"><img src="/static/hrcfwx/images/zichanoff.png"/></a></li>
+                {/if}
+                {if $_G.user_info.email_status=='true'}
+                    <li><a href="javascript:;"><img src="/static/hrcfwx/images/duanxin.png"/></a></li>
+                {else}
+                    <li><a href="javascript:;"><img src="/static/hrcfwx/images/duanxinoff.png"/></a></li>
+                {/if}
+                </ul>
+            </li>
+        </div>
+    </div>
+    <div class="main">
+    	<div class="main_head">
+        	<li><a href="/?wxuser">&nbsp;&nbsp;&nbsp;我的资金&nbsp;&nbsp;&nbsp;</a></li>
+            <!-- <li><a href="#">借款账户</a></li> -->
+            <li><a href="javascript:;" class="active">&nbsp;&nbsp;&nbsp;账户管理&nbsp;&nbsp;&nbsp;</a></li>
+        </div>
+        <div class="main_body">
+			<ul>
+            	<li>
+                	<a href="/?wxuser&q=code/account/savingPot">
+                    	<img src="/static/hrcfwx/images/guanli1.png"/>
+                        <p>理财管理</p>
+                    </a>
+                </li>
+                <li>
+                	<a href="/?wxuser&q=jiaoyijiluguanli">
+                    	<img src="/static/hrcfwx/images/guanli2.png"/>
+                        <p>交易记录</p>
+                    </a>
+                </li>
+                <li>
+                	<a href="/?wxuser&q=anquan">
+                    	<img src="/static/hrcfwx/images/guanli3.png"/>
+                        <p>安全中心</p>
+                    </a>
+                </li>
+                <li>
+                	<a href="/?wxuser&q=showbankcard">
+                    	<img src="/static/hrcfwx/images/guanli4.png"/>
+                        <p>银行卡</p>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+            	<li>
+                	<a href="/?wxuser&q=hongbao">
+                    	<img src="/static/hrcfwx/images/guanli5.png"/>
+                        <p>红包</p>
+                    </a>
+                </li>
+
+                <li>
+                	<a href="javascript:;" id="share">
+                    	<img src="/static/hrcfwx/images/guanli8.png"/>
+                        <p>邀请</p>
+                    </a>
+                </li>
+                
+                {if $_G.user_info.type_id==3}
+                <li>
+                	<a href="/?wxuser&q=yeji">
+                    	<img src="/static/hrcfwx/images/guanli9.png"/>
+                        <p>推荐业绩</p>
+                    </a>
+                </li>
+                {/if}
+                <li>
+                	<a href="javascript:;" id="loginout">
+                    	<img src="/static/hrcfwx/images/guanli7.png"/>
+                        <p>安全退出</p>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    {include file="../hrcf/wxfooter4.html"}
+
+    <div class="fenxiang" id="fenxiang">
+        <div class="fenxiang_close">
+            <a href="javascript:;" id="fenxiang_close"><img src="/static/hrcfwx/images/close.png"></a>
+        </div>
+        <div class="fenxiang_bor" id="shareurl"  data-url="{$magic.server.SERVER_NAME}/index.php?user&q=reginvite&u={$_U.user_inviteid}">
+<!--             <li><a href="javascript:;"><img src="/static/hrcfwx/images/fenxiang1.png">QQ好友</a></li>
+            <li><a href="#"><img src="/static/hrcfwx/images/fenxiang2.png">微信</a></li>
+            <li><a href="#"><img src="/static/hrcfwx/images/fenxiang3.png">朋友圈</a></li>
+            <li><a href="#"><img src="/static/hrcfwx/images/fenxiang4.png">新浪微博</a></li>
+            <li><a href="#"><img src="/static/hrcfwx/images/fenxiang5.png">QQ空间</a></li> -->
+            <li><a href="javascript:;" id="copy"><img src="/static/hrcfwx/images/fenxiang6.png">复制链接</a></li>
+        </div>
+        <div class="abouturl">
+             <div class="fxlj">
+                <span>分享链接</span>
+            </div>
+            <div class="showurl">
+                <p id="url_p"></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

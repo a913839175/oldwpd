@@ -1,0 +1,216 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {font-size:12px; font-family:Verdana; line-height:1.5;}
+html,body{background:#f2f2f2}
+.clearfloat {clear:both;height:0;font-size: 1px;line-height: 0px;} 
+.h_title{display:none;}
+
+
+a { color:#444; text-decoration:none;}
+a:hover { color:#f00;}
+
+#container{
+	
+	width:900px;
+	margin:0 auto;
+	}
+#header{height:60px;margin-top:17px;}
+#header_logo{float:left;}
+#header_search{float:right;margin-top:10px;}
+#header_search *{vertical-align:middle;}
+.input_search{background:url(../images/srh_bg.gif) 0 0 no-repeat;width:163px;border:1px solid #cbcbcb;height:17px;}
+.input_button{background:url(../images/btn_srh.gif) 0 0 no-repeat;width:58px;height:23px;cursor:pointer;text-indent:-500px;border:none;}
+
+
+/*-----------------------nav----------------------------*/
+
+#nav{height:66px;margin-top:10px;background:url(../images/nav_bg.gif) 0 0 repeat-x;margin-bottom:8px;}
+#nav_title{display:none}
+#nav_l{height:66px;width:5px;background-color:red;float:left;background:url(../images/nav_bg.gif) 0 -66px no-repeat;}
+#nav_r{height:66px;width:5px;background-color:red;float:right;background:url(../images/nav_bg.gif) -5px -66px no-repeat;}
+/*div负责nav的区域*/
+#nav_list{height:36px;}
+/*ul默认占据nav div的全部宽和高*/
+#nav_list ul{}
+/*li负责样式字体，区域控制*/
+#nav_list ul li{float:left;font-size:14px;font-weight:bold;margin:5px 5px 0 5px;}
+/*a为行内元素，转为块级元素，保证整个区域都是可以感应的,设置高，确定高的感应区域为26px（背景图片的高也为26px）*/
+#nav_list ul li a{display:block;height:26px;line-height:26px;padding-left:20px;color:#fff;}
+#nav_list ul li a span{display:block;padding-right:20px;}
+/*此处的奇怪的地方在于li中margin-left，span中margin-right，为什么不在li中直接一次就使用好完成布局了？因为这是css sprite布局方式布局，同时背景是由圆角的图片
+这个做的目的在于，当鼠标移动到链接块上时，通过li a:hover和li a:hover span,两个样式同时作用，才能够完成a的圆角背景图片的布局。
+鼠标移动到a上时，a的样式变化和a中span的样式变化；
+*/
+#nav_list  ul li a:hover{background:url(../images/nav_bg.gif) 0 -163px no-repeat;cursor:pointer;}
+#nav_list ul li a:hover span{background:url(../images/nav_bg.gif) right -163px no-repeat;cursor:pointer;}
+#nav_list ul li a#nav_current{height:31px;line-height:31px;background-color:red;background:url(../images/nav_bg.gif)0 -132px no-repeat;color:#646464;}
+#nav_list ul li a#nav_current span{height:31px;background-color:red;background:url(../images/nav_bg.gif)right -132px no-repeat;overflow:hidden;}
+/*#nav_list li a#nav_current:hover{height:310px;}*/
+
+#nav_son{height:30px;margin-left:20px;}
+#nav_son ul{}
+#nav_son ul li{float:left;margin-top:4px;}
+#nav_son ul li a{display:block;width:78px;height:22px;line-height:22px;text-align:center;}
+#nav_son ul li a:hover{background:url(../images/nav_bg.gif)0 -198px no-repeat;color:#6e6e6e;}
+
+
+
+#main{margin-top:8px;}
+#maincontent{height:900px;width:664px;float:left;}
+#mainnews{height:255px;background-color:white;}
+
+
+#banner{margin:0px;padding:0px;width:269px;height:255px;background-color:red;float:left;}
+#banner_flash{height:210px}
+#banner_login{margin-top:6px;}
+#banner_login span{float:right;}
+
+#topnews{width:388px;height:255px;float:left;margin-left:7px;background:url(../images/hot_bg.gif)0 0 no-repeat;}
+#topnews_hot{width:347px;height:90px;margin-top:8px;margin-left:20px;border-bottom:1px dashed #dcdcdc;color:#6e6e6e;}
+#topnews_hot h4{font-size:20px;text-align:center;color:#333333;font-family:"microsoft yahei";line-height:48px;}
+#topnews p{margin-top:0px;}
+#topnews_list{width:347px;margin-left:20px;padding-top:6px;}
+/*在这里列表的图标直接用背景图片的形式才表现，而不是单独化成一个区块；注意行高的设置为1.9*/
+#topnews_list ul li{background:url(../images/icon.gif)0 -300px no-repeat;line-height:1.9;padding-left:20px;}
+#topnews_list ul li span{float:right;color:#579f11}
+
+
+#index_pic{margin-top:8px;border:1px solid #dbdbdb;}
+#index_pic h2{height:28px;background:url(../images/box_tit_bg.gif) 0 0;border-tottom:1px solid #dbdbdb;overflow:hidden;}
+#index_pic span{display:block;height:25px;background:url(../images/rmcp.gif) 12px 6px no-repeat;}
+#index_pic ul{padding:0px;overflow:hidden;zoom:1;}
+#index_pic ul li{width:107px;background-color:white;margin-left:21px;margin-top:15px;text-align:center;display:inline;float:left;}
+#index_pic ul li a{display:block;}
+#index_pic ul li img{margin-bottom:3px;}
+
+
+#mainhistory{width:664px;height:290px;margin-top:9px;}
+.history{width:326px;height:288px;border:1px solid #dbdbdb;float:left;}
+.history2{width:326px;height:288px;border:1px solid #dbdbdb;float:right;}
+.history h3{height:28px;border-bottom:1px solid #dbdbdb;background:url(../images/box_tit_bg.gif)0 0;padding-top:5px;}
+.history h3 span{background:url(../images/icon.gif) 0 -3px no-repeat;font-size:14px;font-weight:bold;color:#444444;padding-left:13px;margin-left:14px;}
+.more{float:right;color:#db8d3b;margin-right:11px;background:url(../images/icon.gif) 0 -46px no-repeat;padding-left:13px;}
+.more:hover { color:#cb6d0a; background:url(../images/icon.gif) 0 -96px no-repeat;}
+.history_con{background-color:white;padding:14px 14px 0px 14px;}
+.history_con dl{width:297px;height:75px;}
+.history_con dl dt{float:left;padding:1px;border:1px solid #d8d8d8;}
+.history_con dl dd{float:right;width:188px;color:#888; line-height:1.5;}
+.history_con dl dd a{display:block;margin-bottom:3px;color:#05a;}
+.history_con ul li{line-height:1.9;padding-left:20px;background:url(../images/icon.gif)0 -300px no-repeat;margin-top:1px;}
+
+
+
+
+#aside{height:860px;width:228px;float:right;}
+.side_box { margin-bottom:8px;}
+.side_box h3{height:25px;background:url(../images/side_bg.gif)0 0 no-repeat;font-size:14px;color:#444;padding:6px 10px 0 10px;}
+.side_box h3 strong{color:#f30;}
+.side_con{padding:0 10px;background:url(../images/side_bg.gif)0 bottom no-repeat;}
+.product{padding:3px 10px;}
+.product ul{background:url(../images/icon2.gif)5px 12px no-repeat;}
+.product ul li{height:58px;padding:14px 0 0 64px;border-bottom:1px dashed #dcdcdc;color:#777;}
+.product ul li strong{display:block;height:24px;color:#333;}
+.product ul li .product3{border-bottom:none;}
+.ask dl{padding:9px 0;border-bottom:1px dashed #dcdcdc;}
+.ask dl dt{height:22px;overflow:hidden;font-weight:bold;background:url(../images/icon.gif) 0 -149px no-repeat;padding-left:20px;}
+.ask dl dd{color:#666;background:url(../images/icon.gif)0 -198px no-repeat;padding-left:20px;}
+.contact{padding:2px;}
+
+
+
+#footer { text-align:center;}
+#footer dl dt { height:28px; line-height:28px; background:#afafaf; color:#fff;}
+#footer dl dt a { font-weight:bold; color:#fff;}
+#footer dl dd { padding:8px 0; color:#666; line-height:2;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+.ask dl { padding:9px 0; border-bottom:1px dashed #dcdcdc;}
+.ask dl dt { height:22px; overflow:hidden; font-weight:bold; background:url(../images/icon.gif) 0 -149px no-repeat; padding-left:20px;}
+.ask dl dt a { color:#666;}
+.ask dl dd { color:#666; background:url(../images/icon.gif) 0 -198px no-repeat; padding-left:20px;}
+.contact { padding:2px;}
+
+
+.product ul { background:url(../images/icon2.gif) 5px 12px no-repeat;}
+.product ul li { height:58px; padding:14px 0 0 64px; border-bottom:1px dashed #dcdcdc; color:#777;}
+.product ul li strong { display:block; height:24px; color:#333;}
+.product ul li a { color:#777;}
+.product ul li a:hover { text-decoration:underline;}
+.product ul li.product3 { border-bottom:none;}
+.ask dl { padding:9px 0; border-bottom:1px dashed #dcdcdc;}
+.ask dl dt { height:22px; overflow:hidden; font-weight:bold; background:url(../images/icon.gif) 0 -149px no-repeat; padding-left:20px;}
+.ask dl dt a { color:#666;}
+.ask dl dd { color:#666; background:url(../images/icon.gif) 0 -198px no-repeat; padding-left:20px;}
+.contact { padding:2px;}
+.sidecon{padding:3px 10px;background-color:red;}
+.sidecon ul{background:url(../images/icon2.gif)5px 12px no-repeat;}
+.sidecon ul li{height:58px padding:14px 0 0 64px;border-bottom:1px dashed #dcdcdc;color:#777;}
+.sidecon ul li strong{display:block;height:24px;color:#333;}
+.sidecon li a{color:#777;}
+
+
+
+
+#index_pic h2 { height:28px; background:url(../images/box_tit_bg.gif) 0 0; border-bottom:1px solid #dbdbdb; overflow:hidden;}
+#index_pic h2 span { display:block; height:25px; background:url(../images/rmcp.gif) 12px 6px no-repeat;}
+#index_pic ul { padding:0 0 15px 0; overflow:auto; zoom:1;}
+#index_pic ul li { width:107px; float:left; margin:15px 0 0px 21px; display:inline; text-align:center;}
+#index_pic ul li a { display:block;}
+#index_pic ul li img { margin-bottom:3px;}
+
+
+#product{width:229px;height:255px;float:left;background-color:red;margin-left:7px;}
+#ask{width:229px;height:441px;float:left;background-color:red;margin-left:7px;margin-top:8px;}
+#history2{width:328px;height:290px;float:left;background-color:red;margin-top:9px;margin-left:8px;}
+#contact{width:229px;height:149px;float:left;background-color:red;margin-left:7px;margin-top:8px;}*/
+
+
+
+
+#footer{margin-top:8px;width:900px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

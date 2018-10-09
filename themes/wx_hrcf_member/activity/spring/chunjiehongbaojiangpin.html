@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/chunjiehongbaojiangpin.css" />
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<meta name = "format-detection" content="telephone = no" />
+<title>微拍贷</title>
+</head>
+<body>
+<div class="game_myprize">
+	<div class="game_head"><p>我的奖品</p></div>
+    <div class="game_body">
+        {foreach from="$my_prize" item="item"}
+    	<li><p>{$item.total}</p></li>
+        {/foreach}
+        
+        <div>
+        	<div><img src="/static/hrcfwx/activity/spring/images/zhu.png" /></div>
+            <p>请在获得后<span>30天</span>内使用，到期后将无法使用。</p>
+        </div>
+    </div>
+    <div class="game_but">
+        <a href="/?wxuser&q=hongbao"><div>立即使用</div></a>
+        <a href="/?wxuser&q=springrobred"><div>继续游戏</div></a>
+    </div>
+</div>
+</body>
+</html>

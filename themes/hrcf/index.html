@@ -1,0 +1,547 @@
+{include file="header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/pages/index.css?v=20160825" />
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/css/banner.css?v=20160815" />
+<link href="/static/hrzhang/css/indexmain.css?v=20170830" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/lib/jquery/jquery.min.1.10.2.js?v=20161020"></script>
+<script src="/static/hrzhang/js/jquery.flexslider-min.js"></script>
+<script src="/static/hrzhang/js/jquery-ui.min.js?v=20161019"></script>
+<!--nav-->
+<div class="flexslider" style="height:420px">
+    <ul class="slides">
+        {loop module="scrollpic" function="GetList" var="var" limit="4"  status="1"  type_id="1" }
+        <li style="background: transparent url({$var.pic}) 50% 0 no-repeat; position: absolute; top: 0px; left: 0px; display: none; height:420px">
+            <!--判断是否有跳转地址-->
+            {if $var.url}
+            <a href="{$var.url}" style=" display:block; height:350px; " rel="nofollow" target="_blank"></a>
+            {/if}
+        </li>
+        {/loop}
+    </ul>
+</div>
+{literal}
+<script>
+    $(function () {
+        $('.flexslider').flexslider({
+            directionNav: false, //是否显示左右方向箭头按钮
+            pauseOnAction: false, //是否显示左右方向箭头按钮
+            animationSpeed: 1000, //动画时间
+            slideshowSpeed: 4000	 //停留时间
+        });
+    });
+</script>
+{/literal}
+
+<!--banner-->
+<div class="index_main banner_w1180 banner_front">
+    <div class="login_front" style="    background-attachment: scroll;background-clip: border-box;background-color: #fff;background-image: url();background-origin: padding-box;background-position: 0 0;
+         background-repeat: no-repeat;background-size: auto auto;color: #fff;height: 295px;padding-bottom: 0;padding-left: 0;padding-right: 0; padding-top: 0;position: absolute;right: 8px;width: 285px;">
+        <p class="fs_24 bold m" style="padding-left: 0;padding-right: 0;padding-right: 0;padding-top: 0;padding-bottom: 0;text-align: center;color: #00a4ea; margin-top:34px;font-size: 28px;">新注册用户享好礼</p>
+        <p class="fs_24 t" style="padding-left: 0;padding-right: 0;padding-right: 0;padding-top: 0;text-align: center;color: #c6c6c6; top:34px;font-size: 14px;"></p>
+        {if $_G.user_id==""}
+        <a class="btn_orange" href="/?user&q=reg" rel="nofollow" title="立即注册" style="height: 46px;width: 240px;color: #fff; margin-top:24px;margin-left:24px;margin-bottom:24px;font-size: 20px;background-color: #ff7f00;">立即注册</a>
+        <a class="btn_orange" href="/?user&q=login" rel="nofollow" title="登录" style="height: 46px;width: 240px;color: #fff; margin-left:24px;margin-bottom:24px;font-size: 20px;background-color: #ffab19;">登录</a>
+        {else}
+        <a class="btn_orange" title="账户中心" rel="nofollow" href="/index.php?user" style="height: 46px;width: 240px;color: #fff; margin-top:48px;margin-left:24px;margin-bottom:24px;font-size: 20px;background-color: #ffab19;">账户中心</a>
+        {/if}
+    </div>
+</div>
+
+
+<div class="new_smallonebox" style="width: 100%;background: #fcfcfc;">
+    <div id="m-titlebox">
+        <div class="m-title" style="width: 960px">
+            <div class="notice-head fn-clear">
+                {loop module="articles" function="GetList" var="var" limit="1" type_id="3" flag="index"}
+                <i class="f-left icon-m-title"></i>
+                <a id="notice-title"  class="notice-title h5 fn-left color-gray-blank w600 fn-text-overflow" target="_blank" href="/news/{$var.nid}/a{$var.id}.html">
+                    {$var.name|truncate:100}
+                </a>
+                <span class="notice-date fn-left color-silver-text">{$var.update_time||date_format:"Y-m-d"}</span>
+                <a class="notice-more fn-right ui-button ui-button-small darkgray mb5 mt10 mr20 in_gdggs" href="/notices/index.html" style="color: #2470bf;border: 1px solid #2470bf;margin-top: 6px;">更多公告 >></a>     
+                {/loop}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ################################################################################################################ -->
+<div class="index-uplan-wrapper container_12" style="padding-bottom: 0px">
+
+    <div class="index-plan-body" style="margin-top:-30px;">
+        <div class="index-plan-list clearfix">
+            <div class="in_inproduct clearfix">
+                <img  src="/static/hrzhang/images/in_bt01.jpg" class="pro-img01">
+                 <div class="h-p1 fn-left">
+                    <h1 class="h-title">低门槛</h1>
+                    <div class="pt">
+                        <ul>
+                            <li>100元起投</li>
+                            <li>0手续费</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="in_inproduct clearfix">
+                <img  src="/static/hrzhang/images/in_bt03.jpg" class="pro-img01">
+                 <div class="h-p1 fn-left">
+                    <h1 class="h-title">征信合作</h1>
+                    <div class="pt">
+                        <ul>
+                            <li>与全国知名公司</li>
+                            <li>致鑫征信公司合作</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="in_inproduct clearfix">
+                <img  src="/static/hrzhang/images/in_bt04.jpg" class="pro-img01">
+                 <div class="h-p1 fn-left">
+                    <h1 class="h-title">安全保障</h1>
+                    <div class="pt">
+                        <ul>
+                            <li>保险合作机构</li>
+                            <li>战略合作</li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+            <div class="in_inproduct clearfix">
+                <img  src="/static/hrzhang/images/in_bt05.jpg" class="pro-img01">
+                 <div class="h-p1 fn-left">
+                    <h1 class="h-title">数据安全</h1>
+                    <div class="pt">
+                        <ul>
+                            <li>投资百万资金保障</li>
+                            <li>服务器与数据安全</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="pg-index" class="clearfix">
+    <div class="container_12" style="padding-top: 10px;">
+        <!-- Loan List -->
+        <div class="loan mb fn-clear in_loan2" >
+           <div class="grid_12" style="width: 1000px">
+                 <div class="list-title loan in_list_title clearfix" >
+                    <span class="in_on" >散标列表</span>
+                    <a target="_blank" href="/investlist/index.html"><span class="in_in">更多 >></span></a>
+                </div>
+                <ul id="loan-list" class="ui-list ui-list-m ui-list-invest">
+                    <li id="loan-list-header" class="ui-list-header fn-clear">
+                        <span  class="ui-list-title fn-left color-gray-text w260" next="-1" style="color: #808080;font-size: 14px">借款标题</span>
+                        <span next="-1" name="CREDITLEVEL" title="借款人在微拍贷的个人信用评级" class="ui-list-title fn-left color-gray-text text-center w80" style="color: #808080;font-size: 14px">信用等级</span>
+                        <span next="-1" name="INTEREST" class="ui-list-title fn-left color-gray-text text-center w100" style="color: #808080;">预期利率</span>
+                        <span class="ui-list-title fn-left color-gray-text text-center w160" next="-1" style="color: #808080;font-size: 14px">金额</span>
+                        <span next="-1" name="MONTH" class="ui-list-title fn-left color-gray-text text-center w80" style="color: #808080;font-size: 14px">期限</span>
+                        <span next="-1" name="FINISHEDRATIO" class="ui-list-title fn-left color-gray-text text-center w110 pl10" style="color: #808080;font-size: 14px">进度</span>
+                        <span name="REFRESH" class="ui-list-title fn-left color-gray-text text-center w50" next="-1" style="color: #808080;"></span>
+                    </li>
+
+                    {loop module="borrow" function="GetList_norepay" var="var"  order="index" limit="6" is_flow="2" query_type="tender_success" borrow_auto_time="borrow_auto_time"}
+                    <li class="ui-list-item fn-clear ">
+                        <span class="ui-list-field fn-left text-big w260">
+                            <em title="实地认证标" class="ui-loantype SDRZ">
+                                <img width="31" height="31" src='/{$var.fileurl}' />
+                            </em>
+                            <a title="{$var.name}" target="_blank" href="/tendercontent/a{$var.borrow_nid}.html" class="fn-left w210 rrd-dimgray fn-text-overflow" style="color: #444444; font-size:18px;">&nbsp;&nbsp;&nbsp;{$var.name}</a>
+                        </span>
+                        <span class="ui-list-field fn-left w80"><a class="ui-creditlevel {$var.borrow_xingyong} snow">{$var.borrow_xingyong}</a></span>
+                        <span class="ui-list-field fn-left num text-right w80 pr20"><em class="value">{$var.borrow_apr_old}</em>%</span>
+                        <span class="ui-list-field fn-left num text-right w120 pr40"><em class="value">{$var.account}</em>元</span>
+                        <span class="ui-list-field fn-left num text-right w70 pr10">
+                            {if $var.borrow_period != 0.00 }
+                              <em class="value">
+                            {if $var.borrow_period >= 1 && $var.borrow_period < 10 }
+                                {$var.borrow_period|truncate:1}
+                            {else}
+                                {$var.borrow_period|truncate:2}
+                            {/if}
+                                </em>个月
+                            {else}
+                                <em class="value">
+                                {if $var.borrow_days >= 1 && $var.borrow_days < 10 }
+                                    {$var.borrow_days|truncate:1}
+                                {else}
+                                    {$var.borrow_days|truncate:2}
+                                {/if}
+                            </em>天
+                            {/if}
+                        </span>
+                        <span class="ui-list-field fn-left w110 pl10">
+                            <span class="ui-list-field fn-left w110 ui-progressbar-move-100" style="border-bottom:5px solid #c0c3c6;height:30px;width:100px;">
+                                <span class="ui-list-field fn-left w110 ui-progressbar-move-{$var.borrow_account_scale_int}" style="border-bottom:5px solid #0053a8;height:30px;width:{$var.borrow_account_scale_int}px;"></span>
+                            </span>
+                        </span>
+                        <span class="ui-list-field fn-left w50">
+                            <strong  style="display: block; width: 44px; height: 44px;line-height: 44px; font-size: 8px; text-align: center;float:left;margin-top: 8px;"><em style="font-size:14px">{$var.borrow_account_scale_int}</em>%</strong>
+                        </span>
+                        <span class="ui-list-field fn-left w80" style="width: 80px; float: right;">
+                            <a class="ui-button ui-button-meed ui-button-blue ui-list-invest-button 
+                               {if $var.status==1}
+                               {if $var.borrow_account_wait==0}
+                               ui-list-invest-button-FIRST_READY
+                               {else}
+                               ui-list-invest-button-OPEN
+                               {/if}
+                               {elseif $var.status==3}
+                               {if $var.repay_account_wait==0}
+                               ui-list-invest-button-PROGRESS
+                               {else}
+                               ui-list-invest-button-PROGRESS
+                               {/if}
+                               {else}
+                               {if $var.status==5}
+                               ui-list-invest-button-PROGRESS
+                               {else}
+                               ui-list-invest-button-PROGRESS
+                               {/if} 
+                               {/if} mt10 mb10" style="background-color:#ffab19" href="/tendercontent/a{$var.borrow_nid}.html">
+
+                                {if $var.status==1}
+                                {if $var.borrow_account_wait==0}
+                                <span class="READY FIRST_READY">审核中</span> 
+                                {else}
+                                <span class="OPEN">投标</span>
+                                {/if}
+                                {elseif $var.status==3}
+                                {if $var.repay_account_wait==0}
+                                <span class="IN_PROGRESS" style="">已成功</span>
+                                {else}
+                                <span class="IN_PROGRESS">还款中</span>
+                                {/if}
+                                {else}
+                                {if $var.status==5}
+                                <span class="IN_PROGRESS">已停止</span>
+                                {else}
+                                <span class="IN_PROGRESS">流标</span>
+                                {/if} 
+                                {/if} 
+                            </a>
+                        </span>
+                    </li>           
+                    {/loop}
+
+                    <li class="ui-list-more in-ui-list-more" >
+                        <a target="_blank" href="/investlist/index.html" class="darkgray" id="indarkgray">查看更多投资理财项目 >></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="in_probox">
+        <!-- 1年期产品 -->
+        <div class="in_oneyear clearfix">
+            <img src="../static/img/in_bt11.jpg" class="in_yearleft">
+            <div class="in_yearright">
+                <div class="in_profirst clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_onep_1">推广期</p>
+                         <p class="in_pomc1">[微年利]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">10.0%+0.5%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">1年</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <div class="in_pcontent5">
+                         <p class="in_onep_5">收益复投</p>
+                         <p class="in_pomc5">(每月收益复投)</p>
+                     </div>
+                     <a href="/tenderlistyear/index.html" target="_blank" class="in_ptouzi">已售罄</a>
+                </div>
+                <div class="in_prosecond clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_pomc1">[微月盈]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">9.6%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">1年</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <p class="in_onep_5new">按月返息</p>
+                     <a target="_blank" href="/tenderlistone/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- 2年期产品 -->
+        <div class="in_twoyear clearfix">
+            <img src="../static/img/in_bt12.jpg" class="in_yearleft">
+            <div class="in_yearright">
+                <div class="in_profirst clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_onep_1">推广期</p>
+                         <p class="in_pomc1">[微年利Ⅱ]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">11.0%+0.5%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">2年</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <div class="in_pcontent5">
+                         <p class="in_onep_5">收益复投</p>
+                         <p class="in_pomc5">(每月收益复投)</p>
+                     </div>
+                     <a target="_blank" href="/tenderlisttwoyear/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+                <div class="in_prosecond clearfix in_proliys  in_texiao">
+                     <div class="in_pcontent1">
+                         <p class="in_pomc1">[微月盈Ⅱ]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">10.8%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">2年</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <p class="in_onep_5new">按月返息</p>
+                     <a target="_blank" href="/tenderlisttwo/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- 3年期产品 -->
+        <div class="in_threeyear clearfix">
+            <img src="../static/img/in_bt13.jpg" class="in_yearleft">
+            <div class="in_yearright">
+                <div class="in_profirst clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_onep_1">推广期</p>
+                         <p class="in_pomc1">[微年利Ⅲ]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">12.0%+0.5%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">3年</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <div class="in_pcontent5">
+                         <p class="in_onep_5">收益复投</p>
+                         <p class="in_pomc5">(每月收益复投)</p>
+                     </div>
+                     <a target="_blank" href="/tenderlistthreeyear/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+                <div class="in_prosecond clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_pomc1">[微月盈Ⅲ]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">12.00%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">3年</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <p class="in_onep_5new">按月返息</p>
+                     <a target="_blank" href="/tenderlistthree/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- 微+系列 -->
+        <div class="in_fouryear clearfix">
+            <img src="../static/img/in_bt14.jpg" class="in_year2left">
+            <div class="in_yearright">
+                <div class="in_profirst clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_pomc1 padd3">[微+1]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">5.0%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">1个月</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <div class="in_pcontent5">
+                         <p class="in_onep_5">收益复投</p>
+                         <p class="in_pomc5">(每月收益复投)</p>
+                     </div>
+                     <a target="_blank" href="/tenderlistonemonth/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+                <div class="in_prosecond clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_onep_1">推广期</p>
+                         <p class="in_pomc1 padd3">[微+3]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">6.0%+0.5%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">3个月</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <div class="in_pcontent5">
+                         <p class="in_onep_5">收益复投</p>
+                         <p class="in_pomc5">(每月收益复投)</p>
+                     </div>
+                     <a target="_blank" href="/tenderlistthreemonth/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+                 <div class="in_protried clearfix in_proliys">
+                     <div class="in_pcontent1">
+                         <p class="in_onep_1">推广期</p>
+                         <p class="in_pomc1 padd3">[微+6]</p>
+                     </div>
+                     <div class="in_pcontent2">
+                         <p class="in_onep_2">8.0%+0.5%</p>
+                         <p class="in_pomc2">预期利率</p>
+                     </div>
+                    <div class="in_pcontent3">
+                         <p class="in_onep_3">6个月</p>
+                         <p class="in_pomc3">锁定期</p>
+                     </div>
+                     <div class="in_pcontent4">
+                         <p class="in_onep_4">100元</p>
+                         <p class="in_pomc4">起投金额</p>
+                     </div>
+                     <div class="in_pcontent5">
+                         <p class="in_onep_5">收益复投</p>
+                         <p class="in_pomc5">(每月收益复投)</p>
+                     </div>
+                     <a target="_blank" href="/tenderlistsixmonth/index.html" class="in_ptouzi">已售罄</a>
+                </div>
+            </div>
+
+        </div>
+    </div>       
+</div>
+
+<div id="partbox">
+    <!-- {loop module="links" limit="20"  function="GetList"   var="_var"}
+    <li style="width:auto"><a href="{$_var.url}" target="_blank">{$_var.webname}</a></li>
+    {/loop} -->
+    <div class="list-title loan in_list_title clearfix" ><span class="in_on" >合作机构</span></div>
+    <div class="partbox-k1"><a href="http://edit.lwinst.com/" target="_blank"><img src="/static/hrzhang/images/newhz-01.png" class="pt20" /></a></div>
+    <div class="partbox-k1"><a href="http://zjfintech.com/" target="_blank"><img src="/static/hrzhang/images/newhz-02.png" class="pt20" /></a></div>
+    <div class="partbox-k1"><a href="http://www.cech.org.cn/" target="_blank"><img src="/static/hrzhang/images/newhz-03.png" class="pt20" /></a></div>
+    <div class="partbox-k1"><a href="http://www.xinyzx.com/" target="_blank"><img src="/static/hrzhang/images/newhz-04.png" class="pt20" /></a></div>
+    <div class="partbox-k1"><a href="http://www.jiayuan-law.com/" target="_blank"><img src="/static/hrzhang/images/newhz-05.png" class="pt20" /></a></div>
+    <!-- <div class="partbox-k1"><a href="http://www.e-acic.com/template/main" target="_blank"><img src="/static/hrzhang/images/newhz-06.png" class="pt20" /></a></div> -->
+    <div class="partbox-k1"><a href="https://www.sumapay.com/sumapayweb/?c=scheme&a=index" target="_blank"><img src="/static/hrzhang/images/newff-07.png" class="pt20" /></a></div>
+    <div style="clear:both"></div>
+    <div class="partbox-k1"><a href="http://www.360.cn/" target="_blank"><img src="/static/hrzhang/images/hz_10.png" class="pt20" /></a></div>
+    <!-- <div class="partbox-k1"><a href="http://istarwealth.com/" target="_blank"><img src="/static/hrzhang/images/newhz-09.png" class="pt20" /></a></div>
+    <div class="partbox-k1"><a href="http://www.istarfinancial.cn/" target="_blank"><img src="/static/hrzhang/images/newhz-10.png" class="pt20" /></a></div> -->
+    <div class="partbox-k1"><a href="http://www.wangdaizhijia.com/" target="_blank"><img src="/static/hrzhang/images/hz_05.png" class="pt20" /></a></div>
+    <div style="clear:both"></div>
+</div>
+<!-- 理财计算器 -->
+<div class="in_licaijsq" style="clear:both"  id="dd1">
+    <div class="in_licaitop">
+        <div class="in_licaitopimg"  >
+            <div class="in_suohui"></div>
+        </div>
+        <div class="in_licaijsqdown" >
+            <div class="in_yellowbj" >
+                <div class="in_ybjqk1" >
+                    <span class="in_ybjnr1">投资金额：</span><input type="text" class="in_ybjnr2" value="输入100的整数倍"><span class="in_ybjnr03">元</span>
+                </div>
+                <div class="in_ybjqk2">
+                    <span class="in_ybjnr1">投资日期：</span>
+                    <select id="selYear"></select> 
+                    <select id="selMonth"></select>
+                    <select id="selDay"></select>
+                </div>
+                <div class="in_ybjqk3">
+                    <span class="in_ybjnr1">投资产品：</span>
+                    <select id="in_tzcp">
+                        <option value='微年利' selected>微年利</option>
+                        <option value='微月盈'>微月盈</option>
+                        <option value='微年利Ⅱ'>微年利Ⅱ</option>
+                        <option value='微月盈Ⅱ'>微月盈Ⅱ</option>
+                        <option value='微年利Ⅲ'>微年利Ⅲ</option>
+                        <option value='微月盈Ⅲ'>微月盈Ⅲ</option>
+                        <option value='微+1'>微+1</option>
+                        <option value='微+3'>微+3</option>
+                        <option value='微+6'>微+6</option> 
+                    </select>
+                </div>
+                <div class="in_ksjs">开始计算</div>
+                <div class="in_jszhezhao"></div>
+            </div>
+            <div class="bluebj">
+                <div class="in_ybjqk4" >
+                    <span class="in_ybjnr1">预计收益金额：</span><input type="text" class="in_ybjnr3" disabled="disabled"><span class="in_ybjnr03">元</span>
+                </div>
+                <div class="in_ybjqk5">
+                    <span class="in_ybjnr1">预计到期日期：</span><input type="text" class="in_ybjnr4" disabled="disabled">
+                </div>
+                <div class="in_ybjqk6">
+                    <span class="in_ybjnr1">预计本息总额：</span><input type="text" class="in_ybjnr5" disabled="disabled"><span class="in_ybjnr03">元</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="in_licaitopimg2_index" >
+        <div class="in_licaitopimg2"></div>
+    </div>
+</div>
+<!-- 元宵节活动 -->
+<!--  <div class="lanfest shows" style="display: none;">
+</div>
+<div class="festday shows" style="display: none;">
+    <img src="/static/img/lanfest.jpg" class="lastimg">
+    <div class="guanbi"><img src="/static/img/in_festguanbi.png" class="lastguanbiimg"></div>
+    
+</div> -->
+
+<div class="pd320" style="padding-bottom: 220px;"></div>
+{literal}
+<script type="text/javascript">
+    seajs.use(['pages/index/index']);
+</script>
+{/literal}
+

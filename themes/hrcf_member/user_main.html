@@ -1,0 +1,462 @@
+{include file="../hrcf/header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/bscg/index.css?v=20180103" />
+<link rel="stylesheet" type="text/css" href="/static/css/user_yinying.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+
+<div class="pg-container-content">
+
+  <link rel="stylesheet" href="/static/css/pages/account/account.css?v=20160909">   
+  <div id="pg-account-index" class="pg-account">
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+
+    <!-- author wangjie top -->
+      <div class="overlay-content" id="overlay-content">
+        <div class="overlay-jiantou">
+          <img class="overlay-jiantou-img" src="/static/img/yinying/yinying_jiantou.png">
+        </div>
+        <div class="overlay-tixing">
+          <img class="overlay-tixing-img" src="/static/img/yinying/yinying_tixing.png">
+        </div>
+        <div class="overlay-jiesuo">
+          <img class="overlay-jiesuo-img" src="/static/img/yinying/yinying_jiesuo.png">
+        </div>
+        <div class="overlay-guanbi">
+          <img class="overlay-guanbi-img" src="/static/img/yinying/yinying_guanbi.png">
+        </div>
+      </div>
+    <!-- author wangjie bottom -->
+      {include file="user_menu.html"}
+
+      <div class="grid_10">
+        <div class="ui-poptip ui-poptip-orange fn-hide" id="tipCon_3">
+            <div class="">
+                <div class="ui-poptip-container">
+                    <div class="ui-poptip-arrow ui-poptip-arrow-7">
+	                    <em></em>
+	                    <span></span>
+	                </div>
+	                <div class="ui-poptip-content" data-role="content">
+	                </div>
+	            </div>
+	        </div>
+	      </div>
+
+          <div class="img-section pr20">
+             <!-- <a href="/account/monthlyBill.action" target="_blank"><i class="icon icon-bill icon-bill-link mr5"></i>微拍贷电子账单</a> -->
+          </div>
+
+        <div class="box box-user-info">
+          <div class="user-avatar-container">
+            
+            <a href="/?user&q=code/rating/basic">
+            <img src="{$_G.user_id|avatar}" width="96" height="96"/>
+            </a>
+            
+            
+          </div>
+          <div class="user-info-container">
+              <h3>{$_G.user_info.niname}</h3>
+            <div class="fn-clear">
+              <div class="fn-left user-security-container mr10" id="info-box">
+                <div class="safe fn-clear">
+                  <span class="fn-left color-gray-text">安全等级</span>
+                  <div id="safe-progressbar" class="safe-progressbar fn-left" title="">
+                  <div class="bar" ></div>
+                  </div>
+                </div>
+                <div class="icons fn-clear mt5">
+                  <div class="fn-left icon-box {if $_G.user_info.phone_status=='true'}highligh{/if}">
+                    <a data-txt="为了您的账户更安全，请您绑定手机号。||立即绑定" 
+                    	title="{if $_G.user_info.phone_status=='true'}绑定手机，已绑定{else}绑定手机，未绑定{/if}" 
+                    	href="/?user&q=code/approve/security" class="fn-left safe-rank cellphone {if $_G.user_info.phone_status=='true'}highligh{/if}"></a>
+                  </div>
+                  <div class="fn-left icon-box {if $_G.user_info.realname_status=='true' || $_G.user_info.realname_status=='middle'}highligh{/if}">
+                    <a data-txt="进行实名认证后，您才可以进行投资、借款。||立即认证" 
+                        title="{if $_G.user_info.realname_status=='true' || $_G.user_info.realname_status=='middle'}实名认证，已设置{else}实名认证，未设置{/if}" 
+                        href="/?user&q=code/approve/security" class="fn-left safe-rank man {if $_G.user_info.realname_status=='true'}highligh{/if}"></a>
+                  </div>
+                  <div class="fn-left icon-box {if $_G.user_info.cashpass_status=='true'}highligh{/if}">
+                    <a data-txt="为了您的资金更加安全，请您设置交易密码。||立即设置" 
+                       title="{if $_G.user_info.cashpass_status=='true'}交易密码，已设置{else}交易密码，未设置{/if}" 
+                       href="/?user&q=code/approve/security" class="fn-left safe-rank lock {if $_G.user_info.cashpass_status=='true'}highligh{/if}"></a>
+                  </div>
+                  <div class="fn-left icon-box {if $_G.user_info.email_status=='true'}highligh{/if}">
+                    <a data-txt="为了使您的账户有更多的安全保障，请您绑定邮箱。||立即绑定" 
+                       title="{if $_G.user_info.email_status=='true'}绑定邮箱，已绑定{else}绑定邮箱，未绑定{/if}" 
+                       href="/?user&q=code/approve/security" class="fn-left safe-rank mail {if $_G.user_info.email_status=='true'}highligh{/if}"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="fn-left last">
+                <div class="surplus fn-clear">
+                  <span class="fn-left text-l mr10">总资产</span>
+                  <span class="fn-left num-xl color-orange-text">
+                    <em>{$_U.user_main.total|round:"2,3"|default:0.00}</em>元
+                  </span>
+                  <a class="fn-left ui-button ui-button-green ui-button-mid mr4" href="/?user&q=code/account/recharge_new_quickpay">充值</a>
+                  <a class="fn-left ui-button ui-button-blue ui-button-mid last" href="/?user&q=code/account/cash_new">提现</a>
+                </div>
+                <div class="surplus-detail fn-clear">
+                  <div class="fn-left mr40">
+                    <span class="fn-left text mr10">累计收益</span>
+                    <span class="fn-left num last">
+                      <em>{$_U.user_main.repay_shouyi|round:"2,3"|default:0.00}</em>元
+                    </span>
+                  </div>
+                  <div class="fn-left last">
+                    <span class="fn-left text mr10">可用金额</span>
+                    <span class="fn-left num last">
+                      <em>{$_U.user_main.balance|round:"2,3"|default:0.00}</em>元
+                    </span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ad start
+        
+        -->
+
+        <!-- ad end -->
+    <!-- 小黄条 start -->
+    <!-- 理财计划支付 -->
+    <div class="yellowtips-wrap fn-hide paly-to-pay mt20 FINANCE_PLAN">
+      <p>您共有<span class="color-orange-text bookedNum">0</span>笔预定成功的微+计划，请您按规定时间完成支付。<a href="/account/invest!plan.action?tab=reservations">查看详情</a></p>
+      <p><a href="#" class="planName" ></a>&nbsp;&nbsp;&nbsp;&nbsp; 支付截止时间：<span class="color-orange-text payDueDate"></span>&nbsp;&nbsp;&nbsp;&nbsp; 待付金额：<span class="color-orange-text unpaidAmount"></span></p>
+      <div class="yeltip-button">
+        <a href="/account/invest!plan.action?tab=reservations" class="ui-button ui-button-blue ui-button-small">立即支付</a>
+      </div>
+    </div>
+    <!-- 逾期 -->
+    <div class="yellowtips-wrap fn-hide yelltip-overdue mt20 REPAY REPAY-OVER_DUE">
+      <p>您最近5日共有<span class="color-orange-text loanCount">0</span>笔借款需要还款，其中有<span class="overDuedCount"></span>笔借款处于逾期状态请您及时还款。<a href="/account/borrow!toMyLoans.action">查看详情</a></p>
+      <p><span class="color-green-text">已逾期</span>&nbsp;&nbsp;&nbsp;&nbsp; 合约还款日期：<span class="latestRepayDate"></span> &nbsp;&nbsp;&nbsp;&nbsp; 应还金额：<span class="color-orange-text repayAmount"></span>&nbsp;&nbsp;&nbsp;&nbsp; 逾期天数：<span class="color-orange-text overDuedDays"></span></p>
+      <div class="yeltip-button">
+        <a href="/account/borrow!toMyLoans.action?pageFlag=expandAllRepayList" class="ui-button ui-button-blue ui-button-small">立即还款</a>
+      </div>
+    </div>
+    <!-- 还款提醒 -->
+    <div class="yellowtips-wrap fn-hide yelltip-overdue mt20 REPAY REPAY-UNREPAID">
+      <p>您最近5日共有<span class="color-orange-text loanCount">0</span>笔借款需要还款，请您及时还款。<a href="/account/borrow!toMyLoans.action">查看详情</a></p>
+      <p>最近一笔借款还款时间：<span class="color-orange-text latestRepayDate"></span> &nbsp;&nbsp;&nbsp;&nbsp; 应还金额：<span class="color-orange-text repayAmount"></span>&nbsp;&nbsp;&nbsp;&nbsp; 剩余期数：<span class="leftMonths"></span>个月</p>
+      <div class="yeltip-button">
+        <a href="/account/borrow!toMyLoans.action?pageFlag=expandAllRepayList" class="ui-button ui-button-blue ui-button-small">立即还款</a>
+      </div>
+    </div>
+    <!-- 借款驳回 -->
+    <div class="yellowtips-wrap fn-hide fn-clear borrow-rejected LOAN-REJECTED mt20">
+      <span class="yelltip-circle fn-left mr10 mt4">
+        <i class="yelltip-line" ></i>
+      </span>
+      <span class="color-green-text fn-left mr30">借款驳回</span>
+      <span class="fn-left">尊敬的用户您好，很遗憾的通知您，您发布的借款申请已被驳回。驳回原因详见<a href="/account/comm!mail.action">消息</a></span>
+      <a href="javascript:" class="yelltips-close"><img width="10" height="10" src="/static/img/account/yelltips_close.png" /></a>
+    </div>
+    <!-- 申请借款 -->
+    <div class="yellowtips-wrap fn-hide fn-clear borrow-rejected mt20 LOAN-NONE">
+      <span class="yelltip-circle fn-left mr10 mt4">
+        1
+      </span>
+      <span class="color-green-text fn-left mr30">申请借款</span>
+      <span class="fn-left">尊敬的用户您好，目前您尚未发起借款申请，马上来申请吧！</span>
+      <div class="yeltip-button">
+        <a href="/borrow/index.action" class="ui-button ui-button-blue ui-button-small">我要借款</a>
+      </div>
+    </div>
+    <!-- 填写借款信息 -->
+    <div class="yellowtips-wrap fn-hide fn-clear borrow-rejected mt20 LOAN-INCOMPLETE_INFO">
+      <span class="yelltip-circle fn-left mr10 mt4">
+        2
+      </span>
+      <span class="color-green-text fn-left mr30">填写借款信息</span>
+      <span class="fn-left mr30">信息及资料完整度</span>
+      <span class="fn-left basic-progress-bg mr10">
+        <b class="basic-percent" style="width: 0%"></b>
+      </span>
+      <span class="fn-left basic-progress-value">
+        <em>0%</em>
+      </span>
+      <div class="yeltip-button">
+        <a href="#" class="ui-button ui-button-blue ui-button-small">立即完善</a>
+      </div>
+    </div>
+    <!-- 审核中 -->
+    <div class="yellowtips-wrap fn-hide fn-clear borrow-rejected in-the-audit LOAN-AUDITING mt20">
+      <span class="yelltip-circle fn-left mr10 mt4">
+        3
+      </span>
+      <span class="color-green-text fn-left mr30">审核中</span>
+      <span class="fn-left mr30">认证状态</span>
+      <span class="fn-left basic-progress-bg mr10">
+        <b class="basic-percent" style="width: 0%"></b>
+      </span>
+      <span class="fn-left basic-progress-value mr30">
+        <em>已通过0项</em>
+      </span>
+      <span class="fn-left">预计3个工作日内完成。</span>
+      <div class="yeltip-button">
+        <a href="#" class="ui-button ui-button-blue ui-button-small">查看详情</a>
+      </div>
+    </div>
+    <!-- 等待审核 -->
+    <div class="yellowtips-wrap fn-hide fn-clear borrow-rejected waiting-for-audit mt20 LOAN-WAITING_AUDIT">
+      <span class="yelltip-circle fn-left mr10">
+        3
+      </span>
+      <span class="color-green-text fn-left mr30">等待审核</span>
+      <span class="fn-left yelltip-ver-icon fn-hide idStatus mr25">
+        <img src="" width="40" height="40" >
+        <em><img src="" width="30" height="30" ></em>
+      </span>
+      <span class="fn-left yelltip-ver-icon fn-hide userCreditStatus mr25">
+        <img src="" width="40" height="40" >
+        <em><img src="" width="30" height="30" ></em>
+      </span>
+      <span class="fn-left yelltip-ver-icon fn-hide incomeStatus mr25">
+        <img src="" width="40" height="40" >
+        <em><img src="" width="30" height="30" ></em>
+      </span>
+      <span class="fn-left yelltip-ver-icon fn-hide workStatus eshopStatus mr25">
+        <img src="" width="40" height="40" >
+        <em><img src="" width="30" height="30" ></em>
+      </span>
+      <span class="fn-left loan-reject-msg fn-hide">资料驳回原因请查看<a href="/account/comm!mail.action">消息</a>或邮件</span>
+      <span class="fn-left loan-tips fn-hide">正在检查您的资料,请耐心等待。</span>
+      <div class="yeltip-button">
+        <a href="#" class="ui-button ui-button-blue ui-button-small">补充上传</a>
+      </div>
+    </div>
+    <!-- 筹集借款 -->
+    <div class="yellowtips-wrap fn-hide fn-clear borrow-rejected raise-money LOAN-OPEN mt20">
+      <span class="yelltip-circle fn-left mr10">
+        4
+      </span>
+      <span class="color-green-text fn-left mr20">筹集借款 </span>
+      <div class="fn-left">
+        <p class="fn-clear">
+          <span class="fn-left mr20 w180">借款金额：<em class="amount"></em>元</span>
+          <span class="fn-left mr20"><span class="J_fee-rate">月综合费率</span>：<em class="fee-rate"></em>% </span>
+          <span class="fn-left mr20">借款期限：<em class="months"></em>个月</span>
+        </p>
+        <p class="fn-clear">
+          <span class="fn-left mr20 w180">信用等级：<em class="creditLevel"></em> </span>
+          <span class="fn-left mr10">筹款进度:</span>
+          <span class="fn-left basic-progress-bg mr10">
+            <b class="basic-percent" style="width: 0%"></b>
+          </span>
+          <span class="fn-left basic-progress-value">
+            <em>0%</em>
+          </span>
+        </p>
+      </div>
+      <div class="yeltip-button">
+        <a href="#" class="ui-button ui-button-blue ui-button-small">查看详情</a>
+      </div>
+    </div>
+    <!-- 小黄条 end -->
+
+
+        <div class="box mt20 ">
+          <div class="fn-clear equation sm20" >
+            <div class="fn-left text-center" style="width: 112px">
+              <h5>账户总资产</h5>
+              <p class="num-l">
+                <em style="font-size: 16px">{$_U.user_main.total|round:"2,3"|default:0.00}</em>元
+              </p>
+            </div>
+              <div class="fn-left symbol" style="margin: 0 0; width: 20px">=</div>
+            <div class="fn-left text-center" style="width: 112px">
+              <h5>理财资产<i id="tips_1" class="iconfont tips">&#xF046;</i></h5>
+              <p class="num-l">
+                <em style="font-size: 16px">{$_U.user_main.frost|round:"2,3"|default:0.00}</em>元
+              </p>
+            </div>
+            <div class="fn-left symbol" style="margin: 0 0; width: 20px">+</div>
+            <div class="fn-left text-center" style="width: 112px">
+              <h5>提现中</h5>
+              <p class="num-l">
+                <em style="font-size: 16px">{$_U.user_main.tixianzhong|round:"2,3"|default:0.00}</em>元
+              </p>
+            </div>
+            <div class="fn-left symbol" style="margin: 0 0; width: 20px">+</div>
+            <div class="fn-left text-center" style="width: 78px">
+              <h5>借款负债</h5>
+              <p class="num-l rrdcolor-red-text">
+                <em style="font-size: 16px">-0.00</em>元
+              </p>
+            </div>
+            <div class="fn-left symbol" style="margin: 0 0; width: 20px">+</div>
+            <div class="fn-left text-center" style="width: 112px">
+              <h5>账户余额</h5>
+              <p class="num-l">
+                <em style="font-size: 16px">{$_U.user_main.balance|round:"2,3"|default:0.00}</em>元
+              </p>
+            </div>
+            
+            <div class="fn-left symbol" style="margin: 0 0; width: 20px">+</div>
+            <div class="fn-left text-center" style="width: 112px">
+              <h5>预期收益</h5>
+              <p class="num-l">
+              	<em style="font-size: 16px">{$_U.user_main.await_shouyi|round:"2,3"|default:0.00}</em>元
+              </p>
+            </div>
+          </div>
+          <div class="baixian" ></div>
+          <!-- <div>
+            <div class="fn-clear summary">
+              <a class="fn-left text mr30" href="/account/invest!loan.action">理财账户</a>
+              <p class="fn-left text mr10">已赚总金额</p>
+              <p class="fn-left num"><em>0.00</em>元</p>
+              <a class="fn-right text mr30" href="/account/invest!backAccount.action">回账查询</a>
+            </div>
+            <ul class="ui-list ui-list-s">
+              <li class="ui-list-header fn-clear">
+                <span class="ui-list-title fn-left color-gray-text w120">理财方式</span>
+                <span class="ui-list-title fn-left color-gray-text w160">账户资产</span>
+                <span class="ui-list-title fn-left color-gray-text w160">已赚金额<i id="tips_2" class="iconfont tips">&#xF046;</i></span>
+                <span class="ui-list-title fn-left color-gray-text w120">加权平均收益率</span>
+                <span class="ui-list-title fn-left color-gray-text w80">持有数量</span>
+                <span class="ui-list-title fn-left color-gray-text w80"></span>
+              </li>
+              <li class="ui-list-item fn-clear">
+                <span class="ui-list-field fn-left w100 ph10">债权投资</span>
+                <span class="ui-list-field fn-left num-s text-right w140 pr20"><em>0.00</em>元</span>
+                <span class="ui-list-field fn-left num-s text-right w140 pr20"><em>0.00</em>元</span>
+                <span class="ui-list-field fn-left num-s text-right w90 pr30"><em>0.0</em>%</span>
+                <span class="ui-list-field fn-left text-center w80"><em>0</em></span>
+                <span class="ui-list-field fn-left text-center w80 last"><a href="/account/invest!loan.action">查看</a></span>
+              </li>
+              <li class="ui-list-item fn-clear last">
+                <span class="ui-list-field fn-left w100 ph10">微计划</span>
+                <span class="ui-list-field fn-left num-s text-right w140 pr20"><em>0.00</em>元</span>
+                <span class="ui-list-field fn-left num-s text-right w140 pr20"><em>0.00</em>元</span>
+                <span class="ui-list-field fn-left num-s text-right w90 pr30"><em>0.0</em>%</span>
+                <span class="ui-list-field fn-left text-center w80"><em>0</em></span>
+                <span class="ui-list-field fn-left text-center w80 last"><a href="/account/invest!autoInvestPlan.action">查看</a></span>
+              </li>
+            </ul>
+          </div>-->
+          <div class="mt20 mb20">
+            <div class="fn-clear summary">
+             <!--  <a class="fn-left text mr30" href="#">借款账户</a>
+              <p class="fn-left text mr10">待还总金额</p>
+              <p class="fn-left num"><em>0.00</em>元</p>
+              <a class="fn-right text mr30" href="#">申请查询</a> -->
+            </div>
+            <ul class="ui-list ui-list-s" id="borrowing"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-poptip fn-hide" id="tipCon_1">
+      <div class="ui-poptip-shadow">
+      <div class="ui-poptip-container">
+          <div class="ui-poptip-arrow ui-poptip-arrow-10">
+              <em></em>
+              <span></span>
+          </div>
+          <div class="ui-poptip-content" data-role="content">
+              	理财账户内的资产，包括债权投资账户资产、微+计划账户资产。<br>其中债权投资账户资产等于持有债权的待回收本金。
+          </div>
+      </div>
+      </div>
+  </div>
+  <div class="ui-poptip fn-hide" id="tipCon_2">
+      <div class="ui-poptip-shadow">
+      <div class="ui-poptip-container">
+          <div class="ui-poptip-arrow ui-poptip-arrow-10">
+              <em></em>
+              <span></span>
+          </div>
+          <div class="ui-poptip-content" data-role="content">
+            已赚金额 = 已赚利息罚息及违约金 + 债权转让盈亏 - 债权转让应计利息支出<br>（由于购买转让的债权时可能需要先支付应计利息，所以此数值可能为负）
+          </div>
+      </div>
+      </div>
+  </div>
+
+</div>
+<!-- 开通存管mask -->
+<!-- <div class="mask hide" id="J_KTbscg">
+    <input type="hidden" value="{$_G.user_id}" class="user_id"> 
+    {articles module="bscg" function="findsmaccount" user_id=$_G.user_id var="var"}
+    <input type="hidden" value="{$var.acc_depository_flag}" class="acc_depository_flag"> 
+    {/articles}
+    <div class="mask-content">
+        <div class="mask-close"></div>
+        <a class="mask-link" href="/?user&q=code/bscg/bsrealname"></a>
+    </div>
+</div> -->
+<!--{literal}
+<script id="loan-list-rsp" type="text/x-json">{"status":0,"message":"okey","data":{"loans":[]}}</script>
+<script id="borrowing-rsp" type="text/x-json">{"status":0,"message":"okey","data":{"loans":[]}}</script>
+<script id="loan-list-template" type="text/x-handlebars-template">
+  {{# if _hasHeader }}
+  <li class="ui-list-header fn-clear">
+    <span class="ui-list-title fn-left color-gray-text w260">借款标题</span>
+    <span class="ui-list-title fn-left color-gray-text w60">信用等级</span>
+    <span class="ui-list-title fn-left color-gray-text w90">预期年化收益率</span>
+    <span class="ui-list-title fn-left color-gray-text w120">金额</span>
+    <span class="ui-list-title fn-left color-gray-text w80">期限</span>
+    <span class="ui-list-title fn-left color-gray-text w50">进度</span>
+    <span class="ui-list-title fn-left color-gray-text w75 last"></span>
+  </li>
+  {{/ if }}
+  {{# each loans }}
+  <li class="ui-list-item fn-clear">
+    <span class="ui-list-field fn-left w260">
+      <em class="ui-loantype {{ loanType }}" title="{{ loanTypeText }}"></em><a class="fn-left w210 rrd-dimgray fn-text-overflow" href="{{ link }}">{{ title }}</a>
+    </span>
+    <span class="ui-list-field fn-left w60"><a class="ui-creditlevel {{ creditLevel }} snow">{{ creditLevel }}</a></span>
+    <span class="ui-list-field fn-left num-s text-right w70 pr20"><em>{{ interest }}</em>%</span>
+    <span class="ui-list-field fn-left num-s text-right w110 pr10"><em>{{ amount }}</em>元</span>
+    <span class="ui-list-field fn-left num-s text-right w60 pr20"><em>{{ term }}</em>个月</span>
+    <span class="ui-list-field fn-left num text-right w40 pr10"><em>{{ progress }}</em>%</span>
+    <span class="ui-list-field fn-left w75 last"><a class="ui-button ui-button-small ui-button-blue" href="{{ link }}">投标</a></span>
+  </li>
+  {{ else }}
+  <li class="ui-list-status">
+    <p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}暂时没有可推荐的散标{{/ if }}</p>
+  </li>
+  {{/ each }}
+  </script>
+  <script id="borrowing-template" type="text/x-handlebars-template">
+  <li class="ui-list-header fn-clear">
+    <span class="ui-list-title fn-left color-gray-text w200">借款标题</span>
+    <span class="ui-list-title fn-left color-gray-text w160">待还本金</span>
+    <span class="ui-list-title fn-left color-gray-text w160">待还利息/管理费</span>
+    <span class="ui-list-title fn-left color-gray-text w100">逾期费用</span>
+    <span class="ui-list-title fn-left color-gray-text w110 last"></span>
+  </li>
+  {{# each loans }}
+  <li class="ui-list-item fn-clear">
+    <span class="ui-list-field fn-left w180 ph10 fn-text-overflow">{{ title }}</span>
+    <span class="ui-list-field fn-left num-s text-right w140 pr20"><em>{{ notPayPrincipal }}</em>元</span>
+    <span class="ui-list-field fn-left num-s text-right w120 pr40"><em>{{ notPayInterestAndMgmtFee }}</em>元</span>
+    <span class="ui-list-field fn-left num-s text-right w80 pr20"><em>{{ overdueAmount }}</em>元</span>
+    <span class="ui-list-field fn-left text-center w110 last"><a href="/account/borrow!toMyLoans.action">去还款</a></span>
+  {{ else }}
+  <li class="ui-list-status">
+    <p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}没有借款记录{{/ if }}</p>
+  </li>
+  {{/ each }}
+  </script>
+   <script>seajs.use(['pages/account/index']);</script>
+  <script> var notification = {"status":0,"data":{}}</script>
+{/literal}    -->

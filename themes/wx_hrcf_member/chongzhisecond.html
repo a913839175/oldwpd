@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/chongzhisecond.css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/xuanzebank.css" />
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/chongzhisecond.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="screenc-overlay" id="screenc-overlay">
+    </div>
+    <div class="top">
+        <div class="top1">
+           <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+            <p>充值</p>
+        </div>
+    </div>
+    <div class="main">
+    <form id="accountform" class="ui-confirm-form"  method="post">
+        <li>
+            <div class="main_left">充值金额</div>
+            <div class="main_right"><input name="amount" type="text" class="money" id="money" placeholder="输入金额"></div>
+        </li>
+        <li>
+            <a href="javascript:;" id="xuanze">
+                <div class="main_left_bank" id="sure_bank" data-id="">
+                    <div class="main_left_img">
+                        <img id="bankimg" src="/static/img/banks/{$_U.userBanks.litpic}"/>
+                    </div>
+                    <p id="bankname">{$_U.userBanks.cardId}</p>
+                </div>
+                <div class="main_right_bank">
+                    <div class="main_right_img">
+                        <img src="/static/hrcfwx/images/youjian.png"/>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+
+
+        {articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}{/articles}
+        <li>
+            <div class="main_left">存钱罐余额</div>
+            <div class="main_right">{$var.balance|round:"2,3"|default:0.00}元</div>
+        </li>
+        <li>
+            <div class="main_left_code ">短信验证码</div>
+            <div class="main_middle"><input name="vcode"  type="text" class="code" id="code" placeholder="输入验证码"></div>
+            <div class="main_right_code"><a id="getcode">获取验证码</a></div>
+        </li>
+        <div class="xieyi">
+            <input id="isread" type="checkbox" class="checkbox" />
+            <label for="isread">我已阅读并同意</label><span><a href="/wxyonghuxieyi/index.html">《用户协议》</a></span>
+        </div>
+        <div class="tijiao">
+            <input id="next" type="button" value="提交" class="tijiao_button">
+            <input type="hidden" name="ticket"  class="ticket" id="ticket" value="">
+            <input type="hidden" name="bankCode"  class="bankid" id="bankid" value="">
+            <input type="hidden" name="tpye"  class="tpye" id="tpye" value="ONLINE_BANK">
+            <input id="userBankId" class="fn-left invisible error" type="hidden" name="userBankId" value="{$_U.userBanks.id}">
+            <input type="hidden" name="comefrom"  class="comefrom" id="comefrom" value="wx">
+        </div>
+        </form>
+        <div class="chongzhifc">
+                <div class="chongzhits">
+                       <p class="czez">为更好保障客户资金安全</p>
+                       <p class="czez">大金额充值建议通过网银</p> 
+                </div>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>

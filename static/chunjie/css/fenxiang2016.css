@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0 auto;font-family:"微软雅黑";background:#2a6ac7;}
+a {text-decoration: NONE}
+li{list-style:none;}
+p{margin:0px; padding:0px;}
+input{ border:none; font-family:"微软雅黑";}
+img{ border:none;}
+
+.fenxiang2016_head{ height:341px; background:url(../images/banner1.png) 50% 0 no-repeat;}
+.fenxiang2016_body{ height:1500px; width:999px; margin: 0 auto; background:url(../images/body2.png) 50% 0 no-repeat; background-size:contain;}
+.fenxiang2016_body_div1{ height:500px;}
+.fenxiang2016_body_div1 p{ color:#fff; padding:245px 0 0 100px; line-height:29px; font-size:18px;}
+.fenxiang2016_body_fxewm{ height:49px; width:190px; border-radius:24px; margin:28px 153px; cursor:pointer;}
+.fenxiang2016_body_div1 p span{ color:#ffec1b;}
+.fenxiang2016_body_div2{ height:500px;}
+.fenxiang2016_body_div2 div{ float:left; width:285px; color:#fff; padding:240px 0 0 115px; line-height:30px; font-size:16px;}
+.fenxiang2016_body_div2 p{ float:left; width:285px; color:#fff; padding:270px 0 0 125px; line-height:30px; font-size:16px;}
+.fenxiang2016_body_div2 span,.fenxiang2016_body_div2 a{ color:#ffec1b;}
+.fenxiang2016_body_div3{ height:130px; text-align:center; font-size:12px; color:#fff; padding-top:370px;}
+.fxewm{ width:280px !important; height:280px !important; background:url(../images/fenxiang.png) no-repeat !important;}
+.fenxiang2016_body123{ width:300px; height:300px; margin: 0 auto;}
+	.reveal-modal-bg { 
+		position: fixed; 
+		height: 100%;
+		width: 100%;
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8000000,endColorstr=#c8000000);
+		background: rgba(0,0,0,.8);
+		z-index: 100;
+		display: none;
+		top: 0;
+		left: 0; 
+		}
+	.reveal-modal {
+		visibility: hidden;
+		top: 150px; 
+		width: 280px;
+		height:280px;
+		background: #eee url(../images/fenxiang.png) no-repeat;
+		position: absolute;
+		z-index: 101;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		}
+	.close-reveal-modal {
+		font-size: 22px;
+		line-height:14px;
+		position: absolute;
+		height:17px; width:17px; border-radius:10px; background-color:#FFF;
+		top: -8px;
+		right: -8px;
+		color: #aaa;
+		text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+		font-weight: bold;
+		cursor: pointer;
+		} 
+
+

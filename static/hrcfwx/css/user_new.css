@@ -1,0 +1,50 @@
+@charset "utf-8";
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+html{background: #efeff4;}
+a {text-decoration:none;}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none;position: relative;}
+/*top*/
+.clearfix:after { content: '.'; display: block; clear: both; height: 0; visibility: hidden; }
+.clearfix { zoom: 1; }
+.myimeney{width: 100vw;height:60vw;background-color:#1a4c7d}
+.mytotmetz{width: 30vw;padding-top: 7vw;margin-left: 39vw;}
+.mytotmetwz{color: #fff;font-size: 4vw;float: left;margin:0 auto;}
+.mytotmetimg{width: 4vw;height: 4vw;float: left;padding-top: 0.9vw;cursor: pointer;}
+.mytotmetje{width: 100vw;text-align: center;color: #fff;font-size: 12vw;}
+.mytotmetje .mysamlldian{font-size: 9vw;}
+.myaddsy{color: #fff;font-size: 4vw;width: 100vw;text-align: center;padding-top: 2.8vw;}
+.myheixian{background-size:100%;width: 92vw;height: 1px;padding-left: 4vw;padding-top: 8vw;}
+.mylicai{padding-top: 1vw;}
+.myconfon{width: 50vw;float: left;text-align: center;}
+.myconfon .myconfonwz{color: #fff;font-size: 3vw;}
+.myconfon .myconfonje{color: #fff;font-size: 6vw;}
+.myinvent{width: 50vw;float: left;text-align: center;}
+.myinvent .myinventwz{color: #fff;font-size: 3vw;}
+.myinvent .myinventje{color: #fff;font-size: 6vw;}
+.regcash{width: 100vw;height:28vw;background: #fff;margin-bottom: 2.7vw;}
+.cashjez{width: 50vw;float: left;}
+.cashwz{font-size: 4vw;color: #323232;padding-left: 4vw;padding-top:4vw;}
+.cashje{font-size: 7.8vw;color: #ff5938;padding-left: 4vw;}
+
+.cashingje{color: #ff5938;font-size: 4vw;}
+.regbutton{width: 50vw;float: left;padding-top: 8vw;}
+.regbutton .regbutton1{width: 23vw;height: 9vw;background: #ff6a48;float: left;line-height: 8vw;text-align: center;color: #fff;font-size: 4vw;border-radius: 4vw;}
+.regbutton .regbutton2{width: 23vw;height: 8vw;float: left;line-height: 8vw;text-align: center;border:1px solid #ff5938;color:#ff5938;font-size: 4vw;border-radius: 4vw;margin-left: 2vw;}
+.cashing{clear:both;font-size: 4vw;color: #323232;padding-left: 4vw;}
+.option{width: 100vw;}
+.ul-option{width: 100vw;}
+.li-option{width: 100vw;height: 13.5vw;background: #fff;}
+.li-optionimg{width: 5.7vw;height: 5.7vw;float: left;padding-left: 4vw;padding-top: 4.3vw;}
+.li-optionwz{font-size: 4.5vw;float: left;padding-top: 4.1vw;padding-left: 2vw;color: #323232;}
+.li-optionkit{font-size: 4vw;float: left;padding-top: 4.1vw;padding-left: 39vw;color: #909090;}
+.pad{padding-left: 46vw;}
+.pad1{padding-left:41.4vw;}
+.myend{width: 90vw;height: 13vw;background: #00a0ea;color: #fff;font-size: 5.5vw;text-align: center;line-height: 13vw;margin-top: 5vw;margin-left: 5vw;margin-bottom: 2vw;}
+.cashing{clear:both;}
+.mytotfc{position: absolute;z-index: 10001;width: 100%;height: 100%;background: rgba(0,0,0,0.5);left: 0;top:0;display: none;}
+.mytotfcwz{position: absolute;left:5vw;top:53vw;width: 89vw;height: 44vw;border-radius: 13px;}
+.wzgs{width: 89vw;height: 31.1vw;background: #fff;border-radius: 13px 13px 0 0 ;border-bottom: 3px solid #d9d9d9;}
+.wzgs1{font-size: 4.8vw;color: #000;padding-left: 6.2vw;padding-top: 10.9vw;}
+.wzgs2{font-size: 4.8vw;color: #000;padding-left: 34.7vw;}
+.wzzhidao{width: 89vw;height: 12vw;background: #f6f6f6;border-radius:  0 0 13px 13px;line-height: 12vw;color: #00a0e9;text-align: center;font-size: 4.5vw;}

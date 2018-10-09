@@ -1,0 +1,135 @@
+
+@charset "utf-8";
+/* CSS Document */
+
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none;  background-color:#1a1a39; position:relative;}
+.game_stage img{ width:100%;}
+.game_in p{ color:#ffde1d; width:15.75vh; font-size:2vh; margin: 0 auto; text-align:center; padding-top:3vh; font-weight:700;}
+/*.game_in span{ position:absolute; left:44vh; color:#ffe403; font-size:5vh; line-height:8vh;}*/
+.game_in .timer_number{ position:absolute; left:44vh; color:#ffe403; font-size:5vh; line-height:8vh;}
+.game_in{ position:relative; height:88.65vh; width:56.3vh; margin: 0 auto;}
+.game_clock{ position:absolute; top:1vh; right:14vh; width:6vh; height:6vh;}
+.game_clock img{ width:100%;}
+.game_monkey1{ position:absolute; width:28vh; height:20.15vh; top: 8vh; left: 0vh;overflow: hidden;}
+.game_monkey2{ position:absolute; width:28vh; height:20.15vh; top: 8vh; left: 28vh;overflow: hidden;}
+.game_monkey3{ position:absolute; width:28vh; height:20.15vh; top: 28.15vh; left: 0vh;overflow: hidden;}
+.game_monkey4{ position:absolute; width:28vh; height:20.15vh; top: 28.15vh; left: 28vh;overflow: hidden;}
+.game_monkey5{ position:absolute; width:28vh; height:20.15vh; top: 48.3vh; left: 0vh;overflow: hidden;}
+.game_monkey6{ position:absolute; width:28vh; height:20.15vh; top: 48.3vh; left: 28vh;overflow: hidden;}
+.game_monkey7{ position:absolute; width:28vh; height:20.15vh; top: 68.45vh; left: 0vh;overflow: hidden;}
+.game_monkey8{ position:absolute; width:28vh; height:20.15vh; top: 68.45vh; left: 28vh;overflow: hidden;}
+
+.game_monkey11{ position:absolute; width:16.87vh; height:10vh; left:11vh; top:10vh;}
+.game_monkey12{ position:absolute; width:16.87vh; height:10vh; left:11vh; top:10vh;}
+.game_monkey13{ position:absolute; width:19.68vh; height:18.37vh; left:9.5vh; top:0.8vh;overflow: hidden;}
+.game_monkey14{ display:inline; position:absolute; width:11.44vh; height:8.75vh; left:2.5vh; top:1vh; background:url(../images/zuokuang.png) no-repeat; background-size:cover; color:#bf2333; font-size:1.8vh;}
+
+.game_monkey21{ position:absolute; width:16.87vh; height:10vh; right:11vh; top:10vh;}
+.game_monkey22{ position:absolute; width:16.87vh; height:10vh; right:11vh; top:10vh;}
+.game_monkey23{ position:absolute; width:19.68vh; height:18.37vh; right:9.5vh; top:0.8vh;overflow: hidden;}
+.game_monkey24{ display:inline; position:absolute; width:11.44vh; height:8.75vh; right:2.5vh; top:2vh; background: url(../images/youkuang.png) no-repeat; background-size:cover; color:#bf2333; font-size:1.8vh;}
+
+/* **************game win / game over******************* */
+
+/*.game_position{ position:absolute; top:0px; left:0px; width:100vw; height:100vh; background:#000; opacity:0.93;}*/
+.game_position{
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 900;
+}
+
+.game_noprize{ height:100%; width:56.3vh; margin: 0 auto; padding-top:5vh;}
+.game_lost{ width:56.3vh; height:56.3vh; background:url(../images/noprize.png) no-repeat; background-size:cover; margin: 0 auto;}
+.game_lost p{ text-align:center; color:#ffe3cd;margin: 0;}
+.game_lost p:first-child{ padding-top:31vh; font-size:2.5vh; line-height:6.5vh;}
+.game_lost p:first-child+p{ padding-top:0vh; font-size:3.15vh; line-height:5vh;}
+.game_lost p:first-child+p+p{ padding-top:5vh; font-size:2.69vh; line-height:2.69vh; color:#ffd800;}
+
+.game_getprize{ height:100%; width:56.3vh; margin: 0 auto; padding-top:5vh;}
+.game_get{ width:56.3vh; height:56.3vh; background:url(../images/getprize.png) no-repeat; background-size:cover; margin: 0 auto;}
+.game_get span{ color:#fff; font-size:3.38vh;}
+.game_get p{ text-align:center; color:#f8e247;margin: 0;}
+.game_get p:first-child{ padding-top:31vh; font-size:5.2vh; line-height:6.5vh;}
+.game_get p:first-child+p{ padding-top:0vh; font-size:3.15vh; line-height:5vh; color:#ffe3cd;}
+.game_get p:first-child+p+p{ padding-top:5vh; font-size:2.69vh; line-height:2.69vh;}
+
+.game_but{ width:50vh; margin: 0 auto;}
+.game_but div{ float:left; width:24.6vh; height:7.88vh; line-height:7.88vh; text-align:center; color:#e60a00; font-size:2.8vh; background:url(../images/prizebut.png) no-repeat; background-size:cover; margin-right:0.4vh;font-weight:bold;}
+.game_but div:hover{background:url(../images/prizebut1.png) no-repeat; background-size:cover;}
+
+
+/* ******************about game***************** */
+.screenc-overlay{
+	width: 100%;
+	height: 100%;
+    position: fixed;
+    z-index: 700;
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-transition: opacity 0.9s;
+    transition: opacity 0.9s;
+    opacity: 1;
+}
+
+.content{
+	width: 100%;
+	height: 100%;
+    position: fixed;
+    z-index: 800;
+    left:0;
+    top:0;
+    margin:0 auto;
+}
+
+.content img{
+	width: 50%;
+    position: fixed;
+}
+
+.game_stage{
+    left:0;
+    top:0;
+	width: 100%;
+	height: 100%;
+    position: fixed;
+    z-index: 900;
+}
+
+
+
+.content .down{
+    opacity:0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.content .down-img{
+    opacity:0;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+}
+
+.monkey_pic{
+    opacity: 0;
+}
+
+.speak{
+    opacity: 0;
+}
+
+.no_opacity{
+    opacity:0;
+}
+
+.no_display{
+    display:none;
+}

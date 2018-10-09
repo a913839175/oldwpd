@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link href="/static/hrcfwx/css/xiaoxixiangqing.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<title>微拍贷</title>
+</head>
+
+<body>
+	<div class="top">
+    	<div class="top1">
+        	<a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+        	<P>消息详情</P>
+        </div>
+<!--     	<div class="top2">
+        	<img src="/static/hrcfwx/images/shanchu.png"/>
+        </div> -->
+    </div>
+	<div class="article">
+    	<li>
+        	<div>{$_U.message_result.name}</div>
+            <span>{$_U.message_result.addtime|date_format:"Y-m-d H:i"}</span>
+        </li>
+        <li>
+            <div class="clearfix">
+            	<p>{$_U.message_result.contents}</p>
+            </div>
+        </li>
+    </div>
+    {include file="../hrcf/wxfooter4.html"}
+</body>
+</html>

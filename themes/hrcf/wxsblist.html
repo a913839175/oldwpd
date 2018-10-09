@@ -1,0 +1,471 @@
+{include file="wxheader.html"}
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link href="/static/hrcfwx/css/sblist.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/sblist.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+
+<div class="top">
+    <div class="top1">
+        <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+    </div>
+    <div class="top_title">
+        <p>散标列表</p>
+    </div>
+    {include file="wxtop.html"}
+</div>
+<div id="tab">
+    <div class="main_head">
+        <ul>
+            <li class="cur">全部</li>
+            <li>投标中</li>
+            <li>还款中</li>
+            <li>已满标</li>
+        </ul>
+    </div>
+    <div class="main">
+        <article class="main1 cur">
+            <div class="list"  id="all_list">
+                {list module="borrow" function="GetList_norepay" var="loop" is_flow="2" epage="10" order="index" query_type="tender_success" group_status=0 borrow_auto_time="borrow_auto_time"}
+                {if $loop.list}  
+                {foreach from="$loop.list" item="var" }
+                <a class="a-none" href="/wxsbdetail/a{$var.borrow_nid}.html">
+                    <div class="sbmain">
+                        <div class="s_bt clearfix">
+                            {if $var.borrow_xingyong=="AA"}
+                            <img src="/static/hrcfwx/images/AA.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="A"}
+                            <img src="/static/hrcfwx/images/AA_A.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="B"}
+                            <img src="/static/hrcfwx/images/AA_B.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="C"}
+                            <img src="/static/hrcfwx/images/AA_C.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="D"}
+                            <img src="/static/hrcfwx/images/AA_D.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="E"}
+                            <img src="/static/hrcfwx/images/AA_E.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="HR"}
+                            <img src="/static/hrcfwx/images/AA_HR.png" class="dj_img"/>
+                            {else}
+                            {/if}
+                             <p class="sb_mc">{$var.name}</p>
+                             {if $var.status==1}
+                              {if $var.borrow_account_wait==0}
+                              <p class="sb_zt">审核中</p>
+                              {else}
+                              <p class="sb_zt">投标中</p>
+                              {/if}
+                            {elseif $var.status==3}
+                              {if $var.repay_account_wait==0}
+                              <p class="sb_zt">已成功</p>
+                              {else}
+                              <p class="sb_zt">还款中</p>
+                              {/if}
+                            {else}
+                              {if $var.status==5}
+                              <p class="sb_zt">已停止</p>
+                              {else}
+                              <p class="sb_zt">已流标</p>
+                              {/if} 
+                            {/if} 
+                        </div>
+                        <div class="s_jieshao clearfix">   
+                            <div class="s_nhl">
+                                 <div class="bigy">
+                                     <p class="binum">{$var.borrow_apr_old}<span>%</span></p>
+                                     <p class="bisy">预期年化收益</p>
+                                 </div>
+                            </div>
+                            <div class="s_nright">
+                                <div class="s_righttop clearfix">
+                                    <div class="s_rs1">
+                                    <p class="s_rzt1">
+                                    期限：<span>
+                                    {if $var.borrow_period >= 1 && $var.borrow_period < 10 }
+                                        {$var.borrow_period|truncate:1}
+                                    {else}
+                                        {$var.borrow_period|truncate:2}
+                                    {/if}
+                                    个月</span>
+                                    </p>
+                                    <p class="s_rzt1">金额：<span>{$var.account}元</span></p>
+                                    <p class="s_rzt1">
+                                        状态：<span>
+                                        {if $var.status==1}
+                                          {if $var.borrow_account_wait==0}
+                                          审核中
+                                          {else}
+                                          投标中
+                                          {/if}
+                                        {elseif $var.status==3}
+                                          {if $var.repay_account_wait==0}
+                                          已成功
+                                          {else}
+                                          还款中
+                                          {/if}
+                                        {else}
+                                          {if $var.status==5}
+                                          已停止
+                                          {else}
+                                          已流标
+                                          {/if} 
+                                        {/if}
+                                        </span>
+                                    </p>
+                                    </div>
+                                    <div class="s_rs2">{$var.borrow_account_scale_int}%</div>
+                                </div> 
+                                <div class="s_rightbottom clearfix">
+                                    <img src="/static/hrcfwx/images/sinatb.png">
+                                    <p>新浪支付正式托管微拍贷风险备用金账户</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {/foreach}
+                {/if}
+                {/list}
+            </div>
+            {if $loop.list}  
+            <div class="lists">
+                <p class="more"><a href="javascript:;" id='getmore_all'>加载更多...</a></p>
+            </div>
+            {/if}
+            <div class="main1_none"></div>
+        </article>
+        <article class="main2">
+            <div class="list"  id="in_list">
+                {list module="borrow" function="GetList_norepay" var="loop" is_flow="2" epage="10" order="index" query_type="invest" group_status=0 borrow_auto_time="borrow_auto_time"}
+                {if $loop.list}  
+                {foreach from="$loop.list" item="var" }
+                <a class="a-none" href="/wxsbdetail/a{$var.borrow_nid}.html">
+                    <div class="sbmain">
+                        <div class="s_bt clearfix">
+                            {if $var.borrow_xingyong=="AA"}
+                            <img src="/static/hrcfwx/images/AA.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="A"}
+                            <img src="/static/hrcfwx/images/AA_A.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="B"}
+                            <img src="/static/hrcfwx/images/AA_B.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="C"}
+                            <img src="/static/hrcfwx/images/AA_C.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="D"}
+                            <img src="/static/hrcfwx/images/AA_D.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="E"}
+                            <img src="/static/hrcfwx/images/AA_E.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="HR"}
+                            <img src="/static/hrcfwx/images/AA_HR.png" class="dj_img"/>
+                            {else}
+                            {/if}
+                             <p class="sb_mc">{$var.name}</p>
+                             {if $var.status==1}
+                              {if $var.borrow_account_wait==0}
+                              <p class="sb_zt">审核中</p>
+                              {else}
+                              <p class="sb_zt">投标中</p>
+                              {/if}
+                            {elseif $var.status==3}
+                              {if $var.repay_account_wait==0}
+                              <p class="sb_zt">已成功</p>
+                              {else}
+                              <p class="sb_zt">还款中</p>
+                              {/if}
+                            {else}
+                              {if $var.status==5}
+                              <p class="sb_zt">已停止</p>
+                              {else}
+                              <p class="sb_zt">已流标</p>
+                              {/if} 
+                            {/if} 
+                        </div>
+                        <div class="s_jieshao clearfix">   
+                            <div class="s_nhl">
+                                 <div class="bigy">
+                                     <p class="binum">{$var.borrow_apr_old}<span>%</span></p>
+                                     <p class="bisy">预期年化收益</p>
+                                 </div>
+                            </div>
+                            <div class="s_nright">
+                                <div class="s_righttop clearfix">
+                                    <div class="s_rs1">
+                                    <p class="s_rzt1">
+                                    期限：<span>
+                                    {if $var.borrow_period >= 1 && $var.borrow_period < 10 }
+                                        {$var.borrow_period|truncate:1}
+                                    {else}
+                                        {$var.borrow_period|truncate:2}
+                                    {/if}
+                                    个月</span>
+                                    </p>
+                                    <p class="s_rzt1">金额：<span>{$var.account}元</span></p>
+                                    <p class="s_rzt1">
+                                        状态：<span>
+                                        {if $var.status==1}
+                                          {if $var.borrow_account_wait==0}
+                                          审核中
+                                          {else}
+                                          投标中
+                                          {/if}
+                                        {elseif $var.status==3}
+                                          {if $var.repay_account_wait==0}
+                                          已成功
+                                          {else}
+                                          还款中
+                                          {/if}
+                                        {else}
+                                          {if $var.status==5}
+                                          已停止
+                                          {else}
+                                          已流标
+                                          {/if} 
+                                        {/if}
+                                        </span>
+                                    </p>
+                                    </div>
+                                    <div class="s_rs2">{$var.borrow_account_scale_int}%</div>
+                                </div> 
+                                <div class="s_rightbottom clearfix">
+                                    <img src="/static/hrcfwx/images/sinatb.png">
+                                    <p>新浪支付正式托管微拍贷风险备用金账户</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {/foreach}
+                {/if}
+                {/list}
+            </div>
+            {if $loop.list}  
+            <div class="lists">
+                <p class="more"><a href="javascript:;" id='getmore_in'>加载更多...</a></p>
+            </div>
+            {/if}
+            <div class="main1_none"></div>
+        </article>
+        <article class="main3">
+            <div class="list"  id="repay_list">
+                {list module="borrow" function="GetList_norepay" var="loop" is_flow="2" epage="10" order="index" query_type="repay_no" group_status=0 borrow_auto_time="borrow_auto_time"}
+                {if $loop.list}  
+                {foreach from="$loop.list" item="var" }
+                <a class="a-none" href="/wxsbdetail/a{$var.borrow_nid}.html">
+                    <div class="sbmain">
+                        <div class="s_bt clearfix">
+                            {if $var.borrow_xingyong=="AA"}
+                            <img src="/static/hrcfwx/images/AA.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="A"}
+                            <img src="/static/hrcfwx/images/AA_A.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="B"}
+                            <img src="/static/hrcfwx/images/AA_B.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="C"}
+                            <img src="/static/hrcfwx/images/AA_C.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="D"}
+                            <img src="/static/hrcfwx/images/AA_D.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="E"}
+                            <img src="/static/hrcfwx/images/AA_E.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="HR"}
+                            <img src="/static/hrcfwx/images/AA_HR.png" class="dj_img"/>
+                            {else}
+                            {/if}
+                             <p class="sb_mc">{$var.name}</p>
+                             {if $var.status==1}
+                              {if $var.borrow_account_wait==0}
+                              <p class="sb_zt">审核中</p>
+                              {else}
+                              <p class="sb_zt">投标中</p>
+                              {/if}
+                            {elseif $var.status==3}
+                              {if $var.repay_account_wait==0}
+                              <p class="sb_zt">已成功</p>
+                              {else}
+                              <p class="sb_zt">还款中</p>
+                              {/if}
+                            {else}
+                              {if $var.status==5}
+                              <p class="sb_zt">已停止</p>
+                              {else}
+                              <p class="sb_zt">已流标</p>
+                              {/if} 
+                            {/if} 
+                        </div>
+                        <div class="s_jieshao clearfix">   
+                            <div class="s_nhl">
+                                 <div class="bigy">
+                                     <p class="binum">{$var.borrow_apr_old}<span>%</span></p>
+                                     <p class="bisy">预期年化收益</p>
+                                 </div>
+                            </div>
+                            <div class="s_nright">
+                                <div class="s_righttop clearfix">
+                                    <div class="s_rs1">
+                                    <p class="s_rzt1">
+                                    期限：<span>
+                                    {if $var.borrow_period >= 1 && $var.borrow_period < 10 }
+                                        {$var.borrow_period|truncate:1}
+                                    {else}
+                                        {$var.borrow_period|truncate:2}
+                                    {/if}
+                                    个月</span>
+                                    </p>
+                                    <p class="s_rzt1">金额：<span>{$var.account}元</span></p>
+                                    <p class="s_rzt1">
+                                        状态：<span>
+                                        {if $var.status==1}
+                                          {if $var.borrow_account_wait==0}
+                                          审核中
+                                          {else}
+                                          投标中
+                                          {/if}
+                                        {elseif $var.status==3}
+                                          {if $var.repay_account_wait==0}
+                                          已成功
+                                          {else}
+                                          还款中
+                                          {/if}
+                                        {else}
+                                          {if $var.status==5}
+                                          已停止
+                                          {else}
+                                          已流标
+                                          {/if} 
+                                        {/if}
+                                        </span>
+                                    </p>
+                                    </div>
+                                    <div class="s_rs2">{$var.borrow_account_scale_int}%</div>
+                                </div> 
+                                <div class="s_rightbottom clearfix">
+                                    <img src="/static/hrcfwx/images/sinatb.png">
+                                    <p>新浪支付正式托管微拍贷风险备用金账户</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {/foreach}
+                {/if}
+                {/list}
+            </div>
+            {if $loop.list}  
+            <div class="lists">
+                <p class="more"><a href="javascript:;" id='getmore_repay'>加载更多...</a></p>
+            </div>
+            {/if}
+            <div class="main1_none"></div>
+        </article>
+        <article class="main4">
+            <div class="list"  id="full_list">
+                {list module="borrow" function="GetList_norepay" var="loop" is_flow="2" epage="10" order="index" query_type="full_check" group_status=0 borrow_auto_time="borrow_auto_time"}
+                {if $loop.list}  
+                {foreach from="$loop.list" item="var" }
+                <a class="a-none" href="/wxsbdetail/a{$var.borrow_nid}.html">
+                    <div class="sbmain">
+                        <div class="s_bt clearfix">
+                            {if $var.borrow_xingyong=="AA"}
+                            <img src="/static/hrcfwx/images/AA.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="A"}
+                            <img src="/static/hrcfwx/images/AA_A.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="B"}
+                            <img src="/static/hrcfwx/images/AA_B.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="C"}
+                            <img src="/static/hrcfwx/images/AA_C.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="D"}
+                            <img src="/static/hrcfwx/images/AA_D.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="E"}
+                            <img src="/static/hrcfwx/images/AA_E.png" class="dj_img"/>
+                            {elseif $var.borrow_xingyong=="HR"}
+                            <img src="/static/hrcfwx/images/AA_HR.png" class="dj_img"/>
+                            {else}
+                            {/if}
+                             <p class="sb_mc">{$var.name}</p>
+                             {if $var.status==1}
+                              {if $var.borrow_account_wait==0}
+                              <p class="sb_zt">审核中</p>
+                              {else}
+                              <p class="sb_zt">投标中</p>
+                              {/if}
+                            {elseif $var.status==3}
+                              {if $var.repay_account_wait==0}
+                              <p class="sb_zt">已成功</p>
+                              {else}
+                              <p class="sb_zt">还款中</p>
+                              {/if}
+                            {else}
+                              {if $var.status==5}
+                              <p class="sb_zt">已停止</p>
+                              {else}
+                              <p class="sb_zt">已流标</p>
+                              {/if} 
+                            {/if} 
+                        </div>
+                        <div class="s_jieshao clearfix">   
+                            <div class="s_nhl">
+                                 <div class="bigy">
+                                     <p class="binum">{$var.borrow_apr_old}<span>%</span></p>
+                                     <p class="bisy">预期年化收益</p>
+                                 </div>
+                            </div>
+                            <div class="s_nright">
+                                <div class="s_righttop clearfix">
+                                    <div class="s_rs1">
+                                    <p class="s_rzt1">
+                                    期限：<span>
+                                    {if $var.borrow_period >= 1 && $var.borrow_period < 10 }
+                                        {$var.borrow_period|truncate:1}
+                                    {else}
+                                        {$var.borrow_period|truncate:2}
+                                    {/if}
+                                    个月</span>
+                                    </p>
+                                    <p class="s_rzt1">金额：<span>{$var.account}元</span></p>
+                                    <p class="s_rzt1">
+                                        状态：<span>
+                                        {if $var.status==1}
+                                          {if $var.borrow_account_wait==0}
+                                          审核中
+                                          {else}
+                                          投标中
+                                          {/if}
+                                        {elseif $var.status==3}
+                                          {if $var.repay_account_wait==0}
+                                          已成功
+                                          {else}
+                                          还款中
+                                          {/if}
+                                        {else}
+                                          {if $var.status==5}
+                                          已停止
+                                          {else}
+                                          已流标
+                                          {/if} 
+                                        {/if}
+                                        </span>
+                                    </p>
+                                    </div>
+                                    <div class="s_rs2">{$var.borrow_account_scale_int}%</div>
+                                </div> 
+                                <div class="s_rightbottom clearfix">
+                                    <img src="/static/hrcfwx/images/sinatb.png">
+                                    <p>新浪支付正式托管微拍贷风险备用金账户</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {/foreach}
+                {/if}
+                {/list}
+            </div>
+            {if $loop.list}  
+            <div class="lists">
+                <p class="more"><a href="javascript:;" id='getmore_full'>加载更多...</a></p>
+            </div>
+            {/if}
+            <div class="main1_none"></div>
+        </article>
+    </div>
+</div>
+{include file="wxfooter3.html"}

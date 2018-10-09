@@ -1,0 +1,52 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">
+	<div class="content">
+		<div class="safety_step">
+			<div class="bgline"></div>
+			<div class="threeStep steps">
+				<ul class="fn-clear">
+					<li class="no">验证原手机号码</li>
+					<li class="two">验证新手机号码</li>
+					<li class="no">成功</li>
+				</ul>
+			</div>
+		</div>
+	
+		<p class="info">原手机号码验证通过，请填写您的新手机号码。</p>
+		<form action="/?user&q=code/users/modifyphone_byphone_steptwo" class="ui-form" method="post" id="modMobileByPhoneStepTwoForm" data-name="modMobileByPhoneStepTwo" novalidate="novalidate">
+			<div class="inputs">
+				<div class="ui-form-item">
+					<label class="ui-label">新手机号码</label> 
+					<input type="text" data-is="isMobile" name="phone" class="ui-input" id="phone">
+				</div>
+				<div class="ui-form-item">
+					<label class="ui-label">手机验证码</label>
+					<input type="text" id="validateCode" name="validateCode" class="ui-input">
+					<button class="ui-button ui-button-green ui-button-small" id="getMobileCode">获取验证码</button>
+				</div>
+				<div class="ui-form-item">
+					<input type="submit" class="ui-button ui-button-mid ui-button-green w150" id="subModMobileByPhoneStepTwoBt" value="下一步">
+				</div>	
+			</div>
+		</form>
+		
+	</div>	
+
+	<div class="fn-hide success">
+		<div class="safety_step">
+			<div class="bgline"></div>
+			<div class="threeStep steps">
+				<ul class="fn-clear">
+					<li class="no">验证原手机号码</li>
+					<li class="no">验证新手机号码</li>
+					<li class="three">成功</li>
+				</ul>
+			</div>
+		</div>
+		<h3 class="info">新手机号码绑定成功!</h3>
+		<a class="ui-button ui-button-mid ui-button-blue backBt">返回</a>
+	</div>
+</div>
+
+<script>seajs.use(['pages/account/account/security']);</script>

@@ -1,0 +1,38 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">	
+	<div class="content">
+		<div class="safety_step">
+			<div class="bgline"></div>
+				<div class="fourStep steps">
+					<ul class="clearfix">
+						<li class="no">验证当前邮箱</li>
+						<li class="two">填写新邮箱</li>
+						<li class="no">验证新邮箱</li>
+						<li class="no">成功</li>
+					</ul>
+				</div>
+		</div>
+	
+		<!-- 需要做判断处理，看刚才的验证是否正确，是不是在数据库中添加一个字段 -->
+		<p class="info">原电子邮箱验证通过，请填写您的新电子邮箱，我们将会向该邮箱发送验证链接，请注意查收</p>
+	
+		<form data-name="emailUpdateByOldStepTwo"  id="emailUpdateByOldStepTwoForm" class="ui-form" 
+		      action="/?user&q=code/users/emailbyold_stepthree" method="post">
+		    <div class="inputs">
+				<div class="ui-form-item">
+				  <label class="ui-label"><span class="ui-form-required">*</span>填写新邮箱</label>
+		          <input type="text" name="email" id="email" data-is="isEmail" class="ui-input" autocomplete="off" disableautocomplete />
+		          {if $_U.showmsg!=""}
+				  <label class="error">{$_U.showmsg}</label>
+				  {/if}
+		          <input type="hidden" name="checkType" value="email" />
+				</div>
+				<div class="ui-form-item">
+					<input type="submit" value="下一步" id="subEmailUpdateByOldStepTwoBt" class="ui-button ui-button-mid ui-button-green w150" />
+				</div>	
+			</div>
+		</form>
+	</div>	
+</div>
+<script>seajs.use(['pages/account/account/security']);</script>

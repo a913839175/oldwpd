@@ -1,0 +1,61 @@
+{include file="header.html"}
+
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/css/bonus.css?v=20160531"/>
+
+<div id="bns_main">
+    <!-- <div id="bns_c1"></div> -->
+    {articles module="borrow" function="GetHaveUse" var="var" user_id="$_G.user_id"}{/articles}
+    {if $var.shiyong=='YISHIYONG'}
+
+    <div id="bns_c2">
+        <div id="bns_c5">
+            <input type="text" maxlength="15" id="hongbaoid" name="hongbaoid" value='您本月使用刮刮卡次数已用完'/>
+            <div></div>
+        </div>
+    </div>
+
+
+    {else}
+    <form id="borrowsq" class="ui-form" action="/index.php?user&q=code/borrow/hongbaotender" method="post" data-name="borrowsq" novalidate="novalidate" >
+        <div id="bns_c2">
+            <div id="bns_c3">
+                <input type="text" placeholder="请输入红包 ID" maxlength="10" id="hongbaoid" name="hongbaoid" />
+                <div><button type="submit" style="cursor:pointer">红包投资</button></div>
+            </div>
+        </div>
+    </form>
+    {/if}
+    <div id="bns_c4">
+        <div id="bns_tt">红包使用规则：</div>
+        <div id="bns_tx">
+            <ul>
+                <li>
+                    <div>1</div>
+                    本区仅供红包投资使用。
+                </li>
+                <li>
+                    <div>2</div>
+                    红包有效期如无特殊标注，一般为30天，有特殊标注的以标注时间为准，超过有效期没有使用的红包将被收回。
+                </li>
+                <li>
+                    <div>3</div>
+                    每个红包有效期内只能投资一次。
+                </li>
+                <li>
+                    <div>4</div>
+                    红包投资所得收益需要手动领取。
+                </li>
+                <li>
+                    <div>5</div>
+                    从获得红包收益当天起计算，若超过90天未领取，所获得收益将无法领取。
+                </li>
+                <li>
+                    <div>6</div>
+                    使用需要解锁的红包进行投资，即使红包已进行解锁并投资，若获得本次解锁次数的投资中途赎回，则用户不能领取本次投标所解锁的红包已获得的收益。若没有解锁红包，那么已得到的解锁次数将被收回。
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="pd320" style="padding-bottom: 240px;"></div>

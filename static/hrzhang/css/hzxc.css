@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+.clear{
+	clear:both;
+}
+#hzxc_top{
+	height:334px;
+	background-color:#1174c9;
+}
+#hzxc_img{
+	width:1000px;
+	height:334px;
+	background-image:url(/static/img/hzxc.png);
+	margin:auto;
+}
+#hzxc_ht{
+	height:7px;
+	background-color:#67a5da;
+	min-width:1000px;
+	margin-top:4px;
+}
+#hzxc_text{
+	font-size:22px;
+	width:700px;
+	color:#08599b;
+	margin:auto;
+	margin-top:60px;
+	margin-bottom:50px;
+}
+#hzxc_tt{
+	background-color:#519ad8;
+	padding:5px;
+	font-size:20px;
+	color:#fff;
+	text-align:center;
+	width:1000px;
+	margin:auto;
+}
+#hzxc_menu{
+	width:800px;
+	margin:auto;
+	border-top:4px solid #f5f0ef;
+	margin-top:60px;
+	padding-top:30px;
+}
+#hzxc_menu ul{
+	list-style:none;
+	padding:0px 0px;
+	margin:0px 0px;
+}
+#hzxc_menu ul li{
+	width:200px;
+	float:left;
+	text-align:center;
+}
+#hzxc_menu ul li div{
+	margin-top:40px;
+}

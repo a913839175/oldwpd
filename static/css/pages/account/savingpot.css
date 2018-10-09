@@ -1,0 +1,212 @@
+@charset "utf-8";
+/*-------------------------------------
+page content style
+version:	1.1
+author:		Huarong.he
+website:	http://www.weipaidai.com/
+-------------------------------------*/
+
+.account_content {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #fff;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: #e0e0e0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: #e0e0e0;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #e0e0e0;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: #e0e0e0;
+    border-top-style: solid;
+    border-top-width: 1px;
+    float: right;
+    min-height: 1082px;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    width: 780px;
+}
+
+.account_content_title {
+    border-bottom-color: #ff503f;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: #222;
+    font-size: 24px;
+    line-height: 29px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    width: 780px;
+}
+
+.account_title_line {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #ff503f;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    float: left;
+    height: 29px;
+    margin-bottom: 0;
+    margin-left: 25px;
+    margin-right: 10px;
+    margin-top: 0;
+    width: 4px;
+}
+
+.account_profit {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #ff503f;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    color: #fff;
+    font-size: 24px;
+    height: 60px;
+    padding-bottom: 0;
+    padding-left: 40px;
+    padding-right: 0;
+    padding-top: 40px;
+    width: 740px;
+}
+
+.mg-r-10 {
+    margin-right: 10px !important;
+}
+.mg-t-5 {
+    margin-top: 5px !important;
+}
+.fl {
+    float: left !important;
+}
+.mg-r-10 {
+    margin-right: 10px !important;
+}
+.mg-t-5 {
+    margin-top: 5px !important;
+}
+.fl {
+    float: left !important;
+}
+.icon_account_cqg {
+    background-position: 0 -247px;
+    height: 27px;
+    width: 26px;
+}
+
+
+.icon_account_cqg {
+    background-image: url("/static/img/account.sprite.png");
+    background-repeat: no-repeat;
+}
+
+.account_profit_list {
+    border-bottom-color: #ff503f;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 30px;
+}
+
+.account_profit_list li {
+    color: #6d6c6c;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    width: 220px;
+}
+
+.text-r {
+    text-align: right !important;
+}
+.c-gray666 {
+    color: #666 !important;
+}
+.font-14 {
+    font-size: 14px !important;
+}
+.mg-t-10 {
+    margin-top: 10px !important;
+}
+
+.account_money_wrapper {
+    width: 780px;
+}
+.mg-b-250 {
+    margin-bottom: 250px !important;
+}
+.mg-t-20 {
+    margin-top: 20px !important;
+}
+
+.table, .table_transfer_record {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.table tr th, .table_transfer_record tr th {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #f8f8f8;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: #e5e5e5;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-color: #e5e5e5;
+    border-top-style: solid;
+    border-top-width: 1px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10px;
+}
+
+th {
+    display: table-cell;
+    font-weight: bold;
+    vertical-align: inherit;
+    text-align:center;
+}
+
+
+.table tr td, .table_transfer_record tr td {
+    border-bottom-color: #e5e5e5;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 20px;
+}

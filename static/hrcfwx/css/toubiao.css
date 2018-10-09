@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ height:100vh; width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none;  background:#FFF;}
+
+/*注册页面*/
+.head{ height:48px; background:#5aa3d4;}
+.head img{width:30px; margin: 10px 20px auto;}
+.head p{ float:right; color:#FFF; font-size:17px; line-height:48px; padding-right:44.4%;}
+
+.clearfix{
+	margin-left: 5px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+    position: relative;
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+}
+.clearfix .titlename{
+	font-size: 15px;
+	width:80px;
+	float: left;
+}
+
+.clearfix .valuename{
+	font-size: 14px;
+	padding-left: 25px;
+}
+
+.clearfix input{
+	width: 50%;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.none{ clear:both; height:9.5vw;}
+.button{ margin: 0 5.5vw auto;}
+.button button{ width:89vw; height:13.2vw; background:#4ea7e3; border:none; font-size:5vw; color:#FFF; border-radius:0.7vw;  box-shadow:0vw 0vw 6vw #036cb1;}
+
+.yuedu{ margin: 5.8vw 5.5vw; margin-bottom:10vw; color:#666; font-size:3.5vw;}
+.yuedu input{ width: 4vw; height: 4vw;
+        vertical-align: bottom;}
+
+.yuedu span{ color:#0A609C;}
+.none2{ height:24vh;}
+.footer p{ color:#FFF; font-size:4vw; text-align:center;}
+
+/*  *****add *** */
+.info{
+	height: 6vh;
+    line-height: 6vh;
+	color: #fff;
+	font-size:3.6vw;
+}
+
+.ui-button-blue {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #2ea7e0;
+    border-bottom-color: -moz-use-text-color;
+    border-bottom-style: none;
+    border-bottom-width: 0;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: -moz-use-text-color;
+    border-left-style: none;
+    border-left-width: 0;
+    border-right-color: -moz-use-text-color;
+    border-right-style: none;
+    border-right-width: 0;
+    border-top-color: -moz-use-text-color;
+    border-top-style: none;
+    border-top-width: 0;
+    color: #fff;
+}
+
+.ui-button-mid {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.ui-button {
+    cursor: pointer;
+    display: inline-block;
+    padding-bottom: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0;
+    text-decoration-color: -moz-use-text-color;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    vertical-align: middle;
+}
+
+
+
+

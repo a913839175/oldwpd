@@ -1,0 +1,241 @@
+.friend-invite-div {
+	background-color: #fff;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    width: 770px !important;
+}
+.friend-invite-div h3 {
+    border-bottom: 1px solid #e0e0e0;
+    color: #000;
+    font-size: 24px;
+    line-height: 60px;
+    padding-left: 20px;
+}
+.invite-info {
+	margin: 20px 0px 30px;
+	padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.invite-info .warm-p {
+    line-height: 30px;
+    padding-left: 42px;
+    position: relative;
+}
+.invite-info .warm-p span {
+	line-height: 30px;
+	position: absolute;
+	left: 20px;
+	top: 0px;
+}
+.fi-wrap {
+	padding: 30px;
+}
+.fi-wrap h4 {
+	font-size: 18px;
+	font-weight: normal;
+	padding-left: 20px;
+	color: #222;
+}
+.share-wrap {
+	position: relative;
+	padding-bottom: 32px; 
+	border-bottom: solid 1px #e0e0e0;
+	margin-bottom: 30px;
+}
+.fi-wrap .fi-share {
+	height: 52px;
+    margin: 20px 0px 0px 20px;
+    padding: 0 10px 10px 16px;
+}
+.fi-wrap .fi-share a {
+    display: block;
+    float: left;
+    height: 52px;
+    margin-right: 50px;
+    padding: 0;
+    width: 52px;
+    position: relative;
+    overflow: hidden;
+}
+.fi-wrap .share-text {
+	width: 700px;
+	height: 14px;
+	line-height: 14px;
+	padding: 0 10px 18px 11px;
+	position: absolute;
+	bottom: -2px;
+	left: 20px;
+}
+.fi-wrap .share-text li {
+	width: 62px;
+	margin-right: 40px;
+	text-align: center;
+	font-size: 14px;
+	float: left;
+}
+.fi-wrap .share-text li.last {
+	margin-right: 0px;
+}
+.fi-wrap .fi-share .sinawb {
+    background: url("/static/img/share-icon/wb-normal.png") no-repeat;
+}
+.fi-wrap .fi-share .sinawb:hover {
+    background: url("/static/img/share-icon/wb-hover.png") no-repeat;
+}
+.fi-wrap .fi-share .txwx {
+    background: url("/static/img/share-icon/wechat-normal.png") no-repeat;
+}
+.fi-wrap .fi-share .txwx:hover {
+    background: url("/static/img/share-icon/wechat-hover.png") no-repeat;
+}
+.fi-wrap .fi-share .QQ {
+    background: url("/static/img/share-icon/qq-normal.png") no-repeat;
+}
+.fi-wrap .fi-share .QQ:hover {
+    background: url("/static/img/share-icon/qq-hover.png") no-repeat;
+}
+.fi-wrap .fi-share .zone {
+    background: url("/static/img/share-icon/qzone-normal.png") no-repeat;
+}
+.fi-wrap .fi-share .zone:hover {
+    background: url("/static/img/share-icon/qzone-hover.png") no-repeat;
+}
+.fi-wrap .fi-share .qqwb {
+    background: url("/static/img/share-icon/txwb-normal.png") no-repeat;
+}
+.fi-wrap .fi-share .qqwb:hover {
+    background: url("/static/img/share-icon/txwb-hover.png") no-repeat;
+}
+.fi-wrap .fi-share .douban {
+    background: url("/static/img/share-icon/douban-normal.png") no-repeat;
+}
+.fi-wrap .fi-share .douban:hover {
+    background: url("/static/img/share-icon/douban-hover.png") no-repeat;
+}
+.fi-wrap .fi-share .copyurl {
+    background: url("/static/img/share-icon/copy-normal.png") no-repeat;
+	 margin-right: 0px;
+}
+.fi-wrap .fi-share .copyurl:hover {
+    background: url("/static/img/share-icon/copy-hover.png") no-repeat;
+}
+.invite-flow {
+	position: relative;
+	padding:20px 0px 50px; 
+	border-bottom: solid 1px #e0e0e0;
+	margin-bottom: 30px;
+}
+.invite-flow .invite-map {
+	width: 507px;
+	height: 60px;
+	margin: 0px auto;
+}
+.invite-flow .invite-txt {
+	position: absolute;
+	left: 80px;
+	bottom: 24px;
+}
+.invite-flow .invite-txt li {
+	width: 100px;
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	float: left;
+	text-align: center;
+	margin-right: 132px;
+}
+.invite-flow .invite-txt li.sen {
+	margin-right: 118px;
+}
+.invite-flow .invite-txt li.last {
+	margin-right: 0px;
+}
+
+#weixinSharePop {
+	width: 200px;
+	height: 220px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -120px 0px 0px -110px;
+	border: 5px solid #7F7F7F;
+	border-radius: 6px;
+	background: #fff;
+	display: none;
+}
+#weixinSharePop .popClose {
+	position: absolute;
+	right: 10px;
+	top: 2px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #666;
+	cursor: pointer;
+	line-height: 20px;
+	font-family: Helvetica,Arial;
+}
+#weixinSharePop .popTop {
+	line-height: 24px;
+	height: 24px;
+	color: #666;
+	background: #f2f2f2;
+	border-bottom: solid 1px #e8e8e8;
+	padding-left: 10px;
+}
+#weixinSharePop .erweima {
+	width: 170px;
+	height: 170px;
+	margin: 10px auto;
+}
+#weixinSharePop .erweima img {
+	width: 170px;
+	height: 170px;
+}
+
+#urlCopySucc h4 {
+    background: #f3f3f3 none repeat scroll 0 0;
+    border-bottom: 1px solid #ccc;
+    line-height: 46px;
+}
+#urlCopySucc .deCaTips {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 20px 30px;
+    padding: 10px 0 10px 60px;
+    position: relative;
+}
+#urlCopySucc .deCaTips span {
+    background-image: url("/static/img/popicon.png");
+    background-repeat: no-repeat;
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 41px;
+}
+#urlCopySucc .succee span {
+    background-position: 0 0;
+}
+#urlCopySucc .btn-savecon {
+    border-radius: 10px;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 50px;
+}
+
+#pg-reg {
+	padding-top:50px;
+	background: none repeat scroll 0 0 #ffffff;
+    min-height: 500px;
+}
+
+#pg-reg .ui-form .ui-input {
+    padding: 10px 5px;
+    width: 207px;
+}
+
+#pg-reg .ui-form .ui-label {
+    padding-top: 10px;
+}

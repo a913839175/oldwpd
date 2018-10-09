@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/hongbao.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/hongbao.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />    
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=yes"/>
+<meta name="msapplication-tap-highlight" content="no" />
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top1">
+        <a href="/?wxuser"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+            <p>红包中心</p>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div class="main">
+        <div class="main_body">
+            <a href="/hongbaotouzi/index.html"><h1>领取红包</h1></a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main_nav_img">
+            <img src="/static/hrcfwx/images/hongbao_nav.png"/>
+        </div>
+        <div class="main_body">
+            <h1>我的红包</h1>
+            <div id="tab">
+                <div class="main_head">
+                    <ul>
+                        <li class="cur">已获得红包</li>
+                        <li>已使用红包</li>
+                    </ul>
+                </div>
+                <div class="main_tab">
+                    <article class="main1 cur" id="main1">
+                    {list  module="users" function="GetHongBao" var="loop" user_id="$_G.user_id" status="0" epage="15"}
+                    {foreach from="$loop.list" item="item"}   
+                        <li>
+                            <div class="main1_hongbao">
+                                <div class="main1_hongbaotop">
+                                <div class="main1_hongbao_qian">¥
+                                    <span>{$item.total}</span>元
+                                </div>
+                                <div class="main1_hongbao_time">
+                                    <span>{$item.begintime|date_format:"Y/m/d"}-<br/>{$item.endtime|date_format:"Y/m/d"}</span>
+                                </div>
+                                </div>
+                                <a data-id="{$item.id}" data-begin="{$item.begintime|date_format:'Y/m/d'}" data-end="{$item.endtime|date_format:'Y/m/d'}" data-money="{$item.total}"  onclick="usered(this)">
+                                    <div class="main1_meduse">立即使用</div>
+                                </a>
+                            </div>
+                        </li>
+                    {/foreach}
+                    {/list}   
+                    </article>
+                    <article class="main2" id="main2">
+                    {list  module="users" function="GetHongBao" var="loop" user_id="$_G.user_id" status="1" epage="15"}
+                    {foreach from="$loop.list" item="item"}
+                        <li>
+                            <div class="main2_hongbao">
+                                 <div class="main2_hongbaotop">
+                                    <div class="main2_hongbao_qian">¥
+                                        <span>{$item.total}</span>元
+                                    </div>
+                                    <div class="main2_hongbao_time">
+                                        <span>{$item.begintime|date_format:"Y/m/d"}-<br/>{$item.endtime|date_format:"Y/m/d"}</span>
+                                    </div>
+                                </div>
+                                <a href="javascript:;">
+                                    <div class="main_meduse2">已使用</div>
+                                </a>
+                            </div>
+                        </li>
+                    {/foreach}
+                    {/list}
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="../hrcf/wxfooter4.html"}
+    
+</body>
+</html>

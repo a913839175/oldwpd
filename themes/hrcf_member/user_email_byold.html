@@ -1,0 +1,39 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">	
+  <div class="content">
+	<div class="safety_step">
+		<div class="bgline"></div>
+		<div class="fourStep steps">
+			<ul class="fn-clear">
+				<li class="one">验证当前邮箱</li>
+				<li class="no">填写新邮箱</li>
+				<li class="no">验证新邮箱</li>
+				<li class="no">成功</li>
+			</ul>
+		</div>
+	</div>
+
+	<form data-name="emailUpdateByOldStepOne"  id="emailUpdateByOldStepOneForm" class="ui-form" 
+		  action="/?user&q=code/users/emailbyold_stepone" method="post">
+		<div class="inputs">
+			<div class="ui-form-item">
+				<label class="ui-label">已验证邮箱</label> <span>{$_G.user_info.email_secur}</span>
+			</div>
+			<div class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>验证码</label>
+				<input type="text" name="code" id="code" class="ui-input" /> 
+				<a href="javascript:void(0)">
+					<img id="randImage" align="absmiddle" border="0" style="cursor:pointer;width:60px;height:30px;" alt="验证码" name="randImage" src="/?plugins&q=imgcode">
+				</a>
+			</div>
+			<div class="ui-form-item">
+				<input type="submit" value="发送验证邮件" id="subEmailUpdateByOldStepOneBt" class="ui-button ui-button-mid ui-button-green w150" />
+			</div>	
+		</div>
+	</form>
+	<p class="info">为保障您的账户信息安全，在变更重要信息时需要进行身份验证。</p>
+  </div>	
+</div>
+
+<script>seajs.use(['pages/account/account/security']);</script>

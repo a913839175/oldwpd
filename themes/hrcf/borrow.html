@@ -1,0 +1,48 @@
+{include file="header.html"}
+
+<link href="/static/hrzhang/css/jiedai.css?v=20170817" rel="stylesheet" type="text/css" />
+
+<div class="lc-content">
+    <div class="borrowbanner">
+        <img src="/static/hrzhang/images/borrowbanner.png" class="bannerimg">
+    </div>
+    <div class="jd-box">
+        <div class="jd-pgbox-submit">
+            <!-- <form action="/index.php?user&q=shenqing"  method="post" id="reg_form_h" name="reg_form_h" onsubmit="return check_shenqing();" > -->
+            <form data-name="borrowsq" class="ui-form" method="post" action='/index.php?user&q=shenqing' id="borrowsq">
+                <div class="jd-listbox"><!------->
+                    <div class="jd-tit"><h2>填写借款产品申请</h2></div>
+                    <ul>
+                        <li class="h20" style="margin: 10px auto;"><div class="jd-ipt"><label id="allError" class="error">{$_U.login_msg.msg}</label></div></li>
+                        <li class="h34"><span>姓名：</span><div class="jd-ipt"><label class="ui-label">姓名</label><input type="text" name="name" id="name" placeholder="请输入姓名" value=""  class="ui-input input-bg-gray"></div></li>
+                        <li class="h34"><span>手机号码：</span><div class="jd-ipt"><label class="ui-label">手机号码</label><input type="text" name="phone"  id="phone" data-is="isMobile" placeholder="请输入手机号码" value="" class="ui-input input-bg-gray"></div></li>
+                        <li class="h34"><span>电子邮箱：</span><div class="jd-ipt"><label class="ui-label">电子邮箱</label><input type="text" name="email"  id="email" data-is="isEmail" placeholder="请输入电子邮箱" value="" class="ui-input input-bg-gray"></div></li>
+                        <li class="h34"><span>地址：</span><div class="jd-ipt"><label class="ui-label">地址</label><input type="text" name="city"  id="city" placeholder="请输入地址" value="" class="ui-input input-bg-gray"></div></li>
+                    </ul>
+                    <div class="jd-currentbt">
+                        <input id="subbt" class="ui-button-rrd-blue ui-button-rrd-blue-large btn_shenqing" style="background:#ff6a19; width: 240px;" type="submit" value="申请借款">
+                    </div>
+                    <div class="clear" style="height: 15px"></div>
+                </div><!-------1------>
+            </form>
+        </div>
+        <!-- ########################################################################################################################### -->
+        <!-- ########################################################################################################################### -->
+        <div class="jd-pgbox" style="margin-top: 20px; margin-bottom: 30px; height: 320px;">
+            <div class="jd-listbox">
+                <div class="jd-tit"><h2>借款流程</h2></div>
+                <ul class="liuchengimg">
+                    <li class="liuchengimg_01" style="width: 129px;"><a href="javascript:void(0);"></a></li>
+                    <li class="liuchengimg_02" style="width: 129px; margin-left: 120px;"><a href="javascript:void(0);"></a></li>
+                    <li class="liuchengimg_03" style="width: 129px; margin-left: 120px;"><a href="javascript:void(0);"></a></li>
+                    <li class="liuchengimg_04" style="width: 129px; margin-left: 120px;"><a href="javascript:void(0);"></a></li>
+                </ul>
+                <img src="/static/hrzhang/images/1234.png" style="margin-left: 20px">
+            </div>
+        </div>
+        <div style="height: 20px"></div>
+    </div>
+</div>
+<div class="pd320" style="padding-bottom: 240px;"></div>
+
+<script>seajs.use(['pages/borrow/borrow']);</script>

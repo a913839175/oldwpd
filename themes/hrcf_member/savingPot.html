@@ -1,0 +1,72 @@
+{include file="../hrcf/header.html"}
+
+<div class="pg-container-content">
+  <link rel="stylesheet" href="/static/css/pages/account/savingpot.css">
+  <div id="pg-account-transactions" class="pg-account">
+
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=code/borrow/success&type=wait">理财管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">   
+		  	储钱罐收益
+		</li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10 ">
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->
+		<div class="account_content color-white-bg">
+        <h3 class="account_content_title"><i class="account_title_line"></i>存钱罐收益明细</h3>
+        <div class="account_profit clearfix">累计获得收益：
+          <span class="font-36">{$_U.savingpots_daifu_total|default:0.00}</span>元
+        </div>
+        <ul class="account_profit_list clearfix">
+          <li>昨日收益：
+          		<span class="font-24 c-gray">{$_U.savingpots_daifu_yesday|default:0.00}</span>元
+           </li>
+          <li>最近一月收益：
+            <span class="font-24 c-gray">{$_U.savingpots_daifu_month|default:0.00}</span>元</li>
+        </ul>
+        <p class="clearfix font-14 c-gray666 text-r mg-t-10 pr20">默认显示最近四周数据</p>
+        <div class="account_money_wrapper mg-t-20 mg-b-250 clearfix">
+          <table class="table clearfix">
+            <thead>
+              <tr>
+                <th>计息日</th>
+                <th>七日年化收益率（%) </th>
+                <th>日每万份净收益（元）</th>
+                <!-- <th>金额（元）</th> -->
+              </tr>
+            </thead>
+            <tbody>
+            	 
+            	 {foreach from="$_U.savingpots" key=key item="vat" }
+					<tr>
+					  {foreach from="$vat" key=keytwo item="vattwo" }
+                      <td>{$vattwo}</td>
+                      {/foreach}
+                      <!-- <td>+0.01</td> -->
+                  	</tr>
+			     {/foreach}
+            </tbody>
+          </table>
+        </div>
+      </div>	
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->  
+	  </div>
+  	</div>
+</div>
+    </div>
+</div>        
+ 

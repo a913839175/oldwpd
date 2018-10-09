@@ -1,0 +1,11 @@
+/nbproject/
+/log/
+/data/compile/
+/core/common.inc.php
+/mall/conf/conf.php
+/mall/cn/Conf/config.php
+/mall/cn/Runtime/
+/mall/#runtime/
+/modules/rongbao_df/
+/modules/rongbao_kj/
+/modules/rongbao_wy/

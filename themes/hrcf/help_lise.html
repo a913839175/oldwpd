@@ -1,0 +1,2750 @@
+ {include file="header.html"}
+  <link rel="stylesheet" type="text/css" href="/static/css/pages/about.css?v=de9ab" />  
+ <div class="pg-container-content">
+<script src="/static/css/pages/newaccount/jquery.js"></script>  
+<link rel="stylesheet" type="text/css" href="/static/css/pages/account/newhelp.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/pages/newaccount/help.css" />
+<script>seajs.use(['pages/contents/help']);</script>   
+{if $_U.query_type=="help_lise"}
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+        	<a href="">新手必读</a>
+	   </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ">
+         	<a href="/?user&q=help/help/help_lise">理财必读</a>
+	   </li>
+      </ul>
+    </div>
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                   <div class="help_line">
+						<div class="help_line_title" ><div class="dd"><img src="/static/img/help/Q.png" /></div>我可以理财吗？</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>只要年满18周岁，具有完全民事权利能力和民事行为能力，可以在微拍贷网站上进行注册、完成实名认证、绑定银行卡，成为理财人。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>怎样进行理财投资？</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 在微拍贷网站上进行注册、通过实名认证、成功绑定银行卡;</p>
+							<p>2. 账户充值;</p>
+							<p>3. 浏览微计划、散标理财投资列表、选择自己感兴趣的理财投资方式;</p>
+							<p>4. 确认投资，投资成功。</p>
+						</div>
+					</div>
+				 
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+</div>
+<!--###########################################################新手必读--理财必读结束###############################################################################-->
+<!--############################################################我要理财--产品介绍开始##############################################################################-->
+ {elseif $_U.query_type=="chanpin"} 
+ 
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+         	<a href=" ">我要理财</a>
+	   </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         	<a href="/?user&q=help/help/chanpin">产品介绍</a>
+	   </li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+    <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微拍贷目前的理财产品有哪些？</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微拍贷现有的理财投资产品如下表：
+							
+							<table class="bank_limit_table" >
+									<tr>
+										<td>理财产品</td>
+										<td>预期利率</td>
+										<td>期限</td>
+									</tr>
+									<tr>
+										<td>微年利</td>
+										<td>10%+0.5%</td>
+										<td>锁定12个月</td>
+									</tr>
+									<tr>
+										<td>微月盈</td>
+										<td>9.6%</td>
+										<td>锁定12个月</td>
+									</tr>
+									<tr>
+										<td>微年利Ⅱ</td>
+										<td>11%+0.5%</td>
+										<td>锁定24个月</td>
+									</tr>
+									<tr>
+										<td>微月盈Ⅱ</td>
+										<td>10.8%</td>
+										<td>锁定24个月</td>
+									</tr>
+									<tr>
+										<td>微年利Ⅲ</td>
+										<td>12%+0.5%</td>
+										<td>锁定36个月</td>
+									</tr>
+									<tr>
+										<td>微月盈Ⅲ</td>
+										<td>12.0%</td>
+										<td>锁定36个月</td>
+									</tr>
+									<tr>
+										<td>微+1</td>
+										<td>5.0%</td>
+										<td>锁定1个月</td>
+									</tr>
+									<tr>
+										<td>微+3</td>
+										<td>6.5%</td>
+										<td>锁定3个月</td>
+									</tr>
+									<tr>
+										<td>微+6</td>
+										<td>8%+0.5%</td>
+										<td>锁定6个月</td>
+									</tr>
+								</table>
+							</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>理财是否有额外费用?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>目前在微拍贷所进行的，充值/投资/提现，暂时不收取额外费用。</p>
+							<p>实际费用标准为：赎回收取0.5%/笔。</p>
+							 
+						</div>
+					</div>
+				 
+					 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>
+<!--###########################################################我要理财--产品介绍结束###############################################################################-->
+<!--############################################################我要理财--微计划开始##############################################################################-->
+{elseif $_U.query_type=="weijihua"} 
+ 
+<div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">我要理财</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         	<a href="/?user&q=help/help/weijihua">微计划</a>
+		</li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是微计划?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>
+							微计划是微拍贷推出的一系列高效，灵活的理财产品。本系列产品精选优质债权。微计划的产品分别有：微年利、微月盈、微年利Ⅱ、微月盈Ⅱ、微年利Ⅲ、微月盈Ⅲ、微+1、微+3、微+6。微计划产品的锁定期分别为12个月、12个月、24个月、24个月、36个月、36个月、1个月、3个月、6个月。
+							</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>锁定期是什么?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微年利，微月盈，微年利Ⅱ，微月盈Ⅱ，微年利Ⅲ，微月盈Ⅲ，微+1，微+3，微+6均有锁定期，锁定期内暂无法提前退出。</p>
+							 
+						</div>
+					</div>
+					 <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何加入微计划</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>打开微拍贷官网，点击【我要理财】选择【微计划】，即可看到微计划系列的所有理财产品。</p>
+								 
+							</div>
+						</div>
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何退出微计划并收回本金?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>微年利，微年利Ⅱ，微年利Ⅲ，微+1，微+3，微+6锁定期结束后可赎回并收回本金与收益。微月盈，微月盈Ⅱ，微月盈Ⅲ自动按月返息，锁定期结束后自动返还本金。</p>
+								 
+							</div>
+						</div>
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>
+ 
+ <!--###########################################################我要理财--微计划结束###############################################################################-->
+<!-- ############################################################我要理财--散标投资开始############################################################################## -->
+  
+{elseif $_U.query_type=="sanbiao"} 
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">我要理财</a>
+	   </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         	<a href="/?user&q=help/help/sanbiao">散标投资</a>
+	   </li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是散标?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>散标是助农贷、精英贷、店主贷、薪金贷、按揭贷、助业贷等理财投资产品的统称。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>散标的发布时间</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>用户打开【我要理财】--【散标投资列表】查看黄色信息栏中的发标时间</p>
+							 
+						</div>
+					</div>
+					 <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>散标的收益有多少?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>散标年化收益率区间为6.8%—12.0%，具体收益由理财投资者所投资的借款标的年化收益率确定。</p>
+								 
+							</div>
+						</div>
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>散标的投资期限有多久?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>3-36个月，具体期限由理财投资者所投资的借款标的确定。</p>
+								 
+							</div>
+						</div>
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>投标前需要注意哪些事项?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 投标前认真阅读该笔借款的详细信息(包括借款金额、年化收益率、借款期限、借款者信用等级等信息，确认理财投资者所投标的符合自身的风险承受能力和期望的投资回报率。</p>
+								<p>2. 投标前应知晓若理财投资者所投标的借款人发生违约，除平台所提供的保障外，违约损失由投资该标的所有理财人共同承担。</p>
+								<p>3. 投标前请核实自己将要理财的金额，确认无误后再进行操作。</p>
+							 </div>
+						</div>
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何投资散标?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>登录微拍贷，点击【我要理财】--【散标投资列表】，选择借款标的，输入金额，点击【确认】完成投资。</p>
+							 </div>
+						</div>
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何收取还款?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>借款人在规定的还款时间内将钱充值到与微拍贷合作的第三方支付平台上，微拍贷系统会发送邮件通知所有理财人借款人已成功还款。理财投资者按个人需求选择提现或继续投资。</p>
+								<p>注：借款人也可能提前偿还全部借款或者在到期日前手动提前偿还借款，请理财投资者注意查收微拍贷发出的通知。</p>
+							 </div>
+						</div>
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>
+<!-- ###########################################################我要理财--散标投资结束############################################################################### -->
+<!--############################################################我要理财--债权转让开始##############################################################################-->
+  {elseif $_U.query_type=="zhaiquan"}
+  <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+         <a href="">我要理财</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=help/help/zhaiquan">债权转让</a>
+	   </li>
+      </ul>
+    </div>
+
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是债权转让?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>指债权持有人通过微拍贷债权转让平台将债权挂出且与购买人签订债权转让协议，将所持有的债权转让给购买人的操作。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>什么样的债权可以转让?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 债权持有90天后即可进行转让。</p>
+							<p>2. 债权没有处于逾期状态。如转让挂出时没有处于逾期，但在转让中债权变为逾期状态，系统将会停止该债权的转让。</p> 
+						</div>
+					</div>
+					 
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>买入转让债权的收益有多少?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>预期利率区间为5.0%—13.0%，具体收益由理财投资者所投资的转让债权利率及出让人设置的转让系数确定。</p>
+								 
+							</div>
+						</div>
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>是否可以提前收回出借的本金?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>可以，持有90天后理财投资者可通过债权转让提前收回出借的资金。</p>
+								 
+							 </div>
+						</div>
+						 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>
+  <!--###########################################################我要理财--债权转让结束###############################################################################-->
+<!--############################################################我要借款--产品类型及说明开始##############################################################################-->
+ <!--  {elseif $_U.query_type=="chanpin_style"}
+  <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+             
+		  	<a href="">我要借款</a>
+		   
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+             
+		  	<a href="/?user&q=help/help/chanpin_style">产品类型及说明</a>
+		   
+        </li>
+      </ul>
+    </div>
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                   <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>助农贷</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、助农贷产品说明</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>产品类型</td>
+										<td>助农贷</td>
+									</tr>
+									<tr>
+										<td>产品定义</td>
+										<td>助农贷是指针对从事农、林、牧、畜、渔的客户群体，为其提供免抵押、免担保的信用贷款产品。</td>
+									</tr>
+									<tr>
+										<td>申请人基本要求</td>
+										<td>1.年龄22-59周岁中国大陆公民，具有完全民事行为能力；
+2.在本地从事种植或养殖等农林牧畜渔行业（无实际参与种植或养殖的门市、合作社不适用于该产品）；
+3.本地持续经营1年（含1年）以上的自雇人士。</td>
+									</tr>
+									<tr>
+										<td>信用报告要求</td>
+										<td>1.银行个人信用报告，同一账户要求24个月内逾期次数不能超过6次，连续逾期次数不能超过3次（“连三累六”），且不能出现“3”及“3”以上；当前信用报告无逾期，若有逾期需提供还款证明（因年费问题造成逾期需用银行证明说明情况）；
+2.所有账户的还款记录近三个月不能有“2”，当前不能有三个账户同时逾期；贷款类不得出现关注、次级、可疑、损失状态（关注类如客户贷款还款无逾期需说明原因，并提供银行还款流水证明。如无异常，允许正常进件）；信用卡当前不得出现冻结、止付、呆账的状态；准贷记卡最近12个月还款记录不得出现“4”及“4”以上；
+3.近三个月查询记录次数不超过15次（包含信用卡、贷款、个人查询、贷后管理、担保资格查询等所有查询记录）。</td>
+									</tr>
+									<tr>
+										<td>申请所需资料</td>
+										<td>1.贷款申请表；
+2.有效二代居民身份证；
+3.居住证明：
+  1)以下其中之一
+    a.当地居委会、街道办出具的加盖经办单位章的居住证明；
+    b.房屋租赁合同(须覆盖当前申请日期，否则无效)，近两个月交租单据；
+    c.当前居住地址的房产证、购房合同、银行抵押或按揭合同；
+  2)近两个月的以下其中一份单据：电费单、水费单、煤气费单、电话账单、宽带费单等。
+4.央行详版征信报告（30个自然日内有效）；
+5.营业证明（选其一，助农贷客户有则提供）：
+  1）营业执照副本；
+  2）股权证明（可选，客户有则提供）：公司章程、验资报告、近30个自然日内工商局出具的股权证明（须营业部经理签字确认）；
+  3）承包合同；
+  4）所有权证明（村委或政府机构开具所有权证明）；
+   5) 近两个月交租单据和水电费单据；
+6. 收入证明（有则需要提供）
+  1）个人银行流水：最近6个月银行账户流水（流水打印日期距离申请日期10个自然日内有效）；
+  2）对公银行流水：经营主体在进件当地开立的对公账户近6 个月银行流水（流水打印日期距离申请日期30个自然日内有效）。</td>
+									</tr>
+									<tr>
+										<td>辅助资料(可选)</td>
+										<td>1.房产资料:房产证,购房合同,按揭合同,抵押合同等；
+2.车辆资料:车辆登记证,行驶证,车辆抵押合同等 ；
+3.其他资产证明（例如股票、债券、存款等）。</td>
+									</tr>
+								</table>
+							</p>
+							<p>2、助农贷收费标准</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>期限</td>
+										<td>12期</td>
+										<td>24期</td>
+									</tr>
+									<tr>
+										<td>产品类别</td>
+										<td>助农贷</td>
+										<td>助农贷</td>
+									</tr>
+									<tr>
+										<td>利率(月)</td>
+										<td>0.10%</td>
+                                        <td>0.30%</td>
+									</tr>
+									<tr>
+										<td>审核费 </td>
+										<td>6%</td>
+										<td>8%</td>
+									</tr>
+									<tr>
+										<td>平台管理费</td>
+										<td>1.3%*12</td>
+										<td>1.3%*24</td>
+									</tr>
+									<tr>
+										<td>咨询服务费</td>
+										<td>4%</td>
+										<td>6%</td>
+									</tr>
+									<tr>
+										<td>居间费</td>
+										<td>2%</td>
+										<td>3%</td>
+									</tr>
+									<tr>
+										<td>提前还款手续费(合同金额)</td>
+										 <td  colspan="2">可在微拍贷“个人中心”查询应交手续费</td>
+										  
+									</tr>
+									<tr>
+										<td>意外保障险（合同金额）</td>
+										<td  colspan="2">1%</td>
+										 
+									</tr>
+									<tr>
+										<td>延期还款手续费率(当期还款本金/月)</td>
+										<td  colspan="2">2%</td>
+										 
+									</tr>
+									<tr>
+										<td>逾期滞纳金(天)</td>
+										<td  colspan="2">每期款金额*0.1%*逾期天数</td>
+										 
+									</tr>
+								</table>
+							</p>
+							<p>3、助农贷贷款额度：最低贷款额度不低于1万，最高额度不超过50万。</p> 
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>助业贷</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+						<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、助业贷产品说明</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>产品类型</td>
+										<td>助业贷</td>
+									</tr>
+									<tr>
+										<td>产品定义</td>
+										<td>助业贷是指针对有资金需求的有正规营业执照的私营企业主、个体工商户，为其提供免抵押、免担保的信用贷款产品。</td>
+									</tr>
+									<tr>
+										<td>申请人基本要求</td>
+										<td>1.年龄22-59周岁中国大陆公民，具有完全民事行为能力;
+2.营业部所在地注册及经营，且注册6个月及以上，生意持续经营1年及以上;
+3.拥有公司股权20%及以上（含）的股东、私营企业主、个体工商户（企业法人亦要求占股20%及以上）;</td>
+									</tr>
+									<tr>
+										<td>信用报告要求</td>
+										<td>1.银行个人信用报告，同一账户要求24个月内逾期次数不能超过6次，连续逾期次数不能超过3次（“连三累六”），且不能出现“3”及“3”以上；当前信用报告无逾期，若有逾期需提供还款证明（因年费问题造成逾期需用银行证明说明情况）；
+2.所有账户的还款记录近三个月不能有“2”，当前不能有三个账户同时逾期；贷款类不得出现关注、次级、可疑、损失状态（关注类如客户贷款还款无逾期需说明原因，并提供银行还款流水证明。如无异常，允许正常进件）；信用卡当前不得出现冻结、止付、呆账的状态；准贷记卡最近12个月还款记录不得出现“4”及“4”以上；
+3.近三个月查询记录次数不超过15次（包含信用卡、贷款、个人查询、贷后管理、担保资格查询等所有查询记录）。</td>
+									</tr>
+									<tr>
+										<td>申请所需资料</td>
+										<td>1.贷款申请表；
+2.有效二代居民身份证；
+3.收入证明:
+  1)个人银行流水：最近6个月银行账户流水（流水打印日期距离申请日期10个自然日内有效）；
+  2)对公银行流水：经营主体在进件当地开立的对公账户近6 个月银行流水（流水打印日期距离申请日期30个自然日内有效）。
+4.住址证明：
+  1)以下其中之一
+    a.当地居委会、街道办出具的加盖经办单位章的居住证明；
+ b.房屋租赁合同(须覆盖当前申请日期，否则无效)，近两个月交租单据；
+ c.当前居住地址的房产证、购房合同、银行抵押或按揭合同；
+2)近两个月的以下其中一份单据：电费单、水费单、煤气费单、电话账单、宽带费单等。     
+5.营业证明：1)营业执照，税务登记证，特种行业相关证照（经营范围不涉及特殊行业的无需提供）；
+  2)股权证明（以下其中之一）：公司章程、验资报告、近30个自然日内工商局出具的股权证明（须营业部经理签字确认）；
+  3)经营场所证明：
+    a.租赁合同或产权证明（如在配偶或其他亲属名下，需提供结婚证或户口本等证明材料）；
+    b.近两个月的交租、水费电费单据
+6.央行详版征信报告（30个自然日内有效）。</td>
+									</tr>
+									<tr>
+										<td>辅助资料(可选)</td>
+										<td>1.房产资料:房产证,购房合同,按揭合同,抵押合同等；
+2.车辆资料:车辆登记证,行驶证,车辆抵押合同等；
+3.其他资产证明（例如股票、债券、存款等）。</td>
+									</tr>
+								</table>
+							</p>
+							<p>2、助业贷收费标准</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>期限</td>
+										<td>12期</td>
+										<td>24期</td>
+									</tr>
+									<tr>
+										<td>产品类别</td>
+										<td>助业贷</td>
+										<td>助业贷</td>
+									</tr>
+									<tr>
+										<td>利率(月)</td>
+										<td>0.40%</td>
+                                        <td>0.50%</td>
+									</tr>
+									<tr>
+										<td>审核费 </td>
+										<td>6%</td>
+										<td>8%</td>
+									</tr>
+									<tr>
+										<td>平台管理费</td>
+										<td>1.3%*12</td>
+										<td>1.3%*24</td>
+									</tr>
+									<tr>
+										<td>咨询服务费</td>
+										<td>4%</td>
+										<td>6%</td>
+									</tr>
+									<tr>
+										<td>居间费</td>
+										<td>2%</td>
+										<td>3%</td>
+									</tr>
+									
+									<tr>
+										<td>意外保障险（合同金额）</td>
+										<td  colspan="2">1%</td>
+										 
+									</tr>
+									<tr>
+										<td>提前还款手续费(合同金额)</td>
+										<td  colspan="2">可在微拍贷“个人中心”查询应交手续费</td>
+										 
+									</tr>
+									<tr>
+										<td>延期还款手续费率(当期还款本金/月)</td>
+										<td  colspan="2">2%</td>
+										 
+									</tr>
+									<tr>
+										<td>逾期滞纳金(天)</td>
+										<td  colspan="2">每期款金额*0.1%*逾期天数</td>
+										 
+									</tr>
+								</table>
+							</p>
+							<p>3、助业贷贷款额度: 最低贷款额度不低于1万，最高额度不超过50万。</p> 
+						</div>
+					</div>
+					 
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>店主贷</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、店主贷产品说明</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>产品类型</td>
+										<td>店主贷</td>
+									</tr>
+									<tr>
+										<td>产品定义</td>
+										<td>店主贷是指针对有固定经营场地，且现有生意持续经营时间满一年以上（含一年），无营业执照经营人群设定的信贷产品。</td>
+									</tr>
+									<tr>
+										<td>申请人基本要求</td>
+										<td>1.年龄22-59周岁中国大陆公民，具有完全民事行为能力；
+2.必须为经营场地租赁本人申请,共同经营者必须共同签字；
+3.有固定经营场地，且在现经营场地持续经营时间满一年以上（含一年）。</td>
+									</tr>
+									<tr>
+										<td>信用报告要求</td>
+										<td>1.银行个人信用报告，同一账户要求24个月内逾期次数不能超过6次，连续逾期次数不能超过3次（“连三累六”），且不能出现“3”及“3”以上；当前信用报告无逾期，若有逾期需提供还款证明（因年费问题造成逾期需用银行证明说明情况）；
+2.所有账户的还款记录近三个月不能有“2”，当前不能有三个账户同时逾期；贷款类不得出现关注、次级、可疑、损失状态（关注类如客户贷款还款无逾期需说明原因，并提供银行还款流水证明。如无异常，允许正常进件）；信用卡当前不得出现冻结、止付、呆账的状态；准贷记卡最近12个月还款记录不得出现“4”及“4”以上；
+3.近三个月查询记录次数不超过15次（包含信用卡、贷款、个人查询、贷后管理、担保资格查询等所有查询记录）。</td>
+									</tr>
+									<tr>
+										<td>申请所需资料</td>
+										<td>1.贷款申请表；
+2.有效二代居民身份证；
+3.收入证明：
+  1) 个人银行流水（如有需提供）：最近6个月银行账户流水（流水打印日期距离申请日期10个自然日内有效）；
+  2)近六个月账目、近2个月进出货单据、近六个月收银凭证等复印件(选其一，外访必须原件拍照)；
+4.营业证明：
+  1）加盖出租和承租双方公章（或出租、承租双方签字文件）的租赁合同（租赁期限必须满一年以上，如有更新，需提供旧的租赁合同佐证）、最近两个月交租单据。
+2）自有经营用房客提供自己或配偶名下的房产证代替(房产证在配偶名下的需提供结婚证)；
+  3)最近二个月经营场所的缴费单(水、电、煤气、物业费等)。
+5.住址证明：
+  1)以下其中之一
+    a.当地居委会、街道办出具的加盖经办单位章的居住证明；
+    b.房屋租赁合同(须覆盖当前申请日期，否则无效)，近两个月交租单据；
+    c.当前居住地址的房产证、购房合同、银行抵押或按揭合同；
+  2)近两个月的以下其中一份单据：电费单、水费单、煤气费单、电话账单、宽带费单等；
+6.央行详版征信报告（30个自然日内有效）。</td>
+									</tr>
+									<tr>
+										<td>辅助资料(可选)</td>
+										<td>1.房产资料:房产证,购房合同,按揭合同,抵押合同等；
+2.车辆资料:车辆登记证,行驶证,车辆抵押合同等；
+3.其他资产证明（例如股票、债券、存款等）。</td>
+									</tr>
+								</table>
+							</p>
+							<p>2、店主贷收费标准</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>期限</td>
+										<td>12期</td>
+										 
+									</tr>
+									<tr>
+										<td>产品类别</td>
+										<td>店主贷</td>
+										 
+									</tr>
+									<tr>
+										<td>利率(月)</td>
+										<td>0.10%</td>
+                                         
+									</tr>
+									<tr>
+										<td>审核费 </td>
+										<td>6%</td>
+										 
+									</tr>
+									<tr>
+										<td>平台管理费</td>
+										<td>1.3%*12</td>
+										 
+									</tr>
+									<tr>
+										<td>咨询服务费</td>
+										<td>4%</td>
+										 
+									</tr>
+									<tr>
+										<td>居间费</td>
+										<td>2%</td>
+										 
+									</tr>
+									<tr>
+										<td>意外保障险（合同金额）</td>
+										<td>1%</td>
+										 
+									</tr>
+									<tr>
+										<td>提前还款手续费(合同金额)</td>
+										<td>可在微拍贷“个人中心”查询应交手续费</td>
+										 
+									</tr>
+									
+									<tr>
+										<td>延期还款手续费率(当期还款本金/月)</td>
+										<td>2%</td>
+										 
+									</tr>
+									<tr>
+										<td>逾期滞纳金(天)</td>
+										<td>每期款金额*0.1%*逾期天数</td>
+										 
+									</tr>
+								</table>
+							</p>
+							<p>3、贷款额度: 最低贷款额度不低于1万，最高额度不超过50万。</p> 
+								 
+							</div>
+						</div>
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>精英贷</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、精英贷产品说明</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>产品类型</td>
+										<td>精英贷</td>
+									</tr>
+									<tr>
+										<td>产品定义</td>
+										<td>精英贷是指针对在政府机构（军队、武警、公、检、法除外）、事业单位、公立学校、公立医院正式在编人员（外派、临聘人员除外）的贷款需求，依据其工资收入，结合其信用状况为其提供免抵押、免担保的一款信贷产品。</td>
+									</tr>
+									<tr>
+										<td>申请人基本要求</td>
+										<td>1.年龄22-59周岁中国大陆公民，具有完全民事行为能力；
+2.银行代发月平均工资2000元及以上；
+3.现单位在职满6个月及以上。</td>
+									</tr>
+									<tr>
+										<td>信用报告要求</td>
+										<td>1.银行个人信用报告，同一账户要求24个月内逾期次数不能超过6次，连续逾期次数不能超过3次（“连三累六”），且不能出现“3”及“3”以上；当前信用报告无逾期，若有逾期需提供还款证明（因年费问题造成逾期需用银行证明说明情况）；
+2.所有账户的还款记录近三个月不能有“2”，当前不能有三个账户同时逾期；贷款类不得出现关注、次级、可疑、损失状态（关注类如客户贷款还款无逾期需说明原因，并提供银行还款流水证明。如无异常，允许正常进件）；信用卡当前不得出现冻结、止付、呆账的状态；准贷记卡最近12个月还款记录不得出现“4”及“4”以上；
+3.近三个月查询记录次数不超过15次（包含信用卡、贷款、个人查询、贷后管理、担保资格查询等所有查询记录）。</td>
+									</tr>
+									<tr>
+										<td>申请所需资料</td>
+										<td>1.贷款申请表；
+2.有效二代居民身份证；
+3.近6个月银行代发工资流水（流水打印日期距离申请日期10个自然日内有效）；
+4.住址证明（选其一）
+  1) 当地居委会、街道办出具的加盖经办单位章的居住证明；
+  2）房屋租赁合同(须覆盖当前申请日期，否则无效)，近两个月交 租单据；
+  3）当前居住地址的房产证、购房合同、银行抵押或按揭合同；
+  4) 近两个月的以下其中一份单据：电费单、水费单、煤气费单、电话账单、宽带费单等；
+  5) 居住在单位宿舍的：单位近1月出具的加盖公章（或财务章、人力资源章）的居住证明。
+5.工作证明（选其一）
+  1）工作证或工牌；
+  2）公司出具所在单位加盖公章或财务章的工作证明；
+  3）劳动合同。若为劳动派遣员工提供劳动派遣合同；
+  4）社保或公积金缴存清单；
+  5）纳税证明。
+6.央行详版征信报告（30个自然日内有效）。</td>
+									</tr>
+									<tr>
+										<td>辅助资料(可选)</td>
+										<td>1.房产资料:房产证,购房合同,按揭合同,抵押合同等；
+2.车辆资料:车辆登记证,行驶证,车辆抵押合同等；
+3.其他资产证明（例如股票、债券、存款等）。</td>
+									</tr>
+								</table>
+							</p>
+							<p>2、精英贷收费标准</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>期限</td>
+										<td>12期</td>
+										<td>24期</td>
+									</tr>
+									<tr>
+										<td>产品类别</td>
+										<td>精英贷</td>
+										<td>精英贷</td>
+									</tr>
+									<tr>
+										<td>利率(月)</td>
+										<td>0.00%</td>
+                                        <td>0.10%</td>
+									</tr>
+									<tr>
+										<td>审核费 </td>
+										<td>5%</td>
+										<td>8%</td>
+									</tr>
+									<tr>
+										<td>平台管理费</td>
+										<td>1.3%*12</td>
+										<td>1.3%*24</td>
+									</tr>
+									<tr>
+										<td>咨询服务费</td>
+										<td>3%</td>
+										<td>6%</td>
+									</tr>
+									<tr>
+										<td>居间费</td>
+										<td>2%</td>
+										<td>3%</td>
+									</tr>
+									
+									<tr>
+										<td>意外保障险（合同金额）</td>
+										<td  colspan="2">1%</td>
+										 
+									</tr>
+									<tr>
+										<td>提前还款手续费(合同金额)</td>
+										<td  colspan="2">可在微拍贷“个人中心”查询应交手续费</td>
+										 
+									</tr>
+									<tr>
+										<td>延期还款手续费率(当期还款本金/月)</td>
+										<td  colspan="2">2%</td>
+										 
+									</tr>
+									<tr>
+										<td>逾期滞纳金(天)</td>
+										<td  colspan="2">每期款金额*0.1%*逾期天数</td>
+										 
+									</tr>
+								</table>
+							</p>
+							<p>3、贷款额度:最低贷款额度不低于3万，最高额度不超过50万。</p> 
+								 
+							 </div>
+						</div>
+						 
+						 <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>薪金贷</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、薪金贷产品说明</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>产品类型</td>
+										<td>薪金贷</td>
+									</tr>
+									<tr>
+										<td>产品定义</td>
+										<td>薪金贷是指针对有资金需求的上班族，为其提供免抵押、免担保的信用贷款产品。</td>
+									</tr>
+									<tr>
+										<td>申请人基本要求</td>
+										<td>1.年龄22-59周岁中国大陆公民，具有完全民事行为能力；
+2.银行代发月平均工资2000元及以上；
+3.现单位在职满6个月及以上；</td>
+									</tr>
+									<tr>
+										<td>信用报告要求</td>
+										<td>1.银行个人信用报告，同一账户要求24个月内逾期次数不能超过6次，连续逾期次数不能超过3次（“连三累六”），且不能出现“3”及“3”以上；当前信用报告无逾期，若有逾期需提供还款证明（因年费问题造成逾期需用银行证明说明情况）；
+2.所有账户的还款记录近三个月不能有“2”，当前不能有三个账户同时逾期；贷款类不得出现关注、次级、可疑、损失状态（关注类如客户贷款还款无逾期需说明原因，并提供银行还款流水证明。如无异常，允许正常进件）；信用卡当前不得出现冻结、止付、呆账的状态；准贷记卡最近12个月还款记录不得出现“4”及“4”以上；
+3.近三个月查询记录次数不超过15次（包含信用卡、贷款、个人查询、贷后管理、担保资格查询等所有查询记录）。</td>
+									</tr>
+									<tr>
+										<td>申请所需资料</td>
+										<td>1.贷款申请表；
+2.有效二代居民身份证；
+3.近6个月银行代发工资流水（流水打印日期距离申请日期10个自然日内有效）；
+4. 住址证明（选其一）
+  1) 当地居委会、街道办出具的加盖经办单位章的居住证明；
+  2）房屋租赁合同(须覆盖当前申请日期，否则无效)，近两个月交 租单据；
+  3）当前居住地址的房产证、购房合同、银行抵押或按揭合同；
+  4) 近两个月的以下其中一份单据：电费单、水费单、煤气费单、电话账单、宽带费单等；
+  5) 居住在单位宿舍的：单位近1月出具的加盖公章（或财务章、人力资源章）的居住证明。
+5. 工作证明（选其一）
+  1）工作证或工牌；
+  2）公司出具所在单位加盖公章或财务章的工作证明；
+  3）劳动合同。若为劳动派遣员工提供劳动派遣合同；
+  4）社保或公积金缴存清单；
+  5）纳税证明。
+6.央行详版征信报告（30个自然日内有效）。</td>
+									</tr>
+									<tr>
+										<td>辅助资料(可选)</td>
+										<td>1.房产资料:房产证,购房合同,按揭合同,抵押合同等；
+2.车辆资料:车辆登记证,行驶证,车辆抵押合同等；
+3.其他资产证明（例如股票、债券、存款等）。</td>
+									</tr>
+								</table>
+							</p>
+							<p>2、薪金贷收费标准</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>期限</td>
+										<td>12期</td>
+										<td>24期</td>
+									</tr>
+									<tr>
+										<td>产品类别</td>
+										<td>薪金贷</td>
+										<td>薪金贷</td>
+									</tr>
+									<tr>
+										<td>利率(月)</td>
+										<td>0.10%</td>
+                                        <td>0.30%</td>
+									</tr>
+									<tr>
+										<td>审核费 </td>
+										<td>6%</td>
+										<td>8%</td>
+									</tr>
+									<tr>
+										<td>平台管理费</td>
+										<td>1.3%*12</td>
+										<td>1.3%*24</td>
+									</tr>
+									<tr>
+										<td>咨询服务费</td>
+										<td>4%</td>
+										<td>6%</td>
+									</tr>
+									<tr>
+										<td>居间费</td>
+										<td>2%</td>
+										<td>3%</td>
+									</tr>
+									
+									<tr>
+										<td>意外保障险（合同金额）</td>
+										<td  colspan="2">1%</td>
+										 
+									</tr>
+									<tr>
+										<td>提前还款手续费(合同金额)</td>
+										<td  colspan="2">可在微拍贷“个人中心”查询应交手续费</td>
+										 
+									</tr>
+									<tr>
+										<td>延期还款手续费率(当期还款本金/月)</td>
+										<td  colspan="2">2%</td>
+										 
+									</tr>
+									<tr>
+										<td>逾期滞纳金(天)</td>
+										<td  colspan="2">每期款金额*0.1%*逾期天数</td>
+										 
+									</tr>
+								</table>
+							</p>
+							<p>3、贷款额度: 最低贷款额度不低于1万，最高额度不超过50万。</p> 
+								 
+							 </div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>按揭贷</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、按揭贷产品说明</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>产品类型</td>
+										<td>按揭贷</td>
+									</tr>
+									<tr>
+										<td>产品定义</td>
+										<td>按揭贷是针对在公司网点覆盖区域内拥有按揭房（在银行按揭或抵押的房产、写字楼、商铺均可。预售房除外）的人士，评估借款人的信用状况以及还款能力进行放款。</td>
+									</tr>
+									<tr>
+										<td>申请人基本要求</td>
+										<td>1.借款主体为银行按揭贷款人，年龄22-59周岁中国大陆公民，具有完全民事行为能力。
+2.借款人房产按揭或抵押时间≧12个月，当前按揭还款记录无逾期。
+3.借款人按揭或抵押房产不得有对外担保、扣押、监管、查封或限制流通。
+4.我司90天内审批拒绝的客户不得进件。
+5.借款人近6个月内不得有法院案件记录。
+6.房产名下有共有产权人的，需要共有产权人共同签字；且共同借款人信用报告要求等同借款人</td>
+									</tr>
+									<tr>
+										<td>信用报告要求</td>
+										<td>1.贷款类：不得出现关注/次级/可疑/损失状态；
+最近6个月还款记录不得出现“1”；最近24个月信用记录不得出现“2”及以上,且不得连续出现3个“1”； 当前用户还款记录无逾期；
+2.信用卡：当前信用卡状态不得出现冻结、止付、呆账的状态，近三个月不能有逾期；
+最近6个月还款记录出现“1”的次数需≤2次；最近24个月信用记录不得出现“2”及“2”以上,且不得连续出现3个“1”， 当前用卡无逾期；
+3.准贷记卡：
+  最近12个月还款记录不得出现“3”及“3”以上：
+4.担保类：当前状态须为“正常”。“关注”类客户需提供担保贷款近6个月还款记录，且近6个月还款记录无逾期。其余客户不予进件；
+ 5. 信用报告近3个月查询记录不超过10次。</td>
+									</tr>
+									<tr>
+										<td>申请所需资料</td>
+										<td>1.贷款申请表；
+2.居民身份证（身份证有效期为贷款到期日期限内）；有共有产权的需要提供共有产权人身份证；
+3.房产证复印件及按揭合同，近1年按揭还款流水；
+4.央行征信报告（30天内有效期），有共有产权人的需要提供共有产权人信用报告（30天内有效期）；
+备注：上述资料均需借款人提供原件，验原件留存复印件。</td>
+									</tr>
+									<tr>
+										<td>外访流程</td>
+										<td>信贷员收集资料提交审核，审核通过后，由外访员到客户名下的房产地址进行实地考察和拍照。如果实际居住地址与房产地址不符，还需到客户实际住址考察拍照。上门核对客户实际居住地址和房产地址是否与客户申请表、房产证地址相符。
+流程：
+收集资料—客服录入系统—审核人员审核资料—下放外访—审核人员审核外访信息—审批人员出具审批额度—签约—放款
+1.要求拍照内容必须体现客户住址以及房产地址的门牌号以及房间内景（要求描述房产情况如：房间格局、面积、整洁度等）。
+2.提供外访人员和客户在房产地址门牌号以及房间内景的合影照片各一张。
+3.要求小区门牌拍照，房产周边地区拍照。
+4.要求所拍照片清晰完整，并将照片打印与其他资料一起归档。</td>
+									</tr>
+								</table>
+							</p>
+							<p>2、按揭贷收费标准</p>
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>期限</td>
+										<td>12期</td>
+										<td>24期</td>
+									</tr>
+									<tr>
+										<td>产品类别</td>
+										<td>按揭贷</td>
+										<td>按揭贷</td>
+									</tr>
+									<tr>
+										<td>利率(月)</td>
+										<td>0.10%</td>
+                                        <td>0.30%</td>
+									</tr>
+									<tr>
+										<td>审核费 </td>
+										<td>6%</td>
+										<td>8%</td>
+									</tr>
+									<tr>
+										<td>平台管理费</td>
+										<td>1.3%*12</td>
+										<td>1.3%*24</td>
+									</tr>
+									<tr>
+										<td>咨询服务费</td>
+										<td>4%</td>
+										<td>6%</td>
+									</tr>
+									<tr>
+										<td>居间费</td>
+										<td>2%</td>
+										<td>3%</td>
+									</tr>
+									
+									<tr>
+										<td>意外保障险（合同金额）</td>
+										<td  colspan="2">1%</td>
+										 
+									</tr>
+									<tr>
+										<td>提前还款手续费(合同金额)</td>
+										<td  colspan="2">可在微拍贷“个人中心”查询应交手续费</td>
+										 
+									</tr>
+									<tr>
+										<td>延期还款手续费率(当期还款本金/月)</td>
+										<td  colspan="2">2%</td>
+										 
+									</tr>
+									<tr>
+										<td>逾期滞纳金(天)</td>
+										<td  colspan="2">每期款金额*0.1%*逾期天数</td>
+										 
+									</tr>
+								</table>
+							</p>
+							<p>3、贷款额度： 最低贷款额度不低于2万，最高额度不超过8万。</p> 
+							<p class="bank_limit_table_con">
+								<table class="bank_limit_table" >
+									<tr>
+										<td>户籍状况</td>
+										<td>房贷已还期数</td>
+										<td>≥1年</td>
+										<td>≥2年</td>
+										<td>≥3年</td>
+										<td>≥4年</td>
+										<td>≥5年</td>
+									</tr>
+									<tr>
+										<td>非本地户籍</td>
+										<td>批核额度</td>
+										<td>2万</td>
+										<td>3万</td>
+										<td>4万</td>
+										<td>5万</td>
+										<td>6万</td>
+									</tr>
+									<tr>
+										<td>本地户籍</td>
+										<td>批核额度</td>
+										<td>4万</td>
+										<td>5万</td>
+										<td>6万</td>
+										<td>7万</td>
+										<td>8万</td>
+									</tr>
+								 
+								</table>
+							</p>
+							<p>备注:目前按揭贷在库客户不适用,需结清后方可申请。</p> 
+							 </div>
+						</div>
+						
+					 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>-->
+ <!--###########################################################我要借款--产品类型及说明结束###############################################################################-->
+<!--############################################################我要借款--如何申请借款开始##############################################################################-->
+<!--  {elseif $_U.query_type=="apply_borrow"}
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+         	<a href="">我要借款</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ">
+        	<a href="/?user&q=help/help/apply_borrow">如何申请借款</a>
+		</li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                   <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>借款申请步骤有哪些?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1、登入微拍贷网站，打开【我要借款】</p>
+							 
+							<p>2、进入第①步【选择借款产品】，根据借款产品选择“薪金贷”、“精英贷”、“助业贷”、“助农贷”、“按揭贷”、“店主贷”之一（以薪金贷为例）；进入第②步【填写借款产品申请】，输入姓名、手机号码、电子邮箱、地址，点击【立即申请】，进行借款申请。</p>
+							 
+							 
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何修改或取消借款申请?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+						<p><div class="dd"><img src="/static/img/help/A.png" /></div>在借款人发布借款申请后，无法自行修改或取消申请，请借款人在发布时注意认真填写各项信息。如遇特殊情况需修改或取消申请时，借款人可以联系客服寻求帮助（400-8878288）。</p>
+							 
+							 
+						</div>
+					</div>
+					 
+					 
+					 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div> -->
+ <!--###########################################################我要借款--如何申请借款结束###############################################################################-->
+<!--############################################################我要借款--信用审核开始##############################################################################-->
+<!--  {elseif $_U.query_type=="xinyong"}
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+        	<a href="">我要借款</a>
+	  </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+        	<a href="/?user&q=help/help/xinyong">信用审核</a>
+		</li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                   <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是信用审核?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>申请借款的用户需要根据不同的产品填写借款信息，包括个人信息、家庭信息、工作信息、资产信息、信用信息，并提交相应的信用认证材料。信审部门会综合评估借款人的个人、家庭、工作、资产、信用情况，最终根据借款人的整体信用资质给出相应的信用分数、信用等级及借款额度。</p>
+						 
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>提交认证资料后何时开始审核?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+						<p><div class="dd"><img src="/static/img/help/A.png" /></div>借款人提交认证资料后，由微拍贷进行初步筛选，符合产品要求后提交审核。</p>
+					 </div>
+					</div>
+					 
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>借款审核时间需要多久?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>借款申请审核时间为2-3个工作日。</p>
+				 		</div>
+						</div>
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>为何我提交一部分认证资料，但3个工作日后没有收到审核结果?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>1.提交的资料不完全，微拍贷将会通过电话联系通知借款人补齐资料。</p>
+						        <p>2.因为审核需求要求外访人员进行外访。</p>
+					    </div>
+						</div>
+						 
+						 <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何查看我的审核进度和结果?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>可在微拍贷“个人中心”进行查询。</p>
+							</div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>审核员会打电话给我的工作单位或亲属朋友吗?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>审核员会根据情况联系客户所提供的工作单位或亲属朋友。</p>
+						   </div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>审核过程主要看哪些方面?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>主要看征信、收入、支出和家庭情况。</p>
+						   </div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何提高我的借款成功率?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>要积极配合审核员审核会有助于借款成功率。</p>
+						   </div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>资料被驳回的原因是什么?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>资料被驳回的原因可能是资料提供有误或不完全而营业部没有筛选出来，具体原因可通过微拍贷“个人中心”进行查询。</p>
+						   </div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>可否重新认证?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>可以补交资料重新认证。</p>
+						   </div>
+						</div>
+						
+						<div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>审核失败后是否能再次申请?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+								<p><div class="dd"><img src="/static/img/help/A.png" /></div>可以，但需要等待3个月后再申请。</p>
+						   </div>
+						</div>
+					 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div>-->
+ 
+ <!--###########################################################我要借款--信用审核结束###############################################################################-->
+<!--############################################################我要借款--筹款与体现开始##############################################################################-->
+<!-- {elseif $_U.query_type=="ck_cash"} 
+<div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">我要借款</a>
+		</li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         <a href="/?user&q=help/help/ck_cash">筹款与提现</a>
+		</li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                   <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>审核成功后如何进行筹款?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>审核成功后，借款人可得到相应的信用等级和信用额度，同时客户经理将致电借款人沟通借款金额、期限和利率，确认后帮助借款人进入筹款。</p>
+						 
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>筹款时间多久?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+						<p><div class="dd"><img src="/static/img/help/A.png" /></div>借款人的借款金额将于1-3个自然日内筹集完成。</p>
+					 </div>
+					</div>
+					 
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>到账时间多久?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>资金将在筹款完成后1-2个工作日内到达借款人指定的银行账户。</p>
+				 		</div>
+						</div>
+						 
+					 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div> -->
+  <!--###########################################################我要借款--筹款与体现结束###############################################################################-->
+<!--############################################################我要借款--如何还款开始##############################################################################--> 
+ <!--  {elseif $_U.query_type=="huankuan"} 
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+             
+		  	<a href="/?user&q=code/message">我要借款</a>
+		   
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+             
+		  	<a href="/?user&q=help/help/huankuan">如何还款</a>
+		   
+        </li>
+      </ul>
+    </div>
+
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                   <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>如何进行还款?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>将还款金额充值到绑定的还款银行卡，平台会在借款人的还款日进行扣款。</p>
+						 
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>我会收到哪些形式的还款提醒?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+						<p><div class="dd"><img src="/static/img/help/A.png" /></div>借款人会在每月还款日的前3天接到客服人员的电话提醒和关于还款的提醒短信。</p>
+							 
+						</div>
+					</div>
+					 
+					    <div class="help_line">
+							<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>是否可以提前还款?</div>
+							<div class="help_line_text">
+								<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>借款人向微拍贷申请并经微拍贷同意后，可提前偿还全部贷款。借款人需向微拍贷支付提前还款手续费，其金额按本合同项下贷款金额的10%计算。微拍贷将根据《提前还款清算表》以借款人还款时间计算提前还款款项。</p>
+						  </div>
+						</div>
+					
+					 
+				</div>
+			</div>        
+  		</div>
+      </div>
+    </div>
+  </div> -->
+  <!--###########################################################我要借款--如何还款结束###############################################################################-->
+<!--############################################################我要借款--登录注册开始##############################################################################--> 
+ {elseif $_U.query_type=="help_login"} 
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+         	<a href="">账户管理</a>
+		</li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ">
+          <a href="/?user&q=help/help/help_login">登录与注册</a>
+		</li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>如何注册微拍贷</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>打开浏览器输入微拍贷官网网址【www.weipaidai.com】点击【立即注册】按照提示输入正确的注册信息即可注册微拍贷账户。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pota"><div class="dd"><img src="/static/img/help/Q.png" /></div>注册时，进行手机验证，收不到短信怎么办?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 请确认手机是否安装短信拦截或过滤软件;</p>
+							<p>2. 请确认手机是否能够正常接收短信(信号问题、欠费、停机等);</p>
+							<p>3. 短信收发过程中可能会存在延迟，请耐心等待，短信在30分钟内均有效;</p>
+							<p>4. 理财投资者还可以联系客服，寻求帮助(400-887-8288)。</p>
+						</div>
+					</div>
+				 
+				 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是推荐人?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 用户在“微拍贷”完成注册后，即拥有了成为本平台推荐人的资格。</p>
+							<p>2.当新用户在注册的时候，填写了已注册理财投资者的账号做为推荐人，该理财投资者就成为了这个新注册用户的推荐人。</p>
+							 
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何进行登录?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p> <div class="dd"><img src="/static/img/help/A.png" /></div>打开浏览器输入微拍贷官网网址【www.weipaidai.com】点击【立即登录】输入微拍贷账号密码，即可登录微拍贷。</p>
+						 
+						</div>
+					</div>
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div> 
+  <!--###########################################################我要借款--登录注册结束###############################################################################-->
+<!--############################################################我要借款--账户密码开始##############################################################################--> 
+ {elseif $_U.query_type=="help_password"}  
+  <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">账户管理</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=help/help/help_password">账户密码</a>
+		</li>
+      </ul>
+    </div>
+
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微拍贷账户的密码都有哪些?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1.登录密码</p>
+							<p>2.交易密码</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何修改登录密码?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>进入微拍贷个人账户中心点击【账户管理】-【安全信息】选择修改登录密码即可。</p>
+							 
+						</div>
+					</div>
+				 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何找回登录密码?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div> 打开微拍贷官网【www.weipaidai.com】点击【立即登录】在登录界面点击【忘记密码】即可通过绑定邮箱以及绑定手机号码找回登录密码。</p>
+							
+							 
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>通过邮箱找回登录密码时，收不到邮件，怎么办?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1.请理财投资者在垃圾邮件中查看是否被默认成垃圾邮件，如果没有，则可能是理财投资者邮箱服务器存在问题，你可以选择更换绑定邮箱。</p>
+							<p>2.理财投资者还可以联系客服，寻求帮助(400-887-8288)。</p>
+							 
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何修改交易密码?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>进入微拍贷个人账户中心点击【账户管理】-【安全信息】选择修改交易密码即可。</p>
+							 
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何通过手机号找回交易密码?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>登录微拍贷打开【我的微拍贷】点击【账户管理】-【安全信息】选择找回交易密码，系统会发送一条验证信息到理财投资者绑定的手机号码当中，输入收到的手机验证码后即可点击找回交易密码。</p>
+							 
+						</div>
+					</div>
+					
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+  <!--###########################################################我要借款--账户密码结束###############################################################################-->
+<!--############################################################我要借款--充值开始##############################################################################--> 
+ {elseif $_U.query_type=="recharge"} 
+<div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+         <a href="">账户管理</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         	<a href="/?user&q=help/help/recharge">充值</a>
+	   </li>
+      </ul>
+    </div>
+
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" ><div class="dd"><img src="/static/img/help/Q.png" /></div>充值介绍</div> 
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微拍贷用户可以通过与微拍贷合作的银行给微拍贷账户进行充值，成功后可以用微拍贷账户的余额进行理财。</p>
+							<p>如果通过网上银行支付，银行卡需要先开通网上银行功能。</p>
+							<p>快捷支付充值无需开通网上银行功能也可进行充值操作。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="recharge_js"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何申请开通网上银行?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>目前所有商业银行都支持个人网银业务，理财投资者只需要携带有效身份证件，到当地理财投资者所持银行卡的发卡行任意营业网点，即可申请开通网上银行业务。理财投资者还可以到商业银行官网查看个人网上银行详细信息。</p>
+							 
+						</div>
+					</div>
+				 
+				 <div class="help_line">
+						<div class="help_line_title"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>绑定银行卡，为什么要填写省市和开户行字段?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微拍贷是通过第三方支付平台为用户提供付款服务，第三方支付平台将用户银行卡信息上传至银行做付款操作时，可能会进行省市和开户行字段的校验，如果为空或不正确可能会导致付款失败。
+所以为了理财投资者提现的便利和安全，请理财投资者认真填写省市和开户行。</p>
+							 
+						</div>
+					</div>
+					 
+					 <div class="help_line">
+						<div class="help_line_title" ><div class="dd"><img src="/static/img/help/Q.png" /></div>绑定银行卡，不知道银行卡的省市和开户行怎么办?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 理财投资者可以持银行卡及有效证件到发卡行的营业网点查询；</p>
+							<p>2. 理财投资者可以拨打自已银行卡开户行的24小时客服电话，选择人工服务，按照语音提示输入要查询的银行卡号和户主姓名，客服人员就会告知你开户行和所在地；</p>
+						</div>
+					</div> 
+					
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何给账户充值?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 登录微拍贷，打开【我的微拍贷】页面，点击【充值】;</p>
+							<p>2. 跳转至充值页面，选择网银充值或者快捷支付，输入充值金额，点击【充值】;</p>
+							<p>3. 跳转至银行网银或者快捷支付页面，按照页面的提示输入银行账户和密码等信息即可完成充值。</p>
+						</div>
+					</div> 
+					 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>充值限额是多少?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>充值限额是由银行支付限额、第三方支付平台支付限额和用户自己设定的银行支付限额三者共同决定，三者取最小值。</p>
+							 
+						</div>
+					</div> 
+					
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>充值会不会扣手续费?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微拍贷充值不收取手续费</p>
+					   </div>
+					</div> 
+					 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>网银支付限额表  更新时间2018.09.14（不定期更新最新内容）</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<div class="dd"><img src="/static/img/help/A.png" /></div>
+							<img src="/static/img/help/wy_2018_09_14.png" style="width: 667px;"/> 
+					   		<!--  <p style="color: red;">注：由于支付渠道可能会因为银行维护或者其他原 因临时调整，所以上述限额仅作参考，请不要细究到每一家银行的每一种卡类型，请理解！（具体限额以银行限额为准）</p> 
+							<p style="color: red;">个人网银：交通银行、南京银行、北京银行、渤海银行暂时停止提供充值服务，提现不影 响（如果恢复使用，将会第一时间进行通知）</p> -->
+					   </div>
+					</div> 
+					
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>快捷支付限额表  更新时间2018.09.14（不定期更新最新内容）</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<div class="dd"><img src="/static/img/help/A.png" /></div><img src="/static/img/help/kj_2018_09_14.png" style="width: 667px;"/> 
+					   </div>
+					</div> 
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div> 
+ <!--###########################################################我要借款--充值结束###############################################################################-->
+<!--############################################################我要借款--提现开始##############################################################################--> 
+ {elseif $_U.query_type=="cash"} 
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">账户管理</a>
+		</li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=help/help/cash">提现</a>
+	    </li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>如何提现?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>理财投资者可以随时将自己在微拍贷账户中的可用余额申请提现到理财投资者在微拍贷所绑定的银行卡上，提现金额必须大于100元。</p>
+							<p>注意：请正确提供申请提现的银行卡账号，并确保该账号的开户人姓名和理财投资者在微拍贷上提供的身份证上的真实姓名一致，否则无法成功提现。</p>
+							<p>各大银行的客服电话：</p>
+							
+							<p>
+							<table class="bank_limit_table" >
+									<tr style="background:#6fc3e7;">
+										<td>招商银行</td>
+										<td>中国银行</td>
+										<td>建设银行</td>
+										<td>工商银行</td>
+										<td>中信银行</td>
+									</tr>
+									<tr>
+										<td>95555</td>
+										<td>95566</td>
+										<td>95533</td>
+										<td>95588</td>
+										<td>95558</td>
+									</tr>
+									<tr style="background:#6fc3e7;">
+										<td>农业银行</td>
+										<td>民生银行</td>
+										<td>光大银行</td>
+										<td>交通银行</td>
+										<td>广发银行</td>
+									</tr>
+									<tr>
+										<td>95599</td>
+										<td>95568</td>
+										<td>95595</td>
+										<td>95559</td>
+										<td>400-830-8003</td>
+									</tr>
+									<tr style="background:#6fc3e7;">
+										<td>浦发银行</td>
+										<td>邮政银行</td>
+										<td>华夏银行</td>
+										<td>兴业银行</td>
+										<td>平安银行</td>
+									</tr>
+									<tr>
+										<td>95528</td>
+										<td>95580</td>
+										<td>95577</td>
+										<td>95561</td>
+										<td>95511转3</td>
+									</tr>
+									<tr style="background:#6fc3e7;">
+										<td>上海银行</td>
+										 
+									</tr>
+									<tr>
+										<td>95594</td>
+										 
+									</tr>
+								</table>
+							
+							
+							
+							 </p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="recharge_js"><div class="dd"><img src="/static/img/help/Q.png" /></div>申请提现后，多久能到账?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div> 15:00前,T+1个工作日到账 15:00后,T+2工作日到账，以服务器时间为准。</p>
+							 
+						</div>
+					</div>
+				 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>提现手续费是多少?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div> 目前微拍贷进行提现暂时不需要任何手续费。</p>
+							<p> 实际费用标准为：提现2元/笔</p>
+						</div>
+					</div>
+					 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如果所填写的银行卡信息不正确，能否提现成功?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 如果理财投资者填写的银行卡号有误或该银行卡开户名不是本人实名认证的姓名，将会导致提现失败；</p>
+							<p>2. 如果理财投资者填写的银行、开户行、开户行所在地信息不正确，则该笔提现在提交到银行做处理时，有可能由于信息校验不正确而提现失败。</p>
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>提现未到账怎么办?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 可能是银行卡信息填写有误，银行会做退票操作，大概会在3个工作日内完成退票，请用户耐心等候。</p>
+							<p>2. 理财投资者还可以联系客服，寻求帮助（400-8878288）。</p>
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>为什么会提现失败?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1. 银行账号/户名错误，或是账号和户名不符；</p>
+							<p>2. 银行账户冻结或正在办理挂失；</p>
+							<p>3. 省份、城市、开户行等银行信息错误；</p>
+							<p>4. 使用信用卡提现。</p>
+							<p>如果遇到以上情况，我们会在收到支付机构转账失败的通知后解除理财投资者的资金冻结，请用户不必过度担心。</p>
+							 
+						</div>
+					</div>
+					 
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+ <!--###########################################################我要借款--提现结束###############################################################################-->
+<!--############################################################我要借款--安全认证开始##############################################################################--> 
+ {elseif $_U.query_type=="approve"}  
+<div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">账户管理</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+        	<a href="/?user&q=help/help/approve">安全认证</a>
+	   </li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>为什么要进行安全认证?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>为了保障用户资金的安全性和合同的有效性，微拍贷要求所有理财人及借款人必须通过身份证绑定、手机号绑定以及交易密码设置。安全认证的过程简单便捷，微拍贷对于所有个人资料均作严格保密。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何进行实名认证?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>1.用户可以打开【我的微拍贷】--【账户管理】--【安全信息】页面，在实名认证信息栏，点击【设置】，输入姓名和身份证号，进行实名认证。</p>
+							<p>2.快捷支付充值时，提示需要实名认证并跳转到实名认证界面；</p>
+							<p>3.添加银行卡时，提示需要实名认证并跳转到实名认证界面；</p>
+							<p>4.理财投资、散标投资时，提示需要实名认证并跳转到实名认证界面；</p>
+						</div>
+					</div>
+				 
+				 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>身份信息正确，实名认证未通过怎么办?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>可能是由于第三方认证系统没有及时更新理财投资者的身份信息导致的，理财投资者可以联系客服寻求帮助（400-8878288）。</p>
+							 
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>绑定手机号码遗失或者无法使用是否可以进行改绑?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>如理财投资者无法通过网站进行绑定手机号码的更换，理财投资者可以联系客服寻求帮助（400-8878288）。</p>
+					 </div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何更换绑定邮箱?</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p> <div class="dd"><img src="/static/img/help/A.png" /></div>登录微拍贷，打开【我的微拍贷】--【账户管理】--【安全信息】页面，用户可以选择通过原邮箱或绑定手机号修改绑定邮箱。</p>
+					 </div>
+					</div>
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>  
+ <!--###########################################################我要借款--安全认证结束###############################################################################-->
+<!--############################################################我要借款--消息开始##############################################################################--> 
+ {elseif $_U.query_type=="xiaoxi"}   
+<div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">账户管理</a>
+		</li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=help/help/xiaoxi">消息中心</a>
+		</li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>站内消息和手机短信对理财投资者有什么用?</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>如果理财投资者的账户信息发生变动，微拍贷就会推送消息给理财投资者，这些消息与理财投资者的账户息息相关，包括账户安全、交易变化、金额变化等消息，让理财投资者可以及时收到理财投资者微拍贷账户有关信息的变动情况。</p>
+						</div>
+					</div>  
+					 
+				 
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+   <!--###########################################################我要借款--消息中心结束###############################################################################-->
+<!--############################################################我要借款--账户隐私及安全开始##############################################################################--> 
+ {elseif $_U.query_type=="help_privacy"} 
+  <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href=" ">账户管理</a>
+	   </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         <a href="/?user&q=help/help/help_privacy">账户隐秘及安全</a>
+	   </li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>网站技术保障</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微拍贷网站运用各种先进的安全技术保护并且与360安全防护部门签署了战略合作协议，保障了用户在微拍贷账户中存储的个人信息、账户信息以及交易记录的安全，以免用户账户遭受未经授权的访问、使用以及信息泄露。</p>
+							<p>微拍贷网站由360安全团队7*24小时全天监测系统，可以及时发现网站的非正常访问并做相应的安全响应。对于用户的账户信息，微拍贷网站会对其进行高强度的加密，以防止用户信息的外泄。
+同时，我们还会持续更新和改进网站的安全策略，以保证网站安全策略的有效性和稳健性。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>权限管理和隐私安全</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>我们严格遵守国家相关的法律法规，对用户的隐私信息进行保护。未经理财投资者的同意，微拍贷不会向任何第三方公司、组织和个人披露理财投资者的个人信息、账户信息以及交易信息（法律法规另有规定的除外）。</p>
+							<p>同时，微拍贷公司内部也设有严格、完善的权限管理体系，以保证每一位内部员工都只能查看自己职责和权限之内的数据和信息。</p>
+							 
+						</div>
+					</div>
+				 
+					
+					
+					
+					
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+<!--###########################################################我要借款--消息中心结束###############################################################################-->
+<!--############################################################我要借款--账户隐私及安全开始##############################################################################--> 
+ {elseif $_U.query_type=="help_protect"}   
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+         	<a href="">账户管理</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         	<a href="/?user&q=help/help/help_protect">用户的自我保护</a>
+	   </li>
+      </ul>
+    </div>
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>牢记微拍贷官方网址</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div> 牢记微拍贷官方网址：https://www.weipaidai.com</p>
+							<p> 不要点击来历不明的链接访问微拍贷，谨防网站钓鱼和欺诈。我们建议用户将微拍贷官方网址加入浏览器收藏夹，以方便用户下次登录。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>为理财投资者的微拍贷账户设置高强度的登录密码</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>用户在设置密码时，最好使用数字和字母混合，不要使用纯数字或纯字母，且密码长度要在6位以上。</p>
+							<p>尽量不要使用用户的生日、姓名拼音、身份证号码、手机号或是邮箱名作为登录密码。</p>
+							<p>尽量不要使用连续的，或重复的字母、数字组合作为密码，例如：aaaaaa，111111，abcdef，123456。</p>
+							<p>尽量不要使用以下常用密码，例如：qazwsx，qwerty，mima123，password等。</p>
+						</div>
+					</div>
+				 
+				<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>注重电脑运行环境的安全</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p> <div class="dd"><img src="/static/img/help/A.png" /></div>1. 及时为用户的电脑进行系统更新，安装系统安全补丁，以防系统漏洞被黑客利用。</p>
+							<p> 2. 为用户的电脑安装杀毒软件或防火墙，并定期为电脑进行查毒、杀毒。</p>
+							<p> 3. 避免在网吧等公共场所使用网上银行，不要打开来历不明的电子邮件。</p>
+							<p> 4. 不要访问危险的网站，不要使用来历不明的软件。</p>
+							<p> 5.建议使用360浏览器进行登陆微拍贷和投资理财。</p>
+						</div>
+					</div>
+				
+				  <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>时刻注意保护个人隐私</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p> <div class="dd"><img src="/static/img/help/A.png" /></div>用户在平台上交流的过程中，不要向其他用户透露自己真实姓名与住址等，以防个人信息被盗取造成损失。</p>
+						 
+						</div>
+					</div>
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>避免私下交易</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微拍贷建议用户避免私下交易。私下交易的约束力极低，造成逾期的风险非常高，同时用户的个人信息将有可能被泄漏，存在遭遇诈骗甚至受到严重犯罪侵害的隐患。</p>
+						 
+						</div>
+					</div>
+					
+					
+					</div>
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div> 
+ <!--###########################################################我要借款--账户隐私及安全结束###############################################################################-->
+<!--############################################################我要借款--红包使用开始##############################################################################--> 
+ {elseif $_U.query_type=="help_hongbao"}  
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          <a href="">其它</a>
+	   </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+         <a href="/?user&q=help/help/help_hongbao">红包使用</a>
+	   </li>
+      </ul>
+    </div>
+
+
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+          <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是微拍贷红包？ </div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>红包是微拍贷给予用户的电子增值福利。</p>
+						</div>
+					</div>  
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何获得红包？</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>用户可以通过参与微拍贷各类活动获取，或在微商城使用微币兑换。</p>
+						 
+						</div>
+					</div>
+				 
+				 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>红包类型</div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>投资红包、加息红包、现金红包（按照各红包使用详则使用）</p>
+						 
+						</div>
+					</div>
+					 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>红包使用注意事项 </div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>红包不可叠加使用；</p>
+						    <p>请按照红包使用金额，投资期限范围使用；</p>
+						    <p>在红包有效期内使用有效；</p>
+						    <p>投资使用红包请勾选。</p>
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"></div>红包最终使用解释权归微拍贷所有，如有疑问，请咨询客服。</div>
+					</div>
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div> 
+  <!--   ######################################################################
+  #########################################################################
+  ######################微商城开始了##########################################
+  ##################################################### -->
+   {elseif $_U.query_type=="help_weishop"}  
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+        	<a href="">其它</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+        	<a href="/?user&q=help/help/help_integral">积分管理</a>
+	    </li>
+      </ul>
+    </div>
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                  <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微币兑换的礼品是否能开具发票？ </div> 
+						<div class="help_line_text"  style="width: 738px;">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>使用微币兑换的礼品，属于微拍贷对您的回馈行为而非交易，不能提供发票。</p>
+						</div>
+					</div>
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微币兑换或微币抽奖的礼品什么时候发货？ </div> 
+						<div class="help_line_text"  style="width: 738px;">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微币兑换的实物礼品(颜色随机)一般在订单提交后的15个工作日内包邮寄出。</p>
+						</div>
+					</div>
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微币兑换的礼品存在质量问题，该如何处理？</div> 
+						<div class="help_line_text"  style="width: 738px;">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>除礼品在运送途中发生损毁或本身存在质量瑕疵以外，恕不允许更换。符合更换条件的用户，请在礼品签收（以第三方物流信息为准）后五工作日内与我们的客服同事联系。问题礼品寄回时，请务必保留原包装、内附说明书及相关文件。</p>
+						</div>
+					</div>        
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+   <!--###########################################################我要借款--账户隐私及安全结束###############################################################################-->
+<!--############################################################我要借款--红包使用开始##############################################################################--> 
+ {elseif $_U.query_type=="help_integral"}  
+ <div class="container_12 mt10">
+    <div class="wpd_top">
+	 
+      <ul class="ui-breadcrumb grid_12 fn-clear ml20 h34">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php">首页</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/newhelp/index.html">帮助</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+        	<a href="">其它</a>
+	    </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+        	<a href="/?user&q=help/help/help_integral">积分管理</a>
+	    </li>
+      </ul>
+    </div>
+
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+      <div class="grid_2">
+			<div class="ui-side" id="sidebar">
+			  <ul class="ui-side-list">
+			    {include file="about_lise.html"}
+			  </ul>
+			</div>
+      </div>
+       
+      <div class="grid_10">
+      	<div class="pg-about-main right-container p20bs">
+        	 
+				<div class="announcement_help">
+				
+				  
+                  <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>什么是微币？ </div> 
+						<div class="help_line_text"  style="width: 738px;">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微币是微拍贷为回馈用户投资理财而设计的奖励，是微商城通用货币。</p>
+						</div>
+					</div>  
+					
+					
+				<div class="help_line">
+						<div class="help_line_title" id="saving_pot"><div class="dd"><img src="/static/img/help/Q.png" /></div>如何获得微币？ </div>
+						<div class="help_line_text">
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>用户在注册、签到、投资理财，参与各类活动后即可获得相应数量微币。</p>
+						 <p>微币计算方式：投资金额*折标系数/100</p>
+						 <p style="width: 282px;text-align: center;margin: 0 auto;font-size: 13px;">（注：微拍贷各投资计划折标计算方法）</p>
+								<table class="bank_limit_table" >
+									<tr>
+										<td>投资计划</td>
+										<td>折标系数</td>
+									</tr>
+									<tr>
+										<td>微+1</td>
+										<td>1/12</td>
+									</tr>
+									<tr>
+										<td>微+3</td>
+										<td>1/4</td>
+									</tr>
+									<tr>
+										<td>微+6</td>
+										<td>1/2</td>
+									</tr>
+									<tr>
+										<td>微月盈1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>微月盈2</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>微月盈3</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>微年利1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>微年利2</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>微年利3</td>
+										<td>3</td>
+									</tr>
+								</table>
+							</p>
+						</div>
+					</div>
+				  <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>如何查询微币？</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>用户登录微拍贷账户，点击微商城，可在微商城首页查看微币数量。</p>
+							<p>微币一旦使用，不能修改或退换。</p>
+						</div>
+					</div> 
+				 
+				 
+				  <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微币是否可累计？</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>每日签到系统会自动进行累计，微币情况登录后可查看。</p>
+						</div>
+					</div>
+				 
+					 
+					 <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微币可以兑换现金或者提现吗？</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>微币不可直接兑换现金、不能提现。</p>
+						</div>
+					</div>
+					
+					<div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>微币永久有效？</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>有关用户获得的微币，永久有效。</p>
+						</div>
+					</div>
+					  <div class="help_line">
+						<div class="help_line_title" id="saving_pot"  ><div class="dd"><img src="/static/img/help/Q.png" /></div>作弊处理</div> 
+						<div class="help_line_text"  >
+							<a name="saving_pot"></a>
+							<p><div class="dd"><img src="/static/img/help/A.png" /></div>系统会对有作弊行为的用户做如下处理：</p>
+							<p>第1次发现作弊行为：微币、等级将回到原始点，用户列入重点监控名单；</p>
+							<p>第2次发现作弊行为：将禁止用户继续领取微币，微币、等级永远处于原始点的位置。</p>
+						</div>
+					</div> 
+					 
+					 
+				</div>
+			</div>        
+  		</div>
+  		 
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  
+  
+  {/if} 

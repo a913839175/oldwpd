@@ -1,0 +1,24 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">	
+	<div class="content setFormBox">
+		<form id="setEmailForm" method="post" class="ui-form" action="/?user&q=code/users/user_email_set" data-name="setEmail" novalidate="novalidate">
+			<div class="inputs">
+				<div class="ui-form-item">
+					<label class="ui-label"><span class="ui-form-required">*</span>邮箱</label>
+					<input type="text" data-is="isEmail" class="ui-input" name="email">
+				</div>
+				<div class="ui-form-item">
+					<input type="submit" class="ui-button ui-button-mid ui-button-green w150" value="提 交" id="subSetEmailBt">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="fn-hide success">
+		<h3 class="info">验证信息已发往你的邮箱,请前往验证!</h3>
+		<a class="ui-button ui-button-mid ui-button-blue backBt">返回</a>
+	</div>
+</div>
+
+<script>seajs.use(['pages/account/account/security']);</script>
+  

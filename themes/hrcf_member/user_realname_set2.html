@@ -1,0 +1,66 @@
+{include file="../hrcf/header.html"}
+
+<div class="pg-container-content">
+  <link rel="stylesheet" href="/static/css/pages/account/account.css">
+  <div id="pg-account-security" class="pg-account">
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=code/rating/basic">账户管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+ 
+		  	<a href="/?user&q=code/approve/myapp">认证信息</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10 ">
+
+<div class="p20bs color-white-bg fn-clear imin-hei535" >
+<div class="title">包商开户</div>
+<div id="pg-account-security">
+	
+	<div  class="content setFormBox">
+	<form id="setIdForm" method="post" class="ui-form"  action="/?user&q=code/bscg/bsrealname" data-name="setId" novalidate="novalidate">
+		<div  class="inputs">
+			<div class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>真实姓名</label>
+				<input type="text"  data-is="isRealName" class="ui-input" name="realName">
+			</div>
+			<div  class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>身份证号</label>
+				<input type="text" data-is="isIDNum"  class="ui-input" name="idNo">
+			</div>
+			<div  class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>银行预留手机</label>
+				<input type="text" data-is="isMobile"  class="ui-input ylphone" name="blPhone">
+			</div>
+			<div  class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>银行卡号</label>
+				<input type="text" data-is="isBankCard"  class="ui-input idcard" name="blNo">
+			</div>
+			<div class="ui-form-item">
+		 		<input type="submit" class="ui-button ui-button-mid ui-button-green w150" value="提 交" >
+			</div>
+		</div>
+	</form>
+	</div>
+	<div class="fn-hide  success">
+		<h3 class="info">实名认证设置成功!</h3>
+		<a class="ui-button ui-button-mid  ui-button-blue backBt">返回</a>
+	</div>
+	
+</div>
+      </div>
+    </div>
+      </div></div>
+
+  

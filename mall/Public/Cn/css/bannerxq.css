@@ -1,0 +1,1619 @@
+.jifen_index{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+/*2017-07-27 开奖前 banner详情页*/
+.banner0727{
+    clear:both;
+    margin: 0 auto;
+    padding: 0;
+    left: 50%;
+    margin-left: -960px;
+    position: relative;
+    width: 1920px;
+}
+.banner072701{
+    background: url(/mall/Public/Cn/images/bannerxq/2017072701.jpg) no-repeat;
+    height: 466px;
+}
+.banner072702{
+    background: url(/mall/Public/Cn/images/bannerxq/2017072702.jpg) no-repeat;
+    height: 466px;
+}
+.banner072703{
+    background: url(/mall/Public/Cn/images/bannerxq/2017072706.png) repeat-y;
+}
+.banner072704{
+    width: 1000px;
+    margin: 0 auto;
+}
+.banner072705{
+    color: #945e27;
+    font-size: 18px;
+    padding-left: 76px;
+}
+.pat45{
+    padding-top: 45px;
+}
+.pat23{
+    padding-top: 23px;
+}
+.pat35{
+    padding-top: 35px;
+}
+.pat147{
+    padding-top: 147px;
+}
+.banner072706{
+    color: #e1aa26;
+    padding : 0 2px;
+    font-size: 18px;
+}
+.banner072706_1{
+    color: #e1aa26;
+    padding : 0 2px;
+    font-size: 18px;
+}
+.banner072707{
+    width: 842px;
+    border: 4px solid #ebde8f;
+    margin: 0 auto;
+    margin-top: 19px;
+    background: #361f0f;
+}
+.banner072708{
+    width: 774px;
+    margin: 0 auto;
+    padding-top:7px;
+    color: #fed279;
+    font-weight: 700;
+    text-align:justify;
+    word-wrap:break-word;
+    line-height: 40px;
+}
+.banner072709{
+    width: 842px;
+    border: 4px solid #ebde8f;
+    margin: 0 auto;
+    margin-top: 19px;
+    background: #361f0f;
+}
+.banner072710{
+    width: 774px;
+    margin: 0 auto;
+    padding-top:7px;
+    color: #fed279;
+    font-weight: 700;
+    text-align:justify;
+    word-wrap:break-word;
+    line-height: 40px;
+}
+.banner072711{
+    background: url(/mall/Public/Cn/images/bannerxq/2017072705.jpg) no-repeat;
+    height: 533px;
+    width: 1000px;
+    position: relative;
+}
+.banner072712{
+    width: 298px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    left: 365px;
+    top: 346px;
+}
+/*2017-07-28 开奖后 banner详情页*/
+.banner072801{
+    background: url(/mall/Public/Cn/images/bannerxq/2017072801.jpg) no-repeat;
+    height: 466px;
+}
+.banner072802{
+    background: url(/mall/Public/Cn/images/bannerxq/2017072802.jpg) no-repeat;
+    height: 466px;
+}
+.banner072803{
+    width: 534px;
+    height: 469px;
+    margin: 0 auto;
+    border:1px solid #ebde8f;
+    position: relative;
+    top:37px;
+    background: #361f0f;
+}
+.banner072804{
+    font-size: 25.6px;
+    color: #f6d87b;
+    text-align: center;
+    padding-bottom: 13px;
+}
+.banner072805{
+    color: #fff
+}
+.banner072806{
+    width: 428px;
+    height: 156px;
+    display: block;
+    background: url(/mall/Public/Cn/images/bannerxq/2017070803.png) no-repeat;
+    margin: 0 auto;
+}
+.banner072807{
+    font-size: 25px;
+    color: #442910;
+    text-align: center;
+    line-height: 35px;
+}
+/*2017-8-08 第三缉开奖前8-1到8-15页面*/
+.banner08280101{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280101.jpg) no-repeat;
+    height: 597px;
+}
+.banner08280102{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280102.jpg) no-repeat;
+    height: 597px;
+}
+.banner08280103{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280103.jpg) no-repeat;
+    height: 597px;
+}
+.banner08280104{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280104.jpg) no-repeat;
+    height: 597px;
+}
+.banner08280105{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280105.jpg) no-repeat;
+    height: 597px;
+}
+.banner08280106{
+    width: 1000px;
+    margin: 0 auto;
+}
+.banner08280107{
+    text-align: center;
+    color: #9b66f4;
+    font-size: 24px;
+    padding-top: 160px;
+}
+.banner08280108{
+    width: 948px;
+    height: 203px;
+    margin: 0 auto;
+    margin-top: 14px;
+    overflow: hidden;
+}
+.banner08280109{
+    width: 786px;
+    margin: 0 auto;
+    color: #ffffff;
+    line-height: 50px;
+}
+/*2017-8-08 第三缉开奖前8-16到8-31页面*/
+.banner08280201{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280201.jpg) no-repeat;
+    height: 726px;
+}
+.banner08280202{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280202.jpg) no-repeat;
+    height: 600px;
+}
+.banner08280203{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280203.jpg) no-repeat;
+    height: 631px;
+}
+.banner08280204{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280204.jpg) no-repeat;
+    height: 632px;
+}
+.banner08280205{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280205.jpg) no-repeat;
+    height: 631px;
+}
+.banner08280206{
+    width: 1000px;
+    margin: 0 auto;
+}
+.banner08280207{
+    text-align: center;
+    color: #9b66f4;
+    font-size: 24px;
+}
+.pat40{
+    padding-top: 35px;
+}
+.banner08280208{
+    width: 948px;
+    height: 205px;
+    margin: 0 auto;
+}
+.mart10{
+    margin-top: 10px;
+}
+.banner08280209{
+    width: 786px;
+    margin: 0 auto;
+    color: #ffffff;
+    line-height: 50px;
+}
+.pat28{
+    padding-top:20px;
+}
+/*2017-8-08 第三缉开奖后*/
+.banner08280301{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280301.jpg) no-repeat;
+    height: 726px;
+}
+.banner08280302{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280302.jpg) no-repeat;
+    height: 698px;
+}
+.banner08280303{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280303.jpg) no-repeat;
+    height: 599px;
+}
+.banner08280304{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280304.jpg) no-repeat;
+    height: 599px;
+}
+.banner08280305{
+    background: url(/mall/Public/Cn/images/bannerxq/201708280305.jpg) no-repeat;
+    height: 599px;
+}
+.banner08280306{
+    width: 1000px;
+    margin: 0 auto;
+}
+.pat132{
+    padding-top: 132px;
+}
+.banner08280307{
+    text-align: center;
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 41px;
+}
+.tottery{
+    width: 345px;
+    height: 80px;
+    margin-left: 314px;
+    margin-top: 43px;
+}
+.tottery p{
+    text-align: center;
+    color: #a679d8;
+    font-size: 23px;;
+    line-height: 40px;
+}
+.tottery p span{
+    font-weight: 700;
+}
+/*2017-8-08 降息banner图*/
+.banner082901{
+    background: url(/mall/Public/Cn/images/bannerxq/2017082901.jpg) no-repeat;
+    height: 293px;
+}
+.banner082902{
+    background: url(/mall/Public/Cn/images/bannerxq/2017082902.jpg) no-repeat;
+    height: 293px;
+}
+.banner082903{
+    background: url(/mall/Public/Cn/images/bannerxq/2017082903.jpg) no-repeat;
+    height: 294px;
+}
+.banner082904{
+    background: url(/mall/Public/Cn/images/bannerxq/2017082904.jpg) no-repeat;
+    height: 293px;
+}
+.banner082905{
+    background: url(/mall/Public/Cn/images/bannerxq/2017082905.jpg) no-repeat;
+    height: 293px;
+}
+/*add 2017-09-05*/
+.banner090501{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017090501.jpg) no-repeat;
+    height:822px;
+}
+.banner090502{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017090502.jpg) no-repeat;
+    height: 822px;
+}
+.banner090503{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017090503.jpg) no-repeat;
+    height: 859px;
+}
+.banner090504{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017090504.jpg) no-repeat;
+    height: 785px;
+}
+.banner090505{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017090505.jpg) no-repeat;
+    height: 822px;
+}
+.banner090506{
+    width: 1200px;
+    height: 409px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top:450px;
+}
+.banner090507{
+    width: 1200px;
+    height: 785px;
+    margin: 0 auto;
+    display: block;
+}
+.banner090508{
+    width: 1200px;
+    height: 822px;
+    margin: 0 auto;
+    display: block;
+}
+.banner091101{
+    background: url(/mall/Public/Cn/images/bannerxq/banner091101.jpg) no-repeat;
+    height: 727px;
+}
+.banner091102{
+    background: url(/mall/Public/Cn/images/bannerxq/banner091102.jpg) no-repeat;
+    height: 727px;
+}
+.banner091103{
+    background: url(/mall/Public/Cn/images/bannerxq/banner091103.jpg) no-repeat;
+    height: 726px;
+}
+.banner091104{
+    background: url(/mall/Public/Cn/images/bannerxq/banner091104.jpg) no-repeat;
+    height: 727px;
+}
+.banner091105{
+    background: url(/mall/Public/Cn/images/bannerxq/banner091105.jpg) no-repeat;
+    height: 727px;
+}
+/*add 2017-09-10*/
+.banner2017091701{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091901.jpg) no-repeat;
+    height: 891px;
+}
+.banner2017091702{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091902.jpg) no-repeat;
+    height: 890px;
+}
+.banner2017091703{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091903.jpg) no-repeat;
+    height: 674px;
+}
+.banner2017091704{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091904.jpg) no-repeat;
+    height: 505px;
+}
+.banner2017091705{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091905.jpg) no-repeat;
+    height: 909px;
+}
+.banner2017091706{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091906.jpg) no-repeat;
+    height: 909px;
+}
+.conter{
+    width: 1200px;
+    margin: 0 auto;
+    height: 674px;
+    overflow: hidden;
+}
+/*请登录后领取的状态*/
+.Getthebutton{
+    width: 245px;
+    height: 50px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091907.png) no-repeat;
+    margin: 0 auto;
+    cursor: pointer;
+    position: relative;
+}
+/*一键领取的状态*/
+.Getthebutton2{
+    width: 245px;
+    height: 50px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091907.png) no-repeat;
+    margin: 0 auto;
+    background-position-y: -50px;
+    cursor: pointer;
+    position: relative;
+}
+/*已领取的状态*/
+.Getthebutton3{
+    width: 245px;
+    height: 50px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017091907.png) no-repeat;
+    margin: 0 auto;
+    background-position-y: -100px;
+    cursor: pointer;
+    position: relative;
+}
+.top624{
+    top: 624px;
+    z-index: 10;
+}
+.zhezhao{
+    width: 245px;
+    height: 50px;
+    margin:0 auto;
+    position: relative;
+
+}
+.top574{
+    top: 574px;
+    z-index: 11;
+}
+.conter1{
+    width: 1200px;
+    margin: 0 auto;
+    height: 505px;
+    overflow: hidden;
+}
+.top455{
+    top: 455px;
+    z-index: 10;
+}
+.top405{
+    top: 405px;
+    z-index: 11;
+}
+.banner092601{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092601.png) no-repeat;
+    height: 622px;
+}
+.banner092602{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092602.png) no-repeat;
+    height: 621px;
+}
+.banner092603{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092603.png) no-repeat;
+    height: 1137px;
+    overflow: hidden;
+}
+.banner092604{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092604.png) no-repeat;
+    height: 598px;
+}
+.banner092605{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092606.png) no-repeat;
+    height: 599px;
+}
+.banner092606{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092607.png) no-repeat;
+    height: 598px;
+}
+.banner092607{
+    background: url(/mall/Public/Cn/images/bannerxq/2017092609.png) no-repeat;
+    height: 621px;
+}
+.banner09260301{
+    width: 1000px;
+    height: 359px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017092605.png) no-repeat;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.banner09260301p1{
+    font-size: 20px;
+    color: #e31e2a;
+    margin-left: 46px;
+    margin-top: 43px;
+}
+.banner09260301p2{
+    width: 906px;
+    height: 242px;
+    font-size: 20px;
+    color: #686868;
+    margin-left: 46px;
+    word-wrap:break-word;
+    text-align:justify;
+    text-justify:inter-ideograph;
+    margin-top: 14px;
+}
+.mat20{
+    margin-top: 20px;
+}
+.banner092701{
+    width: 1000px;
+    height: 681px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017092608.png) no-repeat;
+    margin: 0 auto;
+    margin-top: 43px;
+}
+.banner092701 p{
+    text-align: center;
+    font-size: 25.6px;
+    color: #f57c00;
+    line-height: 40px;
+}
+.pat184{
+    padding-top: 184px;
+}
+.pat23{
+    padding-top: 15px
+}
+.bannerzj{
+    width: 345px;
+    height: 81px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.bannerzj p{
+    font-size: 22.91px;
+    color: #fff;
+    line-height: 41px;
+}
+.banner09260310{
+    width: 1000px;
+    height: 359px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017092610.png) no-repeat;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/*add 2017-09-28*/
+.banner092801{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017092801.png) no-repeat;
+    height: 736px;
+}
+.banner092802{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017092802.png) no-repeat;
+    height: 737px;
+}
+.banner092803{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017092803.png) no-repeat;
+    height: 736px;
+}
+.banner092804{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017092804.png) no-repeat;
+    height: 737px;
+}
+.banner092805{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017092805.png) no-repeat;
+    height: 736px;
+}
+
+/*add 2017-10-18*/
+.banner101801{
+    background: url(/mall/Public/Cn/images/bannerxq/2017101801.jpg) no-repeat;
+    height: 500px;
+}
+.banner101802{
+    background: url(/mall/Public/Cn/images/bannerxq/2017101802.jpg) no-repeat;
+    height: 659px;
+}
+.content101801{
+    width: 960px;
+    height: 659px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.content101802{
+    font-size: 14px;
+    color: #4e4e4e;
+    text-align: center;
+    padding-top: 88px;
+}
+/*add 弹窗 */
+.mask{
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+#J-alert-wb{
+    display: none;
+}
+.pop-wb{
+    position: absolute;
+    width: 580px;
+    height: 508px;
+    left: 50%;
+    top: 50%;
+    margin-top: -290px;
+    margin-left: -252px;
+    z-index: 1000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.pop-wb1{
+    position: absolute;
+    width: 660px;
+    height: 524px;
+    left: 50%;
+    top: 50%;
+    margin-top: -330px;
+    margin-left: -262px;
+    z-index: 1000;
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+}
+.pop-wb .pop-title {
+    background: url(/mall/Public/Cn/images/bannerxq/poptitle20171018.png) no-repeat center;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: #fff;
+    text-indent: 18px;
+    position: relative;
+    overflow: hidden;
+}
+.pop-wb1 .pop-title {
+    background: url(/mall/Public/Cn/images/bannerxq/poptitle220171018.png) no-repeat center;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: #fff;
+    text-indent: 18px;
+    position: relative;
+    overflow: hidden;	
+}
+.pop-close {
+    background: url(/mall/Public/Cn/images/bannerxq/popclose20171018.png) no-repeat center;
+    width: 11px;
+    height: 12px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
+    padding: 18px;
+}
+.pop-main{
+    background: #feedd4;
+    width: 100%;
+    height: 460px;
+}
+.pop-wb1 .pop-main{
+    height: 476px;
+}
+.pop-desc{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 36px;
+    font-size: 14px;
+    color: #6a6a6a;
+}
+.pop-desc em{
+    color: #dc3b1b;
+    font-size: 20px;
+    padding: 0 3px;
+}
+.pop-main-box{
+    height: 294px;
+    margin: 0 25px;
+    padding: 0 12px;
+    border-top: 1px solid #ffdba6;
+    border-bottom: 1px solid #ffdba6;  
+}
+.pop-wb1 .pop-main-box{
+    height: 316px;
+}
+.pop-wb1 .list1{
+    height: 88px;
+}
+.pop-wb1 .list1 .list-mid,.pop-wb1 .list1 .list-right{
+    height: 88px;
+    line-height: 88px;
+}
+.pop-items{
+    overflow: hidden;
+}
+.pop-list{
+    height: 70px;
+    margin-top: 20px;
+}
+.list-pic{
+    width: 142px;
+    height: 70px;
+    float: left;
+}
+.list-left{
+    width: 125px;
+    float: left;
+}
+.pic1{
+    width: 48px;
+    height: 88px;
+}
+.pic2{
+    width: 60px;
+    height: 79px;
+}
+.pic3{
+    width: 60px;
+    height: 80px;
+}
+.list-mid{
+    width: 134px;
+    height: 70px;
+    line-height: 70px;
+    float: left;
+    margin-left: 60px;
+}
+.list-mid .jian{
+    width: 20px;
+    height: 26px;
+    border: 1px solid #ffdba6;
+    background: #ffecd1;
+    cursor: pointer;
+    color: #ffa63a;
+    margin-right: -5px;
+}
+.list-mid .jia{
+    width: 20px;
+    height: 26px;
+    border: 1px solid #ffdba6;
+    background: #ffecd1;
+    cursor: pointer;
+    color: #ffa63a;
+    margin-left: -4px;	
+}
+.list-mid .nums{
+    width: 40px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #f9bb69;
+    color: #ffa63a;
+    text-align: center;
+    background: #ffecd1;
+}
+.list-right{
+    width: 160px;
+    height: 70px;
+    line-height: 70px;
+    color: #e54d20;
+    float: left;
+}
+.list-right em{
+    font-size: 20px;
+}
+.pop-total{
+    margin: 0 25px;
+    text-align: right;
+    font-size: 14px;
+    color: #6a6a6a;
+    height: 46px;
+    line-height: 46px;
+}
+.pop-total em{
+    color: #e85927;
+    font-size: 20px;
+    padding: 0 4px;
+}
+.pop-total span em{
+    color: #dc3b1b;
+    font-size: 20px;
+    padding-right: 0;
+}
+.pop-total sub{
+    color: #dc3b1b;
+    font-size: 14px;
+    vertical-align: 4px;
+    font-weight: bold;
+}
+.surBtn{
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px; 
+    background: #e54f22;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+}
+
+.content101803{
+    width: 200px;
+    height: 29px;
+    background: #dc3920;
+    border-radius: 15px;
+    border: none;
+    line-height: 29px;
+    text-align: center;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    margin-top: 453px;
+    cursor: pointer;
+}
+.content101803-1{
+    width: 200px;
+    height: 29px;
+    background: #dc3920;
+    border-radius: 15px;
+    border: none;
+    line-height: 29px;
+    text-align: center;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    margin-top: 432px;
+    cursor: pointer;
+}
+.content101803:hover{
+    color: #fff;
+}
+.banner101803{
+    background: url(/mall/Public/Cn/images/bannerxq/2017101803.jpg) no-repeat;
+    height: 720px;
+}
+.content101804{
+    font-size: 14px;
+    color: #4e4e4e;
+    text-align: center;
+    padding-top: 88px;
+}
+.content101805{
+    width: 200px;
+    height: 29px;
+    background: #dc3920;
+    border-radius: 15px;
+    border:none;
+    line-height: 29px;
+    text-align: center;
+    color: #fff;
+    display: block; 
+    margin: 0 auto;
+    margin-top: 488px;
+    cursor: pointer;
+}
+.content101805-1{
+    width: 200px;
+    height: 29px;
+    background: #dc3920;
+    border-radius: 15px;
+    border:none;
+    line-height: 29px;
+    text-align: center;
+    color: #fff;
+    display: block; 
+    margin: 0 auto;
+    margin-top: 467px;
+    cursor: pointer;
+}
+.banner101804{
+    width: 100%;
+    background:#dc3920;
+}
+.content101806{
+    width: 960px;
+    margin: 0 auto;
+}
+.content101807{
+    width: 960px;
+    height: 74px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101804.png) no-repeat;
+}
+.content101808{
+    width: 960px;
+    height: 43px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101805.jpg) no-repeat;
+}
+.content101809{
+    width: 960px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101806.png) repeat-y;
+}
+.content101810{
+    width: 856px;
+    margin: 0 auto;
+}
+#table{
+    width: 859px;
+    border:1px solid #fecc83;
+}
+#table thead{
+    width: 100%
+}
+#table thead tr{
+    width: 100%;
+    height: 38px;
+    border-bottom: 1px solid #fecc83;
+    color: #727272;
+    font-size: 14px;
+}
+#table thead tr th{
+    text-align: center;
+    width: 25%
+}
+#table thead tr th+th{
+    width: 50%
+}
+#table thead tr th+th+th{
+    width: 25%
+}
+#table tbody{
+    width: 100%；
+}
+#table tbody tr{
+    width: 100%;
+    height: 38px;
+    border-bottom: 1px solid #fecc83;
+    color: #727272;
+    font-size: 14px;
+
+}
+#table tbody tr:last-child{
+    width: 100%;
+    height: 38px;
+    border-bottom: none;
+}
+#table tbody tr td{
+    text-align: center;
+    width: 25%
+}
+#table tbody tr td+td{
+    width: 50%
+}
+#table tbody tr td+td+td{
+    width: 25%
+}
+.banner111111{
+    height: 581px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101807.png) no-repeat;
+}
+.banner111112{
+    height: 591px;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101808.png) no-repeat;
+}
+.pop-wb2{
+    position: absolute;
+    width: 580px;
+    height: 406px;
+    left: 50%;
+    top: 50%;
+    margin-top: -290px;
+    margin-left: -252px;
+    z-index: 1000;
+    border-radius: 12px;
+    overflow: hidden;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101809.png) no-repeat;
+    display: none;
+}
+.pop-close01{
+    width: 53px;
+    height: 48px;
+    position: relative;
+    top: 0;
+    left: 524px;
+    cursor: pointer;
+}
+.pop-ms01{
+    font-size: 20px;
+    color: #ea602a;
+    text-align: center;
+    padding-top: 210px;
+    width: 580px;
+    overflow: hidden;
+    height: 38px;
+}
+.pop-ms01 span{
+    font-size: 30px;
+    color: #ea602a;
+}
+.pop-ms02{
+    width: 146px;
+    height: 40px;
+    margin-left: 216px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.pop-ms022{
+    width: 146px;
+    height: 40px;
+    margin-left: 216px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.pop-wb3{
+    position: absolute;
+    width: 580px;
+    height: 406px;
+    left: 50%;
+    top: 50%;
+    margin-top: -290px;
+    margin-left: -252px;
+    z-index: 1000;
+    border-radius: 12px;
+    overflow: hidden;
+    background: url(/mall/Public/Cn/images/bannerxq/2017101810.png) no-repeat;
+    display: none;
+}
+
+/*add 2017-10-23*/
+.banner17102301{
+    height: 650px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017102301.jpg) no-repeat;    
+}
+.banner17102302{
+    height: 649px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017102302.jpg) no-repeat;    
+}
+
+.banner17102303{
+    height: 650px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017102303.jpg) no-repeat;    
+}
+
+.banner17102304{
+    height: 649px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017102304.jpg) no-repeat;    
+}
+
+.banner17102305{
+    height: 650px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017102305.jpg) no-repeat;    
+}
+
+/*add 2017-10-26*/
+.banner07102601{
+   height: 773px;
+   background: url(/mall/Public/Cn/images/bannerxq/201710260101.jpg) no-repeat;   
+}
+.banner07102602{ 
+    background: url(/mall/Public/Cn/images/bannerxq/201710260103.png) repeat-y  0 -200px;
+    position: relative;
+    z-index: 10    
+}
+.banner07102603{
+    background: url(/mall/Public/Cn/images/bannerxq/201710260102.png) no-repeat;
+}
+.banner07102604{
+    width: 1000px;
+    margin: 0 auto;
+}
+.banner07102605{
+    width: 1000px;
+    min-height: 300px;
+    background: url(/mall/Public/Cn/images/bannerxq/201710260106.png) repeat-y ;  
+}
+.banner07102606{
+    font-size: 26px;
+    color: #fff;
+    padding-left: 54px;
+    padding-top: 18px;
+}
+.banner07102607{
+    width: 904px;
+    color: #fff;
+    font-size: 24px;
+    padding-left: 54px;
+    padding-top:16px;
+    padding-bottom:16px;
+}
+.banner07102608{
+    width: 1000px;
+    height: 260px;
+    display: block;
+    margin-top: 26px;
+}
+.banner07102609{
+    width: 1000px;
+    height: 988px;
+    display: block;
+    margin-top: 26px;
+}
+.banner07102610{
+    background: url(/mall/Public/Cn/images/bannerxq/201710260109.png) no-repeat;
+    height: 525px;
+    position: relative;
+    z-index: 9 ;
+    margin-top: -130px;       
+}
+.jifen_index{
+    position: relative;
+}
+.banner07102611{
+    width: 318px;
+    height: 525px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    left:0;
+}
+.banner07102612{
+    font-size: 30px;
+    color: #f76466;
+    position: absolute;
+    bottom: 26px;
+    margin-left: 425px;
+}
+.banner07102612:hover{
+    color: #f76466;
+}
+.banner07102613{
+    width: 1000px;
+    height: 773px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner07102614{
+    width: 498px;
+    height: 67px;
+    position: absolute;
+    bottom: 29px;
+    z-index: 11;
+    left:50%;
+    margin-left: -249px;
+}
+.banner07102615{
+    font-size: 14px;
+    color: #fff;
+    padding-left: 54px;
+    padding-top: 18px;
+}
+.banner07120201{
+    background: url(/mall/Public/Cn/images/bannerxq/201710260112.jpg) no-repeat;
+    height: 570px; 
+}
+.banner07120202{
+    background: url(/mall/Public/Cn/images/bannerxq/201710260114.png) no-repeat;
+    height: 473px; 
+}
+.banner07120203{
+    background: url(/mall/Public/Cn/images/bannerxq/201710260115.png) no-repeat;
+    height: 472px; 
+}
+.banner07120204{
+    background: url(/mall/Public/Cn/images/bannerxq/201710260116.png) no-repeat;
+    height: 473px; 
+}
+.banner0728{
+    clear:both;
+    margin: 0 auto;
+    padding: 0;
+    left: 50%;
+    margin-left: -950px;
+    position: relative;
+    width: 1900px;
+}
+.banner07120205{
+     background: url(/mall/Public/Cn/images/bannerxq/201710260117.jpg) no-repeat;
+    height: 754px;    
+}
+.banner07120206{
+    width: 1000px;
+    margin: 0 auto;
+    height: 570px;
+}
+.banner07102707{
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 38px;
+}
+.banner07102708{
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    padding-top: 22px;
+}
+.banner07102709{
+    font-size: 25px;
+    color: #fff;
+    padding-top: 21px;
+    text-align: center;
+}
+.banner07102710{
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+}
+.banner07102711{
+    width: 428px;
+    height: 106px;
+    background: url(/mall/Public/Cn/images/bannerxq/201710260113.png) no-repeat;
+    margin: 0 auto;
+    margin-top: 12px;
+}
+.banner07102712{
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+}
+.banner07102713{
+    font-size: 25px;
+    color: #fff;
+    text-align: center;  
+}
+.zwsj{
+    width: 130px;
+    height: 161px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 22px;   
+}
+/*add 2017-11-03*/
+.banner07102701{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017110301.jpg) no-repeat;
+    height: 307px; 
+}
+.banner07102702{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017110302.jpg) no-repeat;
+    height: 307px; 
+}
+.banner07102703{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017110303.jpg) no-repeat;
+    height: 306px; 
+}
+.banner07102704{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017110304.jpg) no-repeat;
+    height: 307px; 
+}
+.banner07102705{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017110305.jpg) no-repeat;
+    height: 307px; 
+}
+/*add 2017-11-16*/
+.banner07111601{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017111601.png) no-repeat;
+    height: 446px;
+    position: relative;
+    z-index: 10;     
+}
+.banner07111602{
+    width: 100%;
+    background:url(/mall/Public/Cn/images/bannerxq/banner2017111602.png) repeat-y;
+}
+.banner07111603{
+    width: 1000px;
+    margin: 0 auto;
+    height: 1436px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017111603.png) no-repeat; 
+    position: relative;
+    z-index: 11;
+    margin-top: -47px;
+}
+.get071116-ul{
+    width: 1000px;
+    overflow: hidden;
+}
+.get071116-li{
+    width: 112px;
+    height: 28px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017111604.png) no-repeat;
+    color: #fff;
+    line-height: 28px;
+    text-align: center;
+}
+.get071116-liactive{
+    width: 112px;
+    height: 28px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017111605.png) no-repeat;
+    color: #fff;
+    line-height: 28px;
+    text-align: center;
+}
+.get071116-li01{
+    margin-top: 275px;
+    margin-left: 100px;
+}
+.get071116-li02{
+    margin-top: 151px;
+    margin-left: 787px;
+}
+.get071116-li03{
+    margin-top: 137px;
+    margin-left: 100px;
+}
+.get071116-li04{
+    margin-top: 134px;
+    margin-left: 787px;
+}
+.get071116-li05{
+    margin-top: 137px;
+    margin-left: 100px;
+}
+.get071116-li06{
+    margin-top: 135px;
+    margin-left: 787px;
+}
+.get071116-li07{
+    width: 199px;
+    height: 31px;
+    background: #fff;
+    border: 1px solid #f2f0f0;
+    margin-top: 179px;
+    margin-left: 436px;
+    font-size: 24px;
+    color: #f45166;
+    text-align: center;
+    line-height: 31px;
+}
+.get071116-li07hover{
+    width: 199px;
+    height: 31px;
+    background: #cccccc;
+    border: 1px solid #f2f0f0;
+    margin-top: 179px;
+    margin-left: 436px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    line-height: 31px;
+}
+.banner07111604{
+    width: 1000px;
+    height: 132px;
+    margin: 0 auto;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017111606.png) no-repeat;  
+    overflow: hidden;
+}
+.banner07111605{
+    width: 269px;
+    height: 47px;
+    margin-left: 367px;
+    margin-top: 39px;
+    cursor: pointer;
+}
+.banner07111606{
+    width: 1000px;
+    height: 508px;
+    margin: 0 auto;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017111607.png) no-repeat;  
+    overflow: hidden;
+    display: none;    
+}
+.banner07111607{
+    width: 1000px;
+    height: 231px;
+    display: block;
+    margin:0 auto;    
+}
+
+/*add 2017-11-24*/
+.banner17112401{
+    background: url(/mall/Public/Cn/images/bannerxq/2017112401.jpg) no-repeat;
+    height: 347px; 
+}
+.banner17112402{
+    background: url(/mall/Public/Cn/images/bannerxq/2017112402.jpg) no-repeat;
+    height: 348px; 
+}
+.banner17112403{
+    background: url(/mall/Public/Cn/images/bannerxq/2017112403.jpg) no-repeat;
+    height: 347px; 
+}
+.banner17112404{
+    background: url(/mall/Public/Cn/images/bannerxq/2017112404.jpg) no-repeat;
+    height: 348px; 
+}
+.banner17112405{
+    background: url(/mall/Public/Cn/images/bannerxq/2017112405.jpg) no-repeat;
+    height: 347px; 
+}
+
+/*add 2017-11-30 庆双节*/
+.banner07113001{
+    background: url(/mall/Public/Cn/images/bannerxq/2017113001.png) no-repeat;
+    height: 491px; 
+}
+.banner07113002{
+    background: url(/mall/Public/Cn/images/bannerxq/2017113002.png) no-repeat;
+    height: 491px; 
+}
+.banner07113003{
+    background: url(/mall/Public/Cn/images/bannerxq/2017113003.png) no-repeat;
+    height: 492px; 
+}
+.banner07113004{
+    background: url(/mall/Public/Cn/images/bannerxq/2017113004.png) no-repeat;
+    height: 491px; 
+}
+.banner07113005{
+    background: url(/mall/Public/Cn/images/bannerxq/2017113005.png) no-repeat;
+    height: 491px; 
+}
+
+/*add 2017-12-01  年终送手机*/
+.banner120101{
+    background: url(/mall/Public/Cn/images/bannerxq/2017120101.jpg) no-repeat;
+    height: 510px; 
+
+}
+.banner120102{
+    background: url(/mall/Public/Cn/images/bannerxq/2017120102.jpg) no-repeat;
+    height: 433px; 
+}
+.banner120103{
+    background: url(/mall/Public/Cn/images/bannerxq/2017120103.jpg) no-repeat;
+    height: 432px; 
+}
+.banner120104{
+    background: url(/mall/Public/Cn/images/bannerxq/2017120104.jpg) no-repeat;
+    height: 433px; 
+}
+.banner120105{
+    width: 100%;
+    background: #feeaa6;
+}
+.banner120105midden{
+    width: 1000px;
+    background: #fef5d2;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.banner120105_1{
+    font-size: 20px;
+    color: #e0101a;
+    padding-top: 18px;
+    padding-left: 19px;
+}
+.banner120105_2{
+    width: 937px;
+    margin-left: 19px;
+    text-align:justify;
+    font-size: 20px;
+    color: #e0101a;
+    text-align:justify;
+    margin-top: 15px;
+    margin-bottom: 18px;
+}
+.banner120105_4{
+    width: 1000px;
+    height: 510px; 
+    margin: 0 auto;
+    position: relative;
+}
+.banner120105_3{
+    width: 140px;
+    height: 38px;
+    display: block;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #fcfefd;
+    background: #edc035;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 10px;
+    left: 430px;
+}
+.banner120105_3:hover{
+    color: #fcfefd;
+}
+.banner120105_5{
+    width: 80px;
+    height: 96px;
+    display: block;
+    margin: 30px auto;
+}
+
+
+/*add 2017-12-04*/
+.banner120401{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017120401.jpg) no-repeat;
+    height: 510px;     
+}
+.banner120403{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017120403.jpg) no-repeat;
+    height: 666px;         
+}
+.banner120404{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017120404.jpg) no-repeat;
+    height: 666px;         
+}
+.banner120402{
+    width: 100%;
+    background: #feeaa6;
+}
+.banner12040_2{
+    width: 1000px;
+    height: 700px;
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017120402.png) no-repeat;
+    margin: 0 auto;
+
+}
+.banner12040_3{
+    font-size: 25.06px;
+    color: #e10e19;
+    text-align: center;
+    padding-top: 260px;
+}
+.banner12040_4{
+    font-size: 25.06px;
+    color: #e10e19;
+    text-align: center;
+    padding-top: 10px;
+}
+.banner12040_5{
+    font-size: 25.06px;
+    color: #e10e19;
+    text-align: center;
+    padding-top: 7px;
+}
+.banner12040_6{
+    width: 345px;
+    height: 82px;
+    margin: 0 auto;
+    margin-top: 33px;
+}
+.banner12040_7{
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    padding-top: 2px;
+}
+.banner12040_8{
+   font-size: 25px;
+    color: #fff;
+    text-align: center; 
+}
+/*add 2017-12-25*/
+.banner122501{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017122501.jpg) no-repeat;
+    height: 736px; 
+}
+.banner122502{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017122502.jpg) no-repeat;
+    height: 737px; 
+}
+.banner122503{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017122503.jpg) no-repeat;
+    height: 736px; 
+}
+.banner122504{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017122504.jpg) no-repeat;
+    height: 737px; 
+}
+.banner122505{
+    background: url(/mall/Public/Cn/images/bannerxq/banner2017122505.jpg) no-repeat;
+    height: 736px; 
+}
+/*add 2017-12-29*/
+.banner17122901{
+    background: url(/mall/Public/Cn/images/bannerxq/2017122901.png) no-repeat;
+    height: 491px; 
+}
+.banner17122902{
+    background: url(/mall/Public/Cn/images/bannerxq/2017122902.png) no-repeat;
+    height: 491px; 
+}
+.banner17122903{
+    background: url(/mall/Public/Cn/images/bannerxq/2017122903.png) no-repeat;
+    height: 492px; 
+}
+.banner17122904{
+    background: url(/mall/Public/Cn/images/bannerxq/2017122904.png) no-repeat;
+    height: 491px; 
+}
+.banner17122905{
+    background: url(/mall/Public/Cn/images/bannerxq/2017122905.png) no-repeat;
+    height: 491px; 
+}
+
+
+/*add 2018-06-14 sxr*/
+.banner18061401{
+    background: url(/mall/Public/Cn/images/bannerxq/2018061401.jpg) no-repeat;
+    height: 466px; 
+}
+.banner18061402{
+    background: url(/mall/Public/Cn/images/bannerxq/2018061402.jpg) no-repeat;
+    height: 340px; 
+}
+.banner18061403{
+    background: url(/mall/Public/Cn/images/bannerxq/2018061403.jpg) no-repeat;
+    height: 341px; 
+}
+.banner18061404{
+    background: url(/mall/Public/Cn/images/bannerxq/2018061404.jpg) no-repeat;
+    height: 340px; 
+}
+.banner18061405{
+    background: url(/mall/Public/Cn/images/bannerxq/2018061405.jpg) no-repeat;
+    height: 340px; 
+}

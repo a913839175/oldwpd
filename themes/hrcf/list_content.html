@@ -1,0 +1,24 @@
+ {include file="header.html"}
+  <link rel="stylesheet" type="text/css" href="/static/css/pages/about.css?v=20160831" />
+ <div class="pg-container-content">
+      
+  <div id="pg-about-intro">
+    <div class="container_12 mt20">
+        <div class="grid167">
+                <div class="ui-side" id="sidebar">
+                    <ul class="ui-side-list">
+                        {include file="about_left.html"}
+                    </ul>
+                </div>
+            </div>
+       <div class="mar0">
+        <div class="pg-about-main right-container p20bs">
+          <h1 class="rrdcolor-blue-text">{$_G.articles_result.name}</h1>
+          <div class="pg-about-section">
+		  {$_G.articles_result.contents}
+		  </div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+ {include file="header.html"}
+
+ <link rel="stylesheet" type="text/css" href="/static/hrzhang/css/guide.css" />
+
+
+ <div class="gui-content3">
+    <div class="gui-inner">
+     <!--<div class="gui-title">-->
+      <!--<img src="/static/hrzhang/images/gui-tt1.png" />-->
+     <!--</div>-->
+     <div class="gui-text">
+      <div>什么是微拍贷？</div>
+      <span><div><img src="/static/hrzhang/images/gui-fh.png" /></div>微拍贷致力于为各位投资人提供安全<!--、有担保 、高收益 -->的互联网理财服务。<br/>微拍贷低门槛，帮您实现财务自由。</span>
+     </div>
+     <!--<div class="gui-title">-->
+      <!--<img src="/static/hrzhang/images/gui-tt2.png" />-->
+     <!--</div>-->
+      <div class="gui-content01">
+          <p>微拍贷用户使用手册</p>
+          <div class="w-book">
+              <p  class="page1" style="background: url('/static/hrzhang/images/page1.png?v=20180614') no-repeat">
+                  <span class="pre" style="display: none"></span>
+                  <span class="next"></span>
+
+              </p>
+
+          </div>
+
+      </div>
+
+
+    </div>
+    <div class="gui-content4">
+     <div class="gui-inner">
+     </div>
+    </div>
+    <div class="gui-content5">
+    </div>
+ </div>
+
+ {literal}
+ <script type="text/javascript" src="/static/js/lib/jquery/1.7.2/jquery-1.7.2.min.js"></script>
+ <script type="text/javascript">
+     var n=1;
+     $(".w-book span").click(function(){
+         var status=$(this).attr("class");//点击那个按钮
+         var parent=$(this).parent();//查找父节点
+         if(status=="next"){
+             n++;
+                 n>13?(n=1)&&($(this).siblings(".pre").hide()):(n=n)&&($(this).siblings(".pre").show());
+                 var page=parent.css("background","url('/static/hrzhang/images/page"+(n)+".png?v=20180614')")
+                 parent.attr("class","page"+n+"")
+         }else {
+             n--;
+             n==1?($(this).hide()):(n=n);
+             var page=parent.css("background","url('/static/hrzhang/images/page"+(n)+".png?v=20180614')")
+             parent.attr("class","page"+n+"")
+         }
+     })
+
+ </script>
+ {/literal}

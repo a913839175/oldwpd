@@ -1,0 +1,130 @@
+*{
+	margin:0; 
+	padding:0;
+}
+
+body {
+	overflow: hidden;
+	height: 100%;
+	background: url(../images/adminb.jpg) center center fixed no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, "Microsoft Yahei";
+}
+
+.admin{
+    padding-top:200px; 
+	background-repeat:no-repeat;
+	width: 100%;
+	height:670px; 
+	margin:0 auto;
+}
+
+.box{
+   padding-top:60px;
+   background-image:url(../images/adminin.png);
+   background-repeat:no-repeat;height:340px;
+   width:530px;
+   margin:0 auto;
+}
+
+.ulogin{
+	overflow:hidden; 
+	height:218px; 
+	width:528px; 
+	margin:auto 0;
+	padding-top:39px;
+}
+
+.loginright{
+	width:300px; 
+	height:128px; 
+	float:right;
+}
+
+li{
+	list-style:none;
+	line-height:46px;
+	font-size:14px;
+	color:#fcfbfb;
+ }
+
+.loginright li .inpt {
+    border: 1px solid #d4d4d4;
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    text-indent: 10px;
+}
+
+.loginright li .inptvali {
+    border: 1px solid #d4d4d4;
+    height: 30px;
+    line-height: 30px;
+}
+
+.loginbotton{
+	display:block; 
+    margin-top:10px; 
+	width:86px; 
+	height:27px; 
+	background-image:url(../images/btn.png);
+}
+
+.TxtUserName{
+	margin-left:10px; 
+	width:170px; 
+	height:30px;}
+	
+.TxtPassword{
+	margin-left:10px;
+	width:170px;
+	height:30px;
+}
+
+.Password{
+	margin-left:10px;
+	width:100px;
+	height:30px;
+}
+
+.ui-button-rrd-blue{
+	height:40px;
+	line-height:40px;
+	background:#2ea7e0;
+	border:0;
+	border-radius:2px;
+	color:#fff;
+	text-align:center;
+	cursor:pointer;
+	background-image: url("../images/btn.png");
+}
+/*add  11-14*/
+.clearfix:after { content: '.'; display: block; clear: both; height: 0; visibility: hidden; }
+.clearfix { zoom: 1; }
+.admindl{display: block;float: left;margin-top: 4px;}
+.admints{float: left;margin-top: 8px;margin-left: 7px;color: red;width: 205px;text-align:Justify;text-justify:inter-ideograph;}
+
+.sms{
+    display: inline-block;
+    border: none;
+    background: #72cbf3;
+    width: 82px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px #666;
+}
+.sms.gray-bg{background: #b3b3b3;}

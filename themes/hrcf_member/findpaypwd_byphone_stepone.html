@@ -1,0 +1,50 @@
+{include file="../hrcf/header_simple.html"}
+
+<div id="pg-account-security">
+	<div class="content">
+		<div class="safety_step">
+			<div class="bgline"></div>
+			<div class="threeStep steps">
+				<ul class="fn-clear">
+					<li class="no">验证手机号码</li>
+					<li class="two">重设交易密码</li>
+					<li class="no">成功</li>
+				</ul>
+			</div>
+		</div>
+	
+		<form class="ui-form" action="/?user&q=code/users/findpaypwd_byphone_steptwo" method="post" id="findCashPswFormStepTwoForm" data-name="findCashPswStepTwo" novalidate="novalidate">
+			<div class="inputs">
+			   <input type="hidden" value="7521" id="validateCode" name="validateCode">
+			   <div class="ui-form-item">
+			     <label class="ui-label"><span class="ui-form-required">*</span>输入新交易密码</label>
+			     <input type="password" data-is="isPassWord" id="newCashPwd" name="newCashPwd" class="ui-input valid">
+			   </div>
+			   <div class="ui-form-item">
+			     <label class="ui-label"><span class="ui-form-required">*</span>再次输入新交易密码</label>
+			     <input type="password" id="newCashPwd2" name="newCashPwd2" class="ui-input">
+			   </div>
+			   <div class="ui-form-item">
+			   	 <input type="submit" class="ui-button ui-button-mid ui-button-green w150" id="subFindCashPswStepTwoBt" value="下一步">
+			   </div>
+			</div>
+	
+		</form>
+	</div>
+
+	<div class="fn-hide success">
+	    <div class="safety_step">
+			<div class="bgline"></div>
+			<div class="threeStep steps">
+				<ul class="fn-clear">
+					<li class="no">验证手机号码</li>
+					<li class="no">重设交易密码</li>
+					<li class="three">成功</li>
+				</ul>
+			</div>
+		</div>
+		<h3 class="info">交易密码重置成功!</h3>
+		<a class="ui-button ui-button-mid ui-button-blue backBt">返回</a>
+	</div>
+</div>
+<script>seajs.use(['pages/account/account/security']);</script>

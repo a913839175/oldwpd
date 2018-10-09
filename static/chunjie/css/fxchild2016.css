@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0 auto;font-family:"微软雅黑";background:#ffbf13;}
+a {text-decoration: NONE}
+li{list-style:none;}
+p{margin:0px; padding:0px;}
+input{ border:none; font-family:"微软雅黑";}
+img{ border:none;}
+
+.fxchild{ width:1000px; height:2082px; margin: 0 auto; background:url(../images/fxchild.png) no-repeat}
+.fxchild_div1{ width:770px; height:1210px; margin-left:115px;}
+.fxchild_div1 h4,.fxchild_div2 h4{ color:#f2581a; font-size:18px; line-height:18px; font-weight:bold; padding-top:520px; padding-left:200px;}
+.fxchild_div1 h3,.fxchild_div2 h3{ font-size:24px; color:#f2581a; line-height:24px;}
+.fxchild_div1 p,.fxchild_div2 p{ font-size:18px; color:#686767;}
+.fxchild_div1 span,.fxchild_div2 span{ font-size:18px; color:#eb283c; font-weight:bold;}
+.fxchild_div1_wyqhb,.fxchild_div2_wyzjd{ width:150px; height:45px; line-height:42px; font-size:18px; color:#fff; text-align:center; border-radius:23px; margin:236px 0 0 600px; cursor:pointer;}
+.fxchild_div1 li,.fxchild_div2 li{ font-size:16px; line-height:30px; margin-top:60px; color:#6d6d6d;}
+.fxchild_div1 li span,.fxchild_div2 li span{ color:#ff6c30; font-size:16px; }
+
+.fxchild_div2{ width:770px; height:1210px; margin-left:115px;}
+.fxchild_div2 h4{ padding-top:210px;}
+.fxchild_div2_wyzjd{ margin:226px 0 0 600px;}
+.fxchild_div2 nobr{ color:#6d6d6d; padding-left:14px; line-height:30px;}
+
+.wyqhb{ width:280px; height:280px; background:url(../images/qianghongbao.png) no-repeat;}
+.wyzjd{ width:280px; height:280px; background:url(../images/zajindan.png) no-repeat;}
+.fxchild_div_ewm{ width:300px; margin: 0 auto;}
+	.reveal-modal-bg { 
+		position: fixed; 
+		height: 100%;
+		width: 100%;
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8000000,endColorstr=#c8000000);
+		background: rgba(0,0,0,.8);
+		z-index: 100;
+		display: none;
+		top: 0;
+		left: 0; 
+		}
+	.reveal-modal {
+		visibility: hidden;
+		top: 150px; 
+		position: absolute;
+		z-index: 101;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		}
+	.close-reveal-modal {
+		font-size: 22px;
+		line-height:14px;
+		position: absolute;
+		height:17px; width:17px; border-radius:10px; background-color:#FFF;
+		top: -8px;
+		right: -8px;
+		color: #aaa;
+		text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+		font-weight: bold;
+		cursor: pointer;
+		} 

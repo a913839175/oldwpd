@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/tixian.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script src="/static/js/seajs/2.1.0/sea.js?v=dee86"></script>
+<script src="/static/js/config.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/tixian.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+	<div class="top">
+    	<div class="top1">
+        <a href="/?wxuser"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+        	<p>提现</p>
+        </div>
+        {include file="top.html"}
+    </div>
+	<div class="main">
+    {if $_G.user_info.has_verified_card=="false"}
+        <a href="/?wxuser&q=addbank">
+        <div class="main_bank">
+            <div class="main_left">
+                <div class="main_left_img">
+                    <!-- <img src="/static/hrcfwx/images/zhaoshang.png"/> -->
+                </div>
+                <p>添加银行卡</p>
+            </div>
+            <div class="main_right_img">
+                <img src="/static/hrcfwx/images/youjian.png"/>
+            </div>
+        </div>
+    </a>
+    {else}
+        <div class="main_bank">
+            <div class="main_left_bank">
+                <div class="main_left_img">
+                    <img src="/static/img/banks/{$_U.userBanks.litpic}"/>
+                </div>
+                <p>{$_U.userBanks.bank_name}（{$_U.userBanks.cardId}）</p>
+            </div>
+        </div>
+    {/if}
+		<ul>
+        	<li>
+            	<div class="main_left">提现金额(元)</div>
+                <div class="main_right_jine">
+                	<input type="text" id="money" name="money" value="" placeholder="最多可提现{$_U.balance|round:"2,3"|default:0.00}" />
+                </div>
+            </li>
+            <li>
+            	<div class="main_left">提现费用(元)</div>
+                <div class="main_right_feiyong">0.00</div>
+            </li>
+            <li>
+            	<div class="main_left">实际支付(元)</div>
+                <div class="main_right_zhifu" id="nowmoney">0.00</div>
+            </li>
+            <li>
+                <div class="main_left">交易密码</div>
+                <div class="main_right_jine">
+                    <input type="password" id="paycode" name="paycode" value="" placeholder="请输入交易密码" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="keyong">
+    	<p>可用金额(元)&nbsp;&nbsp;&nbsp;</p>
+        <span>{$_U.balance|round:"2,3"|default:0.00}</span>
+    </div>
+    <div class="button">
+        <button id="next" type="button">提交</button>
+    </div>
+    <input type="hidden" id="bank" name="bank" value="{$_U.userBanks.id}"/>
+    <div class="yuedu">
+        <input id="isread" type="checkbox" class="checkbox" />
+        <label for="isread">阅读并同意</label><a href="/wxyonghuxieyi/index.html">《用户协议》</a>
+    </div>
+    <article class="tishi">
+    	<h1>*温馨提示</h1>
+        <ol>
+        	<li>请确保您输入的提现金额，以及银行帐号信息准确无误。</li>
+            <li>如果您填写的提现信息不正确可能会导致提现失败，由此产生的提现费用将不予返还。</li>
+            <li>平台禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用。</li>
+        </ol>
+    </article>
+    {include file="../hrcf/wxfooter4.html"}
+    
+</body>
+</html>

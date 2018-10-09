@@ -1,0 +1,84 @@
+
+<link rel="stylesheet" type="text/css" href="/static/css/frontdata/topheader.css">
+<link rel="stylesheet" type="text/css" href="/static/css/frontdata/main.css">
+<script type="text/javascript" src="/static/js/frontdata/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/js/frontdata/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="/static/js/frontdata/highcharts/modules/exporting.js"></script>
+{include file="../hrcf/frontdata_nav.html"}
+{if $_U.query_type=="weidata"} 
+<script type="text/javascript" src="/static/js/frontdata/weijine.js"></script>
+<script type="text/javascript" src="/static/js/frontdata/weirenshu.js"></script>
+
+<div class="content">
+	<div class="chart_div_one">
+		<div class="choice">
+	        <div class="choice_form">
+	            <span>年份:</span>
+	            <select class="input " style="height:25px;" name="month_wei_je" id="month_wei_je" value="">
+	            {foreach from=$my_result.month.month_list item="month_item"}
+	            <option value="{$month_item}" {if $month_item==$my_result.month.month_now } selected {/if}>{$month_item}</option>
+	            {/foreach}
+	            </select>
+	        </div>
+	        <div class="choice_form">
+	            <a href="javascript:;" id="do_choice_wei_je"><input type="button" class="button" value="筛选"></a>
+	        </div>
+	    </div>
+	    <div id="container_wei_je" style="min-width: 310px; height: 550px; margin: 0 auto">
+		</div>
+	</div>
+
+	<div class="chart_div_one">
+		<div class="choice">
+	        <div class="choice_form">
+	            <span>年份:</span>
+	            <select class="input " style="height:25px;" name="month_wei_rs" id="month_wei_rs" value="">
+	            {foreach from=$my_result.month.month_list item="month_item"}
+	            <option value="{$month_item}" {if $month_item==$my_result.month.month_now } selected {/if}>{$month_item}</option>
+	            {/foreach}
+	            </select>
+	        </div>
+	        <div class="choice_form">
+	            <a href="javascript:;" id="do_choice_wei_rs"><input type="button" class="button" value="筛选"></a>
+	        </div>
+	    </div>
+	    <div id="container_wei_rs" style="min-width: 310px; height: 550px; margin: 0 auto">
+		</div>
+	</div>
+
+</div>
+
+
+{elseif $_U.query_type=="hongbaodata"} 
+<script type="text/javascript" src="/static/js/frontdata/hongbaorenshu.js"></script>
+<div class="content">
+	<div class="chart_div_one">
+		<div class="choice">
+	        <div class="choice_form">
+	            <span>年份:</span>
+	            <select class="input " style="height:25px;" name="month_hongbao_rs" id="month_hongbao_rs" value="">
+	            {foreach from=$my_result.month.month_list item="month_item"}
+	            <option value="{$month_item}" {if $month_item==$my_result.month.month_now } selected {/if}>{$month_item}</option>
+	            {/foreach}
+	            </select>
+	        </div>
+	        <div class="choice_form">
+	            <a href="javascript:;" id="do_choice_hongbao_rs"><input type="button" class="button" value="筛选"></a>
+	        </div>
+	    </div>
+	    <div id="container_hongbao_rs" style="min-width: 310px; height: 550px; margin: 0 auto">
+		</div>
+	</div>
+</div>
+
+{elseif $_U.query_type=="spring_2016"} 
+<script type="text/javascript" src="/static/js/frontdata/spring_2016.js"></script>
+
+<div class="content">
+	<div class="chart_div_one">
+	    <div id="container_spring_2016" style="min-width: 310px; height: 550px; margin: 0 auto">
+		</div>
+	</div>
+</div>
+
+{/if}

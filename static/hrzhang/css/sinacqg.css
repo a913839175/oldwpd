@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* 新浪存钱罐CSS文档 */
+.cqg-list1,.cqg-list2{width:100%;background-color:#e4f8ff; }
+.cqg-list1,.cqg-list3,.cqg-list5,.cqg-list6{background-color:#e4f8ff; }
+.cqg-list2{background-color:#c6e9f6; }
+.cqg-list4{background-color:#bbe6f6; }
+.cqg-btn{margin:0 auto;height: 300px;width: 488px;}
+.cqg-btn p{font-size:24px;color:#005d80; height:80px;width:488px;line-height:20px;}	
+.cqg-btn a{font-size:18px;color:#f8f8f8;height:58px;width:390px;line-height:58px; text-align:center; display:block; background-image:url(../images/cqg05.png); margin:0 auto;}
+.cqg-btn h3{width:488px;line-height:20px;height:48px; line-height:48px; margin-top:80px; margin-bottom:14px;}	
+
+.cqg-content{ height:100%; width:100%;}
+.cqg-banner{ position:relative;width:1000px; height:300px; background-image:url(../images/baner1.png); margin:0 auto;}
+.cqg-banner span{ position:absolute; top:298px; left:461px; display:block; height:38px; width:78px; background-image:url(../images/banericon.png);}
+.cqg-bannerbox{width:100%; height:300px;background-color:#00a5ef; border-bottom:solid 2px #fff;}
+.cqg-tit{ width:1000px; height:338px; margin:0 auto; background-image:url(../images/cqg01.png);}
+.cqgtit-box{ width:100%; height:338px;background-color:#c6e9f6;}
+  
+.cqg-listcontent{ overflow:hidden;height:300px; width:1000px; margin:0 auto;}
+.cqg-clistcontent{height:400px; width:1000px; margin:0 auto;}
+.cqg-rightcon{ float:right;}
+.cqg-leftcon{float:left;}
+.cqg-rightwh{height:338px; width:380px; margin-right:20px;}
+.cqg-bdcolor{background-color:#81d6fd;}
+.cqg-leftwh{height:338px; width:600px;}
+.cqg-textbox{height:400px; width:1000px;}
+.cqg-textbox h4{ font-size:18px;color:#454545; font-weight:bold; padding:20px 0px 0px 20px;}
+.cqg-textbox span{ display:block;font-size:14px;color:#454545; font-weight:bold; margin:18px 0px 0px 20px;}
+.cqg-textbox p{font-size:14px;color:#454545; margin:2px 0px 0px 20px;}
+.cqg-listbg1,.cqg-listbg2,.cqg-listbg3,.cqg-listbg4,.cqg-listbg5,.cqg-listbg6{ background-position:center; background-repeat:no-repeat;}
+.cqg-listbg1{ background-image:url(../images/cqg02.png);}
+.cqg-listbg2{ background-image:url(../images/cqg03.png);}
+.cqg-listbg3{ background-image:url(../images/cqg04.png);}
+.cqg-listbg4{ background-image:url(../images/fkbg4.png);}
+.cqg-listbg5{ background-image:url(../images/fkbg5.png);}
+.cqg-listbg6{ background-image:url(../images/fkbg6.png);}
+h3{font-size:48px; font-family:"微软雅黑";color:#005d80;height:48px; line-height:48px; margin-top:80px; margin-bottom:24px;} 
+.cqg-nberright{
+	float: right;
+	height: 338px;
+	width: 560px;
+}
+.cqg-nberright p{font-size:20px;color:#005d80; height:132px;width:430px;line-height:38px;}
+.cqg-list{width:1000px; margin:0px auto;}
+.cqg-list ul li{ position:relative;float:left; width:240px; height:160px; border-right:solid 1px #00a5ef;}
+.cqg-list ul .cqg-currentli a{ position:absolute;top:150px; left:110px;height:12px; width:20px; display:block; background-image:url(../images/fkcbg.png);}
+.cqg-list ul{ width:964px;margin:0 auto;}
+.cqg-list .cqg-t01{background-image:url(../images/fkt01.png); background-position:center; background-repeat:no-repeat;}
+.cqg-list .cqg-t02{background-image:url(../images/fkt02.png); background-position:center; background-repeat:no-repeat;}
+.cqg-list .cqg-t03{background-image:url(../images/fkt03.png); background-position:center; background-repeat:no-repeat;}
+.cqg-list .cqg-t04{background-image:url(../images/fkt04.png); background-position:center; background-repeat:no-repeat;}
+
+.cqg-list .cqg-last{ borber:none;}
+.cqg-list .cqg-currentli{ position:relative;}
+.cqg-text{height:400px;width:960px;}
+.formlist{ height:240px;}
+.formlist tr{border-bottom:solid 1px #89d2ee; border-top:solid 1px #89d2ee;height:40px; line-height:40px; text-align:center;color:#494949;}
+.formlist tr .formbor{ border:solid 1px #89d2ee;}
+.cqg-listbox{ width:960px;margin:20px 20px 10px 20px;border-bottom:solid 1px #89d2ee; border-top:solid 1px #89d2ee;}
+.cqg-textcnt{ padding-left:20px;height:400px; width:980px;}
+.cqg-textcnt span{ display:block;font-size:14px;color:#454545; font-weight:bold;}
+.cqg-textcnt ul li{font-size:14px;color:#454545; height:32px; line-height:32px;}
+.cqg-textcnt p{height:32px; width:748px; background-color:#bbe6f6;}
+.cqg-textcnt .cqg-ct{padding-left:10px; width:738px; background-color:#e4f8ff;}

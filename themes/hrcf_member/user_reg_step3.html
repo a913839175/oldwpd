@@ -1,0 +1,87 @@
+{include file="../hrcf/header.html"}
+
+{literal}
+<script type="text/javascript">
+    seajs.use(['pages/auth/reg']);
+</script>
+{/literal}
+<link rel="stylesheet" href="/static/css/pages/auth/reg.css?v=3f58e">
+
+<div class="pg-container-content">  
+<!-- TODO -->
+  <div id="pg-reg">
+  	<div class="container_12">
+    	<div class="color-white-bg ui-box-white-bg regbox">
+                    <div class="regstep">
+                        <ol class="ui-step ui-step-3">
+                            <li class="ui-step-start ui-step-done">
+                                <div class="ui-step-line">-</div>
+                                <div class="ui-step-icon">
+                                    <i class="iconfont"></i>
+                                    <i class="ui-step-number">1</i>
+                                    <span class="ui-step-text">填写账户信息</span>
+                                </div>
+                            </li>
+                            <li class="ui-step-done">
+                                <div class="ui-step-line">-</div>
+                                <div class="ui-step-icon">
+                                    <i class="iconfont"></i>
+                                    <i class="ui-step-number">2</i>
+                                    <span class="ui-step-text">手机信息验证</span>
+                                </div>
+                            </li>
+                            <li class="ui-step-end ui-step-active">
+                                <div class="ui-step-line">-</div>
+                                <div class="ui-step-icon">
+                                    <i class="iconfont"></i>
+                                    <i class="ui-step-number">3</i>
+                                    <span class="ui-step-text">注册成功</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="step3" class="step3">
+                        <div class="auth">
+                            <p class="go-account"><!-- <a href="/?user">跳过此步</a> --></p>
+                            <div class="info">
+                                <div class="align-center"><img src="/static/img/check.png"/></div>
+                                <h3></h3>
+                                <p class="rtishi">恭喜，{$_U.RegNickName}已经注册成功！</p>
+                            </div>
+                            <!-- <form data-name="setId"  class="ui-form" method="post" action='/?user&q=code/approve/realname' id="setIdForm">
+                                <input id="inviteCode" type="hidden" name="inviteCode" value="" />
+                                <input id="promotion" type="hidden" name="promotion" value="" />
+                                <fieldset>
+                                    
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">姓名</label>
+                                        <input class="ui-input input-icon input-bg-gray" type="text" name="realName" data-is="isRealName">
+                                        <span class="icon input-icon-head-gray"></span>
+                                    </div>
+
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">身份证号</label>
+                                        <input class="ui-input input-icon input-bg-gray" type="text" name="idNo" data-is="isIDNum">
+                                        <span class="icon input-icon-id-gray"></span>
+                                    </div>
+
+                                    <div class="ui-form-item" style="height:200px;">
+                                        <div class="pl50">
+                                            <input type="submit" id="subbt" class="ui-button-blue-new ui-button-new ui-button-blue-new-large w150" value='认证'>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form> -->
+
+                        </div>
+                        <div class="authSuccess fn-hide">
+                            <div class="info">
+                                <h3>实名认证已成功！</h3>
+                                <p class="autoRedirect align-center"><span id="second"></span>秒钟后自动跳转至个人帐户页，或<a href="/index.php?user">直接跳转</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+  </div>
+</div>

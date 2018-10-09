@@ -1,0 +1,34 @@
+@charset "utf-8";
+.contentright{
+    width: 890px;
+    float: right;
+    background: #fff;
+    padding: 16px;
+}
+.contentright h2{
+    width: 100%;
+    height: 74px;
+    line-height: 74px;
+    text-align: center;
+    font-size: 24px;
+    color: #212121;
+}
+.contentright h2 i{
+    width: 26px;
+    height: 2px;
+    display: inline-block;
+    background: #212121;
+    vertical-align: middle;
+    margin:0 10px; 
+}
+.trade_null {
+    padding: 40px 0;
+    text-align: center;
+}
+.certList{
+    width: 920px;
+}
+.margin244{
+    width: 920px;
+    height: 244px;
+}

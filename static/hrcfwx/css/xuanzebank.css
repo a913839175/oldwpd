@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document *
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none; background-color:#ececec;  padding-bottom:60px;}
+/*top
+.top{ height:13.5vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left; width:7vw; margin-left:4.5vw; margin-top:3.3vw;}
+.top1 img{ width:100%;}
+.top_title{ float:left;}
+.top_title p{ color:#FFF; font-size:4.5vw; line-height:13.5vw; padding-left:34.03vw;}
+.top2{ float:right; width:6vw; padding-right:6.5vw; padding-top:4.5vw;}
+.top2 img{ width:100%;}
+.top3{ float:right; width:0.95vw; padding-top:1.7vw; padding-right:7.5vw;}
+.top3 img{ width:100%;}
+
+/*main*/
+.mainxz{ display:none; width:100vw; /*height:100vw;*/ background:#fff; position:fixed; z-index:999; bottom:0; }
+.mainxz a{
+	color:#000;
+    text-decoration:none;}
+.mainxz_top{ height:8vh; width:100vw; border-bottom:1px solid #e4e4e4;}
+.mainxz_top p{ float:left; line-height:8vh; font-size:4vw; color:#191919; padding-left:42vw;}
+.mainxz_top_right{ width:4vh; padding-right:8vw; padding-top:2vh; float:right;}
+.mainxz_top_right img{ width:100%;}
+
+.mainxz ul{ overflow:auto; height:58.7vh;}
+.mainxz li{ border-bottom:1px solid #e4e4e4; height:10vh; }
+.mainxz_li_img{ width:20vh; float:left; padding-top:2.4vh; padding-left:8vw; padding-right:5vw;}
+.mainxz_li_img img{ width:100%;}
+.mainxz_li_p{ line-height:10vh; font-size:4vw;}

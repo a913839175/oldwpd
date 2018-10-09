@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ background-color:#3260c1;}
+.guoqinghuodong{ width:1200px; margin: 0 auto; font-weight:600;}
+.guoqing_banner{ height:800px; background:url(../images/huodongbanner.png) no-repeat; background-size:contain; margin: 0 auto;}
+.guoqing_rule{ padding-top:280px; font-size:1.4rem; text-align:center; color:#3260c1;}
+.guoqing_rule_li{ width:500px; margin: 0 auto; padding-top:50px; font-size:1rem; color:#FFF;}
+.guoqing_rule_zhu{ width:500px; margin: 0 auto; padding-top:20px; font-size:1rem; color:#FFF;}
+.guoqing_saosao{ width:500px; height:200px; margin:auto;}
+.guoqing_erweima{ float:left; width:120px; height:120px; margin-top:40px; background:url(../images/erweima.png) no-repeat; background-size:contain;}
+.guoqing_tankuang{ float:left; width:300px; height:90px; margin-top:55px; margin-left:30px; background:url(../images/tankuang.png) no-repeat; background-size:contain; color:#FFF;}
+.guoqing_tankuang p{ padding-left:80px; padding-top:15px; font-size:1rem;}

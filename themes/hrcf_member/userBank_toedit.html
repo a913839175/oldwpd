@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>
+	{if $_G.articles.name!=""}{$_G.articles.name}|{/if}
+	{if $_G.articles_result.name!=""}{$_G.articles_result.name}|{/if}
+	{if $_G.site_result.name!=""}{$_G.site_result.name}|{/if}
+	{$_G.system.con_webname}
+	</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta name="keywords" content="{if $_G.articles.tags!=""}{$_G.articles.tags}{elseif $_G.site_result.keywords!=""}{$_G.site_result.keywords}{else}{$_G.system.con_keywords}{/if}" />
+	<meta name="description" content="{if $_G.articles.contents!=""}{$_G.articles.contents|html_format|truncate:60}{elseif $_G.site_result.description!=""}{$_G.site_result.description}{else}{$_G.system.con_description}{/if}"/>
+	<meta name="generator" content="huarongchafu.com" />
+	<meta name="author" content="huarongchafu Team" />
+	<meta name="copyright" content="2015-2016 weipaidai Inc." />
+	<meta name="baidu-site-verification" content="fcerQNordr" />
+	<meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+	<script src="/static/js/seajs/2.1.0/sea.js?v=dee86"></script>
+	<script src="/static/js/config.js"></script>
+  	<link rel="stylesheet" href="/static/css/one.css">
+  	<link rel="stylesheet" href="/static/css/pages/account/account.css">
+  	
+  	<script src='/static/js/lib/jquery/1.4.2/jquery-1.4.2.min.js' type="text/javascript"></script>
+</head>
+
+<body>
+
+  <div id="pg-addcard" class="card-dialog noBorder">
+    <form data-name="addcard"  class="ui-form" method="post" id="addcardForm" action="/?user&q=code/account/bank">
+      <h4 class="text-center">修改银行卡</h4>
+      <div class="addCardInputs">
+        <div class="inputs">
+          <div class="ui-form-item lh-normal">
+            <label class="ui-label"><span class="ui-form-required">*</span>银行账户类型</label>
+            <em>借记卡</em> <span class="info">不支持提现至信用卡账户</span>
+          </div>
+          <div class="ui-form-item lh-normal">
+            <label class="ui-label"><span class="ui-form-required">*</span>开户人姓名</label>
+            <em>{$_G.user_info.realname_secur}</em> <span class="info">请添加相同开户名的银行卡</span>
+          </div>
+          <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>银行卡号</label>
+            {$_U.user_bank_result.cardId_str}
+          </div>
+          <div class="ui-form-item" style="*z-index:21;">
+            <label class="ui-label"><span class="ui-form-required">*</span>选择银行</label>
+            <div class="ui-selectdrop  lh-normal">
+              <div class="s_select_bg wid280 het35 clearfix J_select_btn">
+                <span class="txt J_txt"><i class="logo{$_U.user_bank_result.nid}"></i><em>{$_U.user_bank_result.bank_name}</em></span>
+                <span class="arrow">
+                  <em></em>
+                </span>
+              </div>
+              <div class="popBankBox J_popBankBox" style="display:none">
+                <ul class="has-icon-list fn-clear">
+                    {loop module="account" function="GetBankList" limit="all"}
+					<li datavalue="{$var.id}" datacode="{$var.nid}">
+                      <i class="logo{$var.nid}"></i> <em>{$var.name}</em>
+                    </li>
+					{/loop} 
+                </ul>
+                
+              </div>
+            </div>
+            <input type="hidden" name="bankDataId" value="1" id="selBankType" />
+          </div>
+          <div class="ui-form-item" style="*z-index:20;">
+            <label class="ui-label"><span class="ui-form-required">*</span>开户行所在地</label>
+            {areas type="p,c" value="$_U.user_bank_result.city"}
+            <label class="error" id="J_must_chooseBankArea" style="display:none;" >开户行所在地不能为空</label>
+          </div>
+          <div class="ui-form-item fn-clear ui-selectdrop" style="*z-index:19;">
+            <label class="ui-label"><span class="ui-form-required">*</span>开户行</label>
+            <input class="ui-input mt1 fn-left" type="text" name="deposit" data-is="isCardDeposit" value="{$_U.user_bank_result.deposit}" id="cardDeposit" />
+            <button id="bankKeySearchId" class="block-btn fn-left ml15">搜索</button>
+            <p class="lh-normal" style="clear: both;" >如果您不确定开户行,可以打电话向网上咨询或上网查询。</p>
+          </div>
+          <!-- <div class="ui-form-item wgetMobleCode fn-clear lh-normal">
+            <label class="ui-label lh40"><span class="ui-form-required">*</span>手机验证码</label>
+            <input class="ui-input mt1 fn-left" type="text" name="validateCode" id="validateCode"/>
+            <span id="getMobileCode" class="block-btn fn-left ml15" >获取验证码</span>
+            <label id="code-label" class="error" style="display: none" for="validateCode">验证码输入错误</label>
+            <div class="rrdcolor-red-text fn-hide phone-code-succ">恭喜您,您的手机号码已成功发送,请注意查收验证。</div>
+          </div> -->
+          <div id="serverMsg" class="serverMsg" style="padding-left:0px; line-height: 22px; margin-bottom: 10px" ></div>
+      </div>
+      <div class="bts"><input type="submit" class="block-btn" value="保 存" /><input type="reset" id="close" class="block-btn block-btn-gray" value="取 消" /></div>
+      <input type="hidden" name="id" value="{$_U.user_bank_result.id}" />
+      <input type="hidden" value="" name="cityshow" id="city_show" />
+    </div>
+    </form>
+  </div>
+  <div id="J_updateCardSuccess" class="card-dialog fn-hide" >
+    <h4 class="text-center">修改银行卡成功</h4>
+    <p class="deCaTips succee"><span class="icon"></span>恭喜您,已经成功修改银行卡！</p>
+    <div class="card-btn text-center fn-clear">
+      <a href="javascript:" class="J_close close-btn block-btn">关闭</a>
+    </div>
+  </div>
+</body>
+{literal}
+<script>
+seajs.use(['jquery','pages/account/account/addcard','widgets/widgets','dialog'],function($,addcard,Widgets,Dialog){
+  var form = Widgets.Form;
+  var $getMobileCode = $("#getMobileCode");
+  var getVoice, getMobile;
+	$(function(){
+        addcard.pop.init();
+        addcard.search.init();
+
+        $("#close").click(function(){
+        	$(".ui-dialog-close",parent.document).trigger("click");
+        })
+
+        form.validate({
+          validateData:{
+            submitHandler:function(el){
+              form.ajaxSubmit($(el),{
+                //debug:true,
+                dataType:"JSON",
+                success:function(data){
+                    if(data.status == 0){
+                      $("#J_updateCardSuccess").show();
+                      new Dialog({
+                        width:'500px',
+                        content:$("#J_updateCardSuccess")
+                      }).after('show',function(){
+                        var dialog = this;
+                        //删除成功 关闭
+                        $(".J_close","#J_updateCardSuccess").click(function(){
+                          dialog.hide();
+                        });
+                      }).after('hide',function(){
+                        parent.location.reload();
+                      }).show();
+                    }else{
+                      $("#serverMsg").html(data.message);
+                    }
+                }
+              });
+            }
+          }
+        });
+	})
+	//验证手手机码
+   getMobile = form.sendPhoneCode("", "getMobileCode", "/?user&q=login&q=sendCode", {
+      onStart: function () {
+        switchEnable($("#getVoiceCode"), false);
+        $('#voiceCodeBox').show();
+      },
+      onClear: function () {
+        switchEnable($("#getVoiceCode"), true);
+      },
+      unDisabled:true
+    });
+
+  function switchEnable($obj, enabled) {
+      if (!$obj.length) return;
+      if (enabled) {
+        $obj.removeAttr('disabled').removeClass("ui-button-disabled");
+      } else {
+        $obj.attr("disabled", "disabled").addClass("ui-button-disabled");
+      }
+    } 
+  
+  //自定义select的按钮事件，点击显示选择
+  ///////////////
+  //点击其他地方的时候需要关闭弹出的select
+  $(document).click(function(e){
+    var target = e.target;
+    if($(target).parent("span").hasClass("arrow")) return;
+    if ( !$(target).parent("div").hasClass("J_select_btn") && !$(target).closest("div.J_popBankBox").length) {
+      $(".J_popBankBox").css("display","none");
+    }
+  });
+
+  $(".J_select_btn").click(function(e){
+    $(".J_popBox").css("display","none");
+    var ul_dom =  $(e.currentTarget).parent().find(".J_popBankBox");
+    if(ul_dom.css("display")=="block"){
+      ul_dom.css("display","none");
+    }else{
+      ul_dom.css("display","block");
+    }
+  });
+  $(".J_chooseOtherBank").click(function(){
+    var txt = $(this).text()=="选择其他银行" ? "收起" : "选择其他银行";
+    $(this).text(txt);
+    $(".J_otherBankList").toggle();
+  });
+  
+  $(".J_popBankBox li").click(function(e){
+    var value = ($(e.currentTarget).attr("datavalue"));
+    var txt = $(e.currentTarget).html();
+    var dom =  $(e.currentTarget).parent().parent().parent();
+    $("#selBankType").attr("value",value);
+    $(".J_popBankBox").hide();
+    dom.find(".J_txt").html(txt);
+  });
+})
+</script>
+{/literal} 
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/chunjieqianghongbao.css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/chunjiehongbaoyouxi2.css" />
+<link rel="stylesheet" href="/static/hrcfwx/activity/spring/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/zebra_dialog_spring.css">
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/zebra_dialog_spring.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/chunjieqianghongbao.js"></script>
+{if $notstart==1}
+    <!-- 活动未开始 -->
+{elseif $over==1}
+    <!-- 活动已结束 -->
+{else}
+    {if $_G.user_id==null||$_G.user_id==""}
+        <!-- 未登录 -->
+    {else}
+        <script type="text/javascript" src="/static/hrcfwx/activity/spring/js/chunjiehongbaoyouxi2.js"></script>
+    {/if}
+{/if}
+<meta name = "format-detection" content="telephone = no" />
+<title>微拍贷</title>
+</head>
+
+<body>
+<div class="qianghongbao_main">
+	<div class="qianghongbao_main_back"></div>
+    <div class="qianghongbao_main_input">
+        {if $notstart==1}
+            <div class="qianghongbao_main_input_back" id="before_botton">开始抢红包</div>
+        {elseif $over==1}
+            <div class="qianghongbao_main_input_back" id="over_botton">开始抢红包</div>
+        {else}
+            {if $_G.user_id==null||$_G.user_id==""}
+                <div class="qianghongbao_main_input_back" id="login_botton">开始抢红包</div>
+            {else}
+                <div class="qianghongbao_main_input_back" id="begin_game">开始抢红包</div>
+            {/if}
+        {/if}
+
+        {if $notstart==1}
+            <p>活动未开始</p>
+        {elseif $over==1}
+            <p>活动已结束</p>
+        {else}
+            {if $_G.user_id==null||$_G.user_id==""}
+                <p>请先登录或注册微拍贷！</p>
+            {else}
+                <p>您还有 <span id="mychance">{$game_times}</span> 次抢红包机会哦！</p>
+            {/if}
+        {/if}
+        <div class="qianghongbao_main_input_img"><a href="/?wxuser&q=springrobmorechance"><img src="/static/hrcfwx/activity/spring/images/hongbao.png"/></a></div>
+    </div>
+</div>
+<div class="qianghongbao_main_body">
+	<div class="qianghongbao_main_shuoming">
+        <ul>
+        <li>活动时间：<span>2016年2月7日-2月14日</span> </li>
+        <li>活动期间每个账号每天可免费获得 1 次抢红包机会</li>
+        <li>投资后可获得更多的抢红包机会</li>
+        <li>活动到期后未使用的抢红包次数将自动转为2016年2月15日开始的砸金蛋次数</li>
+        </ul>
+        <a href="javascript:;">本活动最终解释权归微拍贷所有</a>
+    </div>
+    <div class="qianghongbao_main_jilu">
+        <div id="winner-list">
+            {foreach from="$winner_list" item="item"}
+        	<li>
+                <div class="li-img-div">
+                	<img src="/static/hrcfwx/activity/spring/images/person.png" />
+                </div>
+                <p>{$item.username}<br/>刚刚抢到了“<span>{$item.total}元</span>理财红包”哦</p>
+            </li>
+            {/foreach}
+        </div>
+        <div class="qianghongbao_main_jilu_img">
+            {if $_G.user_id==null||$_G.user_id==""}
+                <a id="myprize" href="javascript:;">
+                    <img src="/static/hrcfwx/activity/spring/images/hongbao2.png"/>
+                </a>
+            {else}
+                <a href="/?wxuser&q=springrobprize">
+                <img src="/static/hrcfwx/activity/spring/images/hongbao2.png"/>
+            </a>
+            {/if}
+        </div>
+    </div>
+</div>
+<div class="qianghongbao_main_foot">
+    <a href="#"><div>回到顶部</div></a>
+</div>
+</body>
+</html>

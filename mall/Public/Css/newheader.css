@@ -1,0 +1,59 @@
+*{padding: 0;margin:0;}
+input{outline:none}
+a{text-decoration: none;}
+.clearfix:after { content: '.'; display: block; clear: both; height: 0; visibility: hidden; }
+.clearfix { zoom: 1; }
+.newheaderbox{position: relative;}
+.ui-nav-item:hover{color: #0053a8!important;}
+.jf_top{width: 1000px;margin:0 auto;margin-top: 15px;}
+.jf_imgtop1{width: 316px;height: 52px;padding-left:13px;float: left;}
+.jf_sousuoz{float: left;width: 500px;margin-left: 171px;}
+.jf_sousuo{height: 32px;border: 2px solid #0053a8;position: relative;}
+.jf_ssiuput{width: 298px;background: #fff;padding-left: 6px;font-size: 12px;float: left;padding-top: 7px;}
+.jf_ssbutton{width:77px;height: 32px;background: #0053a8;border: none;color: #fff;font-size: 16px;float: right;}
+.jf_img2{margin-top: 8px;margin-left: 4px;float: left;width: 18px;height: 17px;}
+.js_rmsousuo{width: 407px;}
+.js_rmsousuo span:first-child{font-size: 12px;color: #3d3d3d;padding-left: 0}
+.js_rmsousuo span a{padding-left: 11px;font-size: 12px;color: #3d3d3d;}
+.jf_shopz{width: 117px;height: 32px;border:2px solid #ffd7a8;float: left;margin-left: 15px;}
+.jf_img3{width: 18px;height: 17px;float: left;margin-top: 8px;margin-left: 6px;}
+.jf_gwc{float: left;font-size: 14px;line-height: 32px;padding-left: 7px;}
+.jf_reddian{width: 17px;height: 17px;background: url(../Cn/images/jfindex/jf_reddian.png) no-repeat;float: left;font-size: 12px;color: #fff;text-align: center;line-height: 17px;margin-top: 8px;margin-left: 3px;}
+.jf_fh{line-height: 32px;margin-left: 5px;color: #b2b0ae;float: left;}
+.navtiao{width: 100%;height: 47px;background: #00aaf5;margin-top: 16px;}
+.jf_nav{width: 1000px;height: 47px;margin:0 auto;background: #00aaf5;position: relative;z-index: 1001}
+.jf_fengexian{width: 100%;height: 47px;background: #0053a8;}
+
+/*add 2016-12-05*/
+
+.jf_navli2{float: left;height: 46px;line-height: 46px;text-align: center;color: #fff;width: 142px;font-size: 16px;}
+.digtran{float: left;height: 46px;line-height: 46px;text-align: center;color: #fff;width: 142px;font-size: 16px;display: block;}
+.jf_navli{float: left;height: 46px;line-height: 46px;text-align: center;color: #fff;width: 142px;font-size: 16px;}
+.jf_yishu{width: 1px;height: 22px;background: #4dc4f8;float: left;margin-top: 12px}
+.js_rmsousuo span a:hover{color: #0097e2;}
+.sousuoblue{color: #0097e2;}
+
+/*产品根据微币分类*/
+.wbfl1{width: 100%;background: #ebebeb;display: none;}
+.jf_jffl{width: 1000px;margin: 0 auto;overflow: hidden;}
+.jf_flul1{width: 1000px;height: 44px;border-top: 1px solid #ebebeb;border-bottom: 1px solid #ebebeb;background: #fff;}
+.jf_flli1{width: 180px;height: 44px;float: left;}
+.jf_fllibt{width: 11px;height: 10px;background: url(../Cn/images/jfindex/jf_daohtb.png) no-repeat;float: left;margin-top: 16px;}
+.jf_flul1m{float: left;font-size: 14px;color: #4c4c4c;padding-left: 6px;line-height: 44px;}
+.padl{padding-left: 180px;}
+.jf_flul2{width: 1000px;height: 44px;border-top: 1px solid #ebebeb;border-bottom: 1px solid #ebebeb;background: #fff;}
+.jf_flli2{width: 180px;height: 44px;float: left;}
+.jf_fllibt2{width: 11px;height: 10px;background: url(../Cn/images/jfindex/jf_daohtb.png) no-repeat;float: left;margin-top: 16px;}
+.jf_flul2m{float: left;font-size: 14px;color: #4c4c4c;padding-left: 6px;line-height: 44px;}
+.jf_cppl{width: 180px;text-align: center;height: 44px;line-height: 44px;}
+.wbfl3{width: 100%;background: #ebebeb;display: none;}
+.wbfl5{width: 100%;background: #ebebeb;display: none;}
+.wbfl7{width: 100%;background: #ebebeb;display: none;}
+.wbfl9{width: 100%;background: #ebebeb;display: none;}
+.wbfl11{width: 100%;background: #ebebeb;display: none;}
+
+
+/* add 2017-05-04 */
+.shot{display: block;position: absolute;left: 234px;top:10px;}
+/*add 2017-08-30*/
+.boom{display: block;position: absolute;top: 11px;right: 109px;}

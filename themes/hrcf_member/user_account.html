@@ -1,0 +1,1121 @@
+  {include file="../hrcf/header.html"}
+
+{if $_U.query_type=="recharge_new" || $_U.query_type=="recharge_new_quickpay"}
+<script src="/static/hrzhang/js/base.js"></script>
+<script src="/static/js/lib/jquery/1.9.1/jquery.nocmd.js"></script>
+<script src="/static/js/lib/simplePagination/1.5.0/simplePagination.nocmd.js"></script>
+<script src="/plugins/timepicker/WdatePicker.js" type="text/javascript"></script>
+{/if}
+<script src="/static/js/lib/calendar/date.js"></script>
+
+<div class="pg-container-content">
+
+  <link rel="stylesheet" href="/static/css/pages/account/account.css">
+  <link rel="stylesheet" href="/static/hrzhang/css/user.css">
+  {if $_U.query_type=="recharge_new" || $_U.query_type=="recharge_new_quickpay"}    
+  <div id="pg-account-recharge" class="pg-account">
+  {elseif $_U.query_type=="cash_new"}
+  <div id="pg-account-withdraw" class="pg-account">
+  {elseif $_U.query_type=="log"}
+  <div id="pg-account-transactions" class="pg-account">
+  {/if}
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/index.php?user&q=code/account/log">资金管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          {if $_U.query_type=="recharge_new" || $_U.query_type=="recharge_new_quickpay"}    
+		  	<a href="/index.php?user&q=code/account/{$_U.query_type}">充值</a>
+		  {elseif $_U.query_type=="cash_new"}
+		  	<a href="/index.php?user&q=code/account/{$_U.query_type}">提现</a>
+                  {else}
+                        <a href="/index.php?user&q=code/account/log">交易记录</a>
+		  {/if}  
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10 ">
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->
+	  {if $_U.query_type=="recharge_new"}
+	    <div class="son_content">
+  <p class="son_chongzhi">充值</p>
+	  <div id="content" class=" color-white-bg fn-clear" style="padding: 20px">
+		<div class="con_title">
+		<div class="recharge_con">
+			<form data-name="recharge" class="fm_bank_card fm_submit" method="post" id="regchargeForm" name="checkinForm" 
+		    	  target="_blank"  action="/?user&q=code/account/recharge_new">
+		        {articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}{/articles}
+		        <div class="ipt_line ipt_line_piggy ui-form-item">
+		            <div class="ipt_title ui-label">余额：</div>
+		            <div class="fn-left piggy_orange">¥{$var.balance|round:"2,3"|default:0.00}</div>
+		        </div>
+		        
+		        <div class="ipt_line ipt_line_piggy ui-form-item">
+  	                <div class="ipt_title ui-label"><span class="ui-form-required">*</span>充值金额：</div>
+  	                <input class="ui-input" type="text" name="amount" maxlength="14" id="rechargeAmount" data-is="isAmount" value="">
+                    <i class="unit">元</i>
+  	             </div>
+		        <div class="ipt_line ipt_line_piggy ui-form-item">
+				    <div class="ipt_title ui-label">支付方式：</div>
+					<ul style="border:none;" class="subpiggycontent">
+				       <a href="/?user&q=code/account/recharge_new"><li class="tab_binding_active recharge">网银支付</li></a>
+					   <a href="/?user&q=code/account/recharge_new_quickpay"><li class="tab_online recharge">快捷支付</li></a>
+				    </ul>
+		        </div>
+
+		        <div id="recharge_net_bank">
+		       		<input name="srcUrl" type="hidden" value="">
+		            <div class="ipt_line bind_bank_card_list">
+		                <ul class="bank_list bind_bank_card" style="padding-bottom: 5px;">
+		                            {loop module="account" function="GetBankList" limit="all"}
+                                            {if $_G.user_id=="3996" || $_G.user_id=="3999" || $_G.user_id=="4003"}
+                                                {if $var.code=='CMB' || $var.code=='ICBC' || $var.code=='CCB' || $var.code=='BOC' || $var.code=='ABC' || $var.code=='BOCM' || $var.code=='SPDB' || $var.code=='CEB' }
+                                                <li  class="bank_show" >
+                                                    <div class="custom_radio" />
+                                                            <input type="radio" name="bankCode" class="J_radio chose_card"  value="{$var.id}" {if $var.code=='CCB'}checked{/if}>
+                                                    </div>
+                                                    <div class="li_bank">
+                                                        <img src="/static/img/banks/{$var.litpic}">
+                                                    </div>
+                                                </li>
+                                                {/if}
+                                            {else}
+                                                {if $var.code!='CITYBANK' && $var.code!='BSB' && $var.code!='BSB' && $var.code!='HXB' && $var.code!='SHBANK' && $var.code!='ABC' && $var.code!='BOCM' && $var.code!='CMB' && $var.code!='PSBC' && $var.code!='CGB' && $var.code!='SPDB' && $var.code!='BCCB' && $var.code!='PAYH' && $var.code!='CIB'}
+                                                <li  class="bank_show" >
+                                                    <div class="custom_radio" />
+                                                            <input type="radio" name="bankCode" class="J_radio chose_card"  value="{$var.id}" {if $var.code=='CCB'}checked{/if}>
+                                                    </div>
+                                                    <div class="li_bank">
+                                                        <img src="/static/img/banks/{$var.litpic}">
+                                                    </div>
+                                                </li>
+                                                {/if}
+                                            {/if}
+                                            {/loop}
+		                </ul>
+		                <!-- <p class="link_to_help"><a target="_blank" href="/rechargencashment/index.html##bank_limit">查看银行限额</a></p> -->
+		                <div class="banks-limit-table">
+		                <!-- ********************************************************************* -->
+		                <!-- ********************************************************************* --> 
+		                <!-- ********************************************************************* -->       
+                        <table width="100%" cellspacing="1" cellpadding="1" class="15-table" >
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>账号支付</p>
+                                <p>动态口令卡</p>
+                                <p>网银盾</p>
+                              </td>
+                              <td>
+                                <p>500元</p>
+                                <p>5000元</p>
+                                <p>50万元</p>
+                              </td>
+                              <td>
+                                <p>500元</p>
+                                <p>5000元</p>
+                                <p>50万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+<!--                         <div class="15-table clearfix" style="width: 580px;">
+                            <div class="btz clearfix" style="width: 580px;height: 36px;line-height: 36px;color: #666;background: #f0f0f0;text-align: center;">
+                                <p style="width: 16%;float: left;">卡种</p>
+                                <p style="width: 48%;float: left;">客户类型</p>
+                                <p style="width: 18%;float: left;">单笔限额(元)</p>
+                                <p style="width: 18%;float: left;">每日限额(元)</p>
+                            </div>
+                        </div> -->
+                        <table width="100%" cellspacing="1" cellpadding="1" class="16-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>工行e支付</p>
+                                <p>短信认证</p>
+                                <p>电子密码器</p>
+                                <p>USBKey（U盾）客户</p>
+                              </td>
+                              <td>
+                                <p>500元</p>
+                                <p>2000元</p>
+                                <p>5万元</p>
+                                <p>无限额</p>
+                              </td>
+                              <td>
+                                <p>1000元</p>
+                                <p>5000元</p>
+                                <p>5万元</p>
+                                <p>无限额</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="17-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>K令客户</p>
+                                <p>一代K宝客户</p>
+                                <p>二代K宝客户</p>
+                              </td>
+                              <td>
+                                <p>10万元</p>
+                                <p>50万元</p>
+                                <p>50万元</p>
+                              </td>
+                              <td>
+                                <p>10万元</p>
+                                <p>50万元</p>
+                                <p>50万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="18-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>开通大众版网上银行</p>
+                                <p>U盾（专业版网上支付）</p>
+                              </td>
+                              <td>
+                                <p>5000元</p>
+                                <p>50万元</p>
+                              </td>
+                              <td>
+                                <p>5000元</p>
+                                <p>50万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="19-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>中银快付</p>
+                                <p>网银支付（密码+UKEY）</p>
+                              </td>
+                              <td>
+                                <p>1000元</p>
+                                <p>5万元</p>
+                              </td>
+                              <td>
+                                <p>5000元</p>
+                                <p>50万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="20-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>短信验证码+密码</p>
+                                <p>U盾</p>
+                              </td>
+                              <td>
+                                <p>5万元</p>
+                                <p>5万元</p>
+                              </td>
+                              <td>
+                                <p>5万元</p>
+                                <p>5万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="21-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>短信手机</p>
+                                <p>办理电子令牌及手机短信服务</p>
+                                <p>办理USB-KEY及开通短信服务</p>
+                              </td>
+                              <td>
+                                <p>2万元</p>
+                                <p>2万元</p>
+                                <p>50万元</p>
+                              </td>
+                              <td>
+                                <p>2万元</p>
+                                <p>2万元</p>
+                                <p>50万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="22-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>手机动态码</p>
+                                <p>令牌动态码</p>
+                                <p>阳光网盾</p>
+                              </td>
+                              <td>
+                                <p>1万元</p>
+                                <p>50万元</p>
+                                <p>100万元</p>
+                              </td>
+                              <td>
+                                <p>1万元</p>
+                                <p>50万元</p>
+                                <p>100万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="23-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>贵宾版数字证书</p>
+                                <p>贵宾版（U宝）</p>
+                              </td>
+                              <td>
+                                <p>5000元</p>
+                                <p>500万</p>
+                              </td>
+                              <td>
+                                <p>5000元</p>
+                                <p>500万</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="24-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                              <p>U盾</p>
+                              </td>
+                              <td>
+                              <p>2100元</p>
+                              </td>
+                              <td>
+                              <p>2100元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="25-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>文件证书</p>
+                                <p>动态口令</p>
+                                <p>移动证书</p>
+                              </td>
+                              <td>
+                                <p>1000元</p>
+                                <p>1000元</p>
+                                <p>100万元</p>
+                              </td>
+                              <td>
+                                <p>1000元</p>
+                                <p>1000元</p>
+                                <p>100万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="26-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>开通动态密码版网上银行</p>
+                                <p>U盾</p>
+                              </td>
+                              <td>
+                                <p>5万元</p>
+                                <p >20万元</p>
+                              </td>
+                              <td>
+                                <p>5万元</p>
+                                <p>20万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="27-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>短信验证码</p>
+                                <p>uk</p>
+                              </td>
+                              <td>
+                                <p>5万元</p>
+                                <p>2万元</p>
+                              </td>
+                              <td>
+                                <p>5万元</p>
+                                <p>2万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="28-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                              	<p>二代K盾</p>
+                              </td>
+                              <td>
+                                <p>50万元</p>
+                              </td>
+                              <td>
+                                <p>50万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table width="100%" cellspacing="1" cellpadding="1" class="29-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>华夏卡直接支付</p>
+                                <p>电子钱包支付</p>
+                              </td>
+                              <td>
+                                <p>300元</p>
+                                <p>无限额</p>
+                              </td>
+                              <td>
+                                <p>1000元</p>
+                                <p>无限额</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <table width="100%" cellspacing="1" cellpadding="1" class="32-table" style="display: none;">
+                          <thead>
+                            <tr>
+                               <th width="10%">卡种</th>
+                               <th width="48%">客户类型</th>
+                               <th width="18%">单笔限额(元)</th>
+                               <th width="24%">每日限额(元)</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>储蓄卡</td>
+                              <td>
+                                <p>U盾</p>
+                              </td>
+                              <td>
+                                <p>2万元</p>
+                              </td>
+                              <td>
+                                <p>2万元</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- ********************************************************************* -->
+		                <!-- ********************************************************************* --> 
+		                <!-- ********************************************************************* --> 
+                      </div>
+		            </div>
+		            <!-- <div class="ipt_line bd_bottom_none">
+		                <div class="ipt_title">&nbsp;</div>
+		                <div class="custom_checkbox" id="custom_checkbox">
+		                	<input type="checkbox" name="agreement" class="J_checkbox">
+		                </div>
+		                <span class="ml10 text">阅读并同意
+		                <a class="contract_btn"  href="/rechargencash/index.html">《用户协议》</a></span>
+		            </div> -->
+		            <div class="ipt_line bd_bottom_none">
+		                <div class="ipt_title">&nbsp;</div>
+		                <input type="hidden" name="type" value="ONLINE_BANK" class="channel_type">
+		                <button id="sub-recharge" type="submit" class="red_218_39">确认</button>
+		            </div>
+		        </div>
+		    </form>
+		</div>
+		</div>
+		</div>
+</div>  		
+		<div class="hide">
+	        <div id="afterSub" class="afterSub">
+	        <h3>请您在新打开的网上银行页面上完成付款</h3>
+	        <p>付款完成前请不要关闭此窗口。</p>
+	        <p>完成付款后请根据您的情况点击下面的按钮：</p>
+	        <a class="ui-button ui-button-mid ui-button-green" id="finishRecharge">已完成付款</a> <a class="ui-button ui-button-mid ui-button-green" id="troubleRecharge">付款遇到问题</a>
+	        </div>
+	      </div>
+	    
+	    <script>seajs.use(['pages/account/capital/recharge']);</script>  
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->	  
+	  {elseif $_U.query_type=="cash_new"}
+	  <div class="grid_10" style="margin-left: 0">
+			  <div class="withdraw-wrap color-white-bg fn-clear">
+		     	 <form data-name="withdraw" class="ui-form" method="post" action="/?user&q=code/account/cashDraw" onsubmit="return false;">
+			       <div class="withdraw-title fn-clear"> 提现
+		           </div>
+		           
+		           <div class="withdrawInputs">
+			          <div class="inputs">
+			            <div class="ui-form-item">
+		                  <label class="ui-label mt15"><span class="ui-form-required">*</span>选择银行卡</label>
+		                  <div class="bank-list fn-left" id="J_banklis">
+		                    <div class="default-bank">
+		                      <div class="no-bank J_no_bank">
+		                      </div>
+		                      <div class="first-bank fn-hide fn-clear J_default-bank">
+		                        <a href="javascript:" class="J_change_card change-card"> <span>更换</span>
+		                          <i></i>
+		                        </a>
+		                      </div>
+		                    </div>
+		                  </div>
+		                  <p class="J_error-tips error-tips fn-hide">提示：该银行卡上一次提现结果为提现失败，请您仔细核对银行卡信息是否正确！</p>
+		                  <div class="fn-clear invisiblediv">
+		                    <input class="fn-left invisible error" type="text" autocomplete="off" disableautocomplete />
+		                    <input id="userBankId" class="fn-left invisible error" type="text" name="userBankId" data-index="" autocomplete="off" disableautocomplete />
+		                    <input type="text" style="display: none;" />
+		                  </div>
+		                </div>
+		                <div class="ui-form-item">
+		                  <label class="ui-label">可用金额</label>
+			              <em class="value" id="withdrawRemain">{$_U.balance|round:"2,3"|default:0.00}</em>元
+			              <input id="totalAmount" type="hidden" value="{$_U.balance|round:"2,3"|default:0.00}">
+		                  <input type="hidden" id="canUseCash" value="{$_U.balance|round:"2,3"|default:0.00}" /> 
+			            </div>
+			            <div class="ui-form-item">
+		                  <label class="ui-label mt10"><span class="ui-form-required">*</span>提现金额</label>
+		                  <input class="ui-input" type="text" value="" name="amount" id="withdrawAmount" data-is="isAmount isEnough" autocomplete="off" disableautocomplete />
+		                  <p class="ui-term-placeholder">最多可提现{$_U.balance_more|round:"2,3"|default:0.00}</p>
+		                  <i class="unit">元</i>
+		                  <input type="text" style="display: none;" />
+			            </div>
+			            <div class="ui-form-item">
+			              <label class="ui-label">提现费用</label>
+			              <em class="value" id="withdrawFee">0.00</em>元
+			              <span class="info">提现费用将从您的微拍贷账户余额中扣除</span>
+		                  <i id="tips" class="iconfont middleIconFont tips">&#xF046;</i>
+			              <div class="ui-poptip fn-hide" id="tipCon">
+							    <div class="ui-poptip-shadow">
+							    <div class="ui-poptip-container">
+							        <div class="ui-poptip-arrow ui-poptip-arrow-10">
+							            <em></em>
+							            <span></span>
+							        </div>
+							        <div class="ui-poptip-content" data-role="content">
+							            <p>第三方收取提现手续费：</p>
+							            <!-- <table width="100%" class="tiptable">
+											<tr>
+												<th>2万元以下</th>
+												<th>2万元(含)-5万元</th>
+												<th>5万元(含)-100万元</th>
+											</tr>
+											<tr>
+												<td>1元/笔</td>
+												<td>3元/笔</td>
+												<td>5元/笔</td>
+											</tr>
+									   </table> -->
+									   <table width="100%" class="tiptable">
+											<tr>
+												<th>0元</th>
+											</tr>
+									   </table>
+							        </div>
+							    </div>
+							    </div>
+							</div>
+			            </div>
+			            <div class="ui-form-item">
+			              <label class="ui-label">实际扣除金额</label>
+			              <em class="value" id="withdrawReal">0.00</em>元
+			            </div>
+			            <div class="ui-form-item">
+			              <label class="ui-label">预计到账日期</label>
+			              <em id="withdrawDate">{$_U.withdrawDate||date_format:"Y-m-d"}</em>
+			              <span class="info">(15:00前,T+1到账</span>
+			              <span class="info">15:00后,T+2到账)</span>
+			            </div>
+			            <div class="ui-form-item">
+			              <label class="ui-label mt10"><span class="ui-form-required">*</span>交易密码</label>
+			              <input class="ui-input" type="password" name="cashPassword" id="cashPassword" data-is="isPassWord">
+			              <a href="/?user&q=code/approve/security" class="findPsw" id="findPsw">忘记密码</a>
+			            </div>
+			            <div class="ui-form-item widthdrawBtBox">
+		                  <input type="submit" id="subWithdraw" class="block-btn" value="提 现">
+			            </div>
+			          </div>
+			     </div>
+			      <div class="worm-tips">
+		            <div class="tips-title"><span class="icon"></span> 温馨提示</div>
+			          <ol>
+		              <li>1.请确保您输入的提现金额，以及银行帐号信息准确无误。</li>
+		              <li>2.如果您填写的提现信息不正确可能会导致提现失败，由此产生的提现费用将不予返还。 </li>
+		              <li>3.平台禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用。</li>
+			          </ol>
+			        </div>
+		          
+		      	 </form>
+		
+			  </div>
+	</div>
+    </div>
+  </div>
+  <div id="J_moreTenCards" class="card-dialog fn-hide" >
+    <h4 class="text-center">添加银行卡</h4>
+    <p class="more-tips">您最多可添加10张银行卡！</p>
+    <div class="card-btn text-center fn-clear">
+      <a href="javascript:" class="J_close close-btn block-btn">关闭</a>
+    </div>
+  </div>
+  <div id="J_apply_success" class="card-dialog fn-hide" >
+    <h4 class="text-center">申请提现成功</h4>
+    <p class="deCaTips"><span class="icon"></span>恭喜您，已经成功申请提现！预计会在<span class="accountDate">{$_U.withdrawDate||date_format:"Y-m-d"}</span>到账！</p>
+    <div class="card-btn text-center fn-clear">
+      <a href="javascript:" class="J_close close-btn block-btn">关闭</a>
+    </div>
+  </div>
+  <div id="J_sureWithdraw" class="card-dialog fn-hide" >
+    <h4 class="text-center">确认提现信息</h4>
+    <div class="withdrawInputs">
+      <div class="inputs">
+        <div class="ui-form-item">
+          <label class="ui-label">真实姓名</label>{$_G.user_info.realname_secur}
+        </div>
+        <div class="ui-form-item">
+          <label class="ui-label">银行账户</label>
+          <img class="J_bankLogo" src="" />
+          <span class="J_bankNumber ml10"></span>
+        </div>
+        <div class="ui-form-item">
+          <label class="ui-label">提现金额</label>
+          <em class="J_withdrawAmout value"></em>
+        </div>
+        <div class="ui-form-item">
+          <label class="ui-label">实扣金额</label>
+          <em class="J_withdrawReal value"></em>
+        </div>
+        <div class="ui-form-item">
+                          含<span class="J_withdrawFee"></span>元手续费（无论提现成功失败都将扣除手续费)
+        </div>
+      </div>
+    </div>
+    <div class="ui-form-item card-btn fn-clear">
+      <a href="javascript:" class="J_submit_btn block-btn">确认提现</a>
+      <a href="javascript:" class="J_close block-btn block-btn-gray">取&nbsp;&nbsp;&nbsp;&nbsp;消</a>
+    </div>
+  </div>
+
+{literal} 
+<script id="withdraw-list-template" type="text/x-handlebars-template">
+<ul class="J_card_list fn-hide card-list">
+{{#each userBanks}}
+<li class="fn-clear">
+  <div class="bank-logo"><img src="/static/img/banks/{{litpic}}" /></div>
+  <span class="card-tail-number">{{ tailNumber }}</span>
+  <a href="javascript:" data-index="{{cordIndex}}" class="bankli" data-bank="{{id}}"></a>
+</li>
+{{/each}}
+</ul>
+</script>
+{/literal}
+
+<script id="withdraw-list-rsp" type="text/x-json">
+{$_U.userBanks}
+</script> 
+</div>
+
+<script>seajs.use(['pages/account/capital/withdraw']);</script>  
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->
+	    
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->	  
+{elseif $_U.query_type=="log"}
+        <div class="fn-clear p20bs color-orange-bg" style="padding-bottom: 25px;">
+          {articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}
+          <div class="fn-left box-summary-left">
+            <h3 class="text-xl">账户总额</h3>
+            <p class="num color-orange-text"><em>{$var.total|round:"2,3"|default:0.00}</em>元</p>
+          </div>
+          <div class="fn-left box-summary-right last">
+            <div class="fn-clear color-dimgray-text">
+              <div class="grid_2 alpha">
+                <h5 class="text-big">可用资金</h5>
+                <p class="num-s"><em>{$var.balance|round:"2,3"|default:0.00}</em>元</p>
+              </div>
+              {article module="borrow" function="GetRechargeCount_log" user_id="$_G.user_id" var="var_recharge"}
+              <div class="grid_2">
+                <h5 class="text-big">已充值总额</h5>
+                <p class="num-s"><em>{$var_recharge.recharge_all|default:0}</em>元</p>
+              </div>
+              {/articles}
+              <div class="grid_2 omega">
+<!--                 <a class="summary-button ui-button ui-button-small ui-button-green" href="javascript:void(0);" onclick="KTbscgMask();">充值</a> -->
+              </div>
+            </div>
+            <hr class="mt10">
+            <div class="fn-clear color-dimgray-text mt10">
+              <div class="grid_2 alpha">
+                <h5 class="text-big">理财资产</h5>
+                <p class="num-s"><em>{$var.frost|round:"2,3"|default:0.00}</em>元</p>
+              </div>
+              {list module="account" function="GetCashList" var="loop" user_id="$_G.user_id" status="1"}
+              <div class="grid_2">
+                <h5 class="text-big">已提现总额</h5>
+                <p class="num-s"><em>{$loop.all_total|default:0.00}</em>元</p>
+              </div>
+              {/list}
+              <div class="grid_2 omega">
+<!--                 <a class="summary-button ui-button ui-button-small ui-button-blue" href="/?user&q=code/account/cash_new">提现</a> -->
+              </div>
+            </div>
+          </div>
+          {/articles}
+        </div>
+        
+        <div class="mt20 p20bs color-white-bg">
+        <div class="t10">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabyel">
+			<tr class="ytit">
+				<td>资金记录查询</td>
+			</tr>
+			<tr>
+				<td style="padding:10px 0">记录时间：
+				<input type="text" name="dotime1" id="dotime1" value="{$magic.request.dotime1|default:'$day7'|date_format:'Y-m-d'}" size="15"/ onclick="new Calendar().show(this);"> 
+				到 
+				<input type="text" name="dotime2" id="dotime2" value="{$magic.request.dotime2|default:'$nowtime'|date_format:'Y-m-d'}" size="15" onclick="new Calendar().show(this);">
+				{linkages nid="account_type" value="$magic.request.type" name="type" type="value"} 
+				<input value="搜索"  class="ui-button ui-button-small ui-button-blue ml30 w100" type="submit" onclick="sousuo('{$_U.query_url}/log')" />
+			</td>
+			</tr>
+		</table>
+	</div>
+	<div class="t10">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabyel">
+			<form action="" method="post">
+				<tr class="ytit">
+					<td colspan="9">资金历史记录</td>
+				</tr>
+				<tr class="ytit1">
+					<td>类型</td>
+					<td>存入</td>
+					<td>支出</td>
+					<td>冻结</td>
+					<!-- <td>剩余金额</td> -->
+					<td>记录时间</td>
+					<td width="100">备注信息</td>
+				</tr>
+				{list module="account" function="GetLogList" var="loop" user_id="$_G.user_id" dotime2="request" dotime1="request" type="request"}
+				{foreach from=$loop.list item="item"}
+				{if $item.type!="fengxianchi"}
+				<tr  {if  $key==0} class="trtdcolor"{elseif $key%2==1} class="ynow"{/if}>
+					<td>{$item.type|linkages:"account_type"}</td>
+					{if $item.type=="recharge" || $item.type=="borrow_success" || $item.type=="borrow_change_sell" || $item.type=="tender_late_repay_yes" || $item.type=="tender_false" || $item.type=="system_repayment" || $item.type=="tender_advance_repay_interest" || $item.type=="tender_advance_repay_yes" || $item.type=="cash_false" || $item.type=="tender_user_cancel" || $item.type=="borrow_spread_add" || $item.type=="tender_spread_add" || $item.type=="borrow_spread" || $item.type=="tender_spread" || $item.type=="online_recharge"  || $item.type=="recharge_jiangli"  || $item.type=="tender_award_add"   || $item.type=="change_add" || $item.type=="hongbao_repay_yes"}
+					<td>￥{$item.money}</td>
+					<td></td>
+					<td></td>
+					{elseif $item.type=="tender_repay_yes"}
+					<td>￥{ $item.money}</td>
+					<td></td>
+					<td></td>
+					{elseif $item.type=="cash_frost" || $item.type=="tender" || $item.type=="cash"}
+					<td></td>
+					<td></td>
+					<td>￥{$item.money}</td>
+					{elseif $item.type=="tender_success_frost"}
+					<td></td>
+					<td></td>
+					<td></td>
+					{else}
+					<td></td>
+					<td>￥{ $item.money}</td>
+					<td></td>
+					{/if}
+					<!-- <td>￥{ $item.balance}</td> -->
+					<td>{ $item.addtime|date_format:"Y-m-d H:i:s"}</td>
+					<td width="130">{ $item.remark}</td>
+				</tr>
+				{/if}
+				{ /foreach}
+			</form>
+		</table>
+		</div>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+			<tr>
+				<td colspan="4" class="page">
+						{if $loop.pages.total>0}
+						<div class="list_table_page">{$loop.pages|showpage}</div>
+						{/if}
+				</td>
+			</tr>
+		</table>
+		{/list}
+		</div>
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->
+	  
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->
+{elseif $_U.query_type=="recharge_new_quickpay"}
+<div class="son_content">
+          <p class="son_chongzhi">充值</p>	  
+	  <div id="content" class="p20bs color-white-bg fn-clear">
+		<div class="con_title">
+
+		<div class="recharge_con">
+			<form data-name="recharge" class="fm_bank_card fm_submit" method="post" id="regchargeForm" name="checkinForm" 
+		    	action="/?user&q=code/account/recharge_new_quick_advance">
+		        
+		        {articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}{/articles}
+		        <div class="ipt_line ipt_line_piggy ui-form-item">
+		            <div class="ipt_title ui-label">余额：</div>
+		            <div class="fn-left piggy_orange">¥{$var.balance|round:"2,3"|default:0.00}</div>
+		        </div>
+
+		        <div class="ipt_line ipt_line_piggy ui-form-item">
+  	                <div class="ipt_title ui-label"><span class="ui-form-required">*</span>充值金额：</div>
+  	                <input class="ui-input" type="text" name="amount" maxlength="14" id="rechargeAmount" data-is="isAmount" value="">
+                    <i class="unit">元</i>
+  	             </div>
+
+		        <div class="ipt_line ipt_line_piggy ui-form-item">
+				    <div class="ipt_title ui-label">支付方式：</div>
+					<ul style="border:none;" class="subpiggycontent">
+				       <a href="/?user&q=code/account/recharge_new"><li class="tab_binding recharge">网银支付</li></a>
+					   <a href="/?user&q=code/account/recharge_new_quickpay"><li class="tab_online_active recharge">快捷支付</li></a>
+				    </ul>
+		        </div>
+
+				<div class="ipt_line_piggy ui-form-item mt20" style="padding-bottom:10px">
+						<div class="ipt_title ui-label">选择银行卡：</div>
+					    <div class="inputs" style="margin-left:0">
+					            <div>
+				                  <div class="bank-list fn-left" id="J_banklis">
+				                    <div class="default-bank">
+				                      <div class="no-bank J_no_bank">
+				                        <a class="openLink addBank" href="/?user&q=code/approve/bank" tabindex="-1" target="_self">银行卡管理</a>
+				                      </div>
+				                      <div class="first-bank fn-hide fn-clear J_default-bank">
+				                        <a href="javascript:" class="J_change_card change-card"> <span>更换</span>
+				                          <i></i>
+				                        </a>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </div>
+					     </div>
+			        </div>
+			        
+			        <div class="ipt_line_piggy ui-form-item mt20" style="padding-bottom:10px">
+						<div class="ipt_title ui-label"></div>
+					    <div class="inputs piggy_orange" style="margin-left:0">
+					    {if $_U.bankDataId==15}
+               单笔20万元,单日50万元
+					    {/if}
+					    {if $_U.bankDataId==16}
+					     单笔20万元,单日50万元
+					    {/if}
+					    {if $_U.bankDataId==17}
+					    	农业暂时不支持快捷支付,请联系客服！！！
+					    {/if}
+					    {if $_U.bankDataId==18}
+					    	招商暂时不支持快捷支付,请联系客服！！！
+					    {/if}
+					    {if $_U.bankDataId==19}
+					    	单笔5万元,单日20万元
+					    {/if}
+					    {if $_U.bankDataId==20}
+					    	单笔1万元,单日5万元
+					    {/if}
+					    {if $_U.bankDataId==21}
+					    	单笔5000元,单日5000元,需开通银联无卡支付！！！
+					    {/if}
+					    {if $_U.bankDataId==22}
+					    	单笔650元,单日5万元
+					    {/if}
+					    {if $_U.bankDataId==23}
+					    	民生暂时不支持快捷支付,请联系客服！！！
+					    {/if}
+					    {if $_U.bankDataId==24}
+					    	单笔5万元,单日5万元
+					    {/if} 
+					    {if $_U.bankDataId==25}
+					    	单笔5000元,单日1万元,月累计1万
+					    {/if}
+					    {if $_U.bankDataId==26}
+					    	单笔20万元,单日20万元,需开通银联无卡支付
+					    {/if}
+					    {if $_U.bankDataId==27}
+					    	单笔5万元,单日10万元
+					    {/if}
+					    {if $_U.bankDataId==28}
+					    	单笔20万元,单日50万元
+					    {/if}
+              {if $_U.bankDataId==29}
+                华夏暂时不支持快捷支付,请联系客服！！！
+              {/if}
+              {if $_U.bankDataId==30}
+                单笔5万元,单日5万元
+              {/if}
+					    {if $_U.bankDataId==32}
+                单笔2万元,单日5万元
+              {/if}    
+					    </div>
+			  	 	</div>
+			        
+	  	             <div id="recharge_net_bank">
+	  	             <div class="ipt_line ipt_line_piggy ui-form-item">
+	  	                <div class="ipt_title ui-label"><span class="ui-form-required">*</span>短信验证码：</div>
+	  	                <input class="ui-input" type="text" name="vcode" maxlength="9" value="">
+	  	                <button id="sendSmsButton" name="sendSmsButton" type="button" class="block-btn" style="width:160px">获取验证码</button>
+	  	                <label class="error" id="J_must_setAmount" style="display:none;" >充值金额：不能为空</label>
+	  	                <label class="error" id="J_must_setMp" style="display:none;" >储蓄卡卡号：不能为空</label>
+	  	                <label class="error" id="J_must_setBankCardNo" style="display:none;" >银行预留手机号：不能为空</label>
+	  	                <label class="error" id="J_must_error" style="display:none;" >操作失败[持卡人身份信息、卡号、手机号输入不正确，验证失败]</label>
+	  	                <label class="error" id="J_amount_must_error" style="display:none;" >单笔充值金额应大于等于5元</label>
+	  	             </div> 
+	  	                                 
+		            
+		            <!-- <div class="ipt_line bd_bottom_none">
+		                <div class="ipt_title">&nbsp;</div>
+		                <div class="custom_checkbox" id="custom_checkbox">
+		                	<input type="checkbox" name="agreement" class="J_checkbox">
+		                </div>
+		                <span class="ml10 text">阅读并同意
+		                <a class="contract_btn" href="/rechargencash/index.html">《用户协议》</a></span>
+		            </div> -->
+		            <div class="ipt_line bd_bottom_none">
+		                <div class="ipt_title">&nbsp;</div>
+		                <input id="userBankId" class="fn-left invisible error" type="hidden" name="userBankId" />
+		                <input type="hidden" id="ticket" name="ticket" value="" class="channel_type">
+		                <button id="sub-recharge" type="submit" class="red_218_39">确认</button>
+		            </div>
+		            </div>
+
+		        </div>
+		    </form>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		<div class="hide">
+	        <div id="afterSub" class="afterSub">
+	        <h3>充值中...</h3>
+	        <p>付款完成前请不要关闭此窗口。</p>
+	        <p>完成付款后请根据您的情况点击下面的按钮：</p>
+	        <a class="ui-button ui-button-mid ui-button-green" id="finishRecharge">已完成付款</a> <a class="ui-button ui-button-mid ui-button-green" id="troubleRecharge">付款遇到问题</a>
+	        </div>
+	      </div>
+	    
+	    <script>seajs.use(['pages/account/capital/recharge']);</script> 
+	    
+	    {literal} 
+<script id="withdraw-list-template" type="text/x-handlebars-template">
+<ul class="J_card_list fn-hide card-list">
+{{#each userBanks}}
+<li class="fn-clear">
+  <div class="bank-logo"><img src="/static/img/banks/{{litpic}}" /></div>
+  <span class="card-tail-number">{{ tailNumber }}</span>
+  <a href="javascript:" data-index="{{cordIndex}}" class="bankli" data-bank="{{id}}"></a>
+</li>
+{{/each}}
+</ul>
+</script>
+{/literal}
+<script id="withdraw-list-rsp" type="text/x-json">
+{$_U.userBanks}
+</script> 
+
+</div>
+
+<script>seajs.use(['pages/account/capital/quickwithdraw']);</script> 
+<!--##########################################################################################################################################-->
+<!--##########################################################################################################################################-->
+
+
+{/if}
+{literal}
+<script>
+var url = "{$_U.query_url}/{$_U.query_type}";
+function sousuo(){
+	var _url = "";
+	var dotime1 = $("#dotime1").val();
+	var keywords = $("#keywords").val();
+	var username = $("#username").val();
+	var dotime2 = $("#dotime2").val();
+	var type = $("#type").val();
+	if (username!=null){
+		 _url += "&username="+username;
+	}
+	if (keywords!=null){
+		 _url += "&keywords="+keywords;
+	}
+	if (dotime1!=null){
+		 _url += "&dotime1="+dotime1;
+	}
+	if (dotime2!=null){
+		 _url += "&dotime2="+dotime2;
+	}
+	if (type!=null){
+		 _url += "&type="+type;
+	}
+	location.href=url+_url;
+}
+</script>
+{/literal}	  
+	  </div>
+  	</div>
+</div>
+    </div>
+</div>        

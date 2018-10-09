@@ -1,0 +1,44 @@
+@charset "utf-8";
+/*-------------------------------------
+page content style
+version:	1.1
+author:		Huarong.qin
+website:	http://www.weipaidai.com/
+-------------------------------------*/ 
+ .right_side{min-height:700px; }
+#row1 ul{line-height:50px;}
+#row1 ul li{width:708px;float:left; }
+#row1 div {clear:both;}
+ 
+.aa {text-indent: 2em; 
+font-size: 14px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+#row2 ul{line-height:50px;} 
+#row2 ul li{width:708px;float:left; }
+#row2 div {clear:both;}
+.qx{clear:both;}
+
+#row3 ul{line-height:50px;}
+#row3 ul li{width:708px;float:left; }
+#row3 div {clear:both;}
+
+#row4 ul{line-height:50px;}
+#row4 ul li{float:left;width:350px; }
+#row4 div {clear:both;}
+
+#row5 ul{line-height:50px;}
+#row5 ul li{float:left; width:350px;}
+#row5 div {clear:both;}
+#row6 ul{line-height:50px;}
+
+ 
+#row7 ul{line-height:50px;}
+#row7 ul li{width:708px;float:left; }
+#row7 div {clear:both;}
+table{margin-left: auto;margin-right: auto;width:630px;}
+ 

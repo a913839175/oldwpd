@@ -1,0 +1,518 @@
+{include file="../hrcf/header.html"}
+
+<script src="/static/hrzhang/js/base.js"></script>
+<script src="/static/js/lib/jquery/1.9.1/jquery.nocmd.js"></script>
+<script src="/static/js/lib/simplePagination/1.5.0/simplePagination.nocmd.js"></script>
+<script src="/plugins/timepicker/WdatePicker.js" type="text/javascript"></script>
+
+<div class="pg-container-content">
+    <link rel="stylesheet" href="/static/css/pages/account/account.css">
+    <div id="pg-account-loans" class="pg-account">
+        <div class="container_12 mt10">
+            <ul class="ui-breadcrumb grid_12 fn-clear">       
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+                    <a href="/index.php?user">我的微拍贷</a>
+                </li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+                    <a href="/?user&q=code/borrow/success&type=wait">理财管理</a>
+                </li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+                    {if $_U.query_type=="success"}    
+                        <a href="/?user&q=code/borrow/success&type=wait">我的债权</a>
+                    {elseif $_U.query_type=="loan"}
+                        <a href="/?user&q=code/borrow/loan&type=loan">我的借款</a>
+                    {/if} 
+                </li>
+            </ul>
+        </div>
+        <div class="container_12 mt10 fn-clear">
+            {include file="user_menu.html"}
+
+            <div class="grid_10 " style="margin-left: 0px;margin-top: -19px;">
+
+
+                {if $_U.query_type=="gettender_2016"}
+
+                <div class="grid_10" style="margin-top: -19px;margin-left: 0px;">
+
+                    <div class="mt20">
+                        <div class="ui-tab ui-tab-transparent" id="loans-tab">
+                            <ul class="ui-tab-items">
+                                <li class="ui-tab-item {if $magic.request.type=="wait"}ui-tab-item-current{/if}" data-name="repaying">
+                                    <a class="ui-tab-item-link" href="{$_U.query_url}/success&type=wait">回收中的债权</a>
+                                             </li>
+                                             <li class="ui-tab-item {if $magic.request.type=="yes"}ui-tab-item-current{/if}" data-name="repaid">
+                                                 <a class="ui-tab-item-link" href="{$_U.query_url}/gathering&type=yes" >已结清的债权</a>
+                                                          </li>
+                                                          <!-- <li class="ui-tab-item {if $_U.query_type=="gettender"}ui-tab-item-current{/if}" data-name="investing">
+                                                            <a class="ui-tab-item-link" href="{$_U.query_url}/gettender">投标中的债权</a>
+                                                          </li>-->
+                                             </ul>
+                                </div>
+                                <div class="p20bs color-white-bg">
+                                    <div id="loans-tab-content">
+                                        <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="repaying">
+                                            <div class="t20">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabyel">
+
+                                                    <form action="" method="post">
+                                                        <tr class="ytit1" >
+                                                            <td  >贷款标的</td>
+                                                            <td  >认证等级</td>
+                                                            <td  >预期利率</td>
+                                                            <td  >第几期/总期数</td>
+                                                            <td  >借出本金</td>
+                                                            <td  >进度</td>
+                                                            <td  >状态</td>
+                                                        </tr>
+                                                        {list module="borrow" var="loop" function ="GetTenderBorrowList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" type="$magic.request.type"  tender_status="0" borrow_status="1"}
+                                                        {foreach from="$loop.list" item="item"}
+                                                        <tr {if $key%2==1} class="ynow"{/if}>
+                                                            <td title="{$item.name}">{$item.name|truncate:20}
+                                                                {if $item.reward_name!=""}
+                                                                ({$item.reward_name})
+                                                                {/if}
+                                                            </td>
+                                                            <td  >{$item.borrow_xingyong}</td>
+                                                            <td  >{$item.borrow_apr_old}%{if $item.award_status!=0}+奖{/if}{if $item.award_status==1}{$item.award_account}元{/if}{if $item.award_status==2}{$item.award_scale}%{/if}</td>
+                                                            <td  >{$item.order+1}/{$item.borrow_period}</td>
+                                                            <td  >￥{$item.tender_account}</td>
+                                                            <td  >{$item.borrow_account_scale}%</td>
+                                                            <td  >{if $item.account_tender==$item.tender_account}全部通过{else}部分通过{/if}</td>
+                                                        </tr>
+                                                        {/foreach}
+                                                    </form>	
+                                                </table>
+                                            </div>
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                                <tr>
+                                                    <td colspan="4" class="page">
+                                                        {if $loop.pages.total>0}
+                                                        <div class="list_table_page">{$loop.pages|showpage}</div>
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="ui-poptip fn-hide" id="tipCon_1">
+                    <div class="ui-poptip-shadow">
+                    <div class="ui-poptip-container">
+                        <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                            <em></em>
+                            <span></span>
+                        </div>
+                        <div class="ui-poptip-content" data-role="content">
+                           债权已赚金额 = 债权已赚利息罚息及违约金 + 债权转让盈亏 - 债权转让应计利息支出<br>（由于购买转让的债权时可能需要先支付应计利息，所以此数值可能为负）
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="ui-poptip fn-hide" id="tipCon_2">
+                    <div class="ui-poptip-shadow">
+                    <div class="ui-poptip-container">
+                        <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                            <em></em>
+                            <span></span>
+                        </div>
+                        <div class="ui-poptip-content" data-role="content">
+                          利息收益 = 债权已赚利息罚息及违约金 - 债权转让应计利息支出<br>（由于购买转让的债权时可能需要先支付应计利息，所以此数值可能为负）
+                        </div>
+                    </div>
+                    </div>
+                </div> -->
+
+            </div>
+
+            {elseif $magic.request.type=="wait" || $magic.request.type=="gettender"}
+            <div class="grid_10">
+
+                <div class="mt20">
+                    <div class="ui-tab ui-tab-transparent" id="loans-tab">
+                        <ul class="ui-tab-items">
+                            <li class="ui-tab-item {if $magic.request.type=="wait"}ui-tab-item-current{/if}" data-name="repaying">
+                                <a class="ui-tab-item-link" href="{$_U.query_url}/success&type=wait">回收中的债权</a>
+                                         </li>
+                                         <li class="ui-tab-item {if $magic.request.type=="yes"}ui-tab-item-current{/if}" data-name="repaid">
+                                             <a class="ui-tab-item-link" href="{$_U.query_url}/gathering&type=yes" >已结清的债权</a>
+                                                      </li>
+                                                      <!-- <li class="ui-tab-item {if $_U.query_type=="gettender"}ui-tab-item-current{/if}" data-name="investing">
+                                                        <a class="ui-tab-item-link" href="{$_U.query_url}/gettender">投标中的债权</a>
+                                                      </li>-->
+                                         </ul>
+                            </div>
+                            <div class="p20bs color-white-bg">
+                                <div id="loans-tab-content">
+                                    <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="repaying">
+                                        <div class="t20">
+                                            <!--回收中的债券列表页修改 开始-->
+                                            {list module="borrow" var="loop" function ="GetTenderBorrowList" epage="3" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" type="$magic.request.type" tender_status="1"}
+                                            {foreach from="$loop.list" item="item"}
+                                            <table width="100%" cellspacing="0" cellpadding="0" class="tabyel" style=" margin-bottom: 20px; border: 1px solid #e5e5e5; border-top: 4px solid #74d6a2;">
+                                                <form action="" method="post">
+                                                    <tr class="ytit1" style=" background-color: #f2f2f2; width: 100%; height: 40px; text-align: center; line-height: 40px; border-top: 2 solid #000000;">								
+                                                        <td style="width: 25%">标题</td>
+                                                            <td style="width: 20%">借款类型</td>
+                                                            <td style="width: 15%">认证等级</td>
+                                                            <td style="width: 30%">预期利率</td>
+                                                            <td style="width: 10%">待收期数</td>
+                                                        </tr>
+                                                        <tr style=" width: 100%; height: 40px; text-align: center; line-height: 40px;" {if $key%2==1} class="ynow"{/if}>
+                                                        <td title="{$item.name}">
+                                                                {$item.name|truncate:20}
+                                                                <!--{if $item.reward_name!=""}
+                                                                ({$item.reward_name})
+                                                                {/if}
+                                                                暂时不显示活动名称-->
+                                                            </td>
+                                                            <td>{$item.borrow_style|linkages:"borrow_style"}</td>	
+                                                            <td>{$item.borrow_xingyong}</td>			
+                                                            <td>{$item.borrow_apr}%</td>
+                                                            {if $item.borrow_nid=="HONGBAO"}
+                                                            <td>2天</td>
+                                                            {elseif $item.borrow_nid=="HONGBAO_10000"}
+                                                            <td>2天</td>
+                                                            {elseif $item.borrow_nid=="HONGBAOSEVEN"}
+                                                            <td>7天</td>
+                                                            {elseif $item.borrow_nid=="HONGBAOYIWANG" || $item.borrow_nid=="HONGBAOLIANGWANG" || $item.borrow_nid=="HONGBAOSANWANG" || $item.borrow_nid=="HONGBAOSHIWANG" || $item.borrow_nid=="HONGBAOWUWANG" || $item.borrow_nid=="HONGBAOQIWANG" || $item.borrow_nid=="HONGBAOSANQIAN" ||  $item.borrow_nid=="HONGBAOQIQIAN" || $item.borrow_nid=="HONGBAOSUIJI" ||  $item.borrow_nid=="HONGBAOERBABABA" }
+                                                            <td>7天</td>
+                                                            {elseif $item.borrow_nid=="WADDMONTH" || $item.borrow_nid=="WADDMONTH_2016"}
+                                                            <td>随存随取</td>
+                                                            {else}
+                                                            <td>{$item.wait_times}</td>
+                                                            {/if}
+                                                        </tr>
+                                                        <tr class="ytit1" style=" background-color: #f2f2f2; width: 100%; height: 40px; text-align: center; line-height: 40px; border-top: 2 solid #000000;">
+                                                            <td>投资金额</td>
+                                                            <td>预期收益</td>
+                                                            <td>购买时间</td>
+                                                            <td>计息周期</td>
+                                                            <td>操作</td>
+                                                        </tr>
+                                                        <tr style=" width: 100%; height: 40px; text-align: center; line-height: 40px; margin-bottom: 10px;">
+                                                            <td>￥{$item.tender_account}</td>
+                                                            <td>￥{$item.recover_account_interest}{if $item.borrow_nid=="WADDMONTH_2016"} /月{/if}</td>
+                                                            <td title="{$item.tender_time|date_format:"Y-m-d H:i:s"}">{$item.tender_time|date_format:"Y-m-d"}</td>
+                                                            {if $item.tender_type=="wadd"}
+                                                            <td>
+                                                                {$item.qixi|date_format:"Y-m-d"}~
+                                                            </td>
+                                                            {else}
+                                                            <td>
+                                                                {$item.qixi|date_format:"Y-m-d"}~{$item.daoqi|date_format:"Y-m-d"}
+                                                            </td>
+                                                            {/if}
+                                                            <td>
+                                                                {if ($item.can_repay && $item.repay_id!="")}
+                                                                <a href="#" onClick="javascript:if (confirm('确定要赎回?'))
+                                                                            location.href = '/index.php?user&q=code/borrow/repay&borrow_nid={$item.borrow_nid}&id={$item.repay_id}'">
+                                                                    赎回
+                                                                </a>
+                                                                {else}
+                                                                <span style="color: #ababab"> 赎回 </span>
+                                                                {/if}
+                                                                {if $item.tender_type!="hongbao" && $item.tender_type!="sanbiao"}
+                                                                <a class="fn-right text ui-box-text" 
+                                                                   onclick="javascript:window.open('/?user&q=hetong&id={$item.tid}', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')" 
+                                                                   href="javascript:void(0)">合同</a>
+                                                                {/if}
+                                                                {if $item.tender_type=="sanbiao"}
+                                                                <a class="fn-right text ui-box-text" onclick="javascript:window.open('http://ht.weipaidai.com:88/esign/hrcf{$item.tid}{$item.tender_time}.pdf')" href="javascript:void(0)">合同</a>
+                                                                {/if}
+                                                            </td>
+                                                        </tr>
+                                                        {if $item.tender_type=="waddyfanyear" || $item.borrow_style==1}
+                                                        <tr class="ytit1" style=" background-color: #f2f2f2; width: 100%; height: 40px; text-align: center; line-height: 40px; border-top: 2 solid #000000;">
+                                                            <td>已返次数</td>
+                                                            <td>已返收益</td>
+                                                            <td>返息时间</td>
+                                                            <td>{if $item.hongbao_title}使用红包{/if}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr style=" width: 100%; height: 40px; text-align: center; line-height: 40px; margin-bottom: 10px;">
+                                                            <td>{$item.recover_times}</td>
+                                                            <td>￥{$item.recover_account_interest_yes}</td>
+                                                            <td>{$item.repay_time|date_format:"Y-m-d"}</td>
+                                                            <td>{if $item.hongbao_title}{$item.hongbao_title}{/if}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        {else}
+                                                            {if $item.hongbao_title}
+                                                            <tr class="ytit1" style=" background-color: #f2f2f2; width: 100%; height: 40px; text-align: center; line-height: 40px; border-top: 2 solid #000000;">
+                                                                <td>使用红包</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr style=" width: 100%; height: 40px; text-align: center; line-height: 40px; margin-bottom: 10px;">
+                                                                <td>{if $item.hongbao_total>0}{$item.hongbao_total}元{elseif $item.hongbao_apr>0}加息{$item.hongbao_apr}%{else}{$item.hongbao_title}{/if}</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            {/if}
+                                                        {/if}
+                                                    </form>	
+                                                </table>
+                                                {/foreach}
+                                                <!--回收中的债券列表页修改 结束-->
+                                            </div>
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                                <tr>
+                                                    <td colspan="4" class="page">
+                                                        {if $loop.pages.total>0}
+                                                        <div class="list_table_page">{$loop.pages|showpage}</div>
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {elseif $magic.request.type=="yes"}
+            <div class="grid_10">
+                <div class="mt20">
+                    <div class="ui-tab ui-tab-transparent" id="loans-tab">
+                        <ul class="ui-tab-items">
+                            <li class="ui-tab-item {if $magic.request.type=="wait"}ui-tab-item-current{/if}" data-name="repaying">
+                            <a class="ui-tab-item-link" href="{$_U.query_url}/success&type=wait">回收中的债权</a>
+                                     </li>
+                                     <li class="ui-tab-item {if $magic.request.type=="yes"}ui-tab-item-current{/if}" data-name="repaid">
+                                         <a class="ui-tab-item-link" href="{$_U.query_url}/gathering&type=yes" >已结清的债权</a>
+                                                  </li>
+                                                  <!-- <li class="ui-tab-item {if $_U.query_type=="gettender"}ui-tab-item-current{/if}" data-name="investing">
+                                                    <a class="ui-tab-item-link" href="{$_U.query_url}/gettender">投标中的债权</a>
+                                                  </li>-->
+                                     </ul>
+                        </div>
+                        <div class="p20bs color-white-bg">
+                            <div id="loans-tab-content">
+                                <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="repaying">
+                                    <div class="t20">
+                                        <!--已结清的债券列表页修改 开始-->
+                                        {list module="borrow" var="loop" function ="GetRecoverList" showpage="10" user_id="0" keywords="request" dotime1="request" dotime2="request" borrow_status=3 type="$magic.request.type" order="repay_time" epage="4"}
+                                        {foreach from="$loop.list" item="item"}
+                                        <table width="100%" cellspacing="0" cellpadding="0" class="tabyel" style=" margin-bottom: 20px; border: 1px solid #e5e5e5; border-top: 4px solid #74d6a2;">
+                                            <form action="" method="post">
+                                                <tr class="ytit1" style=" width: 100%; height: 40px; text-align: center; line-height: 40px; border: 1px solid #e5e5e5;">
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">贷款标的</td>
+                                                    <td style="width: 15%; color: #ff6845">{$item.borrow_name|truncate:8}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">购买时间</td>
+                                                    <td style="width: 20%">{$item.addtime|date_format:"Y-m-d"}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">到期时间</td>
+                                                    <td style="width: 20%">{$item.recover_yestime|date_format:"Y-m-d"}</td>
+                                                </tr>
+                                                <tr style=" width: 100%; height: 40px; text-align: center; margin-bottom: 10px; border: 1px solid #e5e5e5;">
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">第几期/总期数</td>
+                                                    <td style="width: 15%">{$item.recover_times}/{if $item.borrow_name=="微月盈" || $item.borrow_name=="微月盈Ⅱ" || $item.borrow_name=="微月盈Ⅲ"}{$item.borrow_period}{else}1{/if}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">应收总额</td>
+                                                    <td style="width: 20%">{$item.recover_account_all}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">应收本金</td>
+                                                    <td style="width: 20%">{$item.account}</td>
+                                                </tr>
+                                                <tr style=" width: 100%; height: 40px; text-align: center; margin-bottom: 10px;">
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">应收利息</td>
+                                                    <td style="width: 15%">{$item.recover_account_interest}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">预期利率</td>
+                                                    <td style="width: 20%">{$item.borrow_apr+$item.reward_apr}%</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">合同</td>
+                                                    <td style="width: 20%">
+                                                        {if $item.tender_type!="hongbao"}
+                                                        <a class="fn-center text ui-box-text" 
+                                                           onclick="javascript:window.open('/?user&q=hetong&id={$item.tender_id}', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')" 
+                                                           href="javascript:void(0)">查看</a>
+                                                        {/if}	
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                        </table>
+                                        {/foreach}
+                                            <!--已结清的债券列表页修改 结束-->
+                                        </div>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                            <tr>
+                                                <td colspan="4" class="page">
+                                                    {if $loop.pages.total>0}
+                                                    <div class="list_table_page">{$loop.pages|showpage}</div>
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {elseif $magic.request.type=="loan"}
+            <div class="grid_10">
+                <div class="mt20">
+                    <div class="ui-tab ui-tab-transparent" id="loans-tab">
+                        <ul class="ui-tab-items">
+                            <li class="ui-tab-item {if $magic.request.type=="loan"}ui-tab-item-current{/if}" data-name="repaying">
+                                <a class="ui-tab-item-link" href="{$_U.query_url}/loan&type=loan">待还款</a>
+                            </li>
+                            <li class="ui-tab-item {if $magic.request.type=="loanyes"}ui-tab-item-current{/if}" data-name="repaid">
+                                <a class="ui-tab-item-link" href="{$_U.query_url}/loan&type=loanyes" >已还款</a>
+                            </li>
+                        </ul>
+                    </div>
+                        <div class="p20bs color-white-bg">
+                            <div id="loans-tab-content">
+                                <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="repaying">
+                                    <div class="t20">
+                                    {list module="borrow" var="loop" function ="Gethuikuanrepay" showpage="10" user_id=$_G.user_id  epage="4"  repay_status = "0"}
+                                        {foreach from="$loop.list" item="item"}
+                                            <table width="100%" cellspacing="0" cellpadding="0" class="tabyel" style=" margin-bottom: 20px; border: 1px solid #e5e5e5; border-top: 4px solid #74d6a2;">
+                                                <form action="" method="post">
+                                                    <tr class="ytit1" style=" background-color: #f2f2f2; width: 100%; height: 40px; text-align: center; line-height: 40px; border-top: 2 solid #000000;">                               
+                                                        <td style="width: 25%">贷款号</td>
+                                                        <td style="width: 20%">还款方式</td>
+                                                        <td style="width: 15%">借款总金额</td>
+                                                        <td style="width: 30%">借款利率</td>
+                                                        <td style="width: 10%">贷款期限</td>
+                                                    </tr>
+                                                    <tr style=" width: 100%; height: 40px; text-align: center; line-height: 40px;" {if $key%2==1} class="ynow"{/if}>
+                                                        <td style="color: #ff6845">{$item.borrow_nid}</td>
+                                                        <td>{if $item.borrow_style==0}等额本息{elseif $item.borrow_style==1}按月付息{else}到期本息{/if}</td>
+                                                        <td>{$item.loan_account}</td> 
+                                                        <td>{$item.borrow_apr}%</td>
+                                                        <td>{if $item.borrow_period==0}{$item.borrow_days}天{else}{$item.borrow_period}月{/if}</td>
+                                                    </tr>
+                                                    <tr class="ytit1" style=" background-color: #f2f2f2; width: 100%; height: 40px; text-align: center; line-height: 40px; border-top: 2 solid #000000;">
+                                                        <td>贷款类型</td>
+                                                        <td>期数</td>
+                                                        <td>还款日期</td>
+                                                        <td>还款金额</td>
+                                                        <td>操作</td>
+                                                    </tr>
+                                                    <tr style=" width: 100%; height: 40px; text-align: center; line-height: 40px; margin-bottom: 10px;">
+                                                        <td>{$item.borrow_namestyle}</td>
+                                                        <td>{if $item.borrow_style==2}(1/1){else}({$item.repay_period}/{$item.borrow_period}){/if}</td>
+                                                        <td>{$item.repay_time|date_format:"Y-m-d"}</td>
+                                                        <td>{$item.repay_account}元</td>
+                                                        <td>
+                                                            {if $item.nowtime >= $item.repay_time}
+                                                            <a href="#" onClick="javascript:if (confirm('确定要还款?'))
+                                                                            location.href = '/?user&q=code/account/loan_huikuan&id={$item.id}'">
+                                                                    立即还款</a>
+                                                            {/if}
+                                                        </td>
+                                                    </tr>
+                                                </form> 
+                                            </table>
+                                        {/foreach}
+                                            <!--已结清的债券列表页修改 结束-->
+                                        </div>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                            <tr>
+                                                <td colspan="4" class="page">
+                                                    {if $loop.pages.total>0}
+                                                    <div class="list_table_page">{$loop.pages|showpage}</div>
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {elseif $magic.request.type=="loanyes"}
+            <!-- 我的借款 已回款 -->
+            <div class="grid_10">
+                <div class="mt20">
+                    <div class="ui-tab ui-tab-transparent" id="loans-tab">
+                        <ul class="ui-tab-items">
+                            <li class="ui-tab-item {if $magic.request.type=="loan"}ui-tab-item-current{/if}" data-name="repaying">
+                                <a class="ui-tab-item-link" href="{$_U.query_url}/loan&type=loan">待还款</a>
+                            </li>
+                            <li class="ui-tab-item {if $magic.request.type=="loanyes"}ui-tab-item-current{/if}" data-name="repaid">
+                                <a class="ui-tab-item-link" href="{$_U.query_url}/loan&type=loanyes" >已还款</a>
+                            </li>
+                        </ul>
+                    </div>
+                        <div class="p20bs color-white-bg">
+                            <div id="loans-tab-content">
+                                <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="repaying">
+                                    <div class="t20">
+                                    {list module="borrow" var="loop" function ="Gethuikuanrepay" showpage="10" user_id=$_G.user_id  epage="4" repay_status = "1"}
+                                        {foreach from="$loop.list" item="item" }
+                                        <table width="100%" cellspacing="0" cellpadding="0" class="tabyel" style=" margin-bottom: 20px; border: 1px solid #e5e5e5; border-top: 4px solid #74d6a2;">
+                                            <form action="" method="post">
+                                                <tr class="ytit1" style=" width: 100%; height: 40px; text-align: center; line-height: 40px; border: 1px solid #e5e5e5;">
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">贷款号</td>
+                                                    <td style="width: 15%; color: #ff6845">{$item.borrow_nid}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">还款方式 </td>
+                                                    <td style="width: 20%">{if $item.borrow_style==0}等额本息{elseif $item.borrow_style==1}按月付息{else}到期本息{/if}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">借款总金额</td>
+                                                    <td style="width: 20%">{$item.loan_account}</td>
+                                                </tr>
+                                                <tr style=" width: 100%; height: 40px; text-align: center; margin-bottom: 10px; border: 1px solid #e5e5e5;">
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">借款利率</td>
+                                                    <td style="width: 15%">{$item.borrow_apr}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">贷款期限</td>
+                                                    <td style="width: 20%">{if $item.borrow_period==0}{$item.borrow_days}天{else}{$item.borrow_period}月{/if}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">贷款类型</td>
+                                                    <td style="width: 20%">{$item.borrow_namestyle}</td>
+                                                </tr>
+                                                <tr style=" width: 100%; height: 40px; text-align: center; margin-bottom: 10px;">
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">期数</td>
+                                                    <td style="width: 15%">{if $item.borrow_style==2}(1/1){else}({$item.repay_period}/{$item.borrow_period}){/if}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">还款日期</td>
+                                                    <td style="width: 20%">{$item.repay_time|date_format:"Y-m-d"}</td>
+                                                    <td style="width: 15%; background-color: #f2f2f2; border: 1px solid #e5e5e5;">还款金额</td>
+                                                    <td style="width: 20%">
+                                                        {$item.repay_account}元
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                        </table>
+                                        {/foreach}
+                                            <!--已结清的债券列表页修改 结束-->
+                                        </div>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                            <tr>
+                                                <td colspan="4" class="page">
+                                                    {if $loop.pages.total>0}
+                                                    <div class="list_table_page">{$loop.pages|showpage}</div>
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/if}
+    </div>
+</div>

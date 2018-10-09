@@ -1,0 +1,283 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:scroll;overflow-x:hidden;-webkit-user-select: none; padding-bottom:30px; background-color:#ffffff;height: 100%;}
+/*top*/
+.top{ height:13.5vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left; width:7vw;margin-left:4.5vw; margin-top: 3.3vw; }
+.top1 img{ width:100%;}
+.top_title{ float:left;}
+.top_title p{ color:#FFF; font-size:4.5vw; line-height:13.5vw; padding-left:25vw;}
+.top2{ float:right; width:30vw; padding-top:4.5vw; color: #fff;font-size:4vw;}
+.top2 .myscore{color: #FDE200;}
+.top2 img{ width:100%;}
+.top3{ float:right; width:0.95vw; padding-top:1.7vw; padding-right:7.5vw;}
+.top3 img{ width:100%;}
+
+/* main */
+.main{
+	width: 100%;
+	float: left;
+}
+.first{
+	width: 100%;
+	float: left;
+}
+.product_img{
+	width: 100%;
+	float: left;
+}
+.product_img img{
+	width: 100%;
+}
+
+.word{
+	/*width: 100vw;*/
+	height: 20vw;
+	position: relative;
+	/*left: 73vw;*/
+	margin-left: 73vw;
+	bottom:10vw;
+}
+
+.word span{
+	color:#2e2e2e;
+	font-family: "黑体";
+	font-size: 2vw;
+}
+
+.second{
+	width: 100%;
+	float: left;
+}
+
+.titleandnum{
+	/*width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;*/
+	width: 97%;
+	margin-left: 2vw;
+	margin-right: 1vw;
+	float: left;
+	margin-top: 10px;
+}
+
+.title{
+	padding-left: 5px;
+	width: 55%;
+	float: left;
+}
+.title span{
+	color: #2e2e2e;
+	font-family: "黑体";
+	font-size: 4.5vw;
+}
+
+.num{
+	padding-left: 10px;
+	float: left;
+}
+.num span{
+	color: #2e2e2e;
+	font-family: "黑体";
+	font-size: 4.5vw;
+}
+
+.score{
+	/*width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;*/
+	width: 95%;
+	margin-left: 2vw;
+	margin-right: 1vw;
+	float:left;
+	margin-top: 10px;
+	height: 8vw;
+}
+
+.scorenum{
+	padding-left: 5px;
+	float: left;
+	margin-right: 10px;
+	line-height: 8vw;
+}
+.scorenum span{
+	color: #d7281e;
+	font-family: "黑体";
+	font-size: 7vw;
+}
+
+.scorename{
+	padding-left: 10px;
+	float: left;
+	margin-left: 10px;
+	line-height: 8vw;
+}
+.scorename span{
+	/*color: #d7281e;*/
+	color:#504949;
+	font-family: "黑体";
+	font-size: 6vw;
+}
+
+.aboutaddress{
+	width: 96%;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 8vw;
+	line-height: 8vw;
+	float: left;
+}
+
+.addressname{
+	line-height: 8vw;
+	height: 8vw;
+	margin-right: 5px;
+	float: left;
+}
+.addressname span{
+	color: #2e2e2e;
+	font-family: "黑体";
+	font-size: 4.5vw;
+}
+
+.address{
+	width: 62%;
+	line-height: 8vw;
+	height: 8vw;
+	float: left;
+}
+
+.address input{
+	width: 90%;
+	height: 6vw;
+	line-height: 6w;
+	color: #2e2e2e;
+	font-family: "黑体";
+	font-size: 4.5vw;
+	padding-left: 2px;
+	padding-right: 2px;
+	/*border: 1px #ccc solid;*/
+}
+
+.ishave{
+	float: left;
+	line-height: 8vw;
+	height: 8vw;
+
+}
+.ishave span{
+	color: #2e2e2e;
+	font-family: "黑体";
+	font-size: 4.5vw;
+}
+
+.info{
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.str{
+	width: 100%;
+	float: left;
+	
+}
+.str p{
+	color: #2e2e2e;
+	font-family: "黑体";
+	font-size: 4.5vw;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+
+
+.third{
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+}
+
+.tab{
+	width: 100%;
+	float: left;
+	color: #2e2e2e;
+	font-size: 4.5vw;
+	font-family: "黑体";
+	height: 10vw;
+	line-height: 10vw;
+}
+.current{
+	border-bottom:2px solid #1c88eb;
+}
+.current span{
+	color: #1c88eb;
+}
+
+.introtab{
+	/*width: 50%;*/
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+.paramtab{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+.centent{
+	width: 100%;
+	margin-bottom: 16vw;;
+	float: left;
+	margin-top: 10px;
+}
+
+.intricontent{
+	float: left;
+	width: 97%;
+	padding-left: 2vw;
+	padding-right: 1vw;
+	display: none;
+	min-height: 30px;
+}
+.intricontent img{
+	width: 100%
+}
+
+.paramcontent{
+	float: left;
+	width: 97%;
+	padding-left: 2vw;
+	padding-right: 1vw;
+	display: none;
+	min-height: 30px;
+}
+.paramcontent img{
+	width: 100%
+}
+
+.cur{
+	display: block!important;
+}
+
+.sure{
+	position: fixed;
+	width: 100%;
+	height:15vw;
+	line-height: 15vw;
+	color: #fff;
+	text-align: center;
+	background-color: #1c88eb;
+	bottom: 0;
+}
+
+.sure span{
+	font-family: "黑体";
+	font-size: 6vw;
+}

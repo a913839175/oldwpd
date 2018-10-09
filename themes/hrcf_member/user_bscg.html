@@ -1,0 +1,219 @@
+{include file="../hrcf/header.html"}
+<script src="/static/js/Validform/Validform_v5.3.2.js"></script>
+<div class="pg-container-content">
+  <link rel="stylesheet" href="/static/css/pages/account/account.css">
+  {if $_U.query_type=="myapp"}    
+  <div id="pg-account-verify" class="pg-account">
+  {elseif $_U.query_type=="security"}
+  <div id="pg-account-security" class="pg-account">
+  {elseif $_U.query_type=="bank"} 
+  <div id="pg-account-bank" class="pg-account">
+  {/if}
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=code/rating/basic">账户管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          {if $_U.query_type=="myapp"}    
+		  	<a href="/?user&q=code/approve/myapp">认证信息</a>
+		  {elseif $_U.query_type=="security"}
+		  	<a href="/?user&q=code/approve/security">安全信息</a>
+		  {elseif $_U.query_type=="bank"}
+		    <a href="/?user&q=code/approve/bank">银行卡信息</a> 
+		  {/if}  
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10 ">
+      
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+		{if $_U.query_type=="bscg"}	
+		
+			<div class="son_content">
+                            {articles module="bscg" function="findsmaccount" user_id=$_G.user_id var="var"}
+                            <input type="hidden" value="{$var.acc_bank_flag}" class="acc_bank_flag">
+				<div class="p20bs bscg"> 		
+					<p class="title">存管账户信息</p>
+					<div class="kybalance">
+						<p class="kybalance01">可用余额</p>
+						<p class="kybalance02"><em id="kybalance02em">{$var.acc_balance/100}</em><span>元</span></p>
+						<!-- if语句纯属做页面切换用,整合的时候请修改 -->
+						
+                        {if $var.acc_depository_flag=="1"}
+                                                <div class="kybalance04 clearfix">
+							<a class="kybalance04_01" href="/?user&q=code/bscg/recharge_bscg">充值</a>
+							<a class="kybalance04_02" href="javascript:void(0);">提现</a>
+						</div>
+						{elseif $var.acc_depository_flag=="" || $var.acc_depository_flag=="2"}
+						<a href="/?user&q=code/bscg/bsrealname" class="kybalance03">开通银行存管</a>
+						{/if}
+                                                
+					</div>
+					<div class="kyxian"></div>
+					<ul class="conbt_ul">
+						<li class="conbt_li1 clearfix">
+							<i class="fl conbt_img1 mat28"></i>
+							<div class="conbt_center fl">
+								<div class="conbt_top1 clearfix">
+									<p class="fl conbt_topmz5">包商银行存管账户</p>
+								</div>
+								<p class="conbt_topmz7">与包商银行合作资金存管，保障用户资金安全</p>
+							</div>
+                                                        {if $var.acc_depository_flag=="1"}
+							<a href="/?user&q=code/bscg/cunguan" target="_blank" class="fr conbt_topmz8" id="Deaccounts">进入</a>
+                                                        {/if}
+						</li>
+						<div class="kyxian"></div>
+						<li class="conbt_li1 clearfix">
+							<i class="fl conbt_img2 mat28"></i>
+							<div class="conbt_center fl">
+								<div class="conbt_top1 clearfix">
+									<p class="fl conbt_topmz5">存管银行卡</p>
+								</div>
+								<p class="conbt_topmz7">为保证账户资金安全，请绑定本人的银行卡</p>
+							</div>
+                                                        {if $var.acc_bank_flag=="1"}
+                                                        <a href="/?user&q=code/bscg/unbind" class="fr conbt_topmz8" id="J_Bnakcard">解绑</a>
+                                                        {elseif $var.acc_bank_flag=="2" && $var.acc_depository_flag!="2"}
+                                                        <a href="/?user&q=code/bscg/bind" class="fr conbt_topmz8" id="J_Bnakcard" onclick="return false">绑卡</a>
+                                                        {/if}
+						</li>
+						<div class="kyxian"></div>
+						<li class="conbt_li1 clearfix">
+							<i class="fl conbt_img3"></i>
+							<div class="conbt_center fl">
+								<div class="conbt_top1 clearfix">
+									<p class="fl conbt_topmz5">存管交易密码</p>
+									
+								</div>
+								<p class="conbt_topmz7">账户资金变动和修改账户信息时，需先校验交易密码</p>
+							</div>
+                                                        {if $var.acc_pay_flag=="1"}
+							<a href="/?user&q=code/bscg/paypwd&changeType=01" class="fr conbt_topmz8" id="dealrevamp1">修改</a>
+                            {elseif $var.acc_pay_flag=="2" && $var.acc_depository_flag!="2"}
+                            <a href="/?user&q=code/bscg/paypwd&changeType=02" class="fr conbt_topmz8" id="dealrevamp1">重置</a>
+                            {/if}
+						</li>
+					</ul>
+				</div>
+                            {/articles}
+			</div>
+			
+{literal}
+<script>
+    $(function(){
+        
+    });
+    
+</script>
+{/literal}
+	{elseif $_U.query_type=="reg"}
+        <div class="son_content">
+        <div id="pg-account-security">
+	
+	<div  class="content setFormBox">
+	<form id="setIdForm" method="post" class="ui-form"  action="/?user&q=code/bscg/reg" data-name="setId" novalidate="novalidate">
+		<div  class="inputs">
+			<div class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>真实姓名</label>
+				<input type="text"  data-is="isRealName" class="ui-input" name="realName">
+			</div>
+			<div  class="ui-form-item">
+				<label class="ui-label"><span class="ui-form-required">*</span>身份证号</label>
+				<input type="text" data-is="isIDNum"  class="ui-input" name="idNo">
+			</div>
+			<div class="ui-form-item">
+		 		<input type="submit" class="ui-button ui-button-mid ui-button-green w150" value="提 交"  id="subSetIdBt">
+			</div>
+		</div>
+	</form>
+	</div>
+	<div class="fn-hide  success">
+		<h3 class="info">实名认证设置成功!</h3>
+		<a class="ui-button ui-button-mid  ui-button-blue backBt">返回</a>
+	</div>
+	
+</div>
+        </div>
+
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+ 	<!-- 包商线下充值 -->
+		{elseif $_U.query_type=="recharge_bscg"}
+                {articles module="bscg" function="findsmaccount" user_id=$_G.user_id var="var"}
+			<div class="son_content">
+				<div class="p20bs bscg"> 		
+					<p class="title">线下充值</p>
+					<p class="bscg_desc">存管账户余额：<em>{$var.acc_balance/100}</em><sub>元</sub></p>
+					<div class="bscg_info">
+						<p class="bscg_info_p">存管账户名：{$var.acc_name}</p>
+						<p class="bscg_info_p">存&nbsp;管&nbsp;卡&nbsp;号：{$var.card_no}</p>
+						<p class="bscg_info_p">开&nbsp;&nbsp;&nbsp;户&nbsp;&nbsp;&nbsp;行：包商银行</p>
+					</div>
+					<div class="recharge-rule">
+						<p class="recharge-rule01">重要提示</p>
+						<p class="recharge-rule01">1.转账充值可通过各银行app，支付宝等方式充值到存管账户。</p>
+						<p class="recharge-rule01 marb25">2.1月11日-1月23日期间，包商银行存管账户仅用于充值和提现，暂不可用于投资。</p>
+						<p class="rule-tit"><i></i>充值规则</p>
+						<p>1. 在向电子账户转账时，必须为银行借记卡，平台暂不支持存折、信用卡转账。 </p>
+						<p>2. 根据银行收费标准，在转账过程中可能会收取费用。平台目前不收取任何手续费。</p>
+						<p>3. 通过ATM机转账，要24小时后才能到账。</p>
+					</div>
+				</div>
+			</div>
+                {/articles}
+		<!-- 存管账户提现 -->
+		{elseif $_U.query_type=="cash_bscg"}
+                {articles module="bscg" function="findsmaccount" user_id=$_G.user_id var="var"}
+			<div class="son_content">
+                            <form method="post" action="/?user&q=code/bscg/cash" name="setId" >
+				<div class="p20bs bscg"> 		
+					<p class="title">存管账户提现</p>
+					<p class="bscg_desc">存管账户余额：<em id="kitingnum">{$var.acc_balance/100}</em><sub>元</sub></p>
+					<div class="bscg_info">
+                                            {articles module="bscg" function="findbankname" id=$val.bank_id var="vol"}
+						<p class="bscg_blank">绑定银行<img data-src="" class="bscg_icon" src="https://www.weipaidai.com/static/img/banks/{$vol.litpic}">{/articles}
+                                                    <span>尾号{$var.acc_bank_no}</span></p>
+						<p class="bscg_txje">提现金额<input type="text" name="cash" class="bscg_input" datatype="isNumberthan100" nullmsg="请输入金额" errormsg='请输入大于100的金额' placeholder="请输入金额数"><span>元</span></p>
+					</div>
+                                        <input type="submit" class="cash_button" value="提&nbsp;&nbsp;&nbsp;现" id="cash_button"></input>
+				</div>
+                            </form>
+			</div>
+                {/articles}
+	{/if}	
+	</div>
+</div>
+</div>
+<div class="mask1" id="J-changep1">
+	<div class="pop_changepp1">
+		<h3 class="pop-title">绑定银行卡<span class="pop-close" id="pop_box_closema"></span></h3>
+		<ul class="pop_ul">
+			<li class="pop_li clearfix">
+				<p class="pop_limian1 fl">银行卡号：</p>
+				<input type="text" class="fl backcard1" name="backcard" id="backcard" placeholder="请输入新的银行卡号" datatype="*" sucmsg="&nbsp;" nullmsg="卡号不能为空" autocomplete="off" maxlength="20">
+				<span class="Validform_checktip"></span>
+			</li>
+                        {articles module="bscg" function="findsmaccount" user_id=$_G.user_id var="var"}
+			<li class="pop_li clearfix mart22">
+				<p class="pop_limian2 fl">银行预留手机</p>
+                                <input type="text" class="fl backcard2" name="iphone" id="iphone" value="{$var.acc_mobile}" disabled="true">
+			</li>
+                        {/articles}
+			<button class="surebang">确认绑定</button>
+		</ul>
+	</div>
+</div>
+<script>seajs.use (['pages/account/account/bscg']);</script>

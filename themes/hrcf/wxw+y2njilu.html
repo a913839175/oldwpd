@@ -1,0 +1,36 @@
+{include file="wxheader.html"}
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link href="/static/hrcfwx/css/jilu.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/wy2njilu.js"></script>
+
+	<div class="top">
+        <div class="top1">
+            <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+            <P>投资记录</P>
+        </div>
+        {include file="wxtop.html"}
+    </div>
+    <div class="lists" id="tenderlist">
+        <!-- <div class="list_head">共1人</div> -->
+        {list module="borrow" function="GetTenderList" var="loop" borrow_nid_like="WADDYFANTWOYEAR" epage="10"}
+        {foreach from="$loop.list" key=key item="vat" }
+        <li>
+            <div class="list_left">{$vat.username}</div>
+            <div class="list_right">
+                <p>{$vat.account}元</p><br/>
+                <span>{$vat.addtime|date_format:"Y-m-d"}</span>
+            </div>
+        </li>
+        {/foreach}
+        {/list}
+    </div>
+    <div class="lists">
+        <p class="more"><a href="javascript:;" id='getmore'>加载更多...</a></p>
+    </div>
+    {include file="wxfooter2.html"}
+

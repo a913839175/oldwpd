@@ -1,0 +1,22 @@
+{include file="header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/pages/aboutus/newsdetail.css?v=20180323" />
+<div class="pg-container-content">
+    <div id="content">
+        <div class="cont1200 m1">
+            <div class="sidebar" id="sidebar">
+                <ul class="sidebar-items">
+                    {include file="about_left.html"}
+                </ul>
+            </div>
+            <!-- 关于我们-动态与公告详情页 -->
+            <div class="contentright">
+                <div class="about_back"><a href="/news/index.html">&lt;&lt;返回</a></div>
+                <div class="article">
+                    <h2 class="article-title">{$_G.articles_result.name}</h2>
+                    <p class="article-time">发布时间：{$_G.articles_result.addtime|date_format:"Y-m-d"}</p>
+                    <div class="article-cont">{$_G.articles_result.contents}</div>
+                </div>         
+            </div>
+        </div>
+    </div>
+</div>

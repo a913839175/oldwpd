@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+  margin:0px;
+}
+img{
+	border:0px;
+}
+a{
+	color:#036789;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+.clear{
+	clear:both;
+}
+.box-outside{
+	width:100%;
+}
+.box-inside{
+	width:1000px;
+	margin:auto;
+}
+#b1-l{
+	margin-top:15px;
+	float:left;
+}
+#b1-r{
+	margin-top:20px;
+	float:right;
+}
+#b2-l{
+	width:250px;
+	height:450px;
+	padding:100px 0px 0px 50px;
+	float:left;
+}
+#b2-r{
+	float:left;
+}
+#b2-r1{
+	margin-left:120px
+}
+#b2-r2{
+	background-image:url(../images/m2.png);
+	width:627px;
+	height:216px;
+	margin-left:10px;
+	margin-top:50px;
+}
+#b2-r21{
+	float:left;
+	margin-left:100px;
+	margin-top:20px;
+}
+#b2-r22{
+	float:right;
+	margin-right:80px;
+	margin-top:30px;
+}
+#b3-l{
+	width:500px;
+	height:700px;
+	float:left;
+}
+#b3-r{
+	float:left;
+}
+#b4-l{
+	width:300px;
+	height:900px;
+	float:left;
+}
+#b4-r{
+	float:left;
+}
+#b5-l{
+	margin-top:3px;
+	margin-left:240px;
+	float:left;
+}
+#b5-r{
+	margin-left:40px;
+	float:left;
+}

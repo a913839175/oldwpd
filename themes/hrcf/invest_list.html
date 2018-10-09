@@ -1,0 +1,336 @@
+{include file="header.html"}
+
+<link type="text/css" rel="stylesheet" href="/static/css/pages/invest/list.css"/>
+
+
+<div class="pg-container-content">
+      
+<div class="pg-invest-list" id="pg-loan-list">
+  <div class="container_12 mt10">
+    <ul class="fn-clear ui-breadcrumb grid_8">
+      <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+        <a href="/invest/index.html">我要理财</a>
+      </li>
+      <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+      <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+        <a>散标投资列表</a>
+      </li>
+    </ul>
+    <!-- <div class="shortcut grid_4 fn-clear">
+      <a class="shortcut-link fn-right mr10" href="/debt/index.html">债权转让列表</a>
+      <a class="shortcut-link fn-right mr10" href="/tenderlist/index.html">微计划</a>
+    </div> -->
+  </div>
+  <form action="" method="get" name="seachform">
+  <input name="borrow_type" id="borrowtype" {if $magic.request.borrow_type=="" || $magic.request.borrow_type=="all"} value="all" {else} value="{$magic.request.borrow_type}" {/if} type="hidden" />
+  <input name="borrow_period" id="borrowperiod" {if $magic.request.borrow_period=="" || $magic.request.borrow_period=="all"} value="all" {else} value="{$magic.request.borrow_period}" {/if} type="hidden" />
+  <input name="account_status" id="accountstatus" {if $magic.request.account_status=="" || $magic.request.account_status=="all"} value="all" {else} value="{$magic.request.account_status}" {/if} type="hidden" />
+  <input name="borrow_style" id="borrowstyle" {if $magic.request.borrow_style=="" || $magic.request.borrow_style=="all"} value="all" {else} value="{$magic.request.borrow_style}" {/if} type="hidden" />
+  <input name="borrow_xingyong" id="borrowxingyong" {if $magic.request.borrow_xingyong=="" || $magic.request.borrow_xingyong=="all"} value="all" {else} value="{$magic.request.borrow_xingyong}" {/if} type="hidden" />
+   <input type="hidden" id="url" value="/investlist/index.html">
+<!--   <div class="container_12 mt10">
+    <div class="p20bs color-white-bg fn-clear">
+      <div class="filter fn-left">
+	<div class="ui-filter" id="loan-list-filter">
+	  <div class="fn-clear ui-filter-header mb10">
+	    <h4 class="fn-left color-outerspace-text">筛选投资项目</h4>
+	  </div>
+	  <ul>
+	    <li>
+	      <ul class="ui-filter-category category fn-clear" data-category="loanType">
+	        <li class="ui-filter-title color-gray-text">
+	          	标的类型
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag all {if $magic.request.borrow_type=='all' || $magic.request.borrow_type==''}active{/if}">
+	          <span onclick="seachform_submit('all','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">不限</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_ZND'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_ZND','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">助农贷</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_JYD'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_JYD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">精英贷</span>
+	        </li>        
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_DZD'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_DZD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">店主贷</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_XJD'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_XJD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">薪金贷</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_ZYD'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_ZYD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">助业贷</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_THD'}active{/if}" >
+	          <span onclick="seachform_submit('LOANTYPE_THD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">速易贷</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_ZXD'}active{/if}" style="margin-left: 152px">
+	          <span onclick="seachform_submit('LOANTYPE_ZXD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">增信贷</span>
+	        </li>
+                <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_CD'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_CD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">车贷</span>
+	        </li>
+                <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_XRD'}active{/if}" style="    margin-left: 20px;">
+	          <span onclick="seachform_submit('LOANTYPE_XRD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">星容贷</span>
+	        </li>
+	         <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_ZYC'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_ZYC','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">车信贷</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_XYK'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_XYK','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">星用卡</span>
+	        </li>
+	         <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_XDD'}active{/if}">
+	          <span onclick="seachform_submit('LOANTYPE_XDD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">星点贷</span>
+	        </li>
+	         <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_type=='LOANTYPE_XXD'}active{/if}" style="margin-left: 151px;">
+	          <span onclick="seachform_submit('LOANTYPE_XXD','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">星薪贷</span>
+	        </li>
+	      </ul>
+	    </li>
+	    <li class="mt4">
+	      
+	      <ul class="ui-filter-category category fn-clear" data-category="term">
+	        <li class="ui-filter-title color-gray-text">
+	          	借款期限
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag all {if $magic.request.borrow_period=='all' || $magic.request.borrow_period==''}active{/if}">
+	          <span onclick="seachform_submit('{$magic.request.borrow_type}','all','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">不限</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_period=='2'}active{/if}">
+	          <span onclick="seachform_submit('{$magic.request.borrow_type}','2','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">1-3个月</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_period=='3'}active{/if}">
+	          <span onclick="seachform_submit('{$magic.request.borrow_type}','3','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">3-6个月</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_period=='4'}active{/if}">
+	          <span onclick="seachform_submit('{$magic.request.borrow_type}','4','{$magic.request.account_status}','{$magic.request.borrow_style}','{$magic.request.borrow_xingyong}');">6个月及以上</span>
+	        </li>
+	      </ul>
+	      
+	      
+	    </li>
+	    <li class="mt4">
+	      <ul class="ui-filter-category category fn-clear" data-category="creditLevel">
+	        <li class="ui-filter-title color-gray-text">
+	         	 认证等级
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag all {if $magic.request.borrow_xingyong=='all' || $magic.request.borrow_xingyong==''}active{/if}"
+	        	 onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','all');"
+	        	>
+	          <span>不限</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='AA'}active{/if}"
+	        	onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','AA');"
+	        	>
+	          <span>AA</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='A'}active{/if}"
+	        	 onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','A');"
+	        	>
+	          <span>A</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='B'}active{/if}"
+	        	 onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','B');"
+	        	>
+	          <span>B</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='C'}active{/if}"
+	        	onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','C');"
+	        	>
+	          <span>C</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='D'}active{/if}"
+	        	onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','D');"
+	        	>
+	          <span>D</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='E'}active{/if}"
+	        	 onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','E');"
+	        	>
+	          <span>E</span>
+	        </li>
+	        <li class="ui-filter-tag rrdcolor-dimgray-text category-tag condition {if $magic.request.borrow_xingyong=='HR'}active{/if}"
+	        	 onclick="seachform_submit('{$magic.request.borrow_type}','{$magic.request.borrow_period}','{$magic.request.account_status}','{$magic.request.borrow_style}','HR');"
+	        	>
+	          <span>HR</span>
+	        </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</div>
+      </div>
+      <div class="guide fn-left last"> -->
+        <!-- <div class="guide-box">
+          <h4 class="mb10">新手引导</h4>
+          <ul>
+            <li><a class="guide-question rrd-dimgray" href="" target="_blank">什么是信用等级？</a></li>
+            <li><a class="guide-question rrd-dimgray" href="" target="_blank">什么是信用认证标？</a></li>
+            <li><a class="guide-question rrd-dimgray" href="" target="_blank">什么是实地认证标？</a></li>
+            <li><a class="guide-question rrd-dimgray" href="" target="_blank">什么是机构担保标？</a></li>
+          </ul>
+        </div> -->
+<!--       </div>
+    </div>
+  </div> -->
+
+  <!-- 散标页黄条 -->
+<!--   <div class="container_12 mt20">
+	  <div class="ui-info-box">
+	    <i class="icon icon-info mr10"></i>
+	    	温馨提示：工作日固定发标时间在11:00、13:30、17:00。
+	  </div>
+</div> -->
+</form>
+
+  <div class="container_12 mt20 color-white-bg">
+    <div class="p20bs w920 fn-clear">
+        <div class="fn-clear">
+            <h3 class="mr10">投资列表</h3>
+            <!-- <a class="fn-left ui-button ui-button-small ui-button-green mt10" target="_blank" href="/tool_lixi/index.html">理财计算器</a> -->
+            <div class="loan-limit">
+                <p class="limit-p">
+                    <span>投资期限：</span>
+                    <span>
+                    <a class="limit-tab-a {if $magic.request.type == 1 || $magic.request.type == ''}active{/if}" href="/investlist/index.html&type=1">热点标</a>
+                    <a class="limit-tab-a {if $magic.request.type == 2}active{/if}" href="/investlist/index.html&type=2">一年内</a>
+                    <a class="limit-tab-a {if $magic.request.type == 3}active{/if}" href="/investlist/index.html&type=3">一年以上</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="load-list">
+            <ul id="loan-list1" class="ui-list ui-list-m ui-list-invest">
+    	        <li id="loan-list-header" class="ui-list-header fn-clear">
+                    <span class="ui-list-title fn-left color-gray-text w260">借款标题</span>
+                    <span title="借款人在微拍贷的个人信用评级" class="ui-list-title fn-left color-gray-text text-center w80">信用等级</span>
+                    <span class="ui-list-title fn-left color-gray-text text-center w120">预期利率</span>
+                    <span class="ui-list-title fn-left color-gray-text text-center w160">金额</span>
+                    <span class="ui-list-title fn-left color-gray-text text-center w100">期限</span>
+                    <span class="ui-list-title fn-left color-gray-text text-center w110">进度</span>
+                    <span class="ui-list-title fn-left color-gray-text text-center w80"></span>
+    			 </li>
+
+                <!-- ############################################################################################################## -->			 
+    		    {list module="borrow" function="GetList_norepay" var="loop" is_flow="2" borrow_name="request" type="request" flag="request" account_status="request" borrow_period="request" award_status="request" province="request" city="request" borrow_use="request" borrow_xingyong="request" epage="15" order="hot" borrow_class_type=$magic.request.type vouchstatus="request" borrow_style="request" jine="request" borrow_type="request" query_type="tender_success" group_status=0 borrow_auto_time="borrow_auto_time"} 
+    		    {if $loop.list}  
+        		  {foreach from="$loop.list" item="var" }
+        		  	<li class="ui-list-item fn-clear ">
+        			  <span class="ui-list-field fn-left text-big w260">
+        			    <em title="实地认证标" class="ui-loantype SDRZ">
+        			    <img width="30" height="30" src='/{$var.fileurl}' />
+        			    </em>
+        			    <a title="{$var.name}" target="_blank" href="/tendercontent/a{$var.borrow_nid}.html" class="fn-left w210 rrd-dimgray fn-text-overflow">{$var.name}</a>
+        			  </span>
+        			  <span class="ui-list-field fn-left w80"><a class="ui-creditlevel {$var.borrow_xingyong} snow">{$var.borrow_xingyong}</a></span>
+        			  <span class="ui-list-field fn-left num text-right w80 pr40"><em class="value">{$var.borrow_apr_old}</em>%</span>
+        			  <span class="ui-list-field fn-left num text-right w120 pr40"><em class="value">{$var.account}</em>元</span>
+        			  <span class="ui-list-field fn-left num text-right w70 pr30">
+        			  	{if $var.borrow_period != 0.00 }
+                                      <em class="value">
+        			  		{if $var.borrow_period >= 1 && $var.borrow_period < 10 }
+        			  			{$var.borrow_period|truncate:1}
+        					{else}
+        						{$var.borrow_period|truncate:2}
+        					{/if}
+        			  	</em>个月
+                                        {else}
+                                         <em class="value">
+        			  		{if $var.borrow_days >= 1 && $var.borrow_days < 10 }
+        			  			{$var.borrow_days|truncate:1}
+        					{else}
+        						{$var.borrow_days|truncate:2}
+        					{/if}
+        			  	</em>天
+                                        {/if}
+        			  </span>
+        			  <span class="ui-list-field fn-left w110">
+        			    <strong class="ui-progressbar-mid ui-progressbar-mid-{$var.borrow_account_scale_int}"><em>{$var.borrow_account_scale_int}</em>%</strong>
+        			  </span>
+        			  <span class="ui-list-field fn-left w80">
+        			    <a class="ui-button ui-button-mid ui-button-blue ui-list-invest-button 
+        			      {if $var.status==1}
+        					  {if $var.borrow_account_wait==0}
+        					  ui-list-invest-button-FIRST_READY
+        		          	  {else}
+        		              ui-list-invest-button-OPEN
+        		              {/if}
+        	              {elseif $var.status==3}
+        		              {if $var.repay_account_wait==0}
+        		              ui-list-invest-button-PROGRESS
+        		              {else}
+        		              ui-list-invest-button-PROGRESS
+        		              {/if}
+        	              {else}
+        		              {if $var.status==5}
+        		              ui-list-invest-button-PROGRESS
+        		              {else}
+        		              ui-list-invest-button-PROGRESS
+        		               {/if} 
+                                       {/if} mt10 mb10" style="background-color:#ff8542" href="/tendercontent/a{$var.borrow_nid}.html">
+        			      
+        			      {if $var.status==1}
+        					  {if $var.borrow_account_wait==0}
+        					  <span class="READY FIRST_READY">审核中</span> 
+        		              {else}
+        		              <span class="OPEN">投标</span>
+        		              {/if}
+        	              {elseif $var.status==3}
+        		              {if $var.repay_account_wait==0}
+        		              <span class="IN_PROGRESS">已成功</span>
+        		              {else}
+        		              <span class="IN_PROGRESS">还款中</span>
+        		              {/if}
+        	              {else}
+        		              {if $var.status==5}
+        		              <span class="IN_PROGRESS">已停止</span>
+        		              {else}
+        		              <span class="IN_PROGRESS">流标</span>
+        		              {/if} 
+        	              {/if} 
+        			    </a>
+        			  </span>
+        			</li>
+        		  {/foreach}
+        		    {if $loop.pages.total>0}
+                    <div class="page">{$loop.pages|showpage}</div>
+        		    {/if}
+    		    {else}
+    		  	<li class="ui-list-item fn-clear ">
+    		  		<span class="ui-list-field fn-left text-big w260">
+    			    	暂无投资项目
+    			    </span>
+    		  	</li>
+    		  {/if}
+    		  {/list}
+                <!-- ############################################################################################################## -->		  
+    		</ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- 提示信息条 -->
+
+
+<!-- 提示信息条 -->
+<!-- <div class="ui-alert alert-point">
+  <div class="ui-alert-bg"></div>
+  <p>新浪支付正式托管微拍贷风险备用金账户，投资理财更放心</a></p>
+</div> -->
+
+</div>
+
+{literal} 
+<script type="text/javascript">
+function seachform_submit(borrowtype,borrowperiod,accountstatus,borrowstyle,borrowxingyong){
+         var url = $("#url").val(),sou = "";
+	 document.getElementById('borrowtype').value=borrowtype;
+	 document.getElementById('borrowperiod').value=borrowperiod;
+	 document.getElementById('accountstatus').value=accountstatus;
+	 document.getElementById('borrowstyle').value=borrowstyle;
+	 document.getElementById('borrowxingyong').value=borrowxingyong;
+         sou += "&borrow_type="+borrowtype+"&borrow_period="+borrowperiod+"&account_status="+accountstatus+"&borrow_style="+borrowstyle+"&borrow_xingyong="+borrowxingyong;
+         location.href=url+sou;
+	 //document.forms.seachform.submit();
+}
+</script>
+{/literal} 
+<script>seajs.use(['pages/invest/list']);</script>

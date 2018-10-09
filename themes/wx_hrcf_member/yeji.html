@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/yeji.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/wxpage.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top1">
+            <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+            <p>个人业绩</p>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div class="tab">
+        <div class="main">
+            <article class="main1 cur">
+                {list module="borrow" var="loop" function ="GetPerformanceBorrowList" showpage="10" keywords="request" dotime1="request" dotime2="request" type="$magic.request.type"  tender_status="1"}
+                {foreach from="$loop.list" item="item"}
+                <div class="main1_body">
+                    <div class="main1_top">
+                    
+                    </div>
+                    <div class="main1_top_p">
+                        <!-- <span class="main1_top_p_left">{$item.username}</span> -->
+                        <span class="main1_top_p_left">{$item.niname}</span>
+                        <span class="main1_top_p_right">{$item.name}</span>
+                    </div>
+                    
+                    <div class="main1_ul">
+                        <ul class="main1_li_left">
+                            <li>投资金额</li>
+                            <li>投资时间</li>
+                            <li>赎回时间</li>
+                        </ul>
+                        <ul class="main1_li_right">
+                            <li>{$item.recover_capital|round:"2,3"|default:0.00}元</li>
+                            <li>{$item.addtime|date_format:"Y-m-d"}</li>
+                            <li>{$item.recover_yestime|date_format:"Y-m-d"}</li>
+                        </ul>
+                    </div>
+                    <div class="main1_shouyi">
+                        <!-- 
+                        <div class="main1_shouyi_left">
+                            <p>佣金</p>
+                            <span>{$item.yongjin|round:"2,3"|default:0.00}元</span>
+                        </div>
+                         -->
+                        <div class="main1_shouyi_right">
+                            <p>折现</p>
+                            <span>{$item.zhexian|round:"2,3"|default:0.00}元</span>
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </article>
+        </div>
+    </div>
+    <div class="page">
+        {if $loop.pages.total>0}
+        <div class="list_table_page">{$loop.pages|wxshowpage}</div>
+        {/if}
+    </div>
+</body>
+</html>

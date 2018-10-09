@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/addbankcard.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/xuanzebank.css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script src="/static/js/seajs/2.1.0/sea.js?v=dee86"></script>
+<script src="/static/js/config.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/addbankcard.js"></script>
+<script type="text/javascript" src="/static/js/pages/account/account/addcard.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="screenc-overlay" id="screenc-overlay"></div>
+	<div class="top">
+    	<div class="top1">
+           <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+        	<p>添加银行卡</p>
+        </div>
+    </div>
+	<div class="main">
+		<li>
+        	<span>开户人姓名</span>
+            <p>{$_G.user_info.realname_secur}</p>
+        </li>
+        <a href="javascript:;" id="xuanze">
+        <li>
+        	<div class="main_left" id="sure_bank" data-id="">
+            	<div class="main_left_img">
+                	<img id="bankimg" src=""/>
+                </div>
+                <p id="bankname"></p>
+            </div>
+            <div class="main_left" id="xz_bank">
+                <p>选择银行</p>
+            </div>
+            <div class="main_right_img">
+            	<img src="/static/hrcfwx/images/youjian.png"/>
+            </div>
+        </li>
+        </a>
+        <li>
+        	<span>银行卡号</span>
+            <input id="cardId" name="cardId" type="text" placeholder="输入银行卡号"/>
+        </li>
+        <li>
+            <div class="main_left_code ">短信验证码</div>
+            <div class="main_middle"><input name="validateCode"  type="text" class="code" id="code" placeholder="输入验证码"></div>
+            <div class="main_right_code"><a id="getcode">获取验证码</a></div>
+        </li>
+        <li>
+            <div class="main_left_area ">开户行所在地</div>
+            {areas type="p,c" value="$var.city"}
+        </li>
+        <li>
+            <div class="main_left_bank ">开户行</div>
+            <div class="main_middle"><input name="deposit" type="text" class="bank" id="cardDeposit" placeholder="输入开户行"></div>
+            <!-- <div class="main_right_bank"><a id="bankKeySearchId">搜索</a></div> -->
+        </li>
+        <div class="main_bank">合作银行</div>
+    </div>
+    <div class="button">
+        <button id="next" type="button">下一步</button>
+    </div>
+    <input type="hidden" name="bankDataId"  class="selBankType" id="selBankType" value="">
+    <input type="hidden" name="realname_secur"  class="realname_secur" id="realname_secur" value="{$_G.user_info.realname_secur}">
+    <div class="yuedu">
+        <input id="isread" type="checkbox" class="checkbox" />
+        <label for="isread">阅读并同意</label><a href="/wxyonghuxieyi/index.html">《用户协议》</a>
+    </div>
+
+
+
+    <div class="mainxz" id="mainxz">
+        <div class="mainxz_top">
+            <p>选择银行</p>
+            <div class="mainxz_top_right">
+                <a href="javascript:;" id="xuanze_close"><img src="/static/hrcfwx/images/xx2.png"/></a>
+            </div>
+        </div>
+        <ul>
+        {loop module="account" function="GetBankList" limit="all"}
+            <a href="javascript:;" data-id="{$var.id}" data-img="/static/img/banks/{$var.code}.gif" data-name="{$var.name}" class="thisbank">
+                <li>
+                    <div class="mainxz_li_img">
+                        <img src="/static/img/banks/{$var.code}.gif"/>
+                    </div>
+                    <p class="mainxz_li_p">{$var.name}</p>
+                </li>
+            </a>
+        {/loop}
+        </ul>
+    </div>
+
+</body>
+</html>

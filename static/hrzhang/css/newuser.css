@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0 auto; font-family:"微软雅黑"; background:#ffee9c;}
+a {text-decoration: NONE}
+li{list-style:none;}
+p{margin: 0;}
+input{ border:none;}
+
+.newuser_banner{ height:350px; background:url(../images/banner2.png) 50% 0% no-repeat;}
+.newuser{ margin: 0 auto;}
+
+.newuser_body{ width:1000px; height:490px; margin: 0 auto; background-color:#fff; border-top:2px solid #dc0826; margin-top:20px;}
+.newuser_body_top{ height:245px; background-color:#dc0826; margin-top:4px; clear:both;}
+.newuser_body_left{ float:left; width:385px; height:220px; padding-top:25px;}
+.newuser_body_left_img{ background:url(../images/email_song.png) no-repeat; width:275px; height:195px; text-align:center; background-size:contain; margin: 0 auto; }
+.newuser_body_left_img a{ color:#dc0826;}
+.newuser_body_left_img p{padding-top:168px;}
+.newuser_body_right{ float:left; width:600px; height:245px;}
+.newuser_body_right img{ padding-top:25px; padding-left:5px;}
+.newuser_body_right p{ color:#feef00; font-size:18px; padding-left:5px;}
+.newuser_body_right p:nth-child(3){ color:#FFF; line-height:30px; font-size:16px;}
+.newuser_body_right p span{ font-size:24px;}
+.newuser_body_right p img{ padding-top:5px;}
+.newuser_body_right_input{ float:left; height:42px; width:150px; line-height:42px; margin-right:20px; margin-top:10px; background-color:#ffde00; border-radius:22px; border:3px solid #FFF;}
+.newuser_body_right_input p{ float:left; margin-left:20px; color:#dc0826; font-size:20px; font-weight:800;}
+.newuser_body_right_input div{ width:20px; margin-top:16px; margin-left:5px; height:14px; float:left; background:url(../images/you.png) no-repeat;}
+
+.newuser_body_foot{width:1000px; margin-top:3px; height:240px; background-color:#ee3445; clear:both;}
+.newuser_body_foot_zhuyi{ margin: 0 auto; text-align:center; padding-top:40px;}
+.newuser_body_foot li{ float:left; width:370px; padding-left:65px; margin-top:30px; padding-right:65px; color:#FFF;}
+.newuser_body_foot li img{ float:left; margin-top:5px;}
+.newuser_body_foot li aside{ float:right; width:320px; font-size:16px;}
+.newuser_body_foot p{ float:right; font-size:12px; color:#FFF; padding:55px 65px 5px 0px;}
+.newuser_body_foot_img{ clear:both; width:1000px; height:12px; background:url(../images/foot.png); margin-bottom:20px;}
+
+

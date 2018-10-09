@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>To sumapay Page</title>
+</head>
+<body onload="document.sumapay.submit()">
+	<form name="sumapay" action="{$paramArr.url}" method="post">
+		<input type="hidden" name="requestId"		value="{$paramArr.requestId}">
+		<input type="hidden" name="tradeProcess"	value="{$paramArr.tradeProcess}">
+		<input type="hidden" name="mersignature"	value="{$paramArr.mersignature}">
+		<input type="hidden" name="totalBizType"	value="{$paramArr.totalBizType}">
+		<input type="hidden" name="totalPrice"		value="{$paramArr.totalPrice}">
+		<input type="hidden" name="bankcode"		value="{$paramArr.bankcode}">
+		<input type="hidden" name="backurl"		value="{$paramArr.backurl}">
+		<input type="hidden" name="returnurl"		value="{$paramArr.returnurl}">
+		<input type="hidden" name="noticeurl"		value="{$paramArr.noticeurl}">
+		<input type="hidden" name="description"		value="{$paramArr.description}">
+		<input type="hidden" name="rnaName"		value="{$paramArr.rnaName}">
+		<input type="hidden" name="rnaIdNumber"		value="{$paramArr.rnaIdNumber}">
+		<input type="hidden" name="rnaMobilePhone"	value="{$paramArr.rnaMobilePhone}">
+		<input type="hidden" name="goodsDesc"		value="{$paramArr.goodsDesc}">
+		<input type="hidden" name="userIdIdentity"	value="{$paramArr.userIdIdentity}">
+		<input type="hidden" name="payType"		value="{$paramArr.payType}">
+		<input type="hidden" name="allowRePay"		value="{$paramArr.allowRePay}">
+		<input type="hidden" name="rePayTimeOut"	value="{$paramArr.rePayTimeOut}">
+		<input type="hidden" name="bankCardType"	value="{$paramArr.bankCardType}">
+		
+		<input type="hidden" name="productId"		value="{$paramArr.productId}">
+		<input type="hidden" name="productName"		value="{$paramArr.productName}">
+		<input type="hidden" name="fund"		value="{$paramArr.fund}">
+		<input type="hidden" name="bizType"		value="{$paramArr.bizType}">
+		<input type="hidden" name="merAcct"		value="{$paramArr.merAcct}">
+		<input type="hidden" name="productNumber"	value="{$paramArr.productNumber}">
+		
+	</form>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zijin.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/user_yinying.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/user_new.css">
+
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/user_yinying.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/wxuser_main.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<meta name = "format-detection" content="telephone = no" />
+<title>微拍贷</title>
+</head>
+
+<body>
+    <!-- author wangjie top -->
+    <div class="screenc-overlay" id="screenc-overlay">
+    </div>
+    {list  module="users" function="GetHongBao" var="loop" user_id="$_G.user_id" status="0" epage="15"}
+    {if count($loop.list)>0}
+    <input id="is" type="hidden" value="1">
+    {else}
+    <input id="is" type="hidden" value="0">
+    {/if}
+    {/list}
+    <div class="overlay-content" id="overlay-content">
+        <div class="overlay-tixing">
+          <img class="overlay-tixing-img" src="/static/img/yinying/yinying_tixing.png">
+        </div>
+        <div class="overlay-jiesuo">
+          <img class="overlay-jiesuo-img" src="/static/img/yinying/yinying_jiesuo.png">
+        </div>
+        <div class="overlay-guanbi">
+          <img class="overlay-guanbi-img" src="/static/img/yinying/yinying_guanbi.png">
+        </div>
+    </div>
+    <!-- author wangjie bottom -->
+
+    <div class="top">
+        <div class="top1">
+            <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+            <p>我的账户</p>
+        </div>
+        {include file="top.html"}
+    </div>
+   <!-- 总资产 理财资金  预期收益 -->
+   {articles module="wxaccount" function="GetSome" var="syvar" user_id="$_G.user_id" sina_sign_type="$_G.system.sina_sign_type" }{/articles}
+   <div class="myimeney">
+       <div class="mytotmetz clearfix">
+       <p class="mytotmetwz">总资产（元）</p>
+       <img src="/static/hrcfwx/images/mytotwenhao.png" class="mytotmetimg">
+       </div>
+       <div class="mytotmetje clearfix">{$_U.user_main.total|round:"2,3"|default:0.00}</div>
+       <p class="myaddsy">累计收益：{$syvar.savingpots_daifu_total|default:0.00}元</p>
+       <img src="/static/hrcfwx/images/myheixian.png" class="myheixian">
+       <div class="mylicai clearfix">
+            <div class="myconfon"><p class="myconfonwz">理财资产（元）</p><p class="myconfonje" class="">{$_U.user_main.frost|round:"2,3"|default:0.00}</p></div>
+            <div class="myinvent"><p class="myinventwz">在投预期收益（元）</p><p class="myinventje" class="">{$_U.user_main.await_shouyi|round:"2,3"|default:0.00}</p></div> 
+       </div>
+   </div>
+   <!-- 充值提现余额 -->
+   <div class="regcash">
+       <div class="cashjez clearfix">
+           <p class="cashwz">余额（元）</p>
+           <p class="cashje">{$_U.user_main.balance|round:"2,3"|default:0.00}</p>
+       </div>
+       <div class="regbutton clearfix">
+            <a href="/?wxuser&q=chongzhi"><div class="regbutton1">充值</div></a>
+            <a href="/?wxuser&q=tixian"><div class="regbutton2">提现</div></a>
+       </div>
+       <p class="cashing">提现中 ：<span class="cashingje">{$_U.user_main.tixianzhong|round:"2,3"|default:0.00}</span></p>
+   </div>
+
+   <!-- 理财交易记录银行卡红包合同安全中心 -->
+   <div class="option">
+       <ul class="ul-option">
+            <a href="/?wxuser&q=zhaiquan"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb1.png" class="li-optionimg">
+                <p class="li-optionwz">我的理财</p>
+                <p class="li-optionkit">查看理财产品></p>
+            </li></a>
+            <a href="/?wxuser&q=code/account/savingPot"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb7.png" class="li-optionimg">
+                <p class="li-optionwz">存钱罐</p>
+                <p class="li-optionkit" style="padding-left: 50vw">查看详情></p>
+            </li></a>
+            <a href="/?wxuser&q=jiaoyijiluguanli"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb2.png" class="li-optionimg">
+                <p class="li-optionwz">交易记录</p>
+                <p class="li-optionkit pad">查看详情></p>
+            </li></a>
+            <a href="/?wxuser&q=showbankcard"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb3.png" class="li-optionimg">
+                <p class="li-optionwz">我的银行卡</p>
+                <p class="li-optionkit pad1">查看详情></p>
+            </li></a>
+            <a href="/?wxuser&q=hongbao"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb4.png" class="li-optionimg">
+                <p class="li-optionwz">我的红包</p>
+                <p class="li-optionkit pad">查看详情></p>
+            </li></a>
+            <a href="/?wxuser&q=hetong"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb5.png" class="li-optionimg">
+                <p class="li-optionwz">我的合同</p>
+                <p class="li-optionkit pad">查看详情></p>
+            </li></a>
+
+            <a href="/?wxuser&q=anquan"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb6.png" class="li-optionimg">
+                <p class="li-optionwz">安全中心</p>
+                <p class="li-optionkit pad">查看详情></p>
+            </li></a>
+            {if $_G.user_info.type_id==3}
+            <a href="/?wxuser&q=yeji"><li class="li-option">
+                <img src="/static/hrcfwx/images/mytb1.png" class="li-optionimg">
+                <p class="li-optionwz">推荐业绩</p>
+                <p class="li-optionkit pad">查看详情></p>
+            </li></a>
+            {/if}
+
+       </ul>
+   </div>
+   <a href="javascript:;" id="loginout"><div class="myend">退出</div></a>
+    {include file="../hrcf/wxfooter4.html"}
+    <div class="mytotfc">
+        <div class="mytotfcwz">
+            <div class="wzgs">
+               <p class="wzgs1">账户总资产= 理财资产+ 存钱罐余额</p>
+               <p class="wzgs2">提现中 + 预期总收</p>
+            </div>
+            <div class="wzzhidao">知道了</div>
+        </div>
+    </div>
+</body>
+</html>

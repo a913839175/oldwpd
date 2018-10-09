@@ -1,0 +1,93 @@
+{include file="../hrcf/header.html"}
+<link rel="stylesheet" href="/static/css/pages/auth/login.css?v=767b8">
+<script type="text/javascript" src="/static/js/lib/md5/jquery.md5.js"></script>
+{literal}
+<script>
+if (window.top != window) {
+   window.top.location.href = location.href;
+}
+</script>
+<script>seajs.use('pages/auth/login.js')</script>
+{/literal}
+<div class="pg-container-content">
+    <div id="pg-login">
+      <div class="container_12">
+        <div class="content clearfix">
+          <div class="left-con">
+              <div class="logininfo">
+                  <img src="/static/img/login/loginad_2018_0129.png" />
+              </div>
+          </div>
+          <div class="right-con">
+            <div class="loginbox ui-box-white-bg">
+              <h3 class="fn-hide">请登录您的微拍贷账户</h3>
+              <form data-name="login" class="ui-form" method="post" action='./index.php?user&q=login' id="login" onsubmit="return checkInput()">
+              	<input type="hidden" name="url" value="/index.php?user"/>
+                <fieldset>
+                  <legend>登录</legend>
+                  <div class="top-msg mb10">
+                      <label id="allError" class="error">{$_U.login_msg.msg}</label>
+                  </div>
+                  <div class="ui-form-item">
+	                  <label class="ui-label">手机号/邮箱</label>
+	                  <input class="ui-input input-icon input-bg-gray" type="text" name="j_username" id="j_username" >
+	                  <p class="placeholder" >请输入手机号/邮箱</p>
+	                  <span class="icon input-icon-head-gray"></span>
+                  </div>
+                  <div class="ui-form-item">
+	                    <label class="ui-label">密码</label>
+	                    <input class="ui-input input-icon input-bg-gray" type="password" id="J_pass_input" data-is="isEmail">
+                      <input type="hidden" name="password" id="J_pass_input_md5">
+	                    <p class="placeholder" id="qpsd">请输入密码</p>
+	                    <span class="icon input-icon-lock-gray"></span>
+                  </div>
+                  
+                  <div class="ui-form-item clearfix">
+<!--                     <input type="text" class="yzm" name="smscode" maxlength="4">
+                    <p class="placeholder yzmp">请输入手机验证码</p>
+                    <button class="sms" type="button">发送短信</button> -->
+                  </div>
+                  
+                  <div class="ui-form-item">
+						<input id="rememberme" type="checkbox" checked="checked" name="rememberme">     
+	                    <label for="rememberme">记住用户名</label> <a class="findpsw" href="/?user&q=getpwd">忘记密码</a>
+                  </div>
+                  <div class="ui-form-item text-center ui_login">
+                    <p class="bottom-msg mb10"></p>
+                    <input type="submit" class="ui-button-rrd-blue ui-button-rrd-blue-large" value='立即登录'>
+                  </div>
+                  <div class="ui-form-item text-center">
+                        <p class="go-reg">没有账号？ <a href="/?user&q=reg">免费注册</a></p>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+{literal}
+    <script id="email-suggest-template" type="text/x-handlebars-template">
+      <ul>
+        {{#if remove}}
+        <li>{{inputs}}</li>
+        {{/if}}
+        {{#each lists}}
+        <li>{{email}}</li>
+        {{/each}}
+      </ul>
+    </script>
+{/literal} 
+</div>
+{literal}
+<script type="text/javascript">
+  function checkInput() {
+    var password_input = document.getElementById('J_pass_input');
+    var password_md5 = document.getElementById('J_pass_input_md5');
+
+    // set password
+    password_md5.value =  $.md5(password_input.value);
+    return true;
+  }
+</script>
+{/literal} 

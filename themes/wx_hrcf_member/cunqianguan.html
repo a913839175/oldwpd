@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/cunqianguan.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/cunqianguan.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top1">
+            <a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"></a>
+        </div>
+        <div class="top_title">
+            <div>存钱罐</div>
+        </div>
+        {include file="top.html"}
+    </div>
+    <div class="main">
+        <div class="main_cunqianguan">
+            <div class="main_cunqianguan_img">
+                <img src="/static/hrcfwx/images/question.png"/>
+            </div>
+            <p>存钱罐</p>
+        </div>
+        <div class="main_shouyi">
+            <h1>{$_U.savingpots_daifu_yesday|default:0.00}</h1>
+            <p>昨日收益(元)</p>
+            {articles module="account" function="GetOne" var="var" user_id="$_G.user_id"}{/articles}
+            <h2 class="shangla">{$var.balance|round:"2,3"|default:0.00}</h2>
+            <p class="shangla">存钱罐余额(元)</p>
+            <div class="main_shouyi_img xiala">
+                <a href="javascript:;" id="xiala"><img src="static/hrcfwx/images/xiala2.png"/></a>
+            </div>
+            <div class="main_shouyi_img shangla">
+                <a href="javascript:;"  id="shangla"><img src="/static/hrcfwx/images/shangla.png"/></a>
+            </div>
+        </div>
+    </div>
+    <div class="leiji">
+        <div class="leiji_left">
+            <p>{$_U.savingpots_daifu_total|default:0.00}</p>
+            <span>累计收益(元)</span>
+        </div>
+        <div class="leiji_img">
+        </div>
+        <div class="leiji_right">
+            <p>{$_U.savingpots_daifu_month|default:0.00}</p>
+            <span>最近月收益(元)</span>
+        </div>
+    </div>
+</body>
+</html>

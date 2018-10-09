@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+.fk-content{height:100%; width:aotu;background-color:#fff; display: block}
+.fk-box-inner{width:1000px; margin:0 auto;}
+.fk-bannerbox{background-image: url(/static/hrzhang/images/banner_2016_05.png); height: 542px; margin:0 auto;}
+.fk-banner{ width: 1000px; height: 542px; margin-left: auto; margin-right: auto;}
+.fktit-box{ width:1000px; height:103px; margin:0 auto; margin-top: -88px}
+.fk-tit{ width:100%; height:100%;}
+
+.fk-list{ width:100%; height:100%;}
+.fk-list ul { width:100%; height:100%;}
+.fk-list ul li{ float:left; width:320px; height:88px;}
+.fk-list .fk-t01 a{ width:320px; height:88px; position:absolute; background-image:url(../images/fkt_2016_05_01.png); background-position:top; background-repeat:no-repeat;}
+.fk-list .fk-t02 a{ width:320px; height:88px; position:absolute; background-image:url(../images/fkt_2016_05_02.png); background-position:top; background-repeat:no-repeat;}
+.fk-list .fk-t03 a{ width:320px; height:88px; position:absolute; background-image:url(../images/fkt_2016_05_03.png); background-position:top; background-repeat:no-repeat;}
+.fk-list ul li a:hover{ height:103px; background-position:bottom; }
+.fk-list ul .fk-currentli a{ height:103px; background-position:bottom; }
+
+.fk-xx{border-top:1px #17adf0 solid;margin-top:-15px;}
+.fk-page1{height:520px; background-color: #f3f7fa}
+.fk-page2{height:500px;}
+.fk-page3{height:50px;border-top:1px #dcdcdc solid;margin-top:-1px;padding:10px 0px;}
+.fk-page4{height:20px; background:url(../images/bifk.png);border-top:1px #dcdcdc solid;margin-top:-1px;}
+.fk-page5{height:400px; background:url(../images/bifk.png); border-top:1px #17adf0 solid;margin-top:-1px;}
+
+.fk2-page1{height:520px; background:#ffffff;}
+.fk2-page2{height:520px; background:#f3f7fa;}
+.fk2-page3{height:835px; }
+
+.fk2-list{float:left;width:300px;height: 344px; margin:25px 15px;}
+.fk2-list-head{text-align:center; height: 65px; font-size: 22px;line-height: 65px;color: white;}
+.fk2-list-body{color:#8a8c8b;font-size:15px; line-height:30px; text-align:left; width: 230px;margin-left: auto;margin-right: auto;margin-top: 30px;}
+
+
+
+.fk-listcontent{overflow:hidden; width:978px;height:1328px;border-bottom:solid 1px #dcdcdc;background-image:url(../images/hetong_bian.jpg);}
+.fk-htimg{position:relative;height:1152px; width:850px;background-image:url(../images/ht1.jpg); margin:60px auto;}
+.baoxianfk-htimg{ position:relative;height:1152px; width:850px;background-image:url(../images/baoxian1.jpg); margin:60px auto;}
+.fk-prev{ height:68px; width:68px; display:block; position:absolute;top:560px;left:-34px; background-image:url(../images/ht01.png); cursor:pointer;}
+.fk-next{height:68px; width:68px; display:block; position:absolute;top:560px;left:818px; background-image:url(../images/ht02.png); cursor:pointer;}
+.baoxianfk-prev{ height:68px; width:68px; display:block; position:absolute;top:560px;left:-34px; background-image:url(../images/ht01.png); cursor:pointer;}
+.baoxianfk-next{height:68px; width:68px; display:block; position:absolute;top:560px;left:818px; background-image:url(../images/ht02.png); cursor:pointer;}
+
+.fk-xx-hetong{border-top:1px #17adf0 solid;margin-top:-1px;background:url(../images/hetong_background.png);}

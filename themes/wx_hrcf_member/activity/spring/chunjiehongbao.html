@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/hrcfwx/activity/spring/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/zebra_dialog_spring.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/activity/spring/css/chunjiehongbao.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/zebra_dialog_spring.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/activity/spring/js/chunjiehongbao.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<meta name = "format-detection" content="telephone = no" />
+<title>微拍贷</title>
+</head>
+
+
+<body>
+<div class="fxhb">
+    {if $is_over==1}
+
+    <div class="fxhb_head_error">
+        <input class="do_height">
+        <div class="error_info">
+            <div class="info_img_p">
+                <div class="info_p">
+                    <p>{$info_one}</p>
+                    <p>{$info_two}</p>
+                </div>
+                <div class="info_img_start">
+                    <img src="/static/hrcfwx/activity/spring/images/houzi_fx_weikaishi.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {elseif $is_over==2}
+
+    <div class="fxhb_head_error">
+        <input class="do_height">
+        <div class="error_info">
+            <div class="info_img_p">
+                <div class="info_p">
+                    <p>{$info_one}</p>
+                    <p>{$info_two}</p>
+                </div>
+                <div class="info_img_over">
+                    <img src="/static/hrcfwx/activity/spring/images/houzi_fx_yijieshu.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {else}
+        {if $is_share=="true"}
+    <div class="fxhb_head">
+        <input type="text" id="mobile" name="mobile" placeholder="请输入手机号"/>
+        <a href="javascript:;" onclick="gethongbao(this);"><div></div></a>
+    </div>
+        {else}
+    <div class="fxhb_head_error">
+        <input class="do_height">
+        <div class="error_info">
+            <div class="info_img_p">
+                <div class="info_img_noshare">
+                    <img src="/static/hrcfwx/activity/spring/images/houzi_fxweifenxiang.png">
+                </div>
+                <div class="info_p_noshare">
+                    <p>{$info_one}</p>
+                    <p>{$info_two}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        {/if}
+
+    {/if}
+
+    <div class="fxhb_body">
+        <div class="fxhb_body_top">
+            <img src="/static/hrcfwx/activity/spring/images/fx33.png"/>
+        </div>
+        <div class=" fxhb_body_li" id="winner-share-list">
+            {foreach from="$winner_share_list" item="item"}
+            <li>
+                <div><img src="/static/hrcfwx/activity/spring/images/fx35.png" /></div>
+                <span>{$item.username}</span>
+                <nobr>获得了“拜年红包”1个</nobr>
+                <div><img src="/static/hrcfwx/activity/spring/images/fx34.png" /></div>
+            </li>
+            {/foreach}
+        </div>
+    </div>
+    <input id="record" type="hidden" class="record" value="{$record}">
+    <div class="fxhb_foot">
+        
+    </div>
+</div>
+</body>
+</html>

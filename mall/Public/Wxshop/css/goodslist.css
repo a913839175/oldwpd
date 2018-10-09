@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:scroll;overflow-x:hidden;-webkit-user-select: none; padding-bottom:30px; background-color:#ffffff;height: 100%;}
+/*top*/
+.top{ height:13.5vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left; width:7vw;margin-left:4.5vw; margin-top: 3.3vw; }
+.top1 img{ width:100%;}
+.top_title{ float:left;}
+.top_title p{ color:#FFF; font-size:4.5vw; line-height:13.5vw; padding-left:25vw;}
+.top2{ float:right; width:30vw; padding-top:4.5vw; color: #fff;font-size:4vw;}
+.top2 .myscore{color: #FDE200;}
+.top2 img{ width:100%;}
+.top3{ float:right; width:0.95vw; padding-top:1.7vw; padding-right:7.5vw;}
+.top3 img{ width:100%;}
+
+/*内容*/
+.content{
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+}
+.list{
+	width: 100%;
+	position: relative;
+	height: auto;
+	float: left;
+}
+
+.showgoods{
+	height: auto;
+	margin-top: 5px;
+	width: 50%;
+	/*background-color: #00ffff;*/
+	float: left;
+}
+
+.goods{
+	height: auto;
+	width: 96%;
+	margin-left: 2%;
+	/*border-top: 1px solid #ccc;*/
+}
+
+
+.goods_img{
+	width: 100%;
+	height: 54vw;
+}
+.goods_img img{
+	width: 100%;
+	/*height: 100%;*/
+}
+.goods_title{
+	font-size: 4.6vw;
+	font-family: "黑体";
+	padding-left: 4vw;
+	padding-right: 4vw;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	color: #424242;
+	height: 13.4vw;
+	line-height: 6.7vw;
+
+	overflow:hidden;
+	/*width: 100%;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;*/
+}
+.goods_score{
+	color: #d7281e;
+	width: 100%;
+	margin-bottom: 5px;
+	height:6.7vw;
+}
+
+.score_num{
+	height:6.7vw;
+	font-size: 5vw;
+	font-family: "微软雅黑";
+	float: left;
+	padding-left: 4vw;
+	line-height:6.7vw;
+
+}
+
+.score_word{
+	height:6.7vw;
+	font-size: 5vw;
+	font-family: "黑体";
+	padding-right: 7vw;
+	float: right;
+	line-height:5vw;
+	padding-top: 0.5vh;
+	color: #504949;
+}
+
+.up{
+	position: fixed;
+	bottom:4vh;
+	right: 4vw;
+	width: 10vw;
+}
+
+.up img{
+	width: 100%;
+}
+
+#infscr-loading{
+}
+
+#infscr-loading img{
+	width: 7%;
+}

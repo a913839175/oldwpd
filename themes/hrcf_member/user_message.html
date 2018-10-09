@@ -1,0 +1,457 @@
+{include file="../hrcf/header.html"}
+
+<script src="/static/js/lib/jquery/1.9.1/jquery.nocmd.js"></script>
+<script src="/static/js/lib/simplePagination/1.5.0/simplePagination.nocmd.js"></script>
+
+<div class="pg-container-content">
+  <link rel="stylesheet" href="/static/css/pages/account/account.css">
+  {if $_U.query_type=="message"}    
+  <div id="pg-account-mails" class="pg-account">
+  {elseif $_U.query_type=="setting"}
+  <div id="pg-account-settings" class="pg-account">
+  {/if}
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=code/message">互动管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          {if $_U.query_type=="message" || $_U.query_type=="view"}    
+		  	<a href="/?user&q=code/message">站内信息</a>
+		  {elseif $_U.query_type=="setting"}
+		  	<a href="/?user&q=code/message/setting">通知设置</a>
+		  {/if}  
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10 ">
+      
+      {if $_U.query_type=="message"}
+      <div class="account-mails-tab fn-clear">
+	    		<div class="ui-tab ui-tab-transparent">
+				  	<ul class="ui-tab-items">
+				  		<li id="system_info" class="ui-tab-item ui-tab-item-current" onclick="getMails(this)"><a class="ui-tab-item-link">通知</a></li>
+				  		<!-- <li id="user_inbox_info" class="ui-tab-item" onclick="getMails(this)"><a class="ui-tab-item-link">私信</a></li> -->
+				  	</ul>
+			  	</div>
+			  	<div class="swicthRCon">
+	          <div id="swicthRCon0">
+           	  <p><a href="/?user&q=code/message/setting">设置通知提醒</a> | <a onclick="document.getElementById('sendDigSX').style.display='block'">意见反馈</a></p>
+            </div>
+            <div id="swicthRCon1" class="fn-clear" style="display:none">
+           	   <div class="sxSearchBox clearfix">
+               	<div id="sxSearch">
+               		<input type="text" value="" id="searchDetailContent"><button id="sxSearchBt" onclick="getInboxInnerMails(1);"></button>
+               	</div>
+         				<a id="sendNewSx" class="fn-left ml20">发私信</a>
+               </div>
+             </div>
+           </div>
+	    	</div>
+
+		  	<div class="p20bs color-white-bg fn-clear">
+			    <input id="sendTo" type="hidden" value="" />
+				<div id="inbox_content">
+
+
+
+
+    <div id="system_info_content">
+       
+        <div id="notif">
+	        <ul>
+		        { list  module="message" function="GetMessageReceiveList" username='$_G.user_info.username' var="loop" }
+				{foreach from="$loop.list" item="item"}  
+		            <li style="cursor:pointer;" id="14770217" onclick="getSystemMailByType('MATERIAL_SUC',1)">
+		            	<a href="{$_U.query_url}/view&id={$item.id}">
+		          		<div class="clearfix">
+		                     <div class="photo"><img width="60" height="60" src="/static/img/notifi/MATERIAL_SUC.png"></div>
+		                     <div class="title"><h3>{$item.send_username|default:"系统"}</h3><p>{$item.addtime|date_format:"Y-m-d H:i"}</p></div>
+		                     <div class="colorgray detail">&nbsp;
+		                     {if $item.status==0}<strong>{ $item.name}</strong>{else}{ $item.name}{/if}
+		                     <img src="/static/img/openmore.png"></div>
+		                </div>
+		                </a>
+		              </li>  
+		         {/foreach}
+		         {/list}  	            
+	        </ul>
+	        <div class="page">{if $loop.pages.total>0}{$loop.pages|showpage}{/if}<input type="hidden" value="0" id="type" name="type" /></div>
+				
+				</div>
+				<div id="sendDigSX" class="sendDigSX fn-hide" style="display: none;top:205px;left:30%;">
+	       		<div onclick="document.getElementById('sendDigSX').style.display='none'" class="closeBt">X</div>
+	         	<form method="post" id="sendBoxForm" action="">
+		            <div class="fn-clear item">
+		                <div class="label">发送给：</div>
+		                <div class="inputs">
+		                    <select name="receiver" onclick="getOther(this)" id="favourateReceiver">
+		                        <option value="微拍贷客服" id="otherOption">微拍贷客服</option>
+		                    </select>
+		                    <input disabled="disabled" value="微拍贷客服" class="fn-hide" id="otherReceiver">
+		                </div>
+		            </div>
+
+		            <div class="fn-clear item">
+		                <div class="label">内容：</div>
+		                <div class="inputs">
+		                    <textarea id="sendMail" name="comment"></textarea>
+		                </div>
+
+		                <div class="bts">
+		                    <input type="button" class="ui-button ui-button-small ui-button-green" value="发送站内信" onclick="sendZnxSubmit(this,'system')"><span id="send_tip"></span>
+		                </div>
+		            </div>
+	        	</form>
+			</div>
+		  </div>
+		</div>
+  	</div>
+  </div>  
+    </div>
+    {elseif $_U.query_type=="view"}
+    
+    
+    <div id="inbox_content">
+
+
+
+
+
+    <div id="system_info_type_content">
+       
+        <div id="notif">
+        	<ul>
+	            
+	              <li id="14770217">
+	          		<div class="clearfix">
+	                     <div class="photo"><img src="/static/img/notifi/MATERIAL_SUC.png"></div>
+	                     <div class="title"><h3>{$_U.message_result.name}</h3><p>{$_U.message_result.addtime|date_format:"Y-m-d H:i"}</p></div>
+	                     <div class="detail">
+	                     <p>&nbsp;</p>
+							<div>
+								<p>{$_U.message_result.contents}</p>
+							</div>
+							<p>&nbsp;</p>
+						</div>
+	                </div>
+	              </li>  
+	            
+        	</ul>
+        </div>  
+    </div>
+ </div>
+    
+    {elseif $_U.query_type=="setting"}
+		
+	  <div class="p20bs color-white-bg fn-clear">
+		<form id="settingForm" name="settingForm" action="/account/comm!saveNotificationSetting.action" method="post">
+				<font face="Arial, sans-serif">
+				    <input type="hidden" value="" name="security_session">
+				    <input type="hidden" value="1431892535214" name="timestamp">
+				</font>
+
+				<div class="tables">
+	                <div class="title">我是借入者</div>
+	                <table>
+	                    <tr class="odd">
+	                        <td width="34%">借款操作
+	                        </td>
+	                        <td width="34%">
+	                            电子邮件
+	                        </td>
+	                        <td width="33%">
+	                            站内信
+	                        </td>
+	                    </tr>
+	                    <tr class="even">
+	                        <td>
+	                            有人对我的借款列表提问
+	                        </td>
+	                        
+	                        
+	                        
+	                            
+	                                
+	                                    <td>
+	                                        <input type="checkbox" name="mail_asked" value="true" checked="checked" id="settingForm_mail_asked"/><input type="hidden" id="__checkbox_settingForm_mail_asked" name="__checkbox_mail_asked" value="true" />
+
+	                                    </td>
+	                                    <td>
+	                                        <input type="checkbox" name="innerMail_asked" value="true" id="settingForm_innerMail_asked"/><input type="hidden" id="__checkbox_settingForm_innerMail_asked" name="__checkbox_innerMail_asked" value="true" />
+
+	                                    </td>
+	                                
+	                                
+	                            
+	                        
+	                    </tr>
+	                    <tr class="odd">
+	                        <td>
+	                            有人向我的借款列表投标
+	                        </td>
+	                        
+	                            <td>
+	                                <input type="checkbox" name="mail_bid" value="true" id="settingForm_mail_bid"/><input type="hidden" id="__checkbox_settingForm_mail_bid" name="__checkbox_mail_bid" value="true" />
+
+	                            </td>
+	                            <td>
+	                                <input type="checkbox" name="innerMail_bid" value="true" id="settingForm_innerMail_bid"/><input type="hidden" id="__checkbox_settingForm_innerMail_bid" name="__checkbox_innerMail_bid" value="true" />
+
+	                            </td>
+	                        
+	                        
+	                        
+	                    </tr>
+	                    <tr class="even">
+	                        <td>
+	                            我的借款列表流标
+	                        </td>
+	                       
+	                        
+	                            <td>
+	                                <input type="checkbox" name="mail_myFail" value="true" checked="checked" id="settingForm_mail_myFail"/><input type="hidden" id="__checkbox_settingForm_mail_myFail" name="__checkbox_mail_myFail" value="true" />
+
+	                            </td>
+	                            <td>
+	                                <input type="checkbox" name="innerMail_myFail" value="true" checked="checked" disabled="disabled" id="settingForm_innerMail_myFail"/><input type="hidden" id="__checkbox_settingForm_innerMail_myFail" name="__checkbox_innerMail_myFail" value="true" disabled="disabled" />
+
+	                            </td>
+	                        
+	                        
+	                    </tr>
+	                    <tr class="odd">
+	                        <td>
+	                            我的借款列表完成度超过50%
+	                        </td>
+	                        
+	                        
+	                        
+	                            
+	                                
+	                                    <td>
+	                                        <input type="checkbox" name="mail_half" value="true" checked="checked" id="settingForm_mail_half"/><input type="hidden" id="__checkbox_settingForm_mail_half" name="__checkbox_mail_half" value="true" />
+
+	                                    </td>
+	                                    <td>
+	                                        <input type="checkbox" name="innerMail_half" value="true" id="settingForm_innerMail_half"/><input type="hidden" id="__checkbox_settingForm_innerMail_half" name="__checkbox_innerMail_half" value="true" />
+
+	                                    </td>
+	                                
+	                                
+	                            
+	                        
+	                    </tr>
+	                    <tr>
+                          <td>
+                              当我的借款发生转让时通知我
+                          </td>
+
+
+                         
+
+	                        
+	                            
+	                                
+	                                    <td>
+	                                        &nbsp;
+	                                    </td>
+	                                    <td>
+	                                        <input type="checkbox" name="innerMail_buyLoan_transfer" value="true" checked="checked" id="settingForm_innerMail_buyLoan_transfer"/><input type="hidden" id="__checkbox_settingForm_innerMail_buyLoan_transfer" name="__checkbox_innerMail_buyLoan_transfer" value="true" />
+
+	                                    </td>
+	                                
+	                                
+	                            
+	                        
+                      </tr>
+	                </table>
+	         </div>
+	         <div class="tables">
+	                <div class="title">我是借出者</div>
+	                <table>
+	                    <tr class="odd">
+	                        <td width="34%">
+	                        投标操作
+	                        </td>
+	                        <td width="34%">
+	                            电子邮件
+	                        </td>
+	                        <td width="33%">
+	                            站内信
+	                        </td>
+	                    </tr>
+	                    <tr class="even">
+	                        <td>
+	                            我的投标成功
+	                        </td>
+	                        
+	                        
+	                        
+	                            
+	                                
+	                                    <td>
+	                                        <input type="checkbox" name="mail_bidSuccess" value="true" checked="checked" id="settingForm_mail_bidSuccess"/><input type="hidden" id="__checkbox_settingForm_mail_bidSuccess" name="__checkbox_mail_bidSuccess" value="true" />
+
+	                                    </td>
+	                                    <td>
+	                                        <input type="checkbox" name="innerMail_bidSuccess" value="true" id="settingForm_innerMail_bidSuccess"/><input type="hidden" id="__checkbox_settingForm_innerMail_bidSuccess" name="__checkbox_innerMail_bidSuccess" value="true" />
+
+	                                    </td>
+	                                
+	                                
+	                            
+	                        
+	                    </tr>
+	                    <tr class="odd">
+	                        <td>
+	                            我的投标流标
+	                        </td>
+	                        
+	                        
+	                        
+	                            
+	                                
+	                                
+	                                    <td>
+	                                        <input type="checkbox" name="mail_fail" value="true" id="settingForm_mail_fail"/><input type="hidden" id="__checkbox_settingForm_mail_fail" name="__checkbox_mail_fail" value="true" />
+
+	                                    </td>
+	                                    <td>
+	                                        <input type="checkbox" name="innerMail_fail" value="true" checked="checked" id="settingForm_innerMail_fail"/><input type="hidden" id="__checkbox_settingForm_innerMail_fail" name="__checkbox_innerMail_fail" value="true" />
+
+	                                    </td>
+	                                
+	                            
+	                        
+	                    </tr>
+	                    <tr class="even">
+	                        <td>
+	                            我收到一笔还款
+	                        </td>
+	                        
+	                            <td>
+	                                <input type="checkbox" name="mail_bidRepaid" value="true" id="settingForm_mail_bidRepaid"/><input type="hidden" id="__checkbox_settingForm_mail_bidRepaid" name="__checkbox_mail_bidRepaid" value="true" />
+
+	                            </td>
+	                            <td>
+	                                <input type="checkbox" name="innerMail_bidRepaid" value="true" id="settingForm_innerMail_bidRepaid"/><input type="hidden" id="__checkbox_settingForm_innerMail_bidRepaid" name="__checkbox_innerMail_bidRepaid" value="true" />
+
+	                            </td>
+	                        
+	                        
+	                        
+	                    </tr>
+	                    <tr class="odd">
+	                        <td>
+	                            借入者回答了我对借款列表的提问
+	                        </td>
+	                        
+	                        
+	                        
+	                            
+	                                
+	                                    <td>
+	                                        <input type="checkbox" name="mail_answer" value="true" checked="checked" id="settingForm_mail_answer"/><input type="hidden" id="__checkbox_settingForm_mail_answer" name="__checkbox_mail_answer" value="true" />
+
+	                                    </td>
+	                                    <td>
+	                                        <input type="checkbox" name="innerMail_answer" value="true" id="settingForm_innerMail_answer"/><input type="hidden" id="__checkbox_settingForm_innerMail_answer" name="__checkbox_innerMail_answer" value="true" />
+
+	                                    </td>      
+	                    </tr>
+	                </table>
+	           </div> 
+
+	           <div class="tables" style="display:none">
+	                <div class="title">债权转让</div>
+	                <table>
+	                    <tr class="odd">
+	                        <td width="34%">债权转让操作</td>
+	                        <td width="22%">电子邮件 </td>
+	                        <td width="22%">站内信</td>
+	                    </tr>
+	                    <!-- <tr class="even">
+	                        <td>债权转入 </td> -->
+	                       
+	                   <!--  </tr> -->
+
+	                    <tr class="even">
+	                        <td>债权转出</td>
+	                            
+	                    </tr>
+	                    <tr style="display:none"">
+	                        <td> 申请/成功退出优选理财计划</td>
+
+	                         
+		                           	
+		                           	<td><input type="checkbox" name="exitFinancePlanList[0]" value="true" id="settingForm_exitFinancePlanList_0_"/><input type="hidden" id="__checkbox_settingForm_exitFinancePlanList_0_" name="__checkbox_exitFinancePlanList[0]" value="true" />
+</td>
+
+		                           	
+		                       		<td><input type="checkbox" name="exitFinancePlanList[2]" value="true" id="settingForm_exitFinancePlanList_2_"/><input type="hidden" id="__checkbox_settingForm_exitFinancePlanList_2_" name="__checkbox_exitFinancePlanList[2]" value="true" />
+</td>
+
+		                       		
+		                           		 <td><input type="checkbox" name="exitFinancePlanList[1]" value="true" checked="checked" id="settingForm_exitFinancePlanList_1_"/><input type="hidden" id="__checkbox_settingForm_exitFinancePlanList_1_" name="__checkbox_exitFinancePlanList[1]" value="true" />
+</td>
+		                           	
+		                           	
+	                        
+	                    </tr>
+	                </table>
+	           </div>
+	          <div class="bts">
+	                <button id="subbt" class="ui-button ui-button-mid ui-button-green" type="submit">保存设置</button>
+	          </div>
+
+	</form>
+
+
+
+
+				<div class="notice">
+            <div class="title">温馨提示</div>
+            <p>若您设置了不接收有关通知或提醒，则您有可能收不到某些与您切身有关的重要信息，请您慎重选择。</p>
+            <p>您同意在设置不接收后，您不会以您未收到或未阅读该等通知信息为由主张相关通知未送达于您。</p>
+          </div>
+
+		  </div>
+		</div>
+  	</div>
+  </div>
+{literal}  
+<script>
+seajs.use(['jquery','widgets/widgets'],function($,Widgets){
+  var form = Widgets.Form;
+	$("#subbt").click(function(e){
+		form.ajaxSubmit($("form"),{
+			msgafter:"#subbt",
+         success:function(data){
+             this.msg(data.message,"warn");
+         }
+      });
+		 e.preventDefault();
+	})
+})
+</script>
+{/literal}    
+    </div>
+		
+	  {/if}	
+	  </div>
+  </div>
+</div>
+	
+    </div>
+
+        
+   

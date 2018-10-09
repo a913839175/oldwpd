@@ -1,0 +1,23 @@
+// JavaScript Document
+$(function(){
+	$("#ib1").mouseover(function(){
+		$(this).attr("src","/static/yinyh/images/i1.png");
+		$("#ab1").attr("src","/static/yinyh/images/a2.png");
+		$("#ewm").attr("src","/static/yinyh/images/qr-vr-iphone.jpg");
+	});
+	$("#ab1").mouseover(function(){
+		$(this).attr("src","/static/yinyh/images/a1.png");
+		$("#ib1").attr("src","/static/yinyh/images/i2.png");
+		$("#ewm").attr("src","/static/yinyh/images/qr-vr-android.jpg");
+	});
+	$("#ib2").mouseover(function(){
+		$(this).attr("src","/static/yinyh/images/i11.png");
+	}).mouseout(function(){
+		$(this).attr("src","/static/yinyh/images/i22.png");
+	});
+	$("#ab2").mouseover(function(){
+		$(this).attr("src","/static/yinyh/images/a11.png");
+	}).mouseout(function(){
+		$(this).attr("src","/static/yinyh/images/a22.png");
+	});
+});

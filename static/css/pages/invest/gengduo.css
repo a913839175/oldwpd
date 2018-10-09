@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* ***** add ****** */
+.lists div.more{ text-align:center; height:50px; line-height: 50px; color:#333; padding-top:10px; font-size:16px; background-color:#fff; width:100%; margin:0 auto; margin-bottom:15px;margin:0 auto;}
+.lists div.more a{ color:#333;}
+.more_div{
+	width: 50%;
+	background-color: #ccc;
+	margin:0 auto;
+}
+
+
+

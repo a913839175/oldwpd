@@ -1,0 +1,86 @@
+{include file="header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/pages/about.css?v=20160823" />
+<div class="pg-container-content">
+    <div class="ab_bj"></div>
+    <div id="pg-about-intro">
+        <div class="container_12 m1">
+            <div class="grid167">
+                <div class="ui-side" id="sidebar">
+                    <ul class="ui-side-list">
+                        {include file="about_left.html"}
+                    </ul>
+                </div>
+            </div>
+            <div class="mar0">
+                <div class="ab_fk">
+                    <ul class="ab_fkul clearfix">
+                        <li class="ab_fkli bbccurr">
+                            <a href="#" >360安全保护 </a>
+                        </li>
+                        <li class="ab_fkli">
+                            <a href="#" >资金保障 </a>
+                        </li>
+                        <li class="ab_fkli ab_navlist">
+                            <a href="#" >风控体系 </a>
+                        </li>
+                    </ul>
+                    <div class="ab_fkbaitiao"></div>
+                </div>
+                <div class="ab_aqfh">
+                    <img src="/static/img/ab_aq01.jpg" >
+                    <img src="/static/img/ab_aq02.jpg" >
+                    <img src="/static/img/ab_aq03.jpg" >
+                </div>
+                <div class="ab_zzbz">
+<!--                     <img src="/static/img/ab_aq21.jpg" >
+                    <img src="/static/img/ab_aq24.jpg" > -->
+                </div>
+                <div class="ab_fktx">
+                    <img src="/static/img/ab_aq11.jpg" >
+                    <img src="/static/img/ab_aq12.jpg" >
+                    <img src="/static/img/ab_aq13.jpg" >
+                    <img src="/static/img/ab_aq14.jpg" >
+                    <img src="/static/img/ab_aq15.jpg" >
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{if $_G.page_result.nid=="contact"}
+{literal}
+<style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+</style>
+{/literal}
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1a3297b8819187fcc859349e31c2291c"></script>
+<script type="text/javascript" src="/static/js/map.js"></script> -->
+{/if}
+{literal}
+<script>
+    // 4个导航的颜色和层级以及页面的切换
+    $('.ab_fkli').on('click', function () {
+        var bb_index = $(this).index();
+        $('.ab_fkli').removeClass('bbccurr');
+        $(this).addClass('bbccurr');
+        // console.log(bb_index);
+        if (bb_index == 0) {
+            $('.ab_aqfh').show();
+            $('.ab_zzbz').hide();
+            $('.ab_fktx').hide();
+        } else if (bb_index == 1) {
+            $('.ab_aqfh').hide();
+            $('.ab_zzbz').show();
+            $('.ab_fktx').hide();
+        } else if (bb_index == 2) {
+            $('.ab_aqfh').hide();
+            $('.ab_zzbz').hide();
+            $('.ab_fktx').show();
+        }
+    })
+
+</script>
+{/literal}

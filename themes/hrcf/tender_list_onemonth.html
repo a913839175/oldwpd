@@ -1,0 +1,254 @@
+{include file="header.html"}
+
+<link href="/static/hrzhang/css/licai.css?v=20170705" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script src="/static/hrzhang/js/jquery-ui.min.js?v=20161019"></script>
+<div class="lcj_contentq">
+    <div class="lcj_content">
+        <p class="lcj_lj">我要理财>微计划>微+系列</p>
+        <div class="lcj_bigcontent clearfix">
+            <!-- 微+1 -->
+            <div class="lzt lcj_bigright1 ">
+                <div class="lcj_rightjh clearfix">
+                    <div class="lcj_jhleft">
+                        <p class="lcj_leftmc">[ 微+1 ] 1个月</p>
+                        <div class="earningsmonth clearfix">
+                            <div class="emleft">
+                                <p class="emleft1"><span class="emleftfirst">5.00</span><span class="emleftsecond">%</span></p>
+                                <p class="emleft2">预期利率</p>
+                            </div>
+                            <div class="emright">
+                                <p class="emright1"><span class="emrightfirst">1</span><span class="emrightsecond">个月</span></p>
+                                <p class="emright2">投资期限</p>
+                            </div>
+                        </div>
+                        <ul class="lcjms clearfix">
+                            <li class="lcjms1 clearfix">
+                                <p class="lcjmsleft1">还款方式</p>
+                                <p class="lcjmsright1">期限一个月（按30天计算）,收益复投(每月收益复投)</p>
+                            </li>
+                            <li class="lcjms1 clearfix">
+                                <p class="lcjmsleft1">起投金额</p>
+                                <p class="lcjmsright1 coloror">100元</p>
+                            </li>
+                            <li class="lcjms1 clearfix">
+                                <p class="lcjmsleft1">投资说明</p>
+                                <p class="lcjmsright1">微+1是微拍贷推出的一项高效，灵活的优先自动投标工具。<br>微+1精选优质债权，不定期发售，售完为止。<br>购买微+1产品后，资金将自动进入为期1个月（30天）的锁定期。</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="lcj_jhright">
+                        <a  href="javascript:void(0)" onclick="javascript:window.open('/financing/index.html', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')" class="lj_xyfb" style="display: none;">理财协议（范本）</a>
+                        <div id="investment-terminal" class="investter">
+                            <div class="ui-term-content">
+                                {if $_G.user_id==""}
+                                <p class="mb4">
+                                    <span style="width: auto" class="clearfix"><em class="fn-left mr10 fn_color2">账户可用余额 <a href="/?user&q=login">登录</a> 后可见</em> 
+                                        <a class="fn-right fn_color" href="/?user&q=code/account/recharge_new" target="_blank">充值</a></span>
+                                </p>
+                                {else}
+                                <p class="ui-term-overage mb4">
+                                    <span style="width: auto" class="clearfix"><em class="fn-left mr10 fn_color2">您的可用余额为： </em> 
+                                        {articles module="account" function="GetOne" var="var_h" user_id="$_G.user_id"} 
+                                        <em id="max-account" class="fn-left fn_color2" data-account="{$var_h.balance|default:'0'}">{$var_h.balance|default:"0"}元</em>
+                                        <a class="fn-right fn_color" href="/?user&q=code/account/recharge_new" target="_blank">充值</a></span>
+                                </p>
+                                {/if}
+
+                                <form class="ui-term-form ui-form" autocomplete="off">  
+                                    <div class="ui-term-field invest">
+                                        <input class="ui-term-input ui-input ui-input-text" type="text" />
+                                        <p class="ui-term-placeholder">输入金额需为100元的整数倍</p>
+                                        <p class="ui-term-inputunit">元 <span class="ui-term-eq share"></span></p>
+                                        <p class="ui-term-hint">&nbsp;</p>
+                                        <p class="ui-term-error" style="display: none;"></p>
+                                    </div>
+                                    <p class="datedue">到期日期：暂无</p>
+                                    <p class="datedue2">期望回报：0<span class="blockcolor">元</span></p>
+                                    <button class="ui-term-button ui-button ui-button-rect-mid ui-button-blue OPEN  mb10 ui-term-button2" id="invest-submit" type="button" onclick="WJHMask();">
+                                        <span class="ui-button-text OPEN">立即出借</span>
+                                        <span class="ui-button-text APPLY">申请中</span>
+                                        <span class="ui-button-text READY">已满标</span>
+                                        <span class="ui-button-text FAILED">已流标</span>
+                                        <span class="ui-button-text REPAYING">还款中</span>
+                                        <span class="ui-button-text OVERDUE">已逾期</span>
+                                        <span class="ui-button-text BADDEBT">已垫付</span>
+                                        <span class="ui-button-text CLOSED">已还清</span>
+                                        <span class="ui-button-text UNKNOWN">不可投</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="lcj_bigcontent clearfix">
+                    <div class="cpzs">
+                        <ul class="cpzs_ul" >
+                            <li class="cpzs_li bordercur">产品详细</li>
+                            <li class="cpzs_li" id="getmorefirst">投资人</li>
+                        </ul>
+                        <div class="cpzs_dyk">
+                            <div class="cpzs_dykz clearfix">                       
+                                <p class="cpzs_qx">期限</p>
+                                <p class="cpzs_ys">1个月（30天）</p>
+                            </div>
+
+                            <div class="cpzs_dykz clearfix">
+                                <p class="cpzs_qx">预期利率</p>
+                                <p class="cpzs_ys">5.00%</p>
+                            </div>
+
+                            <div class="cpzs_dykz clearfix">
+                                <p class="cpzs_qx">计息日期</p>
+                                <p class="cpzs_ys">T+1（投资成功后下一日）</p>
+                            </div>
+                            <div class="cpzs_dykz clearfix">
+                                <p class="cpzs_qx">收益到账日期</p>
+                                <p class="cpzs_ys">T+0（产品到期当日）</p>
+                            </div>
+
+                            <div class="cpzs_dykz clearfix">
+                                <p class="cpzs_qx">加入规则</p>
+                                <p class="cpzs_ys">加入金额100元起，暂无上限</p>
+                            </div>
+
+                            <div class="cpzs_dykz clearfix">
+                                <p class="cpzs_qx">收益计算公式</p>
+                                <div class="cpzs_ys">
+                                    <p class="cpzs_ys_first">预期收益=本金×预期利率5.00%×30/365</p>
+                                </div>                   
+                            </div>         
+                            <div class="cpzs_dykz clearfix">
+                                <p class="cpzs_qx">赎回规则</p>
+                                <p class="cpzs_ys">收益复投(每月收益复投)</p>
+                            </div>
+                        </div>
+                        <div class="tzr_bg">
+                            <table class="ui-table ui-table-blue ui-table-auditoria weizhi">
+                                <thead>
+                                    <tr>
+                                        <th width="17%"><span class="pl60">序号</span></th>
+                                        <th width="25%"><span class="pl25">投标人</span></th>
+                                        <th width="23%"><span class="text-right pr70">投标金额</span></th>
+                                        <th><span class="text-right pr90">投标时间</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="Investorform">
+
+                                </tbody>
+                            </table>
+                            <div class="lists">
+                                <div class="more"><a href="javascript:;" id='getmore'><div class="more_div">点击加载更多...</div></a></div>
+                                <input class="this_borrow_nid" id="this_borrow_nid" type="hidden" value="WADDONEMONTH_2016">
+                        <input class="this_borrow_nid" id="this_borrow_apr" type="hidden" value="5.00">
+                                <input class="this_borrow_nid" id="this_borrow_nid_a" type="hidden" value="微+1">
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="confirm-loan-template" type="text/x-handlebars-template">
+        <div class="ui-confirm conform_pay_div">
+        <span class="title">确认投资</span>
+        <div class="ui-confirm-content">
+        <form class="ui-confirm-form" action="/index.php?user&q=code/borrow/licaitender" method="post">
+        <ul>
+        <li class="fn-clear">
+        <span class="fn-left  ui-confirm-label-short">借款标题</span>
+        <span class="fn-left ui-confirm-value fn-text-overflow last ab_newwidth4">[ 微+1 ] 1个月</span>
+        </li>
+        <li class="fn-clear">
+        <span class="fn-left ui-confirm-label-short ab_newwidth">预期利率</span>
+        <span class="fn-left ui-confirm-value num-s last">
+        <em>5.00</em>%
+        </span>
+        </li>
+        <li class="fn-clear">
+        <span class="fn-left ui-confirm-label-short ab_newwidth">锁定期限</span>
+        <span class="fn-left ui-confirm-value num-s last"><em>1</em>个月</span>
+        </li>
+        {literal}
+        <li class="fn-clear">
+        <span class="fn-left ui-confirm-label-short ab_newwidth">投资金额</span>
+        <span class="fn-left ui-confirm-value num-s last"><em>{{ amount }}</em>元</span>
+        </li>
+        {/literal}
+        </ul>
+        <input name="borrow_nid" type="hidden" value="WADDONEMONTH_2016" />
+        {literal}
+        <div class="money-div">
+        <div class="J_coupon_wrap"></div>
+        <p class="fn-clear">
+        <span class="fn-left ui-confirm-label-short ab_newwidth">应付金额</span>
+        <span class="fn-left ui-confirm-value last"><em class="J_payable" data-payable="{{ amount }}" >{{ formatAmount }}</em>元（{{ shares }}份）</span>
+        </p>
+        <p class="fn-clear">
+        <span class="fn-left ui-confirm-label-short ab_newwidth">使用红包</span>
+        <span class="fn-left ui-confirm-value last" id="hongbao_span"></span>
+        </p>
+        <p class="ui-confirm-yue pl100 rrdcolor-red-text text-small fn-hide" ></p>
+        </div>
+        <ul>
+        <li class="fn-clear">
+        <span class="fn-left ui-confirm-label-short ab_newwidth">交易密码</span>
+        <span class="fn-left ui-confirm-value last" id="captcha">
+        <input id="captcha-input" type="password" name="paypassword" value="" />
+        </span>
+        </li>
+        </ul>
+        <div class="mt10 text-small ab_newwidth2">
+        <p style="line-height: normal"><input type="checkbox" name="agree-contract" checked="checked" / class="ab_newweizhi1"> 我已阅读并同意签署 <a class="text" href="javascript:void(0)" onclick="javascript:window.open('/financing/index.html', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">《理财协议》</a></p>
+        <p class="ui-confirm-hint rrdcolor-red-text text-small" style="display: none;"></p>
+        </div>
+        <div class="mt10 text-center  ab_newwidth3">
+
+        <input name="bidAmount" type="hidden" value="{{ amount }}" />
+        <div class="fn-clear w160 ui-confirm-submit-box">
+        <button class="fn-left ui-button ui-button-blue ui-button-mid" type="submit">确定</button>
+        <a class="fn-left last ui-confirm-cancel-link">取消</a>
+        </div>
+        </div>
+        {/literal}
+        </form>
+        </div>
+        </div>
+    </script>
+
+    <script>seajs.use(['pages/invest/details']);</script>
+
+    <div class="pg-container-content">
+
+        <div id="pg-loan-invest" class="pg-details"></div>
+        <div class="ui-goTop"></div>
+
+
+        <div class="ui-alert alert-point">
+            {if $_G.user_id==""}
+            <div id="pg-helper" style="display: none;">
+                <span id="pg-helper-loan-id">WADDONEMONTH_2016</span>
+                <span id="pg-helper-is-investor">false</span>
+                <span id="pg-helper-be-investor-message"></span>
+                <span id="authenticated">false</span>
+            </div>
+            {else}
+            <div id="pg-helper" style="display: none;">
+                <span id="pg-helper-loan-id">WADDONEMONTH_2016</span>
+                <span id="pg-helper-is-investor">true</span>
+                <span id="pg-helper-be-investor-message"></span>
+                <span id="authenticated">true</span>
+            </div>
+            {/if}
+        </div>
+
+    </div>
+
+    <script>seajs.use(['pages/tender/tender']);</script>
+    <script type="text/javascript" src="/static/js/pages/invest/weijihuajilu.js?v=20171102"></script>
+    {literal}
+    <script type="text/javascript">
+        seajs.use(['pages/index/index']);
+    </script>
+    {/literal}

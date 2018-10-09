@@ -1,0 +1,36 @@
+{include file="header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/pages/aboutus/news.css?v=20180323" />
+<div class="pg-container-content">
+    <div id="content">
+        <div class="cont1200 m1">
+            <div class="sidebar" id="sidebar">
+                <ul class="sidebar-items">
+                    {include file="about_left.html"}
+                </ul>
+            </div>
+            <!-- 关于我们-动态与公告 -->
+            <div class="contentright">
+                <img src="/static/img/aboutus/disclosure02.png">
+                <div class="news-cont">
+                    <p class="news-tab">
+                        <a class="news-tab-a on" href="/news/index.html">最新动态{$_G.page_result.nid}</a>
+                        <a class="news-tab-a" href="/notices/index.html">网站公告</a>
+                    </p>
+                    <ul class="newsList">
+                        {list module="articles" function="GetList" var="loop" epage="10" type_id="$_G.site_result.value" publish_auto_time="publish_auto_time"}
+                        {foreach from="$loop.list" item="var"} 
+                        <li class="news-list">
+                            <a href="/news/{$var.nid}/a{$var.id}.html">{$var.name}<span>{$var.addtime|date_format:"Y-m-d"}</span></a>
+                        </li>
+                        {/foreach}
+                        {/list}
+                    </ul>
+                    <!-- 分页 -->
+                    {if $loop.pages.total>0}
+                        <div class="page">{$loop.pages|showpage}</div>
+                    {/if}       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>
+	{if $_G.articles.name!=""}{$_G.articles.name}|{/if}
+	{if $_G.articles_result.name!=""}{$_G.articles_result.name}|{/if}
+	{if $_G.site_result.name!=""}{$_G.site_result.name}|{/if}
+	{$_G.system.con_webname}
+	</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta name="keywords" content="{if $_G.articles.tags!=""}{$_G.articles.tags}{elseif $_G.site_result.keywords!=""}{$_G.site_result.keywords}{else}{$_G.system.con_keywords}{/if}" />
+	<meta name="description" content="{if $_G.articles.contents!=""}{$_G.articles.contents|html_format|truncate:60}{elseif $_G.site_result.description!=""}{$_G.site_result.description}{else}{$_G.system.con_description}{/if}"/>
+	<meta name="generator" content="huarongchafu.com" />
+	<meta name="author" content="huarongchafu Team" />
+	<meta name="copyright" content="2015-2016 weipaidai Inc." />
+	<meta name="baidu-site-verification" content="fcerQNordr" />
+	<meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+	<script src="/static/js/seajs/2.1.0/sea.js?v=dee86"></script>
+	<script src="/static/js/config.js?v=20160512"></script>
+  	<link rel="stylesheet" href="/static/css/one.css">
+  	<link rel="stylesheet" href="/static/css/pages/account/account.css">
+  	
+  	<script src='/static/js/lib/jquery/1.4.2/jquery-1.4.2.min.js' type="text/javascript"></script>
+</head>
+
+<body>
+
+  <div id="pg-addcard" class="card-dialog noBorder">
+    <form data-name="addcard"  class="ui-form" method="post" id="addcardForm" action="/?user&q=code/account/bank">
+      <h4 class="text-center">添加银行卡</h4>
+      <div class="addCardInputs">
+        <div class="inputs">
+          <div class="ui-form-item lh-normal">
+            <label class="ui-label"><span class="ui-form-required">*</span>银行账户类型</label>
+            <em>借记卡</em> <span class="info">不支持提现至信用卡账户</span>
+          </div>
+          <div class="ui-form-item lh-normal">
+            <label class="ui-label"><span class="ui-form-required">*</span>开户人姓名</label>
+            <em>{$_G.user_info.realname_secur}</em>
+          </div>
+          <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>银行卡号</label>
+            <input class="ui-input" type="text" name="cardId" id="cardId" maxlength="19" data-is="isBankCard" autocomplete="off" />
+            <p class="lh-normal">该银行卡开户姓名必须为<span class="red">{$_G.user_info.realname_secur}</span>，否则会提现失败！</p>
+            <div class="friendTip fn-hide J_friendTip"></div>
+          </div>
+          <div class="ui-form-item" style="*z-index:21;">
+            <label class="ui-label"><span class="ui-form-required">*</span>选择银行</label>
+            <div class="ui-selectdrop  lh-normal">
+              <div class="s_select_bg wid280 het35 clearfix J_select_btn">
+                <span class="txt fn-clear J_txt"><em>请选择银行</em></span>
+                <span class="arrow">
+                  <em></em>
+                </span>
+              </div>
+              <div class="popBankBox J_popBankBox" style="display:none">
+                <ul class="has-icon-list fn-clear">
+                	{loop module="account" function="GetBankList" limit="all"}
+					<li datavalue="{$var.id}" datacode="{$var.nid}">
+                      <i class="logo{$var.nid}"></i> <em>{$var.name}</em>
+                    </li>
+					{/loop}
+                </ul>
+                
+              </div>
+            </div>
+            <div class="fn-clear invisiblediv">
+             <input type="text" class="fn-left invisible error noBorder" name="bankDataId" id="selBankType" />
+            </div>
+             <label class="error" id="J_must_chooseBank" style="display:none;" >请选择银行</label>
+          </div>
+          <div class="ui-form-item" style="*z-index:20;">
+            <label class="ui-label"><span class="ui-form-required">*</span>开户行所在地</label>
+            
+            {areas type="p,c" value="$var.city"}
+
+            <label class="error" id="J_must_chooseBankArea" style="display:none;" >开户行所在地不能为空</label>
+          </div>
+          <div class="ui-form-item fn-clear ui-selectdrop" style="z-index:19;">
+            <label class="ui-label"><span class="ui-form-required">*</span>开户行</label>
+            <input class="ui-input mt1 fn-left"  autocomplete="off" type="text" name="deposit" data-is="isCardDeposit" id="cardDeposit" />
+            <button id="bankKeySearchId" class="block-btn fn-left ml15">搜索</button>
+            <p class="lh-normal" style="clear: both;" >如果您不确定开户行,可以打电话向银行咨询或上网查询。</p>
+          </div>
+          <!-- <div class="ui-form-item wgetMobleCode fn-clear lh-normal">
+            <label class="ui-label lh40"><span class="ui-form-required">*</span>手机验证码</label>
+            <input class="ui-input mt1 fn-left" type="text" name="validateCode" id="validateCode"/>
+            <span id="getMobileCode" class="block-btn fn-left ml15" >获取验证码</span>
+            <label id="code-label" class="error" style="display: none" for="validateCode">验证码输入错误</label>
+            <div class="rrdcolor-red-text fn-hide phone-code-succ">恭喜您,您的手机号码已成功发送,请注意查收验证。</div>
+          </div> -->
+          <div id="serverMsg" class="serverMsg" style="padding-left:0px; line-height: 22px; margin-bottom: 10px" ></div>
+        </div>
+        <input type="hidden" name="realname_secur" value="{$_G.user_info.realname_secur}" id="realname_secur" />
+        <input type="hidden" name="cityId" value="" id="cityid" />
+        <input type="hidden" value="" name="cityshow" id="city_show" />
+        <div class="bts"><input id="addcard" type="submit" class="block-btn" value="添 加" /><input type="reset" id="close" class="block-btn block-btn-gray" value="取 消" /></div>
+      </div>
+    </form>
+  </div>
+  <div id="J_addCardSuccess" class="card-dialog fn-hide" >
+    <h4 class="text-center">添加银行卡成功</h4>
+    <p class="deCaTips succee"><span class="icon"></span>恭喜您,已经成功添加银行卡！</p>
+    <div class="card-btn text-center fn-clear">
+      <a href="javascript:" class="J_close close-btn block-btn">关闭</a>
+    </div>
+  </div>
+</body>
+{literal} 
+<script id="dialog-confirmBankNum" type="text/x-handlebars-template">
+    <div class="card-dialog" id="dialog-card">
+      <h4 class="text-center">确认银行卡信息</h4>
+      <div class="ui-form-item mt10">
+        <label class="ui-label">真实姓名</label>
+        {{realname_secur}}
+      </div>
+      <div class="ui-form-item">
+        <label class="ui-label">银行卡号</label>
+        <em>{{ cardNum }}</em>
+      </div>
+      <p class="sureCardTips">请仔细核对银行卡号是否正确，以免对您的提现造成影响！</p>
+      <div class="bts text-center mt10 mb20">
+        <a class="block-btn" id="card-confirm">确认添加</a>
+        <a class="block-btn block-btn-gray" id="card-cancel">返回修改</a>
+      </div>
+    </div>
+</script>
+<script>seajs.use('pages/account/account/userbank');</script>
+{/literal} 
+</html>

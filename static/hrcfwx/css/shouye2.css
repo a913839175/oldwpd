@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none; padding-bottom:70px; background-color:#f5f5f5;}
+/*top*/
+.top{ height:11vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left;}
+.top1_img{ height:6vw; padding-left:4.5vw; line-height:11vw;}
+.top1_img img{ height:6vw;}
+.top2{ float:right;}
+.top2_img{ height:4.4vw; padding-right:6.5vw; line-height:11vw;}
+.top2_img img{ height:4.4vw;}
+.top3{ float:right;}
+.top3_img{ height:9.22vw; line-height:11vw; padding-right:7.5vw;}
+.top3_img img{height:9.22vw;}
+/*滑动广告*/
+
+.guanggao img{ width:100vw; height:25.47vw;}
+.tongzhi{ height:6.4vw; width:100vw; background-color:#e6f3fd;}
+.tongzhi_img{ float:left; height:3.5vw; width:4.2vw; padding-left:2.66vw; line-height:6.4vw;}
+.tongzhi_img img{ height:3.5vw; width:4.14vw;}
+.tongzhi p{ float:left; padding-left:3vw; color:#696969; line-height:6.4vw; font-size:3.2vw; width:95vw;}
+
+/*main*/
+.main{ width:100vw;  height:111vw; margin:7.8vw 0 auto; max-height:500px; position:relative;}
+.back img{ position:absolute; height:111vw; width:100vw;}
+.rili{ padding-top:27vw; position:relative;}
+.rili_img{ float:left; height:4.25vw; width:4.38vw; padding-left:3vw; padding-right:6.5vw; line-height:4.25vw;}
+.rili_img img{ height:4.25vw; width:4.38vw;}
+.rili p{ color:#5d5d5d; font-size:3vw; padding-top:0.5vw;}
+.yesterday{ position:relative; font-size:4vw; padding-left:3vw; height:20vw; padding-top:7vw;}
+.yesterday a{ font-size:10vw; line-height:5vw; color:#ff7e16;}
+.allmoney{ position:relative; font-size:4vw; padding-left:3vw; padding-top:12vw;}
+.allmoney a{ font-size:8vw; line-height:4vw; color:#ff7e16;}
+.zhuan{ position:relative;}
+.zhuan img{ height:16vw; width:16vw;}
+.zhuan a p{ text-align:center; font-size:1rem; color:#191919; text-align:center; width:16vw;}
+.zhuan-wei{ position:absolute; top:-65vw; left:75vw; width:25vw; height:16vw; width:16vw;}
+.zhuan-wei p{ position:absolute;}
+.zhuan-biao{ position:absolute; top:-55vw; left:48vw; width:25vw; height:14vw; width:14vw;}
+.zhuan-qian{ position:absolute; top:-30vw; left:39vw; width:25vw; height:14vw; width:14vw;}
+.zhuan-ren{ position:absolute; top:-5vw; left:50vw; width:25vw; height:14vw; width:14vw;}
+.zhuan-team{ position:absolute; top:1vw; left:75vw; width:25vw; height:14vw; width:14vw;}
+
+
+
+
+

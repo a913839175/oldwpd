@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond % !^$ 
+RewriteRule ^index\.html$ /index.php [NC,L]
+RewriteRule	^(.+)/index\.html$ /index.php?$1 [NC,L]
+RewriteRule	^(.*)/index.html(.*)$ /index\.php\?$1$2 [NC,L]
+RewriteRule	^(.*)/a([0-9]+)\.html$ /index.php?$1&article_id=$2 [NC,L]
+RewriteRule	^(.*)/index(.*).html$ /index.php?$1&page=$2
+RewriteRule	^u/([0-9]+)$ /index.php?home&user_id=$2&q=$3 [NC,L]
+ErrorDocument 404 /404.htm
+ErrorDocument 500 /404.htm
+ErrorDocument 505 /404.htm
+</IfModule>

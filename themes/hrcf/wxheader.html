@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+{if $_G.articles.name!=""}{$_G.articles.name}|{/if}
+{if $_G.articles_result.name!=""}{$_G.articles_result.name}|{/if}
+{if $_G.site_result.name!=""}{$_G.site_result.name}|{/if}
+{$_G.system.con_webname}
+</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<meta name="keywords" content="{if $_G.articles.tags!=""}{$_G.articles.tags}{elseif $_G.site_result.keywords!=""}{$_G.site_result.keywords}{else}{$_G.system.con_keywords}{/if}" />
+<meta name="description" content="{if $_G.articles.contents!=""}{$_G.articles.contents|html_format|truncate:60}{elseif $_G.site_result.description!=""}{$_G.site_result.description}{else}{$_G.system.con_description}{/if}"/>
+<meta name="generator" content="huarongchafu.com" />
+<meta name="author" content="huarongchafu Team" />
+<meta name="copyright" content="2015-2016 weipaidai Inc." />
+<meta name="baidu-site-verification" content="fcerQNordr" />
+<meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+</head>
+<body>
+</body>
+</html>

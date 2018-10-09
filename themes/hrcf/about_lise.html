@@ -1,0 +1,118 @@
+ 	<div class="grid_2">
+		<div class="ui-side ui-side-withicon" id="sidebar">
+		  <ul class="ui-side-list nav nav-list bs-docs-sidenav affix">
+		    <li class="ui-side-item {if $_U.query_type=="help_lise"}active{/if}">
+		      <a class="ui-side-item-link" ><i class="fn-left ui-icon-mid index" style="margin-top: 20px;"></i>新手必读</a>
+		       <ul class="ui-side-sub-list">
+		        <li class="ui-side-sub-item {if $_U.query_type=="help_lise"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/help_lise">理财必读</a>
+		        </li>
+		        
+		      </ul>
+		    </li>
+		    <li class="ui-side-item {if $_U.query_type=="chanpin" || $_U.query_type=="weijihua" || $_U.query_type=="sanbiao"|| $_U.query_type=="zhaiquan"}active{/if}">
+		      <a class="ui-side-item-link"><i class="fn-left ui-icon-mid capital" style="margin-top: 20px;"></i>我要理财</a>
+		      <ul class="ui-side-sub-list">
+		        <li class="ui-side-sub-item {if $_U.query_type=="chanpin"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/chanpin">产品介绍</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="weijihua"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/weijihua">微计划</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="sanbiao"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/sanbiao">散标投资</a>
+		        </li>
+		        <!--<li class="ui-side-sub-item {if $_U.query_type=="sanbiao"}active{/if}">
+		          <a class="ui-side-sub-item-link last" href="/?user&q=help/help/sanbiao">散标投资</a>
+		        </li>-->
+		      </ul>
+		    </li>
+		   <!--   <li class="ui-side-item {if $_U.query_type=="chanpin_style" || $_U.query_type=="apply_borrow" || $_U.query_type=="xinyong" || $_U.query_type=="ck_cash"|| $_U.query_type=="huankuan"}active{/if}"">
+		      <a class="ui-side-item-link"><i class="fn-left ui-icon-mid invest"></i>我要借款</a>
+		      <ul class="ui-side-sub-list">
+		        <li class="ui-side-sub-item {if $_U.query_type=="chanpin_style"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/chanpin_style">产品类型及说明</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="apply_borrow"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/apply_borrow">如何申请借款</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="xinyong"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/xinyong">信用审核</a>
+		        </li>  
+		        <li class="ui-side-sub-item {if $_U.query_type=="ck_cash"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/ck_cash">筹款与体现</a>
+		        </li>  
+		         <li class="ui-side-sub-item {if $_U.query_type=="huankuan"}active{/if}">
+		          <a class="ui-side-sub-item-link last" href="/?user&q=help/help/huankuan">如何还款</a>
+		        </li>  
+		      </ul>
+		    </li>-->
+		 
+		    <li class="ui-side-item {if $_U.query_type=="help_login" || $_U.query_type=="help_password" || $_U.query_type=="recharge" || $_U.query_type=="cash" || $_U.query_type=="approve"|| $_U.query_type=="xiaoxi"}active{/if}">
+		      <a class="ui-side-item-link"><i class="fn-left ui-icon-mid account" style="margin-top: 20px;"></i>账户管理</a>
+		      <ul class="ui-side-sub-list">
+		        <li class="ui-side-sub-item {if $_U.query_type=="help_login" }active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/help_login">登录注册</a>
+		        </li>
+		       <li class="ui-side-sub-item {if $_U.query_type=="help_password"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/help_password">账户密码</a>
+		        </li> 
+		        <li class="ui-side-sub-item {if $_U.query_type=="recharge"}active{/if}">
+		          <a class="ui-side-sub-item-link" href="/?user&q=help/help/recharge">充值</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="cash"}active{/if}">
+		          <a class="ui-side-sub-item-link last" href="/?user&q=help/help/cash">提现</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="approve"}active{/if}">
+		          <a class="ui-side-sub-item-link last" href="/?user&q=help/help/approve">安全认证</a>
+		        </li>
+		        <li class="ui-side-sub-item {if $_U.query_type=="xiaoxi"}active{/if}">
+		          <a class="ui-side-sub-item-link last" href="/?user&q=help/help/xiaoxi">消息中心</a>
+		        </li>
+		         
+		      </ul>
+		    </li>
+		    <li class="ui-side-item {if $_U.query_type=="help_privacy" || $_U.query_type=="help_protect"}active{/if}">
+		      <a class="ui-side-item-link"><i class="fn-left ui-icon-mid comm" style="margin-top: 20px;"></i>安全保障</a>
+		      <ul class="ui-side-sub-list">
+		        <li class="ui-side-sub-item {if $_U.query_type=="help_privacy"}active{/if}">
+		          <a  class="ui-side-sub-item-link" href="/?user&q=help/help/help_privacy">账户隐私及安全</a>
+		        </li>
+		         <li class="ui-side-sub-item {if $_U.query_type=="help_protect"}active{/if}">
+		          <a  class="ui-side-sub-item-link last" href="/?user&q=help/help/help_protect">用户的自我保护</a>
+		        </li>
+		      </ul>
+		    </li>
+		    <li class="ui-side-item {if $_U.query_type=="help_hongbao" || $_U.query_type=="help_integral" || $_U.query_type=="help_weishop"}active{/if}">
+		          <a class="ui-side-item-link"><i class="fn-left ui-icon-mid hongbao" style="margin-top: 20px;"></i>其它</a>
+		          <ul class="ui-side-sub-list">
+		          	   <li class="ui-side-sub-item {if $_U.query_type=="help_integral"}active{/if}">
+		                  <a class="ui-side-sub-item-link" href="/?user&q=help/help/help_integral">微币使用</a>
+		              </li>
+		              <li class="ui-side-sub-item {if $_U.query_type=='help_weishop'}active{/if}">
+		                  <a class="ui-side-sub-item-link" href="/?user&q=help/help/help_weishop">微商城</a>
+		              </li>
+		          	  <li class="ui-side-sub-item {if $_U.query_type=="help_hongbao"}active{/if}">
+		                  <a class="ui-side-sub-item-link" href="/?user&q=help/help/help_hongbao">红包使用</a>
+		              </li>
+
+		             
+		          </ul>
+		     </li>
+	 
+		  </ul>
+		</div>
+		{literal}
+		<style>
+			.bs-docs-sidenav{border-bottom: 1px solid #e5e5e5}
+		</style>
+		<script>
+		seajs.use(['components/components'], function(Components) {
+		  new Components.Sidebar({
+		    name: 'account-sidebar'
+		  }).init();
+		});
+		</script>
+		{/literal}
+      </div>           
+ 	

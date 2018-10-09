@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin: 0 auto;
+	font-family:"微软雅黑";
+}
+.huodong_main_banner{ background-color:#fab600;overflow:-Scroll;overflow-x:hidden}
+.huodong_main_img{ margin: 0 auto; background:url(../images/huodong1.jpg) no-repeat; width:1500px; height:348px;}
+.huodong_body{ background-color:#fdfce5;margin: 0 auto; padding:0;}
+.huodong_body_all{ margin: 0 auto; width:1000px; height:454px; font-size:18px;}
+.huodong_body_p{ width:690px; float:left;}
+.huodong_body_p li{ list-style:none; line-height:30px; height:30px;}
+.huodong_body_p div{ line-height:35px; height:35px; padding-top:25px; font-weight:700;}
+.huodong_body_p p{ padding-top:30px;}
+.huodong_body_img{ width:310px; float:left; padding-top:75px;}
+.huodong_body_img img{ width:305px; height:192px;}

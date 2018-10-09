@@ -1,0 +1,422 @@
+{include file="wxheader.html"}
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link href="/static/hrcfwx/css/sbdetail.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/sbdetail.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+
+{articles module="borrow" function="GetDetail" var="var" borrow_nid=$magic.request.article_id hits="auto" user_login="$_G.user_id"}
+<div class="top">
+    <div class="top1">
+        <a href="/wxsblist/index.html"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+    </div>
+    <div class="top_title">
+        <p>{$var.borrow.name}</p>
+    </div>
+    {include file="wxtop.html"}
+</div>
+<div class="main">
+	<div class="main_top">
+        <div class="main_top_img">
+            {if $var.borrow.borrow_xingyong=="AA"}
+            <img src="/static/hrcfwx/images/AA.png"/>
+            {elseif $var.borrow.borrow_xingyong=="A"}
+                <img src="/static/hrcfwx/images/AA_A.png"/>
+            {elseif $var.borrow.borrow_xingyong=="B"}
+                <img src="/static/hrcfwx/images/AA_B.png"/>
+            {elseif $var.borrow.borrow_xingyong=="C"}
+                <img src="/static/hrcfwx/images/AA_C.png"/>
+            {elseif $var.borrow.borrow_xingyong=="D"}
+                <img src="/static/hrcfwx/images/AA_D.png"/>
+            {elseif $var.borrow.borrow_xingyong=="E"}
+                <img src="/static/hrcfwx/images/AA_E.png"/>
+            {elseif $var.borrow.borrow_xingyong=="HR"}
+                <img src="/static/hrcfwx/images/AA_HR.png"/>
+            {else}
+            {/if}
+        </div>
+    </div>
+    <div class="main_mid">
+    	<h1>{$var.borrow.borrow_apr_old}</h1>
+        <div class="main_mid_mid">
+        	<div class="main_mid_mid_img">
+            	{if $var.borrow.borrow_type=='LOANTYPE_ZYD'}
+                <div class="zhuyedai_div">
+                    <span>业</span>
+                </div>
+                {elseif $var.borrow.borrow_type=='LOANTYPE_ZND'}
+                <div class="zhunongdai_div">
+                    <span>农</span>
+                </div>
+                {elseif $var.borrow.borrow_type=='LOANTYPE_JYD'}
+                <div class="jingyingdai_div">
+                    <span>精</span>
+                </div>
+                {elseif $var.borrow.borrow_type=='LOANTYPE_XJD'}
+                <div class="xinjindai_div">
+                    <span>薪</span>
+                </div>
+                {elseif $var.borrow.borrow_type=='LOANTYPE_AJD'}
+                <div class="anjiedai_div">
+                    <span>揭</span>
+                </div>
+                {elseif $var.borrow.borrow_type=='LOANTYPE_DZD'}
+                <div class="dianzhudai_div">
+                    <span>店</span>
+                </div>
+                {/if}
+            </div>
+            <p>%年利率</p>
+        </div>
+        <div class="main_mid_end">
+            {if $var.borrow.status==1}
+                {if $var.borrow.borrow_account_wait==0}
+                 <div class="main_mid_end_img1">审核</div>
+                {else}
+                <div class="main_mid_end_img1">{$var.borrow.borrow_account_scale_int}%</div>
+                {/if}
+            {elseif $var.borrow.status==3}
+                {if $var.borrow.repay_account_wait==0}
+                <div class="main_mid_end_img1">成功</div>
+                {else}
+                <div class="main_mid_end_img0">还款</div>
+                {/if}
+            {else}
+                {if $var.borrow.status==5}
+                <div class="main_mid_end_img0">停止</div>
+                {else}
+                <div class="main_mid_end_img0">流标</div>
+                {/if} 
+            {/if}
+        </div>
+    </div>
+    <div class="main_foot">
+    	<li>
+        	<p>{$var.borrow.account/10000}万</p>
+            <span>标的总额</span>
+        </li>
+        <li>
+        	<p>{$var.borrow.borrow_account_wait|default:0}</p>
+            <span>剩余金额</span>
+        </li>
+        <li>
+        	<p>
+            {if $var.borrow.borrow_period >= 1 && $var.borrow.borrow_period< 10 }
+            {$var.borrow.borrow_period|truncate:1}
+            {else}
+            {$var.borrow.borrow_period|truncate:2}
+            {/if}
+            个月</p>
+            <span>还款期限</span>
+        </li>
+    </div>
+    <div class="main_end">
+    	<div class="main_end_top">
+        	<div class="main_end_left">剩余时间</div>
+            <div class="main_end_right" id="end_time">
+            {if $var.borrow.status==1}
+                {if $var.borrow.borrow_account_wait==0}
+                    
+                {else}
+                    {$var.borrow.borrow_other_time}
+                {/if}   
+            {/if}
+            </div>
+        </div>
+        <li>
+        	<div class="main_end_img">
+            	<img src="/static/hrcfwx/images/biao1.png"/>
+            </div>
+            保险投保
+        </li>
+        <li>
+        	<div class="main_end_img">
+            	<img src="/static/hrcfwx/images/biao2.png"/>
+            </div>
+            节假日顺延
+        </li>
+        <li>
+        	<div class="main_end_img">
+            	<img src="/static/hrcfwx/images/biao3.png"/>
+            </div>
+           	到期本息
+        </li>
+        <li>
+        	<div class="main_end_img">
+            	<img src="/static/hrcfwx/images/biao4.png"/>
+            </div>
+            起投金额100元
+        </li>
+    </div>
+</div>
+<div class="main_ziliao">
+	<div class="main_ziliao_top">
+    	<div class="main_ziliao_top_img">
+        	<img src="/static/hrcfwx/images/biao5.png"/>
+        </div>
+        <div class="main_ziliao_top_p">资料审核</div>
+    </div>
+    <div class="main_ziliao_body">
+    	<div class="main_ziliao_body_top">
+        	<li class="main_ziliao_top_li1"><p>资料类型</p></li>
+            <li class="main_ziliao_top_li2">上传数量</li>
+            <li class="main_ziliao_top_li3"><p>状态</p></li>
+        </div>
+        <div class="main_ziliao_body_mid">
+            {if $var.borrow.shengfen_number >0}
+        	<ul class="main_ziliao_body_li">
+            	<li class="main_ziliao_body_li1"><p>身份证明</p></li>
+            	<li class="main_ziliao_body_li2">{$var.borrow.shengfen_number}</li>
+            	<li class="main_ziliao_body_li3"><p>已审核</p></li>
+            </ul>
+            {/if}
+            {if $var.borrow.juzhu_umber >0}
+            <ul class="main_ziliao_body_li">
+            	<li class="main_ziliao_body_li1"><p>居住证明</p></li>
+            	<li class="main_ziliao_body_li2">{$var.borrow.juzhu_umber}</li>
+            	<li class="main_ziliao_body_li3"><p>已审核</p></li>
+            </ul>
+            {/if}
+            {if $var.borrow.gongzuo_number >0}
+            <ul class="main_ziliao_body_li">
+            	<li class="main_ziliao_body_li1"><p>工作证明</p></li>
+            	<li class="main_ziliao_body_li2">{$var.borrow.gongzuo_number}</li>
+            	<li class="main_ziliao_body_li3"><p>已审核</p></li>
+            </ul>
+            {/if}
+            {if $var.borrow.shouru_number >0}
+            <ul class="main_ziliao_body_li">
+            	<li class="main_ziliao_body_li1"><p>收入证明</p></li>
+            	<li class="main_ziliao_body_li2">{$var.borrow.shouru_number}</li>
+            	<li class="main_ziliao_body_li3"><p>已审核</p></li>
+            </ul>
+            {/if}
+            {if $var.borrow.anjie_number >0}
+            <ul class="main_ziliao_body_li">
+            	<li class="main_ziliao_body_li1"><p>按揭房产资料</p></li>
+            	<li class="main_ziliao_body_li2">{$var.borrow.anjie_number}</li>
+            	<li class="main_ziliao_body_li3"><p>已审核</p></li>
+            </ul>
+            {/if}
+            {if $var.borrow.other_number >0}
+            <ul class="main_ziliao_body_li">
+            	<li class="main_ziliao_body_li1"><p>其他资料</p></li>
+            	<li class="main_ziliao_body_li2">{$var.borrow.other_number}</li>
+            	<li class="main_ziliao_body_li3"><p>已审核</p></li>
+            </ul>
+            {/if}
+        </div>
+    </div>
+</div>
+<div class="main_xiangqing">
+    <div class="main_xiangqing_top">
+        <div class="main_xiangqing_top_img">
+            <img src="/static/hrcfwx/images/biao6.png"/>
+        </div>
+        <div class="main_xiangqing_top_p">标的详情</div>
+    </div>
+    {if $_G.user_id==""}
+    <div class="main_xiangqing_body">
+    	<p>请<a href="/?wxuser&q=login">登录</a>或<a href="/?wxuser&q=reg">注册</a>后查看</p>
+    </div>
+    {else}
+    <div class="main_xiangqing_body_login">
+        <h1>用户信息</h1>
+        <li>
+            <p>借款人</p>
+            <span>{$var.borrow.info_name}</span>
+        </li>
+        {if $var.borrow.info_sex_status == 1}
+        <li>
+            <p class="main_xiangqing_p2">性别</p>
+            <span>{$var.borrow.info_sex}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_hun_status == 1}
+        <li>
+            <p>婚姻</p>
+            <span>{$var.borrow.info_hun}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_age_status == 1}
+        <li>
+            <p class="main_xiangqing_p2">年龄</p>
+            <span>{$var.borrow.info_age}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_house_status == 1}
+        <li>
+            <p>户籍</p>
+            <span>{$var.borrow.info_house}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_study_status == 1}
+        <li>
+            <p class="main_xiangqing_p2">学历</p>
+            <span>{$var.borrow.info_study}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_falv_status == 1}
+        <li>
+            <p>涉诉情况</p>
+            <span>{$var.borrow.info_falv}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_build_status == 1}
+        <li>
+            <p class="main_xiangqing_p2">房产</p>
+            <span>{$var.borrow.info_build}</span>
+        </li>
+        {/if}
+        {if $var.borrow.info_zhengxin_status == 1}
+        <li>
+            <p>征信记录</p>
+            <span>{$var.borrow.info_zhengxin}</span>
+        </li>
+        {/if}
+    </div>
+    {/if} 
+    <div class="main_xiangqing_foot">
+    	<h1>借款描述</h1>
+        <div>{$var.borrow.borrow_contents}</div>
+    </div>
+</div>
+<div class="main_xieyi">
+    <div class="main_xieyi_img">
+        <img src="/static/hrcfwx/images/biao7.png"/>
+    </div>
+    <a href="/wxxieyi/index.html" class="main_xieyi_body">
+    	理财协议
+        <div class="main_xieyi_body_img">
+        	<img src="/static/hrcfwx/images/youjian.png"/>
+        </div>
+    </a>    	
+</div>
+<div class="main_jilu">
+    <div class="main_jilu_img">
+        <img src="/static/hrcfwx/images/biao8.png"/>
+    </div>
+    <a href="/wxsbjilu/a{$var.borrow.borrow_nid}.html" class="main_jilu_body">
+    	投标记录
+        <div class="main_jilu_body_img">
+        	<img src="/static/hrcfwx/images/youjian.png"/>
+        </div>
+    </a>    	
+</div>
+<div class="main_foot">
+	<div class="main_foot_xinlang">
+    	<div class="main_foot_xinlang_img">
+        	<img src="/static/hrcfwx/images/dun.png"/>
+        </div>
+        新浪支付正式托管微拍贷风险备用金账户
+    </div>
+    <div class="main_foot_button">
+    	{if $_G.user_id==""}
+        <a href="/?wxuser&q=login"><button class="btn btn-primary">立即投标</button></a>
+        {else}
+        <a href="javascript:;" id="dotoubiao"><button class="btn btn-primary">立即投标</button></a>
+        {/if}
+    </div>
+</div>
+{include file="wxfooter3.html"}
+
+{if $_G.user_id==""}
+
+{else}
+
+<!-- 付款 -->
+<div class="main_fukuan" id="fukuan">
+    <div class="main_top_fukuan">
+        <a href="javascript:;" id="fukuan_close">
+            <div class="main_top_img_fukuan">
+                <img src="/static/hrcfwx/images/xx2.png"/>
+            </div>
+        </a>
+        <div class="main_top_p_fukuan">付款</div>
+    </div>
+    <div class="main_fukuan_fukuan">
+        <div class="main_left_fukuan">投资(元)</div>
+        <div class="main_right_fukuan">
+            <input type="text_fukuan" id="account" placeholder="输入金额为100元的整数倍" />
+        </div>
+    </div>
+    <ul>
+        <li>
+            <div class="main_left_fukuan">存钱罐余额(元)</div>
+            {articles module="account" function="GetOne" var="var_h" user_id="$_G.user_id"}
+            <div class="main_right_fukuan"><p>{$var_h.balance|default:"0"}</p></div>
+        </li>
+    </ul>
+    <div class="main_liubiao_fukuan">如遇流标情况，投标期内所冻结的金额将在流标后进行解冻。</div>
+    <div class="tijiao_fukuan">
+        <button class="tijiao_button_fukuan" id="fukuab_sure">提交</button>
+    </div>
+    <div class="xieyi_fukuan">
+        <input id="isread" type="checkbox" class="checkbox" />
+        <label for="isread">我已阅读并同意</label><span><a href="/wxxieyi/index.html">《理财协议》</a></span>
+    </div>
+</div>
+
+
+<!-- 详情 -->
+<div class="main_xiangqing" id="xiangqing">
+    <div class="main_top_xiangqing">
+        <a href="javascript:;" id="xiangqing_close">
+            <div class="main_top_img_xiangqing">
+                <img src="/static/hrcfwx/images/zuojian.png"/>
+            </div>
+        </a>
+        <div class="main_top_p_xiangqing">投资详情</div>
+    </div>
+    <div class="main_fukuan_xiangqing">
+        <div class="main_left_xiangqing">付款金额</div>
+        <div class="main_right_xiangqing">
+            <p id="showaccount"></p>
+            <span id="showshares"></span>
+        </div>
+    </div>
+    <form id="borrowform" class="ui-confirm-form" action="" method="post">
+        <ul>
+            <li>
+                <div class="main_left_xiangqing">借款标题</div>
+                <div class="main_right_xiangqing">{$var.borrow.name}</div>
+            </li>
+            <li>
+                <div class="main_left_xiangqing">年利率</div>
+                <div class="main_right_xiangqing">{$var.borrow.borrow_apr_old}%</div>
+            </li>
+            <li>
+                <div class="main_left_xiangqing">锁定期限</div>
+                <div class="main_right_xiangqing">
+                {if $var.borrow.borrow_period >= 1 && $var.borrow.borrow_period< 10 }
+                {$var.borrow.borrow_period|truncate:1}
+                {else}
+                {$var.borrow.borrow_period|truncate:2}
+                {/if}
+                个月
+                </div>
+            </li>
+            <li>
+                <div class="main_left_xiangqing">还款方式</div>
+                <div class="main_right_xiangqing">{$var.borrow.borrow_style|linkages:"borrow_style"}</div>
+            </li>
+            <li>
+                <div class="main_left_xiangqing">投资金额</div>
+                <div class="main_right_xiangqing" id="showaccount2"></div>
+                <input type="hidden" id="realaccount" name="bidAmount" value="">
+            </li>
+            <li>
+                <div class="main_left_xiangqing">交易密码</div>
+                <input type="password" id="paypassword" name="paypassword">
+            </li>
+        </ul>
+        <input name="borrow_nid" type="hidden" value="{$var.borrow.borrow_nid}" id="borrow_nid">
+        <div class="tijiao_xiangqing">
+            <button id="xiangqing_sure" type="button" class="tijiao_button_xiangqing">确认</button>
+        </div>
+    </form>
+</div>
+
+{/if}

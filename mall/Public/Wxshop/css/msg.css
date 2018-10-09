@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ height:100vh; width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none;  background:#FFF;}
+
+/*注册页面*/
+.head{ height:48px; background:#5aa3d4;}
+.head img{width:30px; margin: 10px 20px auto;}
+.head p{ float:right; color:#FFF; font-size:17px; line-height:48px; padding-right:44.4%;}
+
+#pg-findPsw .content {
+    background: none repeat scroll 0 0 #fff;
+    min-height: 180px;
+    padding: 30px 0;
+}
+#pg-findPsw .content .type {
+    text-align: center;
+}
+#pg-findPsw .content .type .ui-button {
+    height: 40px;
+    line-height: 40px;
+    margin: 20px;
+}
+#pg-findPsw .content .inputs {
+    margin-left: 240px;
+    padding: 30px 0;
+}
+#pg-findPsw .content .info {
+    color: #777;
+    text-align: center;
+}
+#pg-findPsw .content h3 {
+    color: #00a8e8;
+    font-size: 22px;
+    text-align: center;
+}
+#pg-findPsw .errortext {
+    text-align: center;
+}
+#pg-findPsw .errortext .iconfont {
+    color: #f17975;
+    font-size: 30px;
+}
+#pg-findPsw .errortext .icon {
+    background:url(/static/img/findpwd/error_msg.png?v=ca347) no-repeat;
+    padding-bottom: 5px;
+}
+#pg-findPsw .errortext .text-big {
+    color: #4b4b4b;
+    font-size: 20px;
+}
+#pg-findPsw .success {
+    text-align: center;
+}
+#pg-findPsw .success .backBt {
+    margin-top: 40px;
+}
+
+
+/*new add*/
+#tc_contain{
+	margin:auto;
+	margin-top:20px;
+}
+#tc_tt{
+	width:200px;
+	margin:auto;
+	margin-top:40px;
+	font-size:22px;
+}
+#tc_tt div{
+	float:left;
+	width:28px;
+	height:28px;
+	background-image:url(/static/img/dlg.png);
+	margin-right:10px;
+	margin-top:2px;
+}
+#tc_tx{
+	text-align:center;
+	font-size:18px;
+	margin-top:20px;
+	margin-bottom:20px;
+	color:#676970;
+}
+#tc_tx span{
+	font-size:21px;
+	color:#ff7574;
+	margin:0px 10px;
+}
+#tc_tx img{
+	height:15px;
+	margin-left:10px;
+}
+#tc_tx p{
+	margin-top:15px;
+	margin-bottom:30px;
+	font-size:15px;
+}
+#tc_tx p a{
+	text-decoration:none;
+	color:#0d85d7;
+}
+#tc_tx>a{
+	text-decoration:none;
+	color:#fff;
+	background-color:#2ea7e1;
+	padding:2px 50px;
+}
+.fn-clear{
+	margin-top: 25px;
+	text-align: center;
+	margin-bottom: 50px;
+	padding-left: 15px;
+	margin-right: 15px;
+}
+
+.ui-message-operation{
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.back{
+	border: 0;
+    background-color: #2ea7e0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+    height: 30px;
+    min-width: 50px;
+    border-radius: 15px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0 15px;
+}

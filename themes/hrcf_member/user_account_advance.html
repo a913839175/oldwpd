@@ -1,0 +1,645 @@
+{include file="../hrcf/header.html"}
+
+<script src="/static/hrzhang/js/base.js"></script>
+<script src="/static/js/lib/jquery/1.9.1/jquery.nocmd.js"></script>
+<script src="/static/js/lib/jquery/1.4.2/jquery-1.4.2.min.js"></script>
+<script src="/static/js/lib/simplePagination/1.5.0/simplePagination.nocmd.js"></script>
+<script src="/static/js/widgets/widgets_1.js?v=20170220"></script>
+<script src="/plugins/timepicker/WdatePicker.js" type="text/javascript"></script>
+
+<div class="pg-container-content">
+    <link rel="stylesheet" href="/static/css/pages/account/account.css">
+    <link rel="stylesheet" href="/static/hrzhang/css/user.css">
+    <div id="pg-account-recharge" class="pg-account">
+        <div class="container_12 mt10">
+            <ul class="ui-breadcrumb grid_12 fn-clear">       
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+                    <a href="/index.php?user">我的微拍贷</a>
+                </li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+                    <a href="/index.php?user&q=code/account/log">资金管理</a>
+                </li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+                <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current"> 
+                    充值
+                </li>
+            </ul>
+        </div>
+        <div class="container_12 mt10 fn-clear">
+            {include file="user_menu.html"}
+
+            <div class="grid_10 ">
+
+
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+
+                <div class="son_content">
+                    <p class="son_chongzhi">充值</p>
+                    <div id="content" class="pbs color-white-bg fn-clear">
+                        <div class="con_title">
+
+                            <div class="recharge_con">
+                                <form data-name="recharge" class="fm_bank_card fm_submit" method="post" id="regchargeForm" name="checkinForm" 
+                                      action="/?user&q=code/account/recharge_new_quick_advance">
+                                    {articles module="account" function="GetAccount" var="var" user_id="$_G.user_id"}{/articles}
+                                    <div class="ipt_line ipt_line_piggy ui-form-item">
+                                        <div class="ipt_title ui-label">余额：</div>
+                                        <div class="fn-left piggy_orange">{$var.balance|round:"2,3"|default:0.00}元</div>
+                                    </div>
+
+                                    <div class="ipt_line ipt_line_piggy ui-form-item">
+                                        <div class="ipt_title ui-label"><span class="ui-form-required">*</span>充值金额：</div>
+                                        <input class="ui-input" type="text" name="amount" maxlength="14" id="rechargeAmount" data-is="isAmount" value="">
+                                        <i class="unit">元</i>
+                                    </div>
+
+                                    <div id="recharge_net_bank">
+                                        <input name="srcUrl" type="hidden" value="">
+                                        <div class="ipt_line bind_bank_card_list">
+                                            <ul class="bank_list bind_bank_card" style="padding-bottom: 5px;">
+                                                {loop module="account" function="GetBankList" limit="all"}
+                                                {if $var.code!='CITYBANK' && $var.code!='BSB' && $var.code!='SHBANK' && $var.code!='BCCB'}
+                                                <li  class="bank_show" >    
+                                                    <div class="custom_radio" />
+                                                    <input type="radio" name="bankCode" class="J_radio chose_card"  value="{$var.id}" {if $var.code=='CCB'}checked{/if}>
+                                                           </div>
+                                                    <div class="li_bank">
+                                                        <img src="/static/img/banks/{$var.litpic}">
+                                                    </div>
+                                                </li>
+                                                {/if}{/loop}
+                                            </ul>
+                                            <!-- <p class="link_to_help"><a target="_blank" href="/rechargencashment/index.html##bank_limit">查看银行限额</a></p> -->
+                                            <div class="banks-limit-table">
+                                                <!-- ********************************************************************* -->
+                                                <!-- ********************************************************************* --> 
+                                                <!-- ********************************************************************* -->       
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="15-table" >
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>20万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>50万元</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="16-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>20万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>50万元</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="17-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂不支持</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂不支持</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="18-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂不支持</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂不支持</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="19-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>20万元</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="20-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>1万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="21-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                         <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5000元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5000元</p>
+                                                            </td>
+                                                        </tr>      
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="22-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>650元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                        </tr>     
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="23-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂时不支持</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂时不支持</p>
+                                                            </td>
+                                                        </tr>     
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="24-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                        </tr>    
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="25-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5000元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>1万元</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">月累计1万元</td>
+                                                        </tr>    
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="26-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>20万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>20万元</p>
+                                                            </td>
+                                                        </tr>    
+                                                        <tr>
+                                                            <td colspan="4">需开通银联无卡支付</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="27-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>10万元</p>
+                                                            </td>
+                                                        </tr>    
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="28-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>20万元</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>50万元</p>
+                                                            </td>
+                                                        </tr>    
+                                                    </tbody>
+                                                </table>
+                                                 <table width="100%" cellspacing="1" cellpadding="1" class="29-table" style="display: none;">
+                                                    <thead>
+                                                       <tr>
+                                                            <th width="25%">卡种</th>
+                                                            <th width="25%">客户类型</th>
+                                                            <th width="25%">单日限额(元)</th>
+                                                            <th width="25%">单笔限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                       <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂不支持</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>暂不支持</p>
+                                                            </td>
+                                                        </tr>    
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" cellspacing="1" cellpadding="1" class="30-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="16%">卡种</th>
+                                                            <th width="48%">客户类型</th>
+                                                            <th width="18%">首次绑卡限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>5万元</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                 <table width="100%" cellspacing="1" cellpadding="1" class="32-table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="16%">卡种</th>
+                                                            <th width="48%">客户类型</th>
+                                                            <th width="18%">首次绑卡限额(元)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>储蓄卡</td>
+                                                            <td>
+                                                                <p>借记卡</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>2万元</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <!-- ********************************************************************* -->
+                                                <!-- ********************************************************************* --> 
+                                                <!-- ********************************************************************* --> 
+                                            </div>
+
+                                        </div>
+
+                                        <div class="ipt_line ipt_line_piggy ui-form-item">
+                                            <div class="ipt_title ui-label">开户人姓名：</div>
+                                            <div class="fn-left">{$_G.user_info.realname_secur}</div>
+                                        </div>
+
+                                        <div class="ipt_line ipt_line_piggy ui-form-item">
+                                            <div class="ipt_title ui-label">身份证号码：</div>
+                                            <div class="fn-left">{$_G.user_info.idNo_secur}</div>
+                                        </div>
+                                        <div class="ipt_line ipt_line_piggy ui-form-item">
+                                            <div class="ipt_title ui-label"><span class="ui-form-required">*</span>储蓄卡卡号：</div>
+                                            <input class="ui-input" type="text" name="bankCardNo" value="" maxlength="64">
+                                        </div>
+                                        <div class="ui-form-item" style="*z-index:20;">
+                                            <label class="ui-label" style="position: relative;left: -20px"><span class="ui-form-required">*</span>开户行所在地：</label>
+                                            {areas type="p,c" value="$var.city"}
+
+                                            <label class="J_error" id="J_must_chooseBankArea" style="display:none;" >开户行所在地不能为空</label>
+                                        </div>
+                                        <div class="ui-form-item fn-clear ui-selectdrop" style="z-index:19;">
+                                            <label class="ui-label" style="position: relative;left: -20px"><span class="ui-form-required">*</span>开户行：</label>
+                                            <input class="ui-input mt1 fn-left readonly"  autocomplete="off" type="text" name="deposit" data-is="isCardDeposit" readonly="true" id="cardDeposit" />
+                                            <input type="hidden" name="deposit_id" readonly="true" id="cardDeposit_id" />
+                                            <button id="bankKeySearchId" class="block-btn fn-left ml15">搜索</button>
+                                            <p class="lh-normal" style="clear: both;" >如果您不确定开户行,可以打电话向银行咨询或上网查询。</p>
+                                            <label  style="display:none;color:red;font-size:16px;" id="kaihuhang" >开户行不能为空</label>
+                                        </div>
+                                        <div class="ipt_line ipt_line_piggy ui-form-item">
+                                            <div class="ipt_title ui-label"><span class="ui-form-required">*</span>手机号：</div>
+                                            <input class="ui-input" type="text" name="bankLeavePhone" value="" maxlength="16">
+                                        </div>
+
+                                        <div class="ipt_line ipt_line_piggy ui-form-item">
+                                            <div class="ipt_title ui-label"><span class="ui-form-required">*</span>短信验证码：</div>
+                                            <input class="ui-input" type="text" name="vcode" maxlength="9" value="">
+                                            <button id="sendSmsButton" name="sendSmsButton" type="button" class="block-btn" style="width:160px">获取验证码</button>
+                                            <label class="J_error" id="J_must_setAmount" style="display:none;" >充值金额：不能为空</label>
+                                            <label class="J_error" id="J_must_setMp" style="display:none;" >储蓄卡卡号：不能为空</label>
+                                            <label class="J_error" id="J_must_setBankCardNo" style="display:none;" >银行预留手机号：不能为空</label>
+                                            <label class="J_error" id="J_must_error" style="display:none;" >操作失败[持卡人身份信息、卡号、手机号输入不正确，验证失败]</label>
+                                            <label class="J_error" id="J_amount_must_error" style="display:none;" >首次单笔充值金额应大于等于5元</label>
+                                        </div>                     
+
+                                        <!-- <div class="ipt_line bd_bottom_none">
+                                            <div class="ipt_title">&nbsp;</div>
+                                            <div class="custom_checkbox" id="custom_checkbox">
+                                                <input type="checkbox" name="agreement" class="J_checkbox">
+                                            </div>
+                                            <span class="ml10 text">阅读并同意<a class="contract_btn"  href="/rechargencash/index.html">《用户协议》</a></span>
+                                        </div> -->
+                                        <div class="ipt_line bd_bottom_none">
+                                            <div class="ipt_title">&nbsp;</div>
+                                            <input id="userBankId" class="fn-left invisible error" type="hidden" name="userBankId" />
+                                            <input type="hidden" name="type" value="ONLINE_BANK" class="channel_type">
+                                            <input type="hidden" id="ticket" name="ticket" value="" class="channel_type">
+                                            <button id="sub-recharge" type="submit" onclick="textfunsub();" class="red_218_39">确认</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+                <div class="hide">
+                    <div id="afterSub" class="afterSub">
+                        <h3>充值中...</h3>
+                        <p>付款完成前请不要关闭此窗口。</p>
+                        <p>完成付款后请根据您的情况点击下面的按钮：</p>
+                        <a class="ui-button ui-button-mid ui-button-green" id="finishRecharge">已完成付款</a> <a class="ui-button ui-button-mid ui-button-green" id="troubleRecharge">付款遇到问题</a>
+                    </div>
+                </div>
+
+                <script>seajs.use(['pages/account/capital/recharge']);</script>
+                <script>seajs.use('pages/account/account/userbank');</script>
+                <!--##########################################################################################################################################-->
+                <!--##########################################################################################################################################-->
+
+
+                <script>
+                    var url = "{$_U.query_url}/{$_U.query_type}";
+                    {literal}
+
+                    function sousuo(){
+                        var _url = "";
+                        var dotime1 = $("#dotime1").val();
+                        var keywords = $("#keywords").val();
+                        var username = $("#username").val();
+                        var dotime2 = $("#dotime2").val();
+                        var type = $("#type").val();
+                        if (username!=null){
+                            _url += "&username="+username;
+                        }
+                        if (keywords!=null){
+                            _url += "&keywords="+keywords;
+                        }
+                        if (dotime1!=null){
+                            _url += "&dotime1="+dotime1;
+                        }
+                        if (dotime2!=null){
+                            _url += "&dotime2="+dotime2;
+                        }
+                        if (type!=null){
+                            _url += "&type="+type;
+                        }
+                        location.href=url+_url;
+                    }
+                    function bankaccount(){
+                        var nkaiguan=1;
+                        $('#sub-recharge').click(function(){
+                            nkaiguan=2;
+                                var deposit=$('#cardDeposit').val();
+                                if (deposit === '') {
+                                    $('#kaihuhang').css('display','block');
+                                    $('#cardDeposit').css('border','1px solid red');
+                                    return false;
+                                }else{
+                                    $('#kaihuhang').css('display','none');
+                                    $('#cardDeposit').css('border','1px solid #c5c5c5;');
+                                    return true;
+                                }
+                        })
+                        $('#cardDeposit').blur(function(){
+                            var deposit=$('#cardDeposit').val();
+                            if(deposit == '' && nkaiguan==2){
+                                $('#kaihuhang').css('display','block');
+                                $('#cardDeposit').css('border','1px solid red'); 
+                            }else{
+                                $('#kaihuhang').css('display','none');
+                                $('#cardDeposit').css('border','1px solid #c5c5c5'); 
+                            }
+                        })
+                    }
+                    bankaccount();
+                    function textfunsub(){
+                        var province=$("#province").val();
+                        var city=$("#city").val();
+  
+                        if(province == "" ){
+                            $('#J_must_chooseBankArea').show();
+                            return false;
+                        }else{
+                             $('#J_must_chooseBankArea').hide();
+                             return true;
+                        }
+                        return false;
+
+                    }
+                </script>
+                {/literal}    
+            </div>
+        </div>
+    </div>
+</div>
+</div>        

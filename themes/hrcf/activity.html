@@ -1,0 +1,139 @@
+
+{include file="header.html"}
+
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/css/activity.css" />
+<script src="/static/hrzhang/js/jquery-1.7.1.min.js"></script>
+<script src="/static/hrzhang/js/jquery.easing.min.js"></script>
+<script src="/static/hrzhang/js/jquery.rotate.js"></script>
+{literal}
+<style>
+.p1{
+	position:absolute;top:155px;left:155px;
+	border-bottom-width: 0px; margin-top: -5px; margin-left:-23px;
+}
+.p2{
+	position:absolute;top:122px;left:122px;
+	margin-top: 50px; margin-left: 29px;
+}
+.p3{
+	position:absolute;
+	width:535px;
+	height:609px;
+	background: url("/static/img/huodong/bg_04.gif ");
+	float: left;
+}
+</style>
+
+<script>
+/*抽奖转盘*/
+$(function(){
+	var t1=0,t2=0;
+	var t1_e=360/2;
+	var t2_e=360/9;
+	
+	var t1_arr=new Array("现金30元","现金1000元","现金10元","现金500元","现金5元","现金100元","现金3元","现金50元","现金1元");
+	var t2_arr=new Array("红包7万元","红3000元","红包5万元","红包7000元","红包3万元","红包1000元","红包10万元,","红包1万元","红包5000元");
+     
+	function rand(){
+		t1=Math.round(Math.random());
+		t2=Math.round(8*Math.random());
+		 
+	}
+	$("#bt").click(main);
+	function main(){
+		toback();
+		$("#bt").unbind("click");
+		rand();
+		rotate();
+	}
+	function rotate(){
+		t1_deg=30*360+t1_e*(t1+0.5);
+		t2_deg=30*360+t2_e*(t2+0.5);
+		$("#xz").animate({rotate:t1_deg},4000,'easeOutQuart',function(){
+			if(t1==0)
+			{
+		     $("#bz").children("img").attr("src","/static/img/huodong/01.png"); 
+			}
+		    else 
+			 $("#bz").children("img").attr("src","/static/img/huodong/02.png");
+			
+			 $("#bz").animate({rotate:t2_deg},4000,'easeOutQuart',function(){
+				if(t1==0) 
+				  //alert("选中现金，结果："+t1_arr[t2]);
+				  alert("抽奖活动7月7日正式启动，谢谢您的关注!");
+				else 
+				  //alert("选中红包，结果："+t2_arr[t2]);
+				  alert("抽奖活动7月7日正式启动，谢谢您的关注!");
+				  $("#bt").click(main);
+			});
+		});
+	}
+	function toback(){
+		$("#bz").children("img").attr("src","/static/img/huodong/07.png");
+		$("#bz").animate({rotate:0},0);
+		$("#xz").animate({rotate:0},0);
+	}
+});  
+</script>
+{/literal}
+<div class="pg-container">
+ <div class="act-content1">
+ </div>
+ <div class="act-content2">
+    <div class="act-inner">
+     <img src="/static/img/huodong/act1.png" /><br />
+     <img src="/static/img/huodong/act2.png" />
+    </div>
+ </div>
+ <div class="act-content3">
+ </div>
+ <div class="act-content4">
+    <div class="act-inner">
+     <div class="act-menu">
+      <span>活动二</span>
+      <span>活动三</span>
+      <span>活动四</span>
+     </div>
+     <div class="act-ts2">
+      <img src="/static/img/huodong/act3.png" />
+     </div>
+     <div class="act-zp">
+      <div  class="p3"> 
+        <div id="bz" style="margin-top: 59px; margin-left: 35px;position:absolute;"><img src="/static/img/huodong/07.png"  /></div>
+                <div id="xz" class="p2"><img src="/static/img/huodong/z02.png" /></div>
+                
+                <div id="bt" class="p1"><img src="/static/img/huodong/p11.png" /></div>
+      </div>
+     </div>
+     <div class="act-zj">
+      <img src="/static/img/huodong/act-zj.png" />
+     </div>
+     <div class="clear"></div>
+     <div>
+      <img src="/static/img/huodong/act4.png" />
+     </div>
+     <div class="act-ts3">
+      <img src="/static/img/huodong/act5.png" />
+     </div>
+     <div class="act-ts3-text">
+     当天注册用户将每个用户送10000元体验金红包<br/>红包使用说明：<br/>最终解释权归微拍贷所有
+     </div>
+     <div class="act-ts3-show">
+      <img src="/static/img/huodong/act6.png" />
+     </div>
+     <div class="act-ts4">
+      <img src="/static/img/huodong/act7.png" />
+      <div class="act-ts4-text">
+       <div class="act-ts4-a">
+        <a href="javascript:;">查看详情</a>
+       </div>
+      </div>
+      <div class="act-ts4-img"></div>
+     </div>
+    </div>
+ </div>
+ <div class="act-content5">
+ </div>
+ </div>
+ 
+  <div class="pd320"></div>

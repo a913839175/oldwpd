@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link href="/static/hrcfwx/css/xiaoxi.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<title>微拍贷</title>
+</head>
+
+<body>
+	<div class="top">
+    	<div class="top1">
+        	<a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+        	<P>消息</P>
+        </div>
+<!--     	<div class="top2" id="doaction">
+        	<img src="/static/hrcfwx/images/shanchu.png"/>
+        </div> -->
+    </div>
+	<div class="main">
+    { list  module="message" function="GetMessageReceiveList" username='$_G.user_info.username' var="loop" }
+    {foreach from="$loop.list" item="item"}
+        <a href="?wxuser&q=messagedetail&id={$item.id}">
+            <li>
+                <div class="main_left">
+                    <div>
+                        <span class="mtitle">{$item.send_username|default:"系统"}</span>
+                    </div>
+                    <p>
+                        {if $item.status==0}
+                        <strong>{ $item.name}</strong>
+                        {else}
+                        { $item.name}
+                        {/if}
+                    </p>
+                </div>
+                <div class="main_right">
+                    <p>{$item.addtime|date_format:"Y-m-d H:i"}</p>
+                </div>
+            </li>
+        </a>
+    {/foreach}
+    <div class="page">
+        {if $loop.pages.total>0}
+        <div class="list_table_page">{$loop.pages|wxshowpage}</div>
+        {/if}
+    </div>
+    {/list}
+    </div>
+    {include file="../hrcf/wxfooter4.html"}
+</body>
+</html>

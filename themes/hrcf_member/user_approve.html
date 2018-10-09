@@ -1,0 +1,677 @@
+{include file="../hrcf/header.html"}
+
+<div class="pg-container-content">
+  <link rel="stylesheet" href="/static/css/pages/account/account.css">
+  {if $_U.query_type=="myapp"}    
+  <div id="pg-account-verify" class="pg-account">
+  {elseif $_U.query_type=="security"}
+  <div id="pg-account-security" class="pg-account">
+  {elseif $_U.query_type=="bank"} 
+  <div id="pg-account-bank" class="pg-account">
+  {/if}
+    <div class="container_12 mt10">
+      <ul class="ui-breadcrumb grid_12 fn-clear">       
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-first">
+          <a href="/index.php?user">我的微拍贷</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text">
+          <a href="/?user&q=code/rating/basic">账户管理</a>
+        </li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-separator"></li>
+        <li class="fn-left ui-breadcrumb-item ui-breadcrumb-text ui-breadcrumb-text-current">
+          {if $_U.query_type=="myapp"}    
+		  	<a href="/?user&q=code/approve/myapp">认证信息</a>
+		  {elseif $_U.query_type=="security"}
+		  	<a href="/?user&q=code/approve/security">安全信息</a>
+		  {elseif $_U.query_type=="bank"}
+		    <a href="/?user&q=code/approve/bank">银行卡信息</a> 
+		  {/if}  
+        </li>
+      </ul>
+    </div>
+    <div class="container_12 mt10 fn-clear">
+      {include file="user_menu.html"}
+
+      <div class="grid_10 ">
+      
+      {if $_U.query_type=="myapp"}
+      <div class="p20bs color-white-bg title-table-div">
+	  <table border="0">
+	  <tr>
+		  <td style="text-align:center \9;">信用等级</td>
+		  <td>信用总分</td>
+		  <td>信用额度</td>
+		  <td>可用额度</td>
+	  </tr>
+	   <tr>
+	   	  {articles module="borrow" function="GetBorrowCredit" var="Cvar" user_id=$_G.user_id}
+		  <td class ="pd10">
+		  <i class="ui-creditlevel ui-creditlevel-s HR snow">
+		  {$Cvar.approve_credit|credit:"credit"}
+		  </i></td>
+		  <td class="big">{$Cvar.approve_credit}</td>
+		  {articles module="borrow" function="GetAmountUsers" user_id=$_G.user_id var="var"}                         
+		  <td class="big">￥{if $var.borrow_amount< 0}0{else}{$var.borrow_amount}{/if}</td>
+		  <td class="big">￥{if $var.borrow_amount_use< 0}0{else}{$var.borrow_amount_use}{/if}</td>
+		  {/articles}
+	      {/articles}
+	  </tr>
+	  </table>
+	  
+        
+	  </div>
+	    <div class="p20bs color-white-bg tablebox">
+	      <table>
+	        
+	        <tr>
+	          <td>&nbsp;</td>
+	          <td> 项目 </td>
+	          <td width="80"> 状态 </td>
+	          <td class="credit"> 信用分数 </td>
+	        </tr>
+	        <tr>
+	          <td> 基本信息 </td>
+	          <td><p> 个人详细信息，工作信息 </p></td>
+	          <td></td>
+	          <td class="credit"><span class="f_red">0</span> 分 </td>
+	        </tr>
+	        <tr>
+	          <td rowspan="4"> 必要申请资料 </td>
+	          <td><p> 身份证认证 </p></td>
+	          <td> <font style="color:#666">待完成</font>
+	            
+	            
+	            
+	            </td>
+	          <td rowspan="9" class="credit"><span class="f_red">0</span> 分<i id="tips" class="iconfont tips" style="font-size:16px">&#xF046;</i>   
+	          </td>
+	        </tr>
+	        <tr>
+	          <td class=" item"> 工作认证 </td>
+	          <td> <font style="color:#666">待完成</font>  
+	            
+	            
+	            
+	            </td>
+	        </tr>
+	        <tr >
+	          <td> 收入认证 </td>
+	          <td> <font style="color:#666">待完成</font>
+	            
+	            
+	            
+	            </td>
+	        </tr>
+	        <tr>
+	          <td> 信用报告</td>
+	          <td><span>
+	             <font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            
+	            </span></td>
+	        </tr>
+	        <tr>
+	          <td rowspan="8"> 可选申请资料 </td>
+	          <td> 房产认证 </td>
+	          <td> <font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	        </tr>
+	        <tr>
+	          <td> 技术职称认证 </td>
+	          <td> <font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	        </tr>
+	        <tr >
+	          <td> 购车证明 </td>
+	          <td><font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	        </tr>
+	        <tr>
+	          <td> 结婚认证 </td>
+	          <td> <font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	        </tr>
+	        <tr>
+	          <td> 居住地证明 </td>
+	          <td> <font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	        </tr>
+            <!--
+	        <tr>
+	          <td> 视频认证 </td>
+	          <td ><font style="color:#666">待完成</font>
+	            
+	            
+	            
+	            </td>
+	        </tr>
+            -->
+	        <tr>
+	          <td> 学历认证（10分） </td>
+	          <td><font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	          <td class="credit"><span class="f_red">
+	            0
+	            </span> 分 </td>
+	        </tr>
+	        <tr>
+	          <td> 手机实名认证（10分） </td>
+	          <td ><font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	          <td class="credit"><span class="f_red">
+	            0
+	            </span> 分 </td>
+	        </tr>
+	        <tr>
+	          <td> 微博认证（2分） </td>
+	          <td><font style="color:#666">待完成</font> 
+	            
+	            
+	            
+	            </td>
+	          <td class="credit"><span class="f_red">
+	            0
+	            </span> 分 </td>
+	        </tr>
+	        <tr >
+	          <td rowspan="3" class="last">微拍贷记录 </td>
+	          <td> 正常还款次数（+1分/次，加分间隔28天） </td>
+              <td>0 次</td>
+              <td class="credit"><span class="f_red">0</span> 分 
+              
+              </td>
+	        </tr>
+	        <tr>
+	          <td> 逾期次数（-3分/次） </td>
+	          <td> 0 次 </td>
+	          <td class="credit"><span class="f_red"> 0 </span> 分 </td>
+	        </tr>
+	        <tr >
+	          <td class="last"> 严重逾期笔数（扣除全部信用分数） </td>
+	          <td class="last"> 0 次 </td>
+	          <td class="last credit"><span class="f_red"> 0 </span> 分 </td>
+	        </tr>
+	      </table>
+	      
+	      <br/>
+	      <div class="worm-tipsrz">
+                  <span class="icon"></span>
+                  <span class="txt">温馨提示：您可以在发布借款申请时按照网站要求进行信息认证，本页仅供认证状态查询。</span>
+              </div>
+	      
+	      
+	     	  <div class="ui-poptip fn-hide" id="tipCon">
+			    <div class="ui-poptip-shadow">
+			    <div class="ui-poptip-container">
+			        <div class="ui-poptip-arrow ui-poptip-arrow-7">
+			            <em></em>
+			            <span></span>
+			        </div>
+			        <div class="ui-poptip-content" data-role="content">
+			  		          该分数由用户的综合情况决定，单项认证通过不额外加分。
+			        </div>
+			    </div>
+			  </div>
+			</div>
+            <div class="ui-poptip fn-hide" id="tipCon_2">
+                <div class="ui-poptip-shadow">
+                <div class="ui-poptip-container">
+                    <div class="ui-poptip-arrow ui-poptip-arrow-7">
+                        <em></em>
+                        <span></span>
+                    </div>
+                    <div class="ui-poptip-content" data-role="content">
+                            包括原还清笔数加分 <span class="color-orange-text">0</span>分
+                    </div>
+                </div>
+              </div>
+            </div>
+	    </div>
+	    {literal}
+		<script>
+		seajs.use(['jquery','tip'],function($,Tip){
+		  $(function(){ 
+			  new Tip({
+		         element: '#tipCon',
+		         trigger: '#tips',
+		         arrowPosition: 5 
+		      });
+			  new Tip({
+		        element: '#tipCon_2',
+		        trigger: '#tips_2',
+		        arrowPosition: 5 
+		     });
+		  })
+		})
+		
+		</script>
+		{/literal}
+
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+		{elseif $_U.query_type=="security"}
+		
+		<div class="p20bs color-white-bg fn-clear imin-hei535" >
+				      <div class="title">安全信息</div>
+				      <ul class="security-ul mt20">
+				      	<li>
+				          <div class="fn-clear">
+				            <div class="icon icon-nick"></div>
+				            <h3>昵称</h3>
+				            <p>已设置</p>
+				            <div class="update">{$_G.user_info.niname}</div>
+				          </div>
+				        </li> 
+				        
+				        <li>
+				          <div class="fn-clear">
+				            <div class="icon icon-id"></div>
+				            <h3>实名认证</h3>
+				            {if $_G.user_info.realname_status=='true'}
+                                                <p>{$_G.user_info.idNo_secur}</p>
+                                                <div class="update">
+                                                    {$_G.user_info.realname_secur}
+                                                </div>
+				            {elseif $_G.user_info.realname_status=='middle' && $_G.user_info.reg_time<1487692800}
+                                                <p>{$_G.user_info.idNo_secur}</p>
+                                                <div class="update">
+                                                    {$_G.user_info.realname_secur}
+                                                </div>
+                                            {elseif $_G.user_info.realname_status=='middle' && $_G.user_info.reg_time>=1487692800}
+                                                <p>{$_G.user_info.idNo_secur}</p>
+                                                <div class="update">
+                                                    {$_G.user_info.realname_secur}<a href="/?user&q=code/users/realname_set" onclick="return false;">修改</a>
+                                                </div>
+                                            {else}
+                                                <p class="red">未设置</p>
+                                                <div class="update"><a href="/?user&q=code/users/realname_set" onclick="return false;">设置</a></div>
+                                            {/if}
+				            
+				          </div>
+				        </li>
+				        
+				        <li>
+				          <div class="fn-clear">
+				            <div class="icon icon-loginpsw"></div>
+				            <h3>登录密码</h3>
+			                <p>已设置</p>
+				            <div class="update">
+				            	<a href="/?user&q=code/users/user_password_set">修改</a>
+				            </div>
+				          </div>
+				        </li>
+				        
+				        
+				        <li>
+				          <div class="fn-clear">
+				            <div class="icon icon-email"></div>
+				            <h3>绑定邮箱</h3>
+				            {if $_G.user_info.email_status=='true'}
+		                    <p>已设置</p>
+				            <div class="update"><a href="/?user&q=code/users/user_email_modify">修改</a></div>
+		                    {else}
+		                    <p class="red">未设置</p>
+				            <div class="update"><a href="/?user&q=code/users/user_email_set">设置</a></div>
+		                    {/if}
+				          </div>
+				        </li>
+				        
+				        
+				        
+				        <li>
+				          <div class="fn-clear">
+				            <div class="icon icon-mobile"></div>
+				            <h3>绑定手机</h3>
+				            {if $_G.user_info.phone_status=='true'}
+		                    <p>{$_G.user_info.username_secur}</p>
+				            <div class="update"><a href="/?user&q=code/users/modifyphone_byphone">修改</a></div>
+		                    {/if}
+				          </div>
+				        </li>
+       
+				       <li>
+				          <div class="fn-clear">
+				            <div class="icon icon-cashpsw"></div>
+				            <h3>交易密码</h3>
+				            {if $_G.user_info.cashpass_status=='true'}
+		                    <p>已设置</p>
+				            <div class="update">
+				            	<a href="/?user&q=code/users/modifypaypwd">修改</a>|
+				            	<a href="/?user&q=code/users/findpaypwd">找回</a></div>
+		                    {else}
+		                    <p class="red">未设置</p>
+				            <div class="update"><a href="/?user&q=code/users/setpaypwd">设置</a></div>
+		                    {/if}
+				          </div>
+				        </li>
+				        
+				      </ul>
+				    </div>
+		{literal}
+		<script>
+		seajs.use([ "jquery"],function($) {
+			$(function(){
+				$.fn.extend({
+					createIframe:function(target){
+						 var $iframeP =$('<div>',{css:{display:'none',height:'400px'}}).appendTo(target);
+						  var $iframe = $('<iframe>', {
+				                src: 'javascript:\'\';',
+				                scrolling: 'no',
+				                frameborder: 'no',
+				                allowTransparency: 'true',
+				                css: {
+				                    border: 'none',
+				                    width: '100%',
+				                    display: 'block',
+				                    height: '100%',
+				                    overflow: 'hidden'
+				                }
+				            }).appendTo($iframeP); 
+						 $(this).data("iframeP",$iframeP);
+					},
+					showIframe:function(target){
+						var fixUrl = function(href) {
+				            var s = href.match(/([^?#]*)(\?[^#]*)?(#.*)?/);
+				            s.shift();
+				            s[1] = ((s[1] && s[1] !== '?') ? (s[1] + '&') : '?') + 't=' + new Date().getTime();
+				            return s.join('');
+				        }					
+						if(!$(this).data("iframeP")){
+							$(this).createIframe(target);
+						}
+						var $iframeP = $(this).data("iframeP");
+						 $iframeP.find("iframe").attr({
+							src:fixUrl($(this).attr("href")),
+							name:"iframe" + new Date().getTime(),
+							id:"change_pwd_iframe"
+						}); 
+						$iframeP.slideDown("slow");
+					},
+					hideIframe:function(){
+						var $iframeP = $(this).data("iframeP");
+						$iframeP.slideUp("slow");
+					},
+					destroyIframe:function(){
+						var $iframeP = $(this).data("iframeP");
+						if($iframeP.length){
+							$iframeP.remove();	
+							$(this).removeData("iframeP");
+						}
+					}
+				})
+				
+				$(".update").on("click","a",function(e){
+					var DIS = "取消";
+					var self = $(this);
+					var text = self.text();
+					var reg = new RegExp(DIS);
+					$(".update a").each(function(){
+						var text = $(this).text();
+						if(reg.test(text)){
+							$(this).text(text.replace(reg,"")).hideIframe();
+						}
+					})
+					if(!reg.test(text)){
+						self.text(DIS+text).showIframe(self.parents("li"));
+					}else{
+						self.text(text.replace(reg,"")).hideIframe();
+					}
+					e.preventDefault();
+				})
+			})
+		})
+		</script>
+		{/literal}
+
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->		
+		{elseif $_U.query_type=="bank"}
+		
+		<div class="p20bs color-white-bg fn-clear imin-hei535" >
+	     	 <div id="bankList" class="bankList">
+		          <div class="title">已添加银行卡</div>
+		          <div id="banklis" class="mt20"></div>
+		          <p class="bankwn1">依据银行相关政策条例每人仅限绑定一张银行卡；</p>
+		          <p class="bankwn1">如有影响，敬请谅解。</p>
+		    </div>
+		 </div>
+		</div>
+  	</div>
+  </div>
+  <div id="deleteCardTips" class="fn-hide" >
+  	<h4 class="text-center">删除银行卡</h4>
+  	<div class="deCaTips sure" >
+  		<span></span>您确定删除该张银行卡吗？
+  	</div>
+  	<div class="deCaTips succee fn-hide">
+  		<span></span>删除成功!
+  	</div>
+  	<div class="mt20 mb20 text-center deCaTipBtn" >
+  		<span class="ui-button btn-savecon ui-button-blue mr10 deleteCardSure">确定</span>
+  		<span class="ui-button btn-savecon ui-button-gray ml10 deleteCardCancel">取消</span>
+  	</div>
+  	<div class="mt20 mb20 text-center deCaTipBtn fn-hide" >
+  		<span class="ui-button btn-savecon ui-button-blue deleteCardClose">关闭</span>
+  	</div>
+  </div>
+  {if $_U.userBanks_number==0}
+  <div id="J_moreTenCards" class="card-dialog fn-hide" >
+    <h4 class="text-center">添加银行卡</h4>
+    <p class="more-tips">您最多可添加10张银行卡！</p>
+    <div class="card-btn text-center fn-clear">
+      <a href="javascript:" class="J_close close-btn block-btn">关闭</a>
+    </div>
+  </div>
+  {/if}
+ <script id="bank-list-rsp" type="text/x-json">
+ {$_U.userBanks}
+ </script> 
+{literal}
+<script id="bank-list-template" type="text/x-handlebars-template">
+<ul class="fn-clear">
+{{#each userBanks}}
+<li data-bank="{{id}}">
+<img  alt="{{bank_name}}" title="{{bank_name}}" src="/static/img/banks/{{litpic}}"/>
+<div>{{cardId_str}}</div> 
+
+</li>
+{{/each}}
+{/literal}
+{if $_U.userBanks_number==0}
+{literal}
+<li>
+	<a href="/?user&q=code/account/recharge_new">
+	<img src="/static/img/banks/add.jpg"/>
+	</a>
+	<div class="card">
+	<a href="/?user&q=code/account/recharge_new">
+	新增银行卡</a>
+	</div>
+</li>
+{/literal}
+{/if}
+{literal}
+</ul>
+</script> 
+ 
+  
+ <script>
+seajs.use(['jquery','widgets/widgets','dialog','handlebars','tip','common'],function($,Widgets,Dialog,Handlebars,Tip,Common){
+  $(function(){ 
+    var form = Widgets.Form;
+	  var data = $("#bank-list-rsp").html();
+	  data=$.parseJSON(data);
+	  var source = $("#bank-list-template").html();
+	  var template = Handlebars.compile(source);
+	  var html = template(data.data);
+	  $("#banklis").html(html);	  
+	  new Dialog({
+        trigger: '.openLink',
+        width: '650px',
+        height: '600px'
+      }).before('show',function() {
+  
+        this.set('content', this.activeTrigger.attr('href'));
+      }).after('hide',function(){
+  
+      });
+	  
+	//添加银行卡
+    $(".addBank").on("click",function(){
+      if(data.data.userBanks.length>=10){
+        $("#J_moreTenCards").show();
+        new Dialog({
+          width:'650px',
+          content:$("#J_moreTenCards")
+        }).after('show',function(){
+          var dialog = this;
+          //删除成功 关闭
+          $(".J_close","#J_moreTenCards").click(function(){
+            dialog.hide();
+          });
+        }).show();
+      }else{
+        new Dialog({
+          trigger: '.addBank',
+          width: '650px',
+          height: '595px'
+        }).before('show', function () {
+          this.set('content', this.activeTrigger.attr('href'));
+        }).after('hide', function () {
+          this.destroy();
+        }).show();
+      }
+      return false;
+    });
+	  	
+	  $(".del").click(function(e){
+	    	var _self = $(this);
+	    	$("#deleteCardTips").show();
+	    	new Dialog({
+	    		width:'600px',
+	    		content:$("#deleteCardTips")
+	    	}).after('show',function(){
+	    		var dialog = this;
+	    		//确定	    		
+	    		$(".deleteCardSure","#deleteCardTips").click(function(){
+	    			$.ajax({
+	 		 		   url:_self.attr("href"),
+	 		 		   dataType:"JSON",
+	 		 		   success:function(data){
+	 		 			 if(data.status === 0){
+             				$(".deCaTips","#deleteCardTips").eq(0).addClass("fn-hide");
+             				$(".deCaTips","#deleteCardTips").eq(1).removeClass("fn-hide");
+             				$(".deCaTipBtn","#deleteCardTips").eq(0).addClass("fn-hide");
+             				$(".deCaTipBtn","#deleteCardTips").eq(1).removeClass("fn-hide");
+             				setTimeout(function(){
+             					location.reload();
+             				},2000);
+           			}
+	 		 			if(data.status === 1){
+	 		 				$(".sure","#deleteCardTips").html("<span></span>"+data.message);
+             				$(".deCaTipBtn","#deleteCardTips").eq(0).addClass("fn-hide");
+             				$(".deCaTipBtn","#deleteCardTips").eq(1).removeClass("fn-hide"); 
+             				setTimeout(function(){
+             					location.reload();
+             				},2000);
+	 		 			}
+	 		 		   }
+	 		 	   });
+	    	  	});
+	    		//取消 
+	    		$(".deleteCardCancel","#deleteCardTips").click(function(){
+	    			dialog.hide();
+	    	  	});
+	    		//删除成功 关闭
+	    		$(".deleteCardClose","#deleteCardTips").click(function(){
+	    			dialog.hide();
+	    	  	});
+	    		
+	    	}).after('hide',function(){
+	    		location.reload();
+		    }).show();
+	    	e.stopPropagation();
+	    	return false;	    	
+	    });
+  });
+});
+
+</script>
+{/literal}  
+    </div>
+
+{if $_G.user_info.realname_status=='false'}
+<div id="pg-server-message" data-status="1" 
+     data-message="尚未完成<em>实名认证</em>，
+     			      请前往<a href='/?user&q=code/approve/security'>安全信息</a>进行认证。" 
+     style="display: none;"></div>
+{/if}
+{literal} 
+<script id="dialog-message" type="text/x-handlebars-template">
+<div class="ui-message-content">
+  <div class="fn-clear">
+    <div class="ui-message-icon fn-left">
+      {{# if info }}
+      <i class="iconfont fn-left info" title="提示">&#xF046;</i>
+      {{/ if }}
+      {{# if success }}
+      <i class="iconfont fn-left success" title="成功">&#xF049;</i>
+      {{/ if }}
+      {{# if warning }}
+      <i class="iconfont fn-left warning" title="警告">&#xF047;</i>
+      {{/ if }}
+      {{# if error }}
+      <i class="iconfont fn-left error" title="错误">&#xF045;</i>
+      {{/ if }}
+    </div>
+    <div class="ui-message-text fn-left">
+      {{# if title }}
+      <h3>{{ title }}</h3>
+      {{/ if }}
+      <p class="text-big">{{{ message }}}</p>
+      {{# if link }}
+      <p><a href="{{ link }}">{{ linkText }}</a></p>
+      {{/ if }}
+    </div>
+  </div>
+  <div class="ui-message-operation text-center mt20">
+    <a class="ui-button ui-button-blue ui-button-mid ui-message-close-button" {{# if button }}href="{{ button.link }}"{{/ if }}>{{# if button }}{{ button.text }}{{ else }}关闭{{/ if }}</a>
+  </div>
+</div>
+</script>
+  <script>seajs.use(['page']);</script>  
+  {/literal} 
+
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
+ 	
+	{/if}	
+	</div>
+</div>

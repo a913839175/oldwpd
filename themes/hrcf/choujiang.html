@@ -1,0 +1,92 @@
+
+{include file="header.html"}
+
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/css/choujiang.css" />
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/jquery-ui/jquery-ui-1.10.3.custom.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/hrzhang/css/min.css" />
+<script src="/static/hrzhang/js/jquery-1.8.2.js"></script>
+<script src="/static/hrzhang/js/jquery.rotate.js"></script>
+<script src="/static/hrzhang/js/choujiang.js"></script>
+<script src="/static/hrzhang/js/jquery-ui-1.10.3.custom.js"></script>
+
+{literal}
+<script>
+window.User = {"user_id": {/literal}"{$_G.user_id}"{literal},"lotterynum": {/literal}"{$_G.user_info.lotterynum}"{literal}};
+</script>
+{/literal}
+<div id="cj_c1"><div></div></div>
+<div style="background-color:#83c7ed;">
+<div class="container">
+	<div id="cj_zp">
+   	    <div  class="p3"> 
+           <div id="bz" style="margin-top:59px; margin-left:48px;position:absolute;"><img src="/static/img/huodong/07.png"/></div>
+           <div id="xz" class="p2"><img src="/static/img/huodong/z02.png" /></div>       
+           <div id="bt" class="p1"><img src="/static/img/huodong/p11.png" /></div>
+           <div id="lotterynum" class="lotterynum">{$_G.user_info.lotterynum|default:0}</div>
+      	</div>
+  </div>
+    <div class="waiwai">
+        <div class="shuoming">
+            <h2>抽奖规则说明</h2>
+            <p>1.抽奖说明</p>
+            <div><span>每次抽奖需要消耗1次抽奖次数，通过进行投资、商城兑换、各类活动赠送可以获得抽奖机会。</span></div>
+            <a href="/newhelp/index.html#choujaing_pot">点击查看投资可获得抽奖次数规则</a>
+            <p>2.奖品说明，理财收益红包分为两种：</p>
+            <li>理财收益红包，可直接进行投资使用。理财收益红包（锁），需要进行投资后进行解锁后才能进行投资使用。	</li>
+            <li>现金，可直接进行投资和提现。	</li>
+            <div><span>注：理财收益红包需要进行投资方可获得收益，投资完成后，本金收回，收益归用户。</span></div>
+            <div><span>本次活动的最终解释权归微拍贷所有。</span></div>
+        </div>
+    </div> 
+</div>
+<div class="yun"></div>
+</div>
+<div id="cj_c3"></div>
+<div id="cj_c4"></div>
+<!-- <div id="cj_c5">
+ <div>
+  <div id="cj_zjhead"></div>
+  <div id="cj_ht">
+   <div id="cj_htl">抽奖次数排行榜</div>
+   <div id="cj_htm">用户名</div>
+   <div id="cj_htr">中奖金额</div>
+   <div class="clear"></div>
+  </div>
+  <div id="cj_lt">
+   <ul>
+
+   </ul>
+  </div>
+  <div id="cj_rt">
+   <ul>
+
+   </ul>
+  </div>
+ </div>
+</div> -->
+
+
+
+
+<div id="dibu">
+  <div id="dibua"></div>
+</div>
+<div id="getPrizeSuccessPop" class="noticepop" style="display:none">
+    <div class="noticepop-title">提示</div>
+    <div class="noticepop-content">
+        <p></p>
+        <div class="hb">
+		   <div class="hb_money" id="hb_money"><span></span></div>
+		   <div class="hb_date" id="hb_date"><span></span></div>
+		</div>
+        <a href="###" class="icon-img superJune-btn"></a>
+        <div id="hbck"><a href="/?user&q=code/users/hongbao" target="_blank">红包仓库</a></div>
+    </div>
+</div>
+<div id="getPrizeFailPop" class="noticepop" style="display:none">
+    <div class="noticepop-title">提示</div>
+    <div class="noticepop-content">
+        <p style="padding-top:55px;padding-bottom:25px;"></p>
+        <a href="###" class="icon-img superJune-btn"></a>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;  font-family:'微软雅黑';}
+a {text-decoration: NONE}
+li{list-style:none;}
+body{ width:100vw; font-size:62.5%;overflow:-Scroll;overflow-x:hidden;-webkit-user-select: none;}
+/*top*/
+/*.top{ height:48px; width:100%; background-color:#5297ef;}
+.top1{ float:left;}
+.top1 img{ width:28px; padding-left:14px; padding-top:10px;}
+.top_title{ float:left;}
+.top_title p{ color:#FFF; font-size:17px; line-height:43px; padding-left:26vw;}
+.top2{ float:right;}
+.top2 img{ width: 22px; padding-right:15px; padding-top:16px;}
+.top3{ float:right;}
+.top3 img{ width:4px; padding-top:3px; padding-right:15px;padding-left:14px;}*/
+.top{ height:13.5vw; width:100vw; background-color:#5297ef;}
+.top1{ float:left; width:7vw;margin-left:4.5vw; margin-top: 3.3vw; }
+.top1 img{ width:100%;}
+.top_title{ float:left;}
+.top_title p{ color:#FFF; font-size:4.5vw; line-height:13.5vw; padding-left:32.53vw;}
+.top2{ float:right; width:6vw; padding-right:6.5vw; padding-top:4.5vw;}
+.top2 img{ width:100%;}
+.top3{ float:right; width:0.95vw; padding-top:1.7vw; padding-right:7.5vw;}
+.top3 img{ width:100%;}
+
+.select{
+	width: 100vw;
+    margin-top: 3vh;
+    margin-left: 5px;
+    height: 30px;
+}
+
+.select select{
+	width: 50vw;
+    height: 25px;
+    border-radius: 5px;
+    padding-left: 2px;
+	padding-right: 2px;
+}
+
+.select select option{
+	height: 25px;
+	line-height: 25px;
+	width: 50vw;
+}
+
+/****** add ****** */
+.content{
+	font-size: 15px;
+	font-family: "微软雅黑";
+	margin-left: 5vw;
+	margin-right: 5vw;
+	margin-top: 5vh;
+	margin-bottom: 20vh;
+	color: #666;
+	line-height: 25px;
+}
+.content h3{
+	text-align: center;
+	line-height: 30px;
+}
+
+#xieyi_zizhu{
+	display: none;
+}
+
+#xieyi_zijin{
+	display: none;
+}

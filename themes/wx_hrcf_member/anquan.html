@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/anquan.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/footer.css">
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , " charset="utf-8">
+<title>微拍贷</title>
+</head>
+
+<body>
+	<div class="top">
+    	<div class="top1">
+        	<a href="/?wxuser"><img src="/static/hrcfwx/images/jiantou.png"/></a>
+        </div>
+        <div class="top_title">
+        	<p>安全中心</p>
+        </div>
+    </div>
+	<div class="main">
+    	<ul>
+        	<li>
+            	<div class="main_left">实名认证</div>
+                <div class="main_right">
+                {if $_G.user_info.realname_status=='true'}
+                    <a href="javascript:;">{$_G.user_info.realname}&nbsp;&nbsp;</a>
+                {else}
+                    <a href="/?wxuser&q=shimingrenzheng">未认证&nbsp;&nbsp;<img src="/static/hrcfwx/images/youjian.png"/></a>
+                {/if}
+                </div>
+            </li>
+            <li>
+            	<div class="main_left">手机号码</div>
+                <div class="main_right">
+                {if $_G.user_info.phone_status=='true'}
+                    <a href="/?wxuser&q=changephonefirst">{$_G.user_info.niname}&nbsp;&nbsp;<img src="/static/hrcfwx/images/youjian.png"/></a>
+                {else}
+                    <a href="javascript:;">未认证&nbsp;&nbsp;<img src="/static/hrcfwx/images/youjian.png"/></a>
+                {/if}
+                </div>
+            </li>
+            <li>
+            	<div class="main_left">邮箱认证</div>
+                <div class="main_right">
+                {if $_G.user_info.email_status=='true'}
+                    <a href="javascript:;">{$_G.user_info.email}&nbsp;&nbsp;
+                        <!-- <img src="/static/hrcfwx/images/youjian.png"/> -->
+                    </a>
+                {else}
+                    <a href="javascript:;">未认证&nbsp;&nbsp;
+                        <!-- <img src="/static/hrcfwx/images/youjian.png"/> -->
+                    </a>
+                {/if}
+                </div>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+            	<div class="main_left">登陆密码</div>
+                <div class="main_right">
+                    <a href="/?wxuser&q=changepwd">修改&nbsp;&nbsp;<img src="/static/hrcfwx/images/youjian.png"/></a>
+                </div>
+            </li>
+            <li>
+            	<div class="main_left">交易密码</div>
+                <div class="main_right">
+                {if $_G.user_info.cashpass_status=='true'}
+                    <a href="/?wxuser&q=updatepaypwd">已设置&nbsp;&nbsp;<img src="/static/hrcfwx/images/youjian.png"/></a>
+                {else}
+                    <a href="/?wxuser&q=setpaypwd">未设置&nbsp;&nbsp;<img src="/static/hrcfwx/images/youjian.png"/></a>
+                {/if}
+                </div>
+            </li>
+        </ul>
+    </div>
+    {include file="../hrcf/wxfooter4.html"}
+</body>
+</html>

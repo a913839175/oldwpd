@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zebra_dialog.css">
+<link rel="stylesheet" type="text/css" href="/static/hrcfwx/css/zhaohui.css">
+<script type="text/javascript" src="/static/hrcfwx/js/jquery.min.1.9.1.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/zebra_dialog.js"></script>
+<script type="text/javascript" src="/static/hrcfwx/js/forget.js"></script>
+<meta name="viewport" content=" height = device-height ,width = device-width ,initial-scale = 1.0 ,minimum-scale = 1.0 ,maximum-scale = 1.0 ,user-scalable = no , "charset="utf-8" />
+<title>微拍贷</title>
+</head>
+
+<body>
+<div class="head">
+	<div class="head_img"><a href="javascript:history.go(-1);"><img src="/static/hrcfwx/images/jiantou.png"/></a></div>
+    <p>重置密码</p>
+</div>
+<div class="shezhi">
+	<input id="password" type="password" placeholder="6~15位字母、数字与符号组合"/>
+</div>
+<div class="zaici">
+	<input id="checkpassword" type="password" placeholder="再次输入密码"/>
+    <div class="zaici_img"><img id="passwordreset" src="/static/hrcfwx/images/xx.png"/></div>
+</div>
+<input id="requestid" type="hidden" name="id" value="{$magic.request.id}" />
+<div class="none"></div>
+<div class="button">
+	<button id="secondnext">提交</button>
+</div>
+<div class="none2"></div>
+<div class="footer">
+	<p>www.weipaidai.com</p>
+</div>
+</body>
+</html>

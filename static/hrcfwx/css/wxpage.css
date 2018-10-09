@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.page {
+    text-align: center;
+    padding: 20px 0;
+    color: #888;
+}
+
+.page span {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cccccc;
+    color: #666666;
+    display: inline-block;
+    height: 29px;
+    line-height: 28px;
+    margin-left: 2px;
+    padding: 0 12px;
+}
+
+.page span.curr {
+    background: none repeat scroll 0 0 #2ea7e0;
+    border: 1px solid #2ea7e0;
+    color: #ffffff;
+    display: inline-block;
+    height: 29px;
+    line-height: 28px;
+    margin-left: 2px;
+    padding: 0 8px;
+}
+
+.page a, .page a:visited, .page a:link {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cccccc;
+    color: #666666;
+    display: inline-block;
+    height: 29px;
+    line-height: 28px;
+    margin-left: 2px;
+    padding: 0 8px;
+}
